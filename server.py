@@ -64,9 +64,10 @@ FXMACRODATA_BASE_URL = "https://api.fxmacrodata.com"
 def _fxmacrodata_get(path: str, params: dict[str, str | None] | None = None) -> str:
     """Fetch a read-only FXMacroData endpoint and return the raw JSON response."""
     query_params = {key: value for key, value in (params or {}).items() if value}
+    headers = {}
     api_key = os.getenv("FXMD_API_KEY")
     if api_key:
-        query_params["api_key"] = api_key
+        headers["X-API-Key"] = api_key
 
     query = urllib.parse.urlencode(query_params)
     url = f"{FXMACRODATA_BASE_URL}{path}"
@@ -74,7 +75,8 @@ def _fxmacrodata_get(path: str, params: dict[str, str | None] | None = None) -> 
         url = f"{url}?{query}"
 
     try:
-        with urllib.request.urlopen(url, timeout=30) as response:
+        request = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(request, timeout=30) as response:
             return response.read().decode("utf-8")
     except Exception as e:
         return f"Error: getting FXMacroData endpoint {path}: {e}"
