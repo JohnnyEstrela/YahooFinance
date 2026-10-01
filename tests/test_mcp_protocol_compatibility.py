@@ -44,6 +44,21 @@ EXPECTED_TOOL_SCHEMAS = {
         "properties": ["ticker", "recommendation_type", "months_back"],
         "defaults": {"months_back": 12},
     },
+    "get_fxmacrodata_catalogue": {
+        "required": [],
+        "properties": ["currency"],
+        "defaults": {"currency": "usd"},
+    },
+    "get_fxmacrodata_calendar": {
+        "required": [],
+        "properties": ["currency", "start_date", "end_date"],
+        "defaults": {"currency": "usd"},
+    },
+    "get_fxmacrodata_latest_announcements": {
+        "required": [],
+        "properties": ["currency"],
+        "defaults": {"currency": "usd"},
+    },
 }
 
 
@@ -106,7 +121,7 @@ async def test_stdio_preserves_legacy_initialize_and_tool_schemas():
 
         for tool_name, expected in EXPECTED_TOOL_SCHEMAS.items():
             schema = tools[tool_name]["inputSchema"]
-            assert schema["required"] == expected["required"]
+            assert schema.get("required", []) == expected["required"]
             assert set(schema["properties"]) == set(expected["properties"])
             for property_name, default in expected.get("defaults", {}).items():
                 assert schema["properties"][property_name]["default"] == default
