@@ -45,6 +45,19 @@ The server exposes the following tools through the Model Context Protocol:
 |------|-------------|
 | `get_recommendations` | Get analyst recommendations or upgrades/downgrades history |
 
+### Sharia Screening
+
+| Tool | Description |
+|------|-------------|
+| `get_sharia_status` | Sharia classification from [Yaqeen](https://yaaqen.com/stocks) (Al-Rajhi committee standards), with its update date. When Yaqeen says "محل نظر" or has no rating, adds links for a manual check on [Chart Idea](https://chart-idea.com/filter/) (it blocks automated queries) and on [Stock Hunter](https://usastockhunteracademy.com/halal-stocks-usa/) (results need a login), plus indicative ratios from Yahoo data. Yaqeen is queried politely: robots.txt honoured, requests spaced, results cached for an hour. |
+
+### Watchlists and Scans
+
+| Tool | Description |
+|------|-------------|
+| `get_quotes` | Compact live quotes for up to 40 tickers in one call: session-aware price and change, volume, relative volume (plain, and paced against what a typical day has traded by this time), float rotation, market cap, short interest and days to cover, the fields that place a stock in a category (sector, industry, country, first trade date, last split, earnings date), and the day's levels (pre-market high/low, VWAP, opening range and the open/close of the first 5-minute candle, previous session high/low, ATR14, 20-session high/low), with an optional 10-minute sparkline. Built for dashboards that refresh a whole watchlist at once. |
+| `get_market_movers` | Yahoo's predefined screeners (`day_gainers`, `day_losers`, `most_actives`, `small_cap_gainers`, `aggressive_small_caps`, `most_shorted_stocks`), Yahoo trending tickers (`trending`), or `premarket`: the trending and screener names ranked by their session-aware move, with levels and float rotation. Rows also carry shares outstanding, days to cover, and, when Yahoo sends them, the first trade date, sector, industry and country. `nasdaq_only` keeps Nasdaq listings. |
+
 ## Real-World Use Cases
 
 With this MCP server, you can use Claude to:
@@ -179,6 +192,54 @@ To integrate this server with Claude for Desktop:
    - **Note**: You may need to put the full path to the uv executable in the command field. You can get this by running `which uv` on MacOS/Linux or `where uv` on Windows.
 
 4. Restart Claude for Desktop
+
+## Hosting on Render (remote connector)
+
+The `Dockerfile` runs the server over HTTP (Render sets `PORT`). Endpoints:
+
+| Path | Purpose |
+|------|---------|
+| `GET /sse` + `POST /messages/` | Legacy SSE transport |
+| `POST /mcp` | Streamable HTTP (stateless, JSON responses) |
+| `POST /sse` | Streamable HTTP on the legacy URL, so existing connector URLs keep working |
+| `GET /health` | Status: uptime, keep-alive, and the state of each Yahoo endpoint |
+
+### Resilience
+
+Yahoo throttles some endpoints per IP. From shared cloud IPs the `quoteSummary`
+endpoint behind `Ticker.info` and the news endpoint often answer
+"Too Many Requests", while the chart endpoint keeps working. The server
+therefore:
+
+- builds the live quote in `get_stock_info` (price, change, pre/post-market,
+  day range, volume, average volume, 52-week range, market state, last split)
+  from the chart endpoint, and merges `quoteSummary` fundamentals (float, short
+  interest, ownership, ratios) when available, cached for 6 hours. The
+  `dataStatus` field reports the age of each part;
+- falls back from yfinance news to Yahoo's RSS feed and search API, and from
+  yfinance history to the chart API;
+- runs every Yahoo call in a worker pool with a time budget, shares concurrent
+  identical requests, caches results and serves the last good result when Yahoo
+  fails;
+- backs off automatically (circuit breakers) when an endpoint answers 429.
+
+### Environment variables (all optional)
+
+| Variable | Default | Meaning |
+|----------|---------|---------|
+| `KEEPALIVE` | `always` | Self-ping so Render's free plan does not sleep: `always`, `market` (weekdays 03:30-20:30 New York), or `off` |
+| `KEEPALIVE_INTERVAL` | `600` | Seconds between pings (keep below 900) |
+| `KEEPALIVE_URL` | `RENDER_EXTERNAL_URL` | Public URL to ping |
+| `STREAMABLE_ON_SSE_PATH` | `1` | Serve Streamable HTTP on `POST /sse`; set `0` for legacy SSE only |
+| `YF_MAX_WORKERS` | `8` | Worker threads for Yahoo calls |
+| `YF_UPSTREAM_CONCURRENCY` | `4` | Simultaneous requests to Yahoo |
+| `YF_HTTP_TIMEOUT` | `8` | Seconds per Yahoo HTTP request |
+| `SHARIA_SELF_CHECK` | `AAPL` | Ticker looked up on Yaqeen 20 s after start (`off` to skip) |
+| `DATA_SELF_CHECK` | `QQQ,AAPL` | Tickers fetched with `get_quotes` 35 s after start, plus two screeners (`off` to skip) |
+
+A free Render workspace has 750 instance hours a month: one service kept awake
+around the clock uses about 744. If you run other free services in the same
+workspace, set `KEEPALIVE=market`.
 
 ## License
 
