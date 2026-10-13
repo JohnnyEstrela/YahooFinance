@@ -54,8 +54,11 @@
     }
   ],
   "errors": [
-    "AAPL: ModuleNotFoundError",
-    "MSFT: ModuleNotFoundError",
-    "NVDA: ModuleNotFoundError"
+    "META: ModuleNotFoundError",
+    "BB: ModuleNotFoundError",
+    "PGY: ModuleNotFoundError",
+    "SRFM: ModuleNotFoundError",
+    "MU: ModuleNotFoundError",
+    "AVGO: ModuleNotFoundError"
   ]
 }

@@ -4,12 +4,46 @@
     "title": "O meu Portefólio",
     "currency_note": "Valores na moeda de cada cotação",
     "news_per_company": 4,
-    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
-    "peg": { "discount": 1, "fair": 2 }
+    "pe": {
+      "cheap": 15,
+      "fair": 30,
+      "pricey": 50
+    },
+    "peg": {
+      "discount": 1,
+      "fair": 2
+    }
   },
   "companies": [
-    { "ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "note": "Exemplo – substitui pelas tuas empresas" },
-    { "ticker": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0, "note": "Exemplo" },
-    { "ticker": "NVDA", "status": "watching", "note": "Exemplo – a seguir" }
+    {
+      "ticker": "META",
+      "status": "portfolio",
+      "note": "Meta Platforms"
+    },
+    {
+      "ticker": "BB",
+      "status": "portfolio",
+      "note": "BlackBerry"
+    },
+    {
+      "ticker": "PGY",
+      "status": "portfolio",
+      "note": "Pagaya Technologies"
+    },
+    {
+      "ticker": "SRFM",
+      "status": "portfolio",
+      "note": "Surf Air Mobility"
+    },
+    {
+      "ticker": "MU",
+      "status": "portfolio",
+      "note": "Micron Technology"
+    },
+    {
+      "ticker": "AVGO",
+      "status": "portfolio",
+      "note": "Broadcom"
+    }
   ]
 }
