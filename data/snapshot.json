@@ -3,10 +3,31 @@
   "market_news": [],
   "companies": {
     "AAPL": {
-      "name": "Apple Inc.", "price": 341.11, "change_pct": 0.04, "currency": "USD",
-      "market_cap": 5009930568380, "year_low": 243.42, "year_high": 348.15,
-      "pe_ttm": 38.94, "pe_fwd": null, "peg": 1.19, "div_yield_pct": 0.31,
-      "news": []
+      "name": "Apple Inc.",
+      "price": 341.11,
+      "change_pct": 0.04,
+      "currency": "USD",
+      "market_cap": 5009930568380,
+      "year_low": 243.42,
+      "year_high": 348.15,
+      "pe_ttm": 38.94,
+      "pe_fwd": null,
+      "peg": 1.19,
+      "div_yield_pct": 0.31,
+      "news": [
+        {
+          "title": "Apple Home Collection: nova linha de acessórios de casa inteligente com LG e Schneider Electric",
+          "url": "https://app.bigdata.com/documents/2F9B0CE2F60E7AF14BCE5083F162E015?cnum=1",
+          "source": "Apple (comunicado)",
+          "date": "2026-10-13"
+        },
+        {
+          "title": "Novo Apple TV 4K com Siri AI",
+          "url": "https://app.bigdata.com/documents/FC9F468D0251C1796A0CAC0E7CBE7F24?cnum=1",
+          "source": "Apple (comunicado)",
+          "date": "2026-10-13"
+        }
+      ]
     }
   }
 }
