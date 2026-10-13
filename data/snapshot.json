@@ -229,6 +229,19 @@
       "div_yield_pct": 0,
       "price_target": 26.0,
       "news": []
+    },
+    "D2G": {
+      "name": "Ørsted A/S",
+      "price": 131.4,
+      "change_pct": -1.54,
+      "currency": "DKK",
+      "market_cap": 176295723900,
+      "pe_ttm": null,
+      "pe_fwd": 13.54,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": null,
+      "news": []
     }
   }
 }
