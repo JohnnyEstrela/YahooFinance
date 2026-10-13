@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T19:13+00:00",
+  "updated": "2026-10-13T19:20+00:00",
   "settings": {
     "title": "O meu Portefólio",
     "currency_note": "Valores na moeda de cada cotação",
@@ -16,37 +16,66 @@
   },
   "rows": [
     {
-      "ticker": "AAPL",
+      "ticker": "META",
       "status": "portfolio",
-      "shares": 0,
-      "avg_cost": 0,
-      "note": "Exemplo – substitui pelas tuas empresas",
+      "note": "Meta Platforms",
       "error": true,
-      "name": "AAPL",
+      "name": "META",
       "pe_class": null,
       "fwd_pe_class": null,
       "peg_class": null,
       "pegy_class": null
     },
     {
-      "ticker": "MSFT",
+      "ticker": "BB",
       "status": "portfolio",
-      "shares": 0,
-      "avg_cost": 0,
-      "note": "Exemplo",
+      "note": "BlackBerry",
       "error": true,
-      "name": "MSFT",
+      "name": "BB",
       "pe_class": null,
       "fwd_pe_class": null,
       "peg_class": null,
       "pegy_class": null
     },
     {
-      "ticker": "NVDA",
-      "status": "watching",
-      "note": "Exemplo – a seguir",
+      "ticker": "PGY",
+      "status": "portfolio",
+      "note": "Pagaya Technologies",
       "error": true,
-      "name": "NVDA",
+      "name": "PGY",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "SRFM",
+      "status": "portfolio",
+      "note": "Surf Air Mobility",
+      "error": true,
+      "name": "SRFM",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "MU",
+      "status": "portfolio",
+      "note": "Micron Technology",
+      "error": true,
+      "name": "MU",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "AVGO",
+      "status": "portfolio",
+      "note": "Broadcom",
+      "error": true,
+      "name": "AVGO",
       "pe_class": null,
       "fwd_pe_class": null,
       "peg_class": null,
@@ -54,11 +83,11 @@
     }
   ],
   "errors": [
-    "META: ModuleNotFoundError",
-    "BB: ModuleNotFoundError",
-    "PGY: ModuleNotFoundError",
-    "SRFM: ModuleNotFoundError",
-    "MU: ModuleNotFoundError",
-    "AVGO: ModuleNotFoundError"
+    "META: ConnectionError",
+    "BB: ConnectionError",
+    "PGY: ConnectionError",
+    "SRFM: ConnectionError",
+    "MU: ConnectionError",
+    "AVGO: ConnectionError"
   ]
 }

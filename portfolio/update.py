@@ -107,11 +107,9 @@ def main():
         data = json.loads(data_path.read_text())
     else:
         data = build(json.loads((HERE / "watchlist.json").read_text()))
-        if len(data["errors"]) == len(data["rows"]) and data_path.exists():
-            print("Todas as falhas; a manter dados anteriores:", data["errors"], file=sys.stderr)
-            old = json.loads(data_path.read_text())
-            old["errors"] = data["errors"]
-            data = old
+        if data["errors"] and data_path.exists():  # reaproveita último valor bom por ticker
+            old = {r["ticker"]: r for r in json.loads(data_path.read_text())["rows"] if not r.get("error")}
+            data["rows"] = [old.get(r["ticker"], r) if r.get("error") else r for r in data["rows"]]
         data_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
     html = (HERE / "template.html").read_text().replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False))
     (HERE / "index.html").write_text(html)
