@@ -1,0 +1,5 @@
+{"updated":"2026-10-13T21:00:00Z","source":"FMP (parcial)","market_news":[],
+"items":[
+{"ticker":"AAPL","name":"Apple Inc.","group":"holding","price":null,"change_pct":null,"pe_ttm":38.96,"pe_fwd":null,"peg":1.19,"pegy":null,"div_yield":0.31,"news":[]},
+{"ticker":"MSFT","name":"Microsoft Corp.","group":"watchlist","news":[]},
+{"ticker":"NVDA","name":"NVIDIA Corp.","group":"watchlist","news":[]}]}

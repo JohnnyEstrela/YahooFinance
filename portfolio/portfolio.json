@@ -1,0 +1,10 @@
+{
+  "base_currency": "EUR",
+  "holdings": [
+    {"ticker": "AAPL", "name": "Apple Inc.", "shares": 0, "avg_cost": 0, "note": "EXEMPLO - substitui pelas tuas posições"}
+  ],
+  "watchlist": [
+    {"ticker": "MSFT", "name": "Microsoft Corp.", "note": "EXEMPLO"},
+    {"ticker": "NVDA", "name": "NVIDIA Corp.", "note": "EXEMPLO"}
+  ]
+}

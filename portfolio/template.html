@@ -1,0 +1,48 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portefólio</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#14181f;--mut:#667085;--bd:#e4e7ec;--good:#12805c;--fair:#2563eb;--warn:#b45309;--bad:#c0262d;--na:#98a2b3}
+@media(prefers-color-scheme:dark){:root:not([data-t=light]){--bg:#0f1218;--card:#181c24;--tx:#e8eaef;--mut:#98a2b3;--bd:#272c37;--good:#34d399;--fair:#60a5fa;--warn:#fbbf24;--bad:#f87171}}
+:root[data-t=dark]{--bg:#0f1218;--card:#181c24;--tx:#e8eaef;--mut:#98a2b3;--bd:#272c37;--good:#34d399;--fair:#60a5fa;--warn:#fbbf24;--bad:#f87171}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:16px}header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+h1{font-size:1.3rem;margin:0}small,.mut{color:var(--mut)}button,select,input{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 10px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:1.1rem}
+.px{text-align:right;font-weight:600}.m{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
+.m div{border-top:3px solid var(--na);padding-top:4px}.m b{display:block;font-size:1.15rem}.m span{font-size:.75rem;color:var(--mut)}
+.good{border-color:var(--good)!important}.fair{border-color:var(--fair)!important}.warn{border-color:var(--warn)!important}.bad{border-color:var(--bad)!important}
+.t-good{color:var(--good)}.t-fair{color:var(--fair)}.t-warn{color:var(--warn)}.t-bad{color:var(--bad)}
+.tag{font-size:.7rem;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mut)}
+ul{padding-left:18px;margin:6px 0 0}a{color:var(--fair)}h2{font-size:1.05rem;margin:22px 0 8px}
+</style></head><body><main>
+<header><div><h1>📈 Portefólio &amp; Watchlist</h1><small id="up"></small></div><button id="th">Tema</button></header>
+<div class="bar"><select id="grp"><option value="all">Tudo</option><option value="holding">Portefólio</option><option value="watchlist">A seguir</option></select>
+<select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe_ttm">P/E (12m)</option><option value="pe_fwd">P/E (próx. 12m)</option><option value="peg">PEG</option><option value="change_pct">Variação</option></select>
+<select id="cls"><option value="">Qualquer valuation</option></select><button id="exp">Exportar JSON</button></div>
+<div class="grid" id="g"></div>
+<h2>Notícias de mercado</h2><div class="card"><ul id="mn"></ul></div>
+<p><small>Não é aconselhamento financeiro. Valores a "—" = dado indisponível na fonte.</small></p></main>
+<script>
+const D=/*DATA*/;const $=s=>document.querySelector(s);
+const cl=(v,r)=>{if(v==null||isNaN(v)||v<=0)return{label:"n/d",cls:"na"};return r.find(x=>x.max==null||v<x.max)};
+const f=(v,d=2)=>v==null?"—":Number(v).toFixed(d);
+$("#up").textContent="Atualizado: "+D.snap.updated+" · Fonte: "+D.snap.source;
+const labs=[...new Set([...D.th.pe,...D.th.peg].map(x=>x.label))];labs.forEach(l=>$("#cls").add(new Option(l,l)));
+const mk=(lbl,v,r,d)=>{const c=cl(v,r);return `<div class="${c.cls}"><span>${lbl}</span><b class="t-${c.cls}">${f(v,d)}</b><span class="t-${c.cls}">${c.label}</span></div>`};
+function draw(){let it=D.snap.items.filter(i=>$("#grp").value=="all"||i.group==$("#grp").value);
+ const k=$("#sort").value;it.sort((a,b)=>k=="ticker"?a.ticker.localeCompare(b.ticker):(a[k]??1e9)-(b[k]??1e9));
+ if($("#cls").value)it=it.filter(i=>[cl(i.pe_ttm,D.th.pe),cl(i.pe_fwd,D.th.pe),cl(i.peg,D.th.peg)].some(c=>c.label==$("#cls").value));
+ $("#g").innerHTML=it.map(i=>`<div class="card"><div class="top"><div><div class="tk">${i.ticker}</div><small>${i.name||""}</small></div>
+ <div class="px">${i.price!=null?f(i.price):"—"} <small>${i.currency||""}</small><br><small class="${i.change_pct>=0?"t-good":"t-bad"}">${i.change_pct!=null?f(i.change_pct)+"%":""}</small></div></div>
+ <span class="tag">${i.group=="holding"?"Portefólio":"A seguir"}</span>
+ <div class="m">${mk("P/E 12m",i.pe_ttm,D.th.pe,1)}${mk("P/E próx. 12m",i.pe_fwd,D.th.pe,1)}${mk("PEG",i.peg,D.th.peg)}</div>
+ <small>PEG+Yield (PEGY): <b>${f(i.pegy)}</b> · Dividend yield: ${f(i.div_yield)}%</small>
+ <ul>${(i.news||[]).map(n=>`<li><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a> <small>${n.source||""}</small></li>`).join("")||"<li class=mut>Sem notícias</li>"}</ul></div>`).join("")||"<p>Sem resultados.</p>";}
+["grp","sort","cls"].forEach(x=>$("#"+x).onchange=draw);draw();
+$("#mn").innerHTML=(D.snap.market_news||[]).map(n=>`<li><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a> <small>${n.source||""}</small></li>`).join("")||"<li class=mut>Sem notícias hoje</li>";
+$("#th").onclick=()=>{const r=document.documentElement;r.dataset.t=r.dataset.t=="dark"?"light":"dark"};
+$("#exp").onclick=()=>{const t=prompt("Ticker a adicionar (ex.: ASML):");if(!t)return;const g=confirm("OK = portefólio, Cancelar = watchlist");
+ const p=D.pf;(g?p.holdings:p.watchlist).push({ticker:t.toUpperCase(),name:""});navigator.clipboard?.writeText(JSON.stringify(p,null,2));alert("JSON copiado — cola em portfolio/portfolio.json")};
+</script></body></html>

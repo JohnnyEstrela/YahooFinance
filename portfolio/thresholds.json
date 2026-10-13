@@ -1,0 +1,13 @@
+{
+  "pe": [
+    {"max": 15, "label": "Barato", "cls": "good"},
+    {"max": 25, "label": "Justo", "cls": "fair"},
+    {"max": 50, "label": "Caro", "cls": "warn"},
+    {"max": null, "label": "Muito caro", "cls": "bad"}
+  ],
+  "peg": [
+    {"max": 1, "label": "Desconto", "cls": "good"},
+    {"max": 2, "label": "Justo", "cls": "fair"},
+    {"max": null, "label": "Prémio", "cls": "bad"}
+  ]
+}
