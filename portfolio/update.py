@@ -104,15 +104,15 @@ def build(cfgfile):
 def main():
     data_path = HERE / "data.json"
     if "--offline" in sys.argv:
-        data = json.loads(data_path.read_text())
+        data = json.loads(data_path.read_text(encoding="utf-8"))
     else:
-        data = build(json.loads((HERE / "watchlist.json").read_text()))
+        data = build(json.loads((HERE / "watchlist.json").read_text(encoding="utf-8")))
         if data["errors"] and data_path.exists():  # reaproveita último valor bom por ticker
-            old = {r["ticker"]: r for r in json.loads(data_path.read_text())["rows"] if not r.get("error")}
+            old = {r["ticker"]: r for r in json.loads(data_path.read_text(encoding="utf-8"))["rows"] if not r.get("error")}
             data["rows"] = [old.get(r["ticker"], r) if r.get("error") else r for r in data["rows"]]
-        data_path.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-    html = (HERE / "template.html").read_text().replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False))
-    (HERE / "index.html").write_text(html)
+        data_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    html = (HERE / "template.html").read_text(encoding="utf-8").replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False))
+    (HERE / "index.html").write_text(html, encoding="utf-8")
     print(f"{len(data['rows'])} empresas, {len(data['errors'])} erros -> portfolio/index.html")
 
 
