@@ -2,6 +2,24 @@
  "updated": "2026-10-13",
  "market_news": [
   {
+   "category": "Mercado de ações",
+   "impact": "alto",
+   "title": "J&J cai ~6%, o pior dia desde abril de 2025, com MedTech abaixo do esperado",
+   "summary": "Lucros e guidance acima do consenso, mas o midpoint das vendas ficou abaixo; arrastou o ETF de saúde XLV (-1,1%).",
+   "url": "https://app.bigdata.com/documents/9C89A29EE23BABE105D5AC48DE51F8D2?cnum=1",
+   "source": "Benzinga",
+   "date": "2026-10-13"
+  },
+  {
+   "category": "Tecnologia e chips",
+   "impact": "alto",
+   "title": "ASML reporta resultados quarta-feira antes da abertura",
+   "summary": "Opções preveem movimento de até ±4,6% até ao fim da semana. A ação sobe ~60% no ano. Resultado é teste à procura de equipamento por causa da IA e ao receio com a memória chinesa (CXMT).",
+   "url": "https://app.bigdata.com/documents/895B3A1E951EACBE69B5D4DEBD5E6E31?cnum=1",
+   "source": "AOL",
+   "date": "2026-10-13"
+  },
+  {
    "category": "Macro e Fed",
    "impact": "alto",
    "title": "CPI de setembro sai quarta (8:30 ET): previsão +0,6% m/m e 3,6% a/a; core 2,5%",
@@ -917,109 +935,144 @@
    "price_target": null,
    "news": []
   },
-  "JNL": {
-   "name": "JNL",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
-   "pe_fwd": null,
-   "peg": null,
-   "div_yield_pct": null,
-   "price_target": null,
-   "news": []
-  },
-  "VNON": {
-   "name": "VNON",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
-   "pe_fwd": null,
-   "peg": null,
-   "div_yield_pct": null,
-   "price_target": null,
-   "news": []
-  },
   "BAYN": {
-   "name": "BAYN",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
    "pe_fwd": null,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
-  },
-  "ASME": {
-   "name": "ASME",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
-   "pe_fwd": null,
-   "peg": null,
-   "div_yield_pct": null,
-   "price_target": null,
-   "news": []
+   "news": [],
+   "name": "Bayer AG",
+   "price": 44.15,
+   "change_pct": 0.73,
+   "currency": "EUR",
+   "market_cap": 43059647514
   },
   "M09": {
-   "name": "M09",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
    "pe_fwd": null,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [
+    {
+     "title": "Mota-Engil México ganha a proposta para a renovação da Linha 3 do Metro da Cidade do México (25,2 mil M de pesos, sem IVA); faltam concursos e aprovações financeiras",
+     "url": "https://app.bigdata.com/documents/110FE705434E1FE9E3F511A72F149C9D?cnum=4",
+     "source": "Infobae",
+     "date": "2026-10-11"
+    }
+   ],
+   "name": "Mota-Engil SGPS",
+   "price": 4.74,
+   "change_pct": 1.15,
+   "currency": "EUR",
+   "market_cap": 1437552336
   },
   "YSON": {
-   "name": "YSON",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
    "pe_fwd": null,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "name": "Sonae SGPS",
+   "price": 2.055,
+   "change_pct": 0.24,
+   "currency": "EUR",
+   "market_cap": 3986795037
   },
   "EDW": {
-   "name": "EDW",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
    "pe_fwd": null,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "name": "EDP Renováveis",
+   "price": 12.57,
+   "change_pct": 0.88,
+   "currency": "EUR",
+   "market_cap": 13203849104
   },
-  "ARCH": {
-   "name": "ARCH",
-   "price": null,
-   "change_pct": null,
-   "currency": null,
-   "market_cap": null,
-   "pe_ttm": null,
+  "JNJ": {
    "pe_fwd": null,
    "peg": null,
    "div_yield_pct": null,
-   "price_target": null,
-   "news": []
+   "price_target": 286.53,
+   "news": [
+    {
+     "title": "J&J tem o pior dia desde abril de 2025 (~-6%): MedTech falha estimativas (vendas 8,64 mil M$ vs 8,71 esperados) apesar de lucros acima e guidance mais alto",
+     "url": "https://app.bigdata.com/documents/9C89A29EE23BABE105D5AC48DE51F8D2?cnum=1",
+     "source": "Benzinga",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "Resultados do 3.º trimestre: EPS ajustado 2,59 $ (est. 2,52), vendas +5,9% para 25,4 mil M$; separação da DePuy Synthes mantém-se para meados de 2027",
+     "url": "https://app.bigdata.com/documents/1AFC7392EF18B7F6064B8EE7E4D980E4?cnum=3",
+     "source": "MT Newswires",
+     "date": "2026-10-13"
+    }
+   ],
+   "name": "Johnson & Johnson",
+   "price": 248.61,
+   "change_pct": -5.73,
+   "currency": "USD",
+   "market_cap": 599124845202,
+   "pe_ttm": 23.17
+  },
+  "VNOM": {
+   "pe_fwd": null,
+   "peg": null,
+   "div_yield_pct": null,
+   "price_target": 54.56,
+   "news": [],
+   "name": "Viper Energy",
+   "price": 44.36,
+   "change_pct": 2.28,
+   "currency": "USD",
+   "market_cap": 15970748214,
+   "pe_ttm": 21.96
+  },
+  "ACHR": {
+   "pe_fwd": null,
+   "peg": null,
+   "div_yield_pct": null,
+   "price_target": 12.5,
+   "news": [
+    {
+     "title": "Barclays sobe Archer para Overweight, alvo de 4,50 $ para 8 $; ação -61% em 12 meses, próximos resultados a 5 de novembro",
+     "url": "https://app.bigdata.com/documents/55AF62896E78CFCA15DAE388EFC6A2DA?cnum=1",
+     "source": "Benzinga",
+     "date": "2026-10-12"
+    }
+   ],
+   "name": "Archer Aviation",
+   "price": 4.44,
+   "change_pct": -5.33,
+   "currency": "USD",
+   "market_cap": 3372615120
+  },
+  "ASML": {
+   "pe_fwd": null,
+   "peg": null,
+   "div_yield_pct": null,
+   "price_target": 2330.75,
+   "news": [
+    {
+     "title": "ASML reporta resultados quarta-feira antes da abertura; opções implicam movimento de até ±4,6% (1.638-1.797 $)",
+     "url": "https://app.bigdata.com/documents/895B3A1E951EACBE69B5D4DEBD5E6E31?cnum=1",
+     "source": "AOL",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "ASML vai subir 10% o preço de peças de substituição para a Coreia do Sul a partir de janeiro",
+     "url": "https://app.bigdata.com/documents/A30480DBFB047F58B0E778E2DDFD0E1B?cnum=1",
+     "source": "MT Newswires",
+     "date": "2026-10-13"
+    }
+   ],
+   "name": "ASML Holding",
+   "price": 1717.76,
+   "change_pct": -1.86,
+   "currency": "USD",
+   "market_cap": 662055608220,
+   "pe_ttm": 53.65
   }
  }
 }
