@@ -1,0 +1,43 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14181f;--mut:#667085;--bd:#e4e7ec;--good:#12805c;--fair:#b7791f;--warn:#c05621;--bad:#c53030;--na:#98a2b3}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--fg:#e8eaed;--mut:#98a2b3;--bd:#2a303a;--good:#3ecf9a;--fair:#e5b84b;--warn:#f0944d;--bad:#f27070}}
+*{box-sizing:border-box}body{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:auto}h1{margin:0 0 4px}.sub{color:var(--mut)}
+.bar{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap}
+button{border:1px solid var(--bd);background:var(--card);color:var(--fg);padding:6px 14px;border-radius:99px;cursor:pointer}
+button.on{background:var(--fg);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.card header{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}.card h3{margin:0}
+.card header span{color:var(--mut);flex:1}em{font-style:normal;font-weight:600}.up{color:var(--good)}.down{color:var(--bad)}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.m{display:flex;flex-direction:column;gap:2px;border:1px solid var(--bd);border-radius:8px;padding:8px}
+.m .l{color:var(--mut);font-size:12px}.m b{font-size:20px}.m small{color:var(--mut);font-size:10px}
+.tag{font-size:12px;font-weight:600;width:max-content}.good{color:var(--good)}.fair{color:var(--fair)}.warn{color:var(--warn)}.bad{color:var(--bad)}.na{color:var(--na)}
+.rng{height:4px;background:var(--bd);border-radius:2px;position:relative;margin:10px 0 2px}.rng i{position:absolute;top:-3px;width:10px;height:10px;border-radius:50%;background:var(--fg);margin-left:-5px}
+ul{padding-left:18px;margin:8px 0}small{color:var(--mut)}a{color:inherit}.note,.pos{color:var(--mut);font-size:13px;margin:6px 0}
+section.news{margin-top:22px}
+</style></head><body><main>
+<h1>O meu portefólio</h1><div class="sub">Atualizado em 2026-10-13</div>
+<div class="bar"><button class="on" data-f="all">Todas</button><button data-f="portfolio">Portefólio</button><button data-f="watchlist">A seguir</button></div>
+<div class="grid"><article class="card" data-status="watchlist">
+<header><h3>AAPL</h3><span>Apple Inc.</span>
+<em class="up">341.11 USD (0.04%)</em></header>
+<div class="rng"><i style="left:93%"></i></div><small>52 sem: 243.42 – 348.15</small>
+<div class="metrics">
+<div class="m"><span class="l">P/E (últimos 12m)</span><b>38.94</b><span class="tag warn">Caro</span><small>&lt;15 barato · ~20 fair · ~40 caro · &gt;50 muito caro</small></div>
+<div class="m"><span class="l">P/E (próx. 12m)</span><b>—</b><span class="tag na">n/d</span><small>mesma escala</small></div>
+<div class="m"><span class="l">PEG</span><b>1.19</b><span class="tag fair">Fair</span><small>&lt;1 desconto · 1-2 fair · &gt;2 premium</small></div>
+<div class="m"><span class="l">Dividend yield</span><b>0.31%</b></div>
+</div>
+<ul class="news"><li><small>Sem notícias registadas hoje.</small></li></ul>
+<p class="note">Exemplo - substitua pelas suas empresas</p>
+</article></div>
+<section class="news card"><h3>Notícias de mercado</h3><ul><li><small>Sem notícias.</small></li></ul></section>
+<p class="sub">Informação para apoio à decisão, não constitui aconselhamento financeiro.</p>
+</main><script>
+document.querySelectorAll('button').forEach(b=>b.onclick=()=>{document.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+document.querySelectorAll('.card[data-status]').forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.status!==b.dataset.f)});
+</script></body></html>

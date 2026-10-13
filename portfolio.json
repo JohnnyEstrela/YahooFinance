@@ -1,0 +1,10 @@
+{
+  "_help": "Edite esta lista. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost opcionais. A rotina diária preenche data/snapshot.json.",
+  "thresholds": {
+    "pe": {"cheap": 15, "fair": 30, "pricey": 50},
+    "peg": {"discount": 1, "fair": 2}
+  },
+  "companies": [
+    {"ticker": "AAPL", "status": "watchlist", "shares": 0, "avg_cost": 0, "note": "Exemplo - substitua pelas suas empresas"}
+  ]
+}
