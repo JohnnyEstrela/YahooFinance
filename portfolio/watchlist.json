@@ -1,0 +1,49 @@
+{
+  "_ajuda": "Edita este ficheiro para adicionar empresas. status: 'portfolio' (tens) ou 'watching' (só segues). shares/avg_cost são opcionais. Os limiares abaixo são ajustáveis.",
+  "settings": {
+    "title": "O meu Portefólio",
+    "currency_note": "Valores na moeda de cada cotação",
+    "news_per_company": 4,
+    "pe": {
+      "cheap": 15,
+      "fair": 30,
+      "pricey": 50
+    },
+    "peg": {
+      "discount": 1,
+      "fair": 2
+    }
+  },
+  "companies": [
+    {
+      "ticker": "META",
+      "status": "portfolio",
+      "note": "Meta Platforms"
+    },
+    {
+      "ticker": "BB",
+      "status": "portfolio",
+      "note": "BlackBerry"
+    },
+    {
+      "ticker": "PGY",
+      "status": "portfolio",
+      "note": "Pagaya Technologies"
+    },
+    {
+      "ticker": "SRFM",
+      "status": "portfolio",
+      "note": "Surf Air Mobility"
+    },
+    {
+      "ticker": "MU",
+      "status": "portfolio",
+      "note": "Micron Technology"
+    },
+    {
+      "ticker": "AVGO",
+      "status": "portfolio",
+      "note": "Broadcom"
+    }
+  ]
+}

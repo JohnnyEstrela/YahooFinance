@@ -1,0 +1,93 @@
+{
+  "updated": "2026-10-13T19:51+00:00",
+  "settings": {
+    "title": "O meu Portefólio",
+    "currency_note": "Valores na moeda de cada cotação",
+    "news_per_company": 4,
+    "pe": {
+      "cheap": 15,
+      "fair": 30,
+      "pricey": 50
+    },
+    "peg": {
+      "discount": 1,
+      "fair": 2
+    }
+  },
+  "rows": [
+    {
+      "ticker": "META",
+      "status": "portfolio",
+      "note": "Meta Platforms",
+      "error": true,
+      "name": "META",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "BB",
+      "status": "portfolio",
+      "note": "BlackBerry",
+      "error": true,
+      "name": "BB",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "PGY",
+      "status": "portfolio",
+      "note": "Pagaya Technologies",
+      "error": true,
+      "name": "PGY",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "SRFM",
+      "status": "portfolio",
+      "note": "Surf Air Mobility",
+      "error": true,
+      "name": "SRFM",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "MU",
+      "status": "portfolio",
+      "note": "Micron Technology",
+      "error": true,
+      "name": "MU",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    },
+    {
+      "ticker": "AVGO",
+      "status": "portfolio",
+      "note": "Broadcom",
+      "error": true,
+      "name": "AVGO",
+      "pe_class": null,
+      "fwd_pe_class": null,
+      "peg_class": null,
+      "pegy_class": null
+    }
+  ],
+  "errors": [
+    "META: ConnectionError",
+    "BB: ConnectionError",
+    "PGY: ConnectionError",
+    "SRFM: ConnectionError",
+    "MU: ConnectionError",
+    "AVGO: ConnectionError"
+  ]
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portefólio Diário</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1a1d23;--mu:#6b7280;--bd:#e5e7eb;--ac:#2563eb;
+--cheap:#16a34a;--fair:#2563eb;--pricey:#d97706;--expensive:#dc2626;--loss:#6b7280}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1115;--card:#181b21;--tx:#e8eaee;--mu:#9aa1ad;--bd:#2a2f38;--ac:#60a5fa;--cheap:#4ade80;--fair:#60a5fa;--pricey:#fbbf24;--expensive:#f87171;--loss:#9aa1ad}}
+:root[data-theme=dark]{--bg:#0f1115;--card:#181b21;--tx:#e8eaee;--mu:#9aa1ad;--bd:#2a2f38;--ac:#60a5fa;--cheap:#4ade80;--fair:#60a5fa;--pricey:#fbbf24;--expensive:#f87171;--loss:#9aa1ad}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+h1{font-size:1.4rem;margin:0}.mu{color:var(--mu);font-size:.85rem}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+button,input,select{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 12px}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+input{flex:1;min-width:140px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:1.1rem}
+.px{text-align:right;font-weight:600}.up{color:var(--cheap)}.dn{color:var(--expensive)}
+.m{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m div{background:var(--bg);border-radius:8px;padding:8px;text-align:center}
+.m b{display:block;font-size:1.05rem}.m small{color:var(--mu);font-size:.7rem}
+.tag{display:inline-block;margin-top:4px;padding:1px 8px;border-radius:99px;font-size:.7rem;font-weight:600;border:1px solid currentColor}
+.cheap,.discount{color:var(--cheap)}.fair{color:var(--fair)}.pricey,.premium{color:var(--pricey)}.expensive{color:var(--expensive)}.loss{color:var(--loss)}
+.badge{font-size:.7rem;padding:1px 8px;border-radius:6px;background:var(--bg);color:var(--mu)}
+ul.n{list-style:none;padding:0;margin:8px 0 0;font-size:.85rem}ul.n li{padding:4px 0;border-top:1px solid var(--bd)}
+a{color:var(--ac);text-decoration:none}.warn{background:var(--card);border:1px solid var(--pricey);border-radius:8px;padding:8px 12px;margin-top:10px;font-size:.85rem}
+.sum{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head>
+<body><main>
+<header><div><h1 id="t"></h1><div class="mu" id="up"></div></div><button id="th">Tema</button></header>
+<div id="sum" class="sum"></div><div id="err"></div>
+<div class="bar">
+ <button data-f="all" class="on">Todas</button><button data-f="portfolio">Portefólio</button><button data-f="watching">A seguir</button>
+ <input id="q" placeholder="Pesquisar…"><select id="s"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E (LTM)</option><option value="fwd_pe">P/E (próx. 12m)</option><option value="pegy">PEGY</option><option value="day_change_pct">Variação dia</option></select>
+</div>
+<div id="g" class="grid"></div>
+<p class="mu">Limiares configuráveis em <code>watchlist.json</code>. Informação meramente indicativa, não é aconselhamento financeiro.</p>
+</main>
+<script>
+const D={"updated": "2026-10-13T19:51+00:00", "settings": {"title": "O meu Portefólio", "currency_note": "Valores na moeda de cada cotação", "news_per_company": 4, "pe": {"cheap": 15, "fair": 30, "pricey": 50}, "peg": {"discount": 1, "fair": 2}}, "rows": [{"ticker": "META", "status": "portfolio", "note": "Meta Platforms", "error": true, "name": "META", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}, {"ticker": "BB", "status": "portfolio", "note": "BlackBerry", "error": true, "name": "BB", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}, {"ticker": "PGY", "status": "portfolio", "note": "Pagaya Technologies", "error": true, "name": "PGY", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}, {"ticker": "SRFM", "status": "portfolio", "note": "Surf Air Mobility", "error": true, "name": "SRFM", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}, {"ticker": "MU", "status": "portfolio", "note": "Micron Technology", "error": true, "name": "MU", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}, {"ticker": "AVGO", "status": "portfolio", "note": "Broadcom", "error": true, "name": "AVGO", "pe_class": null, "fwd_pe_class": null, "peg_class": null, "pegy_class": null}], "errors": ["META: ConnectionError", "BB: ConnectionError", "PGY: ConnectionError", "SRFM: ConnectionError", "MU: ConnectionError", "AVGO: ConnectionError"]};
+const L={cheap:"Barato",fair:"Justo",pricey:"Caro",expensive:"Muito caro",loss:"Sem lucros",discount:"Desconto",premium:"Prémio"};
+const f=(v,d=1)=>v==null?"–":v.toFixed(d), $=id=>document.getElementById(id);
+let flt="all";
+function tag(c){return c?`<span class="tag ${c}">${L[c]}</span>`:""}
+function m(lbl,v,c,d=1){return `<div><small>${lbl}</small><b>${f(v,d)}</b>${tag(c)}</div>`}
+function render(){
+ const q=$("q").value.toLowerCase(),k=$("s").value;
+ let r=D.rows.filter(x=>(flt=="all"||x.status==flt)&&(x.ticker+(x.name||"")).toLowerCase().includes(q));
+ r.sort((a,b)=>k=="ticker"?a.ticker.localeCompare(b.ticker):(a[k]??1e9)-(b[k]??1e9)*(k=="day_change_pct"?1:1));
+ $("g").innerHTML=r.map(x=>{const ch=x.day_change_pct;return `<article class="card">
+ <div class="top"><div><div class="tk">${x.ticker} <span class="badge">${x.status=="portfolio"?"Portefólio":"A seguir"}</span></div><div class="mu">${x.name||""}${x.sector?" · "+x.sector:""}</div></div>
+ <div class="px">${x.price!=null?f(x.price,2)+" "+(x.currency||""):"sem dados"}<div class="${ch>=0?"up":"dn"}" style="font-size:.8rem">${ch!=null?(ch>=0?"+":"")+f(ch,2)+"%":""}</div></div></div>
+ <div class="m">${m("P/E (12m passados)",x.pe,x.pe_class)}${m("P/E (próx. 12m)",x.fwd_pe,x.fwd_pe_class)}${m("PEG",x.peg,x.peg_class,2)}</div>
+ <div class="mu">PEGY (PEG + dividendo): <b>${f(x.pegy,2)}</b> ${tag(x.pegy_class)} · Cresc.: ${f(x.growth_pct)}% · Div.: ${f(x.div_yield_pct,2)}%</div>
+ ${x.target?`<div class="mu">Preço-alvo analistas: ${f(x.target,2)} (${x.rec||""})</div>`:""}
+ ${x.value?`<div class="mu">Posição: ${f(x.value,0)}${x.pl_pct!=null?` · P/L ${f(x.pl_pct)}%`:""}</div>`:""}
+ ${x.note?`<div class="mu">📝 ${x.note}</div>`:""}
+ <ul class="n">${(x.news||[]).map(n=>`<li><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a><div class="mu">${n.publisher||""}</div></li>`).join("")||"<li class=mu>Sem notícias</li>"}</ul></article>`}).join("");
+}
+$("t").textContent=D.settings.title;$("up").textContent="Atualizado: "+D.updated.replace("T"," ")+" UTC";
+const p=D.settings.pe,g=D.settings.peg;
+$("sum").innerHTML=`<span class="mu">P/E: &lt;${p.cheap} barato · ≤${p.fair} justo · ≤${p.pricey} caro · &gt;${p.pricey} muito caro</span><span class="mu">PEG: &lt;${g.discount} desconto · ≤${g.fair} justo · &gt;${g.fair} prémio</span>`;
+if(D.errors.length)$("err").innerHTML=`<div class="warn">⚠️ Falha a obter: ${D.errors.join(", ")}</div>`;
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{flt=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x==b));render()});
+$("q").oninput=$("s").onchange=render;
+$("th").onclick=()=>{const r=document.documentElement,d=r.dataset.theme=="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"};
+render();
+</script></body></html>
