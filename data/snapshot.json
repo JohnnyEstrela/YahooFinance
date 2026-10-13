@@ -48,32 +48,187 @@
     }
   ],
   "companies": {
-    "AAPL": {
-      "name": "Apple Inc.",
-      "price": 341.11,
-      "change_pct": 0.04,
+    "AVGO": {
+      "name": "Broadcom Inc.",
+      "price": 357.31,
+      "change_pct": 0.73,
       "currency": "USD",
-      "market_cap": 5009930568380,
-      "year_low": 243.42,
-      "year_high": 348.15,
-      "pe_ttm": 38.94,
+      "market_cap": 1687656353400,
+      "pe_ttm": 44.33,
+      "pe_fwd": 20.55,
+      "peg": 0.18,
+      "div_yield_pct": 0.73,
+      "price_target": 509.61,
+      "news": []
+    },
+    "META": {
+      "name": "Meta Platforms Inc.",
+      "price": 762.5,
+      "change_pct": 2.63,
+      "currency": "USD",
+      "market_cap": 1892680622047,
+      "pe_ttm": 28.43,
+      "pe_fwd": 23.85,
+      "peg": 1.24,
+      "div_yield_pct": 0.27,
+      "price_target": 800.3,
+      "news": []
+    },
+    "MU": {
+      "name": "Micron Technology Inc.",
+      "price": 953.19,
+      "change_pct": -3.62,
+      "currency": "USD",
+      "market_cap": 1117011885600,
+      "pe_ttm": 12.43,
+      "pe_fwd": 5.48,
+      "peg": 0.04,
+      "div_yield_pct": 0.06,
+      "price_target": 1588.85,
+      "news": []
+    },
+    "VST": {
+      "name": "Vistra Corp.",
+      "price": 162.37,
+      "change_pct": 2.68,
+      "currency": "USD",
+      "market_cap": 53318663665,
+      "pe_ttm": 27.11,
+      "pe_fwd": 15.81,
+      "peg": 0.22,
+      "div_yield_pct": 0.56,
+      "price_target": 215.23,
+      "news": []
+    },
+    "SOFI": {
+      "name": "SoFi Technologies Inc.",
+      "price": 15.24,
+      "change_pct": 0.07,
+      "currency": "USD",
+      "market_cap": 19536130200,
+      "pe_ttm": 29.88,
+      "pe_fwd": 19.63,
+      "peg": 0.38,
+      "div_yield_pct": 0.0,
+      "price_target": 21.08,
+      "news": []
+    },
+    "UBER": {
+      "name": "Uber Technologies Inc.",
+      "price": 71.32,
+      "change_pct": -0.25,
+      "currency": "USD",
+      "market_cap": 145545329430,
+      "pe_ttm": 15.44,
+      "pe_fwd": 17.27,
+      "peg": null,
+      "div_yield_pct": 0.0,
+      "price_target": 104.72,
+      "news": []
+    },
+    "PGY": {
+      "name": "Pagaya Technologies Ltd.",
+      "price": 17.82,
+      "change_pct": 2.35,
+      "currency": "USD",
+      "market_cap": 1452443927,
+      "pe_ttm": 11.88,
+      "pe_fwd": 8.28,
+      "peg": 0.19,
+      "div_yield_pct": 0.0,
+      "price_target": 28.33,
+      "news": []
+    },
+    "RKLB": {
+      "name": "Rocket Lab Corp.",
+      "price": 64.22,
+      "change_pct": -2.27,
+      "currency": "USD",
+      "market_cap": 38037381782,
+      "pe_ttm": null,
       "pe_fwd": null,
-      "peg": 1.19,
-      "div_yield_pct": 0.31,
-      "news": [
-        {
-          "title": "Apple Home Collection: nova linha de acessórios de casa inteligente com LG e Schneider Electric",
-          "url": "https://app.bigdata.com/documents/2F9B0CE2F60E7AF14BCE5083F162E015?cnum=1",
-          "source": "Apple (comunicado)",
-          "date": "2026-10-13"
-        },
-        {
-          "title": "Novo Apple TV 4K com Siri AI",
-          "url": "https://app.bigdata.com/documents/FC9F468D0251C1796A0CAC0E7CBE7F24?cnum=1",
-          "source": "Apple (comunicado)",
-          "date": "2026-10-13"
-        }
-      ]
+      "peg": null,
+      "div_yield_pct": 0.0,
+      "price_target": 107.0,
+      "news": []
+    },
+    "SRFM": {
+      "name": "Surf Air Mobility Inc.",
+      "price": 0.89,
+      "change_pct": 0.14,
+      "currency": "USD",
+      "market_cap": 98651995,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": 2.13,
+      "news": []
+    },
+    "ONDS": {
+      "name": "Ondas Inc.",
+      "price": 6.71,
+      "change_pct": 0.6,
+      "currency": "USD",
+      "market_cap": 3800823515,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": 18.5,
+      "news": []
+    },
+    "XE": {
+      "name": "X-Energy Inc.",
+      "price": 12.727,
+      "change_pct": -2.7,
+      "currency": "USD",
+      "market_cap": 287090539,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": 33.5,
+      "news": []
+    },
+    "QNT": {
+      "name": "Quantinuum Inc.",
+      "price": 36.76,
+      "change_pct": -6.98,
+      "currency": "USD",
+      "market_cap": 10405937574,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": 93.88,
+      "news": []
+    },
+    "COSM": {
+      "name": "Cosmos Health Inc.",
+      "price": 0.3829,
+      "change_pct": 9.53,
+      "currency": "USD",
+      "market_cap": 19028200,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": null,
+      "news": []
+    },
+    "GENB": {
+      "name": "Generate Biomedicines Inc.",
+      "price": 12.255,
+      "change_pct": -11.45,
+      "currency": "USD",
+      "market_cap": 1774183979,
+      "pe_ttm": null,
+      "pe_fwd": null,
+      "peg": null,
+      "div_yield_pct": 0,
+      "price_target": 26.0,
+      "news": []
     }
   }
 }

@@ -1,10 +1,109 @@
 {
-  "_help": "Edite esta lista. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost opcionais. A rotina diária preenche data/snapshot.json.",
+  "_help": "Edite esta lista. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost opcionais. D2G não foi encontrada em bolsa: confirmar o ticker/bolsa.",
   "thresholds": {
-    "pe": {"cheap": 15, "fair": 30, "pricey": 50},
-    "peg": {"discount": 1, "fair": 2}
+    "pe": {
+      "cheap": 15,
+      "fair": 30,
+      "pricey": 50
+    },
+    "peg": {
+      "discount": 1,
+      "fair": 2
+    }
   },
   "companies": [
-    {"ticker": "AAPL", "status": "watchlist", "shares": 0, "avg_cost": 0, "note": "Exemplo - substitua pelas suas empresas"}
+    {
+      "ticker": "AVGO",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0
+    },
+    {
+      "ticker": "META",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "MU",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0
+    },
+    {
+      "ticker": "VST",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0
+    },
+    {
+      "ticker": "SOFI",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0
+    },
+    {
+      "ticker": "UBER",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Lucro dos últimos 12 meses inclui efeitos não recorrentes; PEG não calculável."
+    },
+    {
+      "ticker": "PGY",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0
+    },
+    {
+      "ticker": "RKLB",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "SRFM",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "ONDS",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "XE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "QNT",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "COSM",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "GENB",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    }
   ]
 }

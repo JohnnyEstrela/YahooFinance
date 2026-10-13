@@ -13,3 +13,9 @@
 6. Notificar (inclui notícias de mercado com `impact` = alto, mesmo que não toquem em nenhuma das suas empresas) (PushNotification, 1ª frase = manchete) quando houver notícia importante numa empresa do portefólio/watchlist: resultados ou guidance, fusões e aquisições, regulação/processos, mudança de CEO/CFO, rebaixamento ou subida de rating de analistas, dividendos, ofertas de ações, alertas de lucros, ou eventos macro que mexam com o mercado (Fed, taxas, tarifas). Também quando: variação diária > 5%, ou a empresa passou a Barato / Desconto. Se nada disto acontecer, não notificar.
 
 Escalas (editáveis em `portfolio.json`): P/E <15 Barato · <30 Fair · <50 Caro · ≥50 Muito caro; PEG <1 Desconto · 1–2 Fair · >2 Premium.
+
+Notas de cálculo (fonte: Bigdata.com/FMP, FMP gratuito só cobre alguns tickers):
+- P/E 12m = `pe_ratio` TTM do tearsheet. Empresas com prejuízo ficam `null` (n/d).
+- P/E próximos 12m = preço / soma do EPS estimado dos próximos 4 trimestres (`analyst_estimates`). `null` se a soma for negativa.
+- PEG = P/E futuro / crescimento (%) do EPS dos próximos 12m face ao EPS TTM (= preço / P/E 12m). `null` se o crescimento for ≤ 0. O PEG do fornecedor foi ignorado por dar valores negativos e erráticos.
+- Preço e variação: `bigdata_portfolio_tearsheet` (até 100 empresas por chamada).
