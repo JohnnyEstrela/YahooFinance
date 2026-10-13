@@ -1,0 +1,171 @@
+<title>O Meu Portefólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: faixa-resumo no topo, grelha de cartões; cada múltiplo é um medidor à escala com zonas Barato→Caro */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#121a24; --mute:#5d6b7a; --line:#dde3ea; --accent:#0b6e7f; --accent-ink:#ffffff;
+  --good:#12805c; --fair:#a8780f; --warn:#c2571a; --bad:#bd2f2f; --na:#8a97a5;
+  --z-good:rgba(18,128,92,.22); --z-fair:rgba(168,120,15,.22); --z-warn:rgba(194,87,26,.22); --z-bad:rgba(189,47,47,.22);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif; --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1219; --surface:#141c26; --ink:#e7edf3; --mute:#93a1b0; --line:#243040; --accent:#4cc3d4; --accent-ink:#06222a;
+  --good:#3ecf9a; --fair:#e3b24a; --warn:#f0944d; --bad:#f27676; --na:#6f7d8c;
+  --z-good:rgba(62,207,154,.2); --z-fair:rgba(227,178,74,.2); --z-warn:rgba(240,148,77,.2); --z-bad:rgba(242,118,118,.2); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1219; --surface:#141c26; --ink:#e7edf3; --mute:#93a1b0; --line:#243040; --accent:#4cc3d4; --accent-ink:#06222a;
+  --good:#3ecf9a; --fair:#e3b24a; --warn:#f0944d; --bad:#f27676; --na:#6f7d8c;
+  --z-good:rgba(62,207,154,.2); --z-fair:rgba(227,178,74,.2); --z-warn:rgba(240,148,77,.2); --z-bad:rgba(242,118,118,.2); color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:16px;padding-block:24px 40px;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+h1{font-size:clamp(26px,5vw,36px);letter-spacing:-.01em}
+.top{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between}
+.stamp{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.summary div{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.summary span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.summary b{font-family:var(--f-mono);font-weight:500;font-size:22px;font-variant-numeric:tabular-nums}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tools .sp{flex:1}
+button,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.head{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline}
+.head h3{font-size:22px}
+.badge{font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:1px 8px;color:var(--mute)}
+.badge.own{color:var(--accent);border-color:var(--accent)}
+.name{flex-basis:100%;color:var(--mute);font-size:13px;overflow-wrap:anywhere}
+.px{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.px b{font-size:24px;font-weight:500}.up{color:var(--good)}.down{color:var(--bad)}
+.pos{font-size:13px;color:var(--mute);font-family:var(--f-mono)}
+.gauge{display:flex;flex-direction:column;gap:5px}
+.gl{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.gl .lab{font-size:12px;color:var(--mute)}
+.gl .val{font-family:var(--f-mono);font-size:18px;font-variant-numeric:tabular-nums}
+.gl .tag{font-size:12px;font-weight:600}
+.bar{position:relative;height:10px;border-radius:5px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.pin{position:absolute;top:-3px;width:3px;height:16px;border-radius:2px;background:var(--ink);transform:translateX(-1.5px)}
+.barw{position:relative}
+.ticks{position:relative;height:14px;font-family:var(--f-mono);font-size:10px;color:var(--mute)}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.c-good{color:var(--good)}.c-fair{color:var(--fair)}.c-warn{color:var(--warn)}.c-bad{color:var(--bad)}.c-na{color:var(--na)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kv{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:8px}
+.kv span{font-size:12px;color:var(--mute)}.kv b{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
+.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.news li{border-top:1px solid var(--line);padding-top:8px;font-size:14px;overflow-wrap:anywhere}
+.news a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
+.news small,.empty{color:var(--mute);font-size:12px}
+.note{font-size:13px;color:var(--mute);margin:0}
+.market{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.mi{display:flex;flex-direction:column;gap:2px}.mi .cat{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}.hi-tag{color:var(--bad);font-weight:600}.mi p{margin:0;color:var(--mute);font-size:13px}
+.pages{display:flex;gap:8px;flex-wrap:wrap}.pages button .ct{font-family:var(--f-mono);font-size:11px;opacity:.7;margin-left:6px}
+.legend{font-size:12px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 16px}
+.disc{font-size:12px;color:var(--mute);margin:0}
+</style>
+<div class="wrap">
+  <div class="top"><h1>O Meu Portefólio</h1><span class="stamp" id="stamp"></span></div>
+  <div class="summary" id="summary"></div>
+  <nav class="pages" id="pages" aria-label="Páginas"></nav>
+  <section id="newspage" hidden><ul class="news" id="mnews"></ul></section>
+  <div id="home">
+  <section class="market"><h2 style="font-size:20px">Destaques de impacto alto</h2><ul class="news" id="hl"></ul></section>
+  <div class="tools">
+    <button data-f="all" aria-pressed="true">Todas</button>
+    <button data-f="portfolio" aria-pressed="false">Portefólio</button>
+    <button data-f="watchlist" aria-pressed="false">A seguir</button>
+    <span class="sp"></span>
+    <label for="sort" class="stamp">Ordenar</label>
+    <select id="sort"><option value="ticker">Ticker</option><option value="pe_ttm">P/E 12m</option><option value="pe_fwd">P/E próx. 12m</option><option value="peg">PEG</option><option value="change_pct">Variação do dia</option></select>
+  </div>
+  <div class="grid" id="grid"></div>
+  </div>
+  <div class="legend" id="legend"></div>
+  <p class="disc">Apoio à decisão, não é aconselhamento financeiro. Dados: FMP; notícias: pesquisa web.</p>
+</div>
+<script>
+const DATA = /*__DATA__*/null;
+const T = DATA.thresholds, S = DATA.snapshot, C = DATA.companies;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
+const fmt = (v, d = 2, s = "") => v == null ? "—" : v.toLocaleString("pt-PT", {minimumFractionDigits: d, maximumFractionDigits: d}) + s;
+// escalas: cada zona = [limite superior, rótulo, classe, token de fundo]
+const SCALES = {
+  pe: {max: 60, zones: [[T.pe.cheap, "Barato", "good"], [T.pe.fair, "Fair Value", "fair"], [T.pe.pricey, "Caro", "warn"], [60, "Muito caro", "bad"]]},
+  peg: {max: 3, zones: [[T.peg.discount, "Desconto", "good"], [T.peg.fair, "Fair", "fair"], [3, "Premium", "bad"]]}
+};
+function classify(kind, v) {
+  if (v == null || v <= 0) return ["n/d", "na"];
+  for (const [lim, lab, cls] of SCALES[kind].zones) if (v < lim || (kind === "peg" && lim === T.peg.fair && v <= lim)) return [lab, cls];
+  const z = SCALES[kind].zones.at(-1); return [z[1], z[2]];
+}
+function gauge(label, kind, v) {
+  const sc = SCALES[kind], [lab, cls] = classify(kind, v);
+  let prev = 0, segs = "", ticks = "";
+  for (const [lim, , zc] of sc.zones) {
+    segs += `<i style="width:${(lim - prev) / sc.max * 100}%;background:var(--z-${zc})"></i>`;
+    if (lim < sc.max) ticks += `<span style="left:${lim / sc.max * 100}%">${lim}</span>`;
+    prev = lim;
+  }
+  const pin = v != null && v > 0 ? `<div class="pin" style="left:${Math.min(v, sc.max) / sc.max * 100}%"></div>` : "";
+  return `<div class="gauge"><div class="gl"><span class="lab">${label}</span><span class="val">${fmt(v)}</span><span class="tag c-${cls}">${lab}</span></div>
+  <div class="barw"><div class="bar">${segs}</div>${pin}</div><div class="ticks">${ticks}</div></div>`;
+}
+function card(c) {
+  const d = S.companies[c.ticker] || {};
+  const own = c.status === "portfolio";
+  const ch = d.change_pct;
+  let pos = "";
+  if (c.shares && d.price) {
+    const val = c.shares * d.price, pl = c.avg_cost ? (d.price / c.avg_cost - 1) * 100 : null;
+    pos = `<div class="pos">${fmt(c.shares, 0)} ações · ${fmt(val, 0)} ${esc(d.currency)}${pl != null ? ` · P/L ${fmt(pl, 1, "%")}` : ""}</div>`;
+  }
+  const news = (d.news || []).map(n => `<li><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><br><small>${esc(n.source)} ${esc(n.date)}</small></li>`).join("") || `<li class="empty">Sem notícias registadas hoje.</li>`;
+  return `<article class="card"><div class="head"><h3>${esc(c.ticker)}</h3><span class="badge ${own ? "own" : ""}">${own ? "Portefólio" : "A seguir"}</span><span class="name">${esc(d.name)}</span></div>
+  <div class="px"><b>${fmt(d.price)} ${esc(d.currency)}</b><span class="${ch >= 0 ? "up" : "down"}">${ch == null ? "" : (ch >= 0 ? "▲ " : "▼ ") + fmt(Math.abs(ch), 2, "%")}</span></div>${pos}
+  ${gauge("P/E últimos 12 meses", "pe", d.pe_ttm)}${gauge("P/E próximos 12 meses", "pe", d.pe_fwd)}${gauge("PEG", "peg", d.peg)}
+  <div class="row2"><div class="kv"><span>Dividend yield</span><b>${fmt(d.div_yield_pct, 2, "%")}</b></div><div class="kv"><span>Intervalo 52 semanas</span><b>${fmt(d.year_low, 0)} – ${fmt(d.year_high, 0)}</b></div></div>
+  <ul class="news">${news}</ul>${c.note ? `<p class="note">${esc(c.note)}</p>` : ""}</article>`;
+}
+let filter = "all";
+function render() {
+  const key = $("sort").value;
+  const list = C.filter(c => filter === "all" || c.status === filter).sort((a, b) => {
+    if (key === "ticker") return a.ticker.localeCompare(b.ticker);
+    const x = (S.companies[a.ticker] || {})[key], y = (S.companies[b.ticker] || {})[key];
+    return (x ?? Infinity) - (y ?? Infinity);
+  });
+  $("grid").innerHTML = list.map(card).join("") || `<p class="empty">Nenhuma empresa nesta lista. Adicione tickers em portfolio.json.</p>`;
+}
+function summary() {
+  const ds = C.map(c => S.companies[c.ticker] || {});
+  const cheap = ds.filter(d => d.pe_ttm > 0 && d.pe_ttm < T.pe.cheap).length;
+  const disc = ds.filter(d => d.peg > 0 && d.peg < T.peg.discount).length;
+  const total = C.reduce((s, c) => s + (c.shares && (S.companies[c.ticker] || {}).price ? c.shares * S.companies[c.ticker].price : 0), 0);
+  const items = [["Empresas", C.length], ["No portefólio", C.filter(c => c.status === "portfolio").length], ["P/E barato", cheap], ["PEG em desconto", disc], ["Valor das posições", total ? fmt(total, 0) : "—"]];
+  $("summary").innerHTML = items.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("");
+}
+$("stamp").textContent = "Atualizado em " + S.updated;
+const newsItem = n => `<li class="mi"><span class="cat">${esc(n.category)}${n.impact === "alto" ? '<span class="hi-tag">Impacto alto</span>' : ""}</span><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>${n.summary ? `<p>${esc(n.summary)}</p>` : ""}<small>${esc(n.source)} ${esc(n.date)}</small></li>`;
+const MN = S.market_news || [];
+const cats = [...new Set(MN.map(n => n.category))];
+$("hl").innerHTML = MN.filter(n => n.impact === "alto").map(newsItem).join("") || `<li class="empty">Sem destaques.</li>`;
+$("pages").innerHTML = [["home", "Empresas", null], ...cats.map(c => [c, c, MN.filter(n => n.category === c).length])]
+  .map(([k, l, c], i) => `<button data-p="${esc(k)}" aria-pressed="${i === 0}">${esc(l)}${c ? `<span class="ct">${c}</span>` : ""}</button>`).join("");
+document.querySelectorAll("[data-p]").forEach(b => b.onclick = () => {
+  document.querySelectorAll("[data-p]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  const k = b.dataset.p;
+  $("home").hidden = k !== "home"; $("newspage").hidden = k === "home";
+  if (k !== "home") $("mnews").innerHTML = MN.filter(n => n.category === k).map(newsItem).join("");
+});
+$("legend").innerHTML = `<span>P/E: &lt;${T.pe.cheap} barato · &lt;${T.pe.fair} fair · &lt;${T.pe.pricey} caro · acima muito caro</span><span>PEG: &lt;${T.peg.discount} desconto · ${T.peg.discount}–${T.peg.fair} fair · &gt;${T.peg.fair} premium</span>`;
+document.querySelectorAll("[data-f]").forEach(b => b.onclick = () => { filter = b.dataset.f; document.querySelectorAll("[data-f]").forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
+$("sort").onchange = render;
+summary(); render();
+</script>
