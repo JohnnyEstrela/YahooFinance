@@ -1,0 +1,55 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portefólio</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1c2330;--mut:#667085;--line:#e4e7ec;--acc:#2563eb;
+--good:#12805c;--goodbg:#dcf5ea;--ok:#2563eb;--okbg:#e3ecff;--warn:#a15c07;--warnbg:#fdecc8;
+--bad:#b42318;--badbg:#fde4e1;--na:#667085;--nabg:#eef0f3}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141b;--card:#171e28;--fg:#e8ecf2;--mut:#95a1b3;
+--line:#2a3442;--acc:#6ea0ff;--good:#4cd6a0;--goodbg:#12362a;--ok:#8ab4ff;--okbg:#1b2c52;
+--warn:#f5c26b;--warnbg:#3d2f10;--bad:#ff8f84;--badbg:#431b17;--na:#95a1b3;--nabg:#222b37}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+h1{font-size:1.4rem;margin:0}.sub{color:var(--mut);font-size:.85rem}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.bar button,.bar input{font:inherit;border:1px solid var(--line);background:var(--card);
+color:var(--fg);border-radius:999px;padding:6px 14px}
+.bar button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bar input{flex:1;min-width:140px;border-radius:8px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.tk{font-weight:700;font-size:1.1rem}.nm{color:var(--mut);font-size:.85rem}
+.tag{font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--mut)}
+.price{font-size:1.25rem;font-weight:600}.up{color:var(--good)}.dn{color:var(--bad)}
+.met{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m{background:var(--nabg);border-radius:8px;padding:8px;text-align:center}
+.m small{display:block;color:var(--mut);font-size:.68rem}.m b{font-size:1.05rem}
+.b{display:inline-block;margin-top:4px;font-size:.72rem;font-weight:600;border-radius:999px;padding:1px 8px}
+.good{color:var(--good);background:var(--goodbg)}.ok{color:var(--ok);background:var(--okbg)}
+.warn{color:var(--warn);background:var(--warnbg)}.bad{color:var(--bad);background:var(--badbg)}
+.na{color:var(--na);background:var(--nabg)}
+ul{margin:6px 0 0;padding-left:18px}li{margin:3px 0;font-size:.85rem}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.notes{font-size:.82rem;color:var(--mut);font-style:italic;margin-top:8px}
+h2{font-size:1.05rem;margin:24px 0 8px}.legend{font-size:.78rem;color:var(--mut)}
+.hide{display:none}
+@media(max-width:480px){.met{grid-template-columns:1fr 1fr 1fr;gap:4px}.m b{font-size:.95rem}}
+</style></head><body><div class="wrap">
+<h1>Portefólio &amp; Watchlist</h1>
+<div class="sub">Atualizado: exemplo · Informação, não aconselhamento financeiro</div>
+<div class="legend">P/E: &lt;15 Barato · &lt;30 Justo · &lt;50 Caro · ≥50 Muito caro &nbsp;|&nbsp; PEG: &lt;1 Desconto · 1–2 Justo · &gt;2 Prémio</div>
+<div class="bar"><button class="on" data-f="all">Todas</button>
+<button data-f="portfolio">Portefólio</button><button data-f="watching">A seguir</button>
+<input id="q" placeholder="Pesquisar…"></div>
+<div class="grid"><div class="card" data-status="portfolio" data-search="aapl apple inc. exemplo — substitui pelas tuas posições"><div class="head"><div><span class="tk">AAPL</span> <span class="tag">Portefólio</span><div class="nm">Apple Inc.</div></div></div><div class="price">230.50 USD <span class="up" style="font-size:.85rem">+0.80%</span></div><div class="sub">Posição: 10 un. · custo médio 150.00 · <b class="up">+53.7%</b></div><div class="met"><div class="m"><small>P/E (12m passados)</small><b>35.2</b><br><span class="b warn">Caro</span></div><div class="m"><small>P/E (próx. 12m)</small><b>29.1</b><br><span class="b ok">Justo</span></div><div class="m"><small>PEG</small><b>2.4</b><br><span class="b warn">Prémio</span></div></div><ul><li><a href="https://example.com" target="_blank" rel="noopener">Notícia de exemplo</a> <span class="sub">— Exemplo</span></li></ul><div class="notes">Exemplo — substitui pelas tuas posições</div></div><div class="card" data-status="portfolio" data-search="msft microsoft "><div class="head"><div><span class="tk">MSFT</span> <span class="tag">Portefólio</span><div class="nm">Microsoft</div></div></div><div class="price">420.00 USD <span class="dn" style="font-size:.85rem">-0.40%</span></div><div class="met"><div class="m"><small>P/E (12m passados)</small><b>33.0</b><br><span class="b warn">Caro</span></div><div class="m"><small>P/E (próx. 12m)</small><b>27.0</b><br><span class="b ok">Justo</span></div><div class="m"><small>PEG</small><b>1.9</b><br><span class="b ok">Justo</span></div></div><ul><li class='sub'>Sem notícias.</li></ul></div><div class="card" data-status="watching" data-search="nvda nvidia esperar por preço mais baixo"><div class="head"><div><span class="tk">NVDA</span> <span class="tag">A seguir</span><div class="nm">NVIDIA</div></div></div><div class="price">120.00 USD <span class="up" style="font-size:.85rem">+1.20%</span></div><div class="met"><div class="m"><small>P/E (12m passados)</small><b>55.0</b><br><span class="b bad">Muito caro</span></div><div class="m"><small>P/E (próx. 12m)</small><b>32.0</b><br><span class="b warn">Caro</span></div><div class="m"><small>PEG</small><b>0.9</b><br><span class="b good">Desconto</span></div></div><ul><li class='sub'>Sem notícias.</li></ul><div class="notes">Esperar por preço mais baixo</div></div><div class="card" data-status="watching" data-search="galp.ls galp energia "><div class="head"><div><span class="tk">GALP.LS</span> <span class="tag">A seguir</span><div class="nm">Galp Energia</div></div></div><div class="price">15.00 EUR <span class="up" style="font-size:.85rem">+0.10%</span></div><div class="met"><div class="m"><small>P/E (12m passados)</small><b>9.0</b><br><span class="b good">Barato</span></div><div class="m"><small>P/E (próx. 12m)</small><b>11.0</b><br><span class="b good">Barato</span></div><div class="m"><small>PEG</small><b>n/d</b><br><span class="b na">n/d</span></div></div><ul><li class='sub'>Sem notícias.</li></ul></div></div>
+<h2>Notícias de mercado</h2><div class="card"><ul><li class='sub'>Sem notícias.</li></ul></div>
+</div><script>
+let f='all';const q=document.getElementById('q');
+function ap(){const s=q.value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{
+const ok=(f==='all'||c.dataset.status===f)&&c.dataset.search.includes(s);
+c.classList.toggle('hide',!ok)})}
+document.querySelectorAll('.bar button').forEach(b=>b.onclick=()=>{f=b.dataset.f;
+document.querySelectorAll('.bar button').forEach(x=>x.classList.toggle('on',x===b));ap()});
+q.oninput=ap;
+</script></body></html>
