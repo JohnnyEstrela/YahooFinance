@@ -34,3 +34,6 @@ Lê ROUTINE.md e executa-o por completo no repositório YahooFinance, branch cla
 
 ## Moeda
 Todos os preços, capitalizações e alvos ficam em USD. Para empresas cotadas em EUR/DKK, converter com `CURRENCY_EXCHANGE_RATE` (Alpha Vantage), guardar a taxa em `snapshot.fx` e `orig_currency` na empresa. Múltiplos (P/E, PEG) não mudam com a conversão.
+
+## P/E futuro via Bigdata.com
+`find_securities` → `bigdata_company_tearsheet` (company_type Public, sections ["analyst_estimates"]). NTM EPS = soma das 4 próximas estimativas trimestrais de EPS (metric EPS, report_date futura). Não usar quando: os trimestres não são consecutivos, n_analysts = 0, o EPS vem noutra moeda que o preço (ex.: NVO em DKK, empresas europeias) ou há um trimestre anómalo.

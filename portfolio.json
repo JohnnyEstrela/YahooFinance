@@ -178,7 +178,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "GLW",
@@ -220,14 +220,14 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam. P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "AEHR",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "NVO",
@@ -283,7 +283,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "TER",
@@ -304,7 +304,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "SHOP",
