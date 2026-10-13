@@ -19,3 +19,6 @@ Notas de cálculo (fonte: Bigdata.com/FMP, FMP gratuito só cobre alguns tickers
 - P/E próximos 12m = preço / soma do EPS estimado dos próximos 4 trimestres (`analyst_estimates`). `null` se a soma for negativa.
 - PEG = P/E futuro / crescimento (%) do EPS dos próximos 12m face ao EPS TTM (= preço / P/E 12m). `null` se o crescimento for ≤ 0. O PEG do fornecedor foi ignorado por dar valores negativos e erráticos.
 - Preço e variação: `bigdata_portfolio_tearsheet` (até 100 empresas por chamada).
+
+Páginas de notícias do painel: cada `category` em `market_news` vira uma página (separador). Categorias atuais: Macro e Fed, Energia e geopolítica, Mercado de ações, Tecnologia e chips, Eletricidade e renováveis, Fintech e crédito, Espaço, defesa e quântica. Criar novas categorias quando surgir um tema que mexa com as empresas seguidas ou com o mercado todo (ex.: biotecnologia, criptomoedas, China/Ásia, resultados da semana). Uma pesquisa `bigdata_search` por tema, 3-5 itens cada.
+Frequência: de 4 em 4 horas. Notificar só novidades de impacto alto que ainda não foram notificadas (comparar com o `data/snapshot.json` anterior).
