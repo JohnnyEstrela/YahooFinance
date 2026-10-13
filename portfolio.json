@@ -111,6 +111,356 @@
       "shares": 0,
       "avg_cost": 0,
       "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "NEO",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "NVDA",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "XYL",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "AGBK",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "BN",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "MA",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "AMZN",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "CSCO",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "GRAB",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "GLW",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "LULU",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "NKE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "MCD",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "LITE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "AAOI",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "AEHR",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "NVO",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "CRCL",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "IBM",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "AMPX",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "NNE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "BR",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "GOOGL",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "SYM",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "TER",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "IONQ",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "VIAV",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "SHOP",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "INTC",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "PANW",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "CBRS",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "NEE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "PLTR",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "INDI",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "SPGI",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "MCO",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "MRVL",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "BE",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "VRT",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "EME",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "CRWV",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Sem lucros nos últimos 12 meses: P/E e PEG não se aplicam."
+    },
+    {
+      "ticker": "LEU",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": ""
+    },
+    {
+      "ticker": "JNL",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "VNON",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "BAYN",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "ASME",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "M09",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "YSON",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "EDW",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
+    },
+    {
+      "ticker": "ARCH",
+      "status": "watchlist",
+      "shares": 0,
+      "avg_cost": 0,
+      "note": "Ticker não reconhecido pelas fontes de dados atuais (não são cotações dos EUA?). Confirma a bolsa/símbolo completo (ex.: BAYN.DE)."
     }
   ]
 }
