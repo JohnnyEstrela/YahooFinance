@@ -1,0 +1,15 @@
+{
+  "_ajuda": "Edita este ficheiro para adicionar empresas. status: 'portfolio' (tens) ou 'watching' (só segues). shares/avg_cost são opcionais. Os limiares abaixo são ajustáveis.",
+  "settings": {
+    "title": "O meu Portefólio",
+    "currency_note": "Valores na moeda de cada cotação",
+    "news_per_company": 4,
+    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "companies": [
+    { "ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "note": "Exemplo – substitui pelas tuas empresas" },
+    { "ticker": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0, "note": "Exemplo" },
+    { "ticker": "NVDA", "status": "watching", "note": "Exemplo – a seguir" }
+  ]
+}
