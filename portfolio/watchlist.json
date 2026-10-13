@@ -1,0 +1,8 @@
+{
+  "_ajuda": "Adiciona empresas aqui. status: 'portfolio' (já tens) ou 'seguir' (só a acompanhar). shares/avg_cost são opcionais.",
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150.0, "notes": "EXEMPLO - substitui pelas tuas empresas"},
+    {"ticker": "MSFT", "status": "seguir", "notes": "EXEMPLO - substitui pelas tuas empresas"}
+  ],
+  "market_news_symbols": ["^GSPC", "^IXIC", "^STOXX50E"]
+}
