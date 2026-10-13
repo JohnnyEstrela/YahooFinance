@@ -63,12 +63,14 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(
 .news small,.empty{color:var(--mute);font-size:12px}
 .note{font-size:13px;color:var(--mute);margin:0}
 .market{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.mi{display:flex;flex-direction:column;gap:2px}.mi .cat{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}.hi-tag{color:var(--bad);font-weight:600}.mi p{margin:0;color:var(--mute);font-size:13px}
 .legend{font-size:12px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 16px}
 .disc{font-size:12px;color:var(--mute);margin:0}
 </style>
 <div class="wrap">
   <div class="top"><h1>O Meu Portefólio</h1><span class="stamp" id="stamp"></span></div>
   <div class="summary" id="summary"></div>
+  <section class="market"><h2 style="font-size:20px">O que move o mercado</h2><ul class="news" id="mnews"></ul></section>
   <div class="tools">
     <button data-f="all" aria-pressed="true">Todas</button>
     <button data-f="portfolio" aria-pressed="false">Portefólio</button>
@@ -78,7 +80,6 @@ button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(
     <select id="sort"><option value="ticker">Ticker</option><option value="pe_ttm">P/E 12m</option><option value="pe_fwd">P/E próx. 12m</option><option value="peg">PEG</option><option value="change_pct">Variação do dia</option></select>
   </div>
   <div class="grid" id="grid"></div>
-  <section class="market"><h2 style="font-size:20px">Notícias de mercado</h2><ul class="news" id="mnews"></ul></section>
   <div class="legend" id="legend"></div>
   <p class="disc">Apoio à decisão, não é aconselhamento financeiro. Dados: FMP; notícias: pesquisa web.</p>
 </div>
@@ -146,7 +147,7 @@ function summary() {
   $("summary").innerHTML = items.map(([l, v]) => `<div><span>${l}</span><b>${v}</b></div>`).join("");
 }
 $("stamp").textContent = "Atualizado em " + S.updated;
-$("mnews").innerHTML = (S.market_news || []).map(n => `<li><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a> <small>${esc(n.source)}</small></li>`).join("") || `<li class="empty">Sem notícias de mercado hoje.</li>`;
+$("mnews").innerHTML = (S.market_news || []).map(n => `<li class="mi"><span class="cat">${esc(n.category)}${n.impact === "alto" ? '<span class="hi-tag">Impacto alto</span>' : ""}</span><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>${n.summary ? `<p>${esc(n.summary)}</p>` : ""}<small>${esc(n.source)} ${esc(n.date)}</small></li>`).join("") || `<li class="empty">Sem notícias de mercado hoje.</li>`;
 $("legend").innerHTML = `<span>P/E: &lt;${T.pe.cheap} barato · &lt;${T.pe.fair} fair · &lt;${T.pe.pricey} caro · acima muito caro</span><span>PEG: &lt;${T.peg.discount} desconto · ${T.peg.discount}–${T.peg.fair} fair · &gt;${T.peg.fair} premium</span>`;
 document.querySelectorAll("[data-f]").forEach(b => b.onclick = () => { filter = b.dataset.f; document.querySelectorAll("[data-f]").forEach(x => x.setAttribute("aria-pressed", x === b)); render(); });
 $("sort").onchange = render;

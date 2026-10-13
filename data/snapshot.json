@@ -1,6 +1,52 @@
 {
   "updated": "2026-10-13",
-  "market_news": [],
+  "market_news": [
+    {
+      "category": "Inflação e Fed",
+      "impact": "alto",
+      "title": "Inflação de setembro (CPI) sai quarta-feira, com previsão de subida",
+      "summary": "Consenso: inflação total 3,7% (era 3,4%) e core 2,5%. A Fed subiu juros 25 pb para 3,75-4,00% em setembro; próxima reunião a 28 de outubro, seis dias antes das eleições intercalares.",
+      "url": "https://app.bigdata.com/documents/E1BE723A11B4F62F45E05A0616EC1773?cnum=2",
+      "source": "CNBC",
+      "date": "2026-10-13"
+    },
+    {
+      "category": "Fed",
+      "impact": "alto",
+      "title": "Williams (Fed) vê uma última subida em 2026 e nenhuma em 2027; Barkin diz que a inflação persistente justifica ação",
+      "summary": "76% dos gestores inquiridos não esperam subida a 28 de outubro.",
+      "url": "https://app.bigdata.com/documents/59EB99C85EB64B39D754B128528A5685?cnum=3",
+      "source": "FXStreet",
+      "date": "2026-10-13"
+    },
+    {
+      "category": "Petróleo e geopolítica",
+      "impact": "alto",
+      "title": "Petróleo volátil: WTI perto de 91,5 $ com diesel russo a aliviar a oferta, mas ataques dos Houthis à Arábia Saudita aumentam o risco",
+      "summary": "Brent subiu cerca de 42% no 3.º trimestre e ronda os 105 $. A energia é o principal risco de alta para a inflação.",
+      "url": "https://app.bigdata.com/documents/25ABB804EABD48BF2A5684BD1D41A18F?cnum=1",
+      "source": "FXStreet",
+      "date": "2026-10-13"
+    },
+    {
+      "category": "Ações",
+      "impact": "medio",
+      "title": "Wall Street mista: Dow sobe com resultados dos bancos, semicondutores caem",
+      "summary": "Micron desce cerca de 5% após notícias de avanço da chinesa CXMT em DRAM. Nasdaq -0,1%, S&P 500 +0,1%, Dow -0,2% a meio da tarde.",
+      "url": "https://app.bigdata.com/documents/B42FB6B748631C0ACB9392952D50E989?cnum=1",
+      "source": "MT Newswires",
+      "date": "2026-10-13"
+    },
+    {
+      "category": "Sentimento",
+      "impact": "medio",
+      "title": "Gestores de fundos mais cautelosos com o crescimento global",
+      "summary": "Saldo líquido de 4% espera economia mais fraca nos próximos 12 meses; expectativas de inflação no mínimo desde janeiro de 2025.",
+      "url": "https://app.bigdata.com/documents/BAFFFBB90FA87B46897F0DD937005465?cnum=2",
+      "source": "Alliance News",
+      "date": "2026-10-13"
+    }
+  ],
   "companies": {
     "AAPL": {
       "name": "Apple Inc.",
