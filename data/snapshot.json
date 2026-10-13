@@ -365,10 +365,10 @@
   },
   "D2G": {
    "name": "Ørsted A/S",
-   "price": 131.4,
+   "price": 19.6907,
    "change_pct": -1.54,
-   "currency": "DKK",
-   "market_cap": 176295723900,
+   "currency": "USD",
+   "market_cap": 26418416669,
    "pe_ttm": null,
    "pe_fwd": 13.54,
    "peg": null,
@@ -387,7 +387,8 @@
      "source": "MT Newswires",
      "date": "2026-10-13"
     }
-   ]
+   ],
+   "orig_currency": "DKK"
   },
   "NEO": {
    "name": "NeoGenomics Inc.",
@@ -942,10 +943,11 @@
    "price_target": null,
    "news": [],
    "name": "Bayer AG",
-   "price": 44.15,
+   "price": 49.455,
    "change_pct": 0.73,
-   "currency": "EUR",
-   "market_cap": 43059647514
+   "currency": "USD",
+   "market_cap": 48233645671,
+   "orig_currency": "EUR"
   },
   "M09": {
    "pe_fwd": null,
@@ -961,10 +963,11 @@
     }
    ],
    "name": "Mota-Engil SGPS",
-   "price": 4.74,
+   "price": 5.3096,
    "change_pct": 1.15,
-   "currency": "EUR",
-   "market_cap": 1437552336
+   "currency": "USD",
+   "market_cap": 1610286986,
+   "orig_currency": "EUR"
   },
   "YSON": {
    "pe_fwd": null,
@@ -973,10 +976,11 @@
    "price_target": null,
    "news": [],
    "name": "Sonae SGPS",
-   "price": 2.055,
+   "price": 2.3019,
    "change_pct": 0.24,
-   "currency": "EUR",
-   "market_cap": 3986795037
+   "currency": "USD",
+   "market_cap": 4465843784,
+   "orig_currency": "EUR"
   },
   "EDW": {
    "pe_fwd": null,
@@ -985,10 +989,11 @@
    "price_target": null,
    "news": [],
    "name": "EDP Renováveis",
-   "price": 12.57,
+   "price": 14.0804,
    "change_pct": 0.88,
-   "currency": "EUR",
-   "market_cap": 13203849104
+   "currency": "USD",
+   "market_cap": 14790408560,
+   "orig_currency": "EUR"
   },
   "JNJ": {
    "pe_fwd": null,
@@ -1074,5 +1079,10 @@
    "market_cap": 662055608220,
    "pe_ttm": 53.65
   }
+ },
+ "fx": {
+  "EURUSD": 1.12015886,
+  "DKKUSD": 0.14985285,
+  "source": "Alpha Vantage, 2026-10-13 21:30 UTC"
  }
 }

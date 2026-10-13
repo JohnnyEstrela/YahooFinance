@@ -16,7 +16,8 @@
       "ticker": "AVGO",
       "status": "watchlist",
       "shares": 0,
-      "avg_cost": 0
+      "avg_cost": 0,
+      "note": ""
     },
     {
       "ticker": "META",
@@ -29,19 +30,22 @@
       "ticker": "MU",
       "status": "watchlist",
       "shares": 0,
-      "avg_cost": 0
+      "avg_cost": 0,
+      "note": ""
     },
     {
       "ticker": "VST",
       "status": "watchlist",
       "shares": 0,
-      "avg_cost": 0
+      "avg_cost": 0,
+      "note": ""
     },
     {
       "ticker": "SOFI",
       "status": "watchlist",
       "shares": 0,
-      "avg_cost": 0
+      "avg_cost": 0,
+      "note": ""
     },
     {
       "ticker": "UBER",
@@ -54,7 +58,8 @@
       "ticker": "PGY",
       "status": "watchlist",
       "shares": 0,
-      "avg_cost": 0
+      "avg_cost": 0,
+      "note": ""
     },
     {
       "ticker": "RKLB",
@@ -68,7 +73,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Ørsted (D2G é a cotação em Frankfurt; dados da bolsa de Copenhaga, ORSTED.CO, em DKK). Sem lucros fiáveis nos últimos 12 meses e sem dividendo desde 2023; P/E futuro baseado em 1 analista."
+      "note": "Ørsted (D2G é a cotação em Frankfurt; dados da bolsa de Copenhaga, ORSTED.CO, convertido de DKK para USD). Sem lucros fiáveis nos últimos 12 meses e sem dividendo desde 2023; P/E futuro baseado em 1 analista."
     },
     {
       "ticker": "SRFM",
@@ -411,28 +416,28 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Bayer AG (XETRA: BAYN). Valores em EUR. Sem P/E: só há o EPS do 2.º trimestre (0,935 €, +23% vs estimativa), não o dos 12 meses."
+      "note": "Bayer AG (XETRA: BAYN). Valores convertidos de EUR para USD. Sem P/E: só há o EPS do 2.º trimestre (0,935 €, +23% vs estimativa), não o dos 12 meses."
     },
     {
       "ticker": "M09",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Mota-Engil SGPS (Lisboa: EGL; M09 é o código de Frankfurt). Valores em EUR, via Bigdata.com. EPS do 2.º trimestre 0,24 € sem estimativa de analistas; P/E não calculado."
+      "note": "Mota-Engil SGPS (Lisboa: EGL; M09 é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,24 € sem estimativa de analistas; P/E não calculado."
     },
     {
       "ticker": "YSON",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Sonae SGPS (Lisboa: SON). Valores em EUR. EPS do 2.º trimestre 0,0375 € (+26% vs estimativa); P/E não calculado."
+      "note": "Sonae SGPS (Lisboa: SON). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,0375 € (+26% vs estimativa); P/E não calculado."
     },
     {
       "ticker": "EDW",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "EDP Renováveis (Lisboa: EDPR; EDW é o código de Frankfurt). Valores em EUR. EPS do 2.º trimestre 0,107 € (+61% vs estimativa); P/E não calculado."
+      "note": "EDP Renováveis (Lisboa: EDPR; EDW é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,107 € (+61% vs estimativa); P/E não calculado."
     },
     {
       "ticker": "JNJ",

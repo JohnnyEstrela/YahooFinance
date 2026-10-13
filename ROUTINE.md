@@ -31,3 +31,6 @@ Se a rotina não conseguir correr (acesso negado, erro), notificar também, com 
 
 ## Prompt para a rotina agendada (colar nas definições da rotina, frequência de 4 em 4 horas)
 Lê ROUTINE.md e executa-o por completo no repositório YahooFinance, branch claude/cool-dijkstra-4zh0sf: atualiza os dados de todas as empresas de portfolio.json, recolhe notícias por empresa e por tema de mercado, corre build_dashboard.py, republica o painel (Artifact acima), faz commit e push, e termina com uma PushNotification com o resumo da execução.
+
+## Moeda
+Todos os preços, capitalizações e alvos ficam em USD. Para empresas cotadas em EUR/DKK, converter com `CURRENCY_EXCHANGE_RATE` (Alpha Vantage), guardar a taxa em `snapshot.fx` e `orig_currency` na empresa. Múltiplos (P/E, PEG) não mudam com a conversão.
