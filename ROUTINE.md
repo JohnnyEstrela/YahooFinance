@@ -22,3 +22,12 @@ Notas de cálculo (fonte: Bigdata.com/FMP, FMP gratuito só cobre alguns tickers
 
 Páginas de notícias do painel: cada `category` em `market_news` vira uma página (separador). Categorias atuais: Macro e Fed, Energia e geopolítica, Mercado de ações, Tecnologia e chips, Eletricidade e renováveis, Fintech e crédito, Espaço, defesa e quântica. Criar novas categorias quando surgir um tema que mexa com as empresas seguidas ou com o mercado todo (ex.: biotecnologia, criptomoedas, China/Ásia, resultados da semana). Uma pesquisa `bigdata_search` por tema, 3-5 itens cada.
 Frequência: de 4 em 4 horas. Notificar só novidades de impacto alto que ainda não foram notificadas (comparar com o `data/snapshot.json` anterior).
+
+## Notificação em todas as execuções
+Por pedido do utilizador, cada execução termina SEMPRE com uma PushNotification (dentro de <routine_summary>), mesmo sem novidades de impacto alto:
+1. Primeira frase: a novidade mais importante (impacto alto) ou "Painel atualizado, sem novidades de impacto alto".
+2. Depois: empresas que mais mexeram (variação > 3%), mudanças de classificação (passou a Barato/Desconto/Caro), 2-3 notícias de mercado principais, link do painel https://claude.ai/artifact/Ccwz65bhmktPXrTmYWinyD.
+Se a rotina não conseguir correr (acesso negado, erro), notificar também, com o erro.
+
+## Prompt para a rotina agendada (colar nas definições da rotina, frequência de 4 em 4 horas)
+Lê ROUTINE.md e executa-o por completo no repositório YahooFinance, branch claude/cool-dijkstra-4zh0sf: atualiza os dados de todas as empresas de portfolio.json, recolhe notícias por empresa e por tema de mercado, corre build_dashboard.py, republica o painel (Artifact acima), faz commit e push, e termina com uma PushNotification com o resumo da execução.
