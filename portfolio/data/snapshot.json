@@ -1,0 +1,6 @@
+{"generated_at":"exemplo","companies":[
+{"ticker":"AAPL","name":"Apple Inc.","price":230.5,"currency":"USD","change_pct":0.8,"trailing_pe":35.2,"forward_pe":29.1,"peg":2.4,"news":[{"title":"Notícia de exemplo","publisher":"Exemplo","url":"https://example.com"}]},
+{"ticker":"MSFT","name":"Microsoft","price":420,"currency":"USD","change_pct":-0.4,"trailing_pe":33,"forward_pe":27,"peg":1.9,"news":[]},
+{"ticker":"NVDA","name":"NVIDIA","price":120,"currency":"USD","change_pct":1.2,"trailing_pe":55,"forward_pe":32,"peg":0.9,"news":[]},
+{"ticker":"GALP.LS","name":"Galp Energia","price":15,"currency":"EUR","change_pct":0.1,"trailing_pe":9,"forward_pe":11,"peg":null,"news":[]}],
+"market_news":[],"errors":{}}

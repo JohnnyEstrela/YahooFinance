@@ -1,0 +1,13 @@
+{
+  "_ajuda": "Edita este ficheiro para adicionar empresas. status = 'portfolio' (já tenho) ou 'watching' (quero seguir). shares/avg_cost/notes são opcionais.",
+  "thresholds": {
+    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "companies": [
+    { "ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150.0, "notes": "Exemplo — substitui pelas tuas posições" },
+    { "ticker": "MSFT", "status": "portfolio" },
+    { "ticker": "NVDA", "status": "watching", "notes": "Esperar por preço mais baixo" },
+    { "ticker": "GALP.LS", "status": "watching" }
+  ]
+}
