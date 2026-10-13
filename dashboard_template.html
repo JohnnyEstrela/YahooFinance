@@ -105,7 +105,7 @@ function classify(kind, v) {
   for (const [lim, lab, cls] of SCALES[kind].zones) if (v < lim || (kind === "peg" && lim === T.peg.fair && v <= lim)) return [lab, cls];
   const z = SCALES[kind].zones.at(-1); return [z[1], z[2]];
 }
-function gauge(label, kind, v) {
+function gauge(label, kind, v, why) {
   const sc = SCALES[kind], [lab, cls] = classify(kind, v);
   let prev = 0, segs = "", ticks = "";
   for (const [lim, , zc] of sc.zones) {
@@ -114,7 +114,7 @@ function gauge(label, kind, v) {
     prev = lim;
   }
   const pin = v != null && v > 0 ? `<div class="pin" style="left:${Math.min(v, sc.max) / sc.max * 100}%"></div>` : "";
-  return `<div class="gauge"><div class="gl"><span class="lab">${label}</span><span class="val">${fmt(v)}</span><span class="tag c-${cls}">${lab}</span></div>
+  return `<div class="gauge"><div class="gl"><span class="lab">${label}</span><span class="val">${fmt(v)}</span><span class="tag c-${cls}">${(v == null || v <= 0) && why ? why : lab}</span></div>
   <div class="barw"><div class="bar">${segs}</div>${pin}</div><div class="ticks">${ticks}</div></div>`;
 }
 function card(c) {
@@ -129,7 +129,7 @@ function card(c) {
   const news = (d.news || []).map(n => `<li><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><br><small>${esc(n.source)} ${esc(n.date)}</small></li>`).join("") || `<li class="empty">Sem notícias registadas hoje.</li>`;
   return `<article class="card"><div class="head"><h3>${esc(c.ticker)}</h3><span class="badge ${own ? "own" : ""}">${own ? "Portefólio" : "A seguir"}</span><span class="name">${esc(d.name)}</span></div>
   <div class="px"><b>${fmt(d.price)} ${esc(d.currency)}</b><span class="${ch >= 0 ? "up" : "down"}">${ch == null ? "" : (ch >= 0 ? "▲ " : "▼ ") + fmt(Math.abs(ch), 2, "%")}</span></div>${pos}
-  ${gauge("P/E últimos 12 meses", "pe", d.pe_ttm)}${gauge("P/E próximos 12 meses", "pe", d.pe_fwd)}${gauge("PEG", "peg", d.peg)}
+  ${gauge("P/E últimos 12 meses", "pe", d.pe_ttm, d.pe_ttm_note)}${gauge("P/E próximos 12 meses", "pe", d.pe_fwd, d.pe_fwd_note)}${gauge("PEG", "peg", d.peg, d.peg_note)}
   <div class="row2"><div class="kv"><span>Dividend yield</span><b>${fmt(d.div_yield_pct, 2, "%")}</b></div><div class="kv"><span>Intervalo 52 semanas</span><b>${fmt(d.year_low, 0)} – ${fmt(d.year_high, 0)}</b></div></div>
   <ul class="news">${news}</ul>${c.note ? `<p class="note">${esc(c.note)}</p>` : ""}</article>`;
 }

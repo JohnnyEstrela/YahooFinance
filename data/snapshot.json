@@ -165,7 +165,8 @@
      "source": "Finwire",
      "date": "2026-10-13"
     }
-   ]
+   ],
+   "eps_ttm": 8.0602
   },
   "META": {
    "name": "Meta Platforms Inc.",
@@ -178,7 +179,8 @@
    "peg": 1.24,
    "div_yield_pct": 0.27,
    "price_target": 800.3,
-   "news": []
+   "news": [],
+   "eps_ttm": 26.8203
   },
   "MU": {
    "name": "Micron Technology Inc.",
@@ -204,7 +206,8 @@
      "source": "The Globe And Mail",
      "date": "2026-10-13"
     }
-   ]
+   ],
+   "eps_ttm": 76.6846
   },
   "VST": {
    "name": "Vistra Corp.",
@@ -224,7 +227,8 @@
      "source": "FactSet",
      "date": "2026-10-13"
     }
-   ]
+   ],
+   "eps_ttm": 5.9889
   },
   "SOFI": {
    "name": "SoFi Technologies Inc.",
@@ -237,7 +241,8 @@
    "peg": 0.38,
    "div_yield_pct": 0.0,
    "price_target": 21.08,
-   "news": []
+   "news": [],
+   "eps_ttm": 0.51
   },
   "UBER": {
    "name": "Uber Technologies Inc.",
@@ -250,7 +255,9 @@
    "peg": null,
    "div_yield_pct": 0.0,
    "price_target": 104.72,
-   "news": []
+   "news": [],
+   "eps_ttm": 4.6192,
+   "peg_note": "Lucro previsto a descer"
   },
   "PGY": {
    "name": "Pagaya Technologies Ltd.",
@@ -263,7 +270,8 @@
    "peg": 0.19,
    "div_yield_pct": 0.0,
    "price_target": 28.33,
-   "news": []
+   "news": [],
+   "eps_ttm": 1.5
   },
   "RKLB": {
    "name": "Rocket Lab Corp.",
@@ -276,7 +284,11 @@
    "peg": null,
    "div_yield_pct": 0.0,
    "price_target": 107.0,
-   "news": []
+   "news": [],
+   "eps_ttm": -0.2,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "SRFM": {
    "name": "Surf Air Mobility Inc.",
@@ -289,7 +301,11 @@
    "peg": null,
    "div_yield_pct": 0,
    "price_target": 2.13,
-   "news": []
+   "news": [],
+   "eps_ttm": -2.01,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "ONDS": {
    "name": "Ondas Inc.",
@@ -302,7 +318,11 @@
    "peg": null,
    "div_yield_pct": 0,
    "price_target": 18.5,
-   "news": []
+   "news": [],
+   "eps_ttm": -0.65,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "XE": {
    "name": "X-Energy Inc.",
@@ -315,7 +335,11 @@
    "peg": null,
    "div_yield_pct": 0,
    "price_target": 33.5,
-   "news": []
+   "news": [],
+   "eps_ttm": -0.75,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "QNT": {
    "name": "Quantinuum Inc.",
@@ -328,7 +352,11 @@
    "peg": null,
    "div_yield_pct": 0,
    "price_target": 93.88,
-   "news": []
+   "news": [],
+   "eps_ttm": -1.56,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "COSM": {
    "name": "Cosmos Health Inc.",
@@ -348,7 +376,11 @@
      "source": "Stockwatch",
      "date": "2026-10-13"
     }
-   ]
+   ],
+   "eps_ttm": -0.7384,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "GENB": {
    "name": "Generate Biomedicines Inc.",
@@ -361,7 +393,11 @@
    "peg": null,
    "div_yield_pct": 0,
    "price_target": 26.0,
-   "news": []
+   "news": [],
+   "eps_ttm": -2.44,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "D2G": {
    "name": "Ørsted A/S",
@@ -388,7 +424,11 @@
      "date": "2026-10-13"
     }
    ],
-   "orig_currency": "DKK"
+   "orig_currency": "DKK",
+   "eps_ttm_dkk": -5.27,
+   "eps_ttm": -5.27,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "peg_note": "Sem lucro 12m"
   },
   "NEO": {
    "name": "NeoGenomics Inc.",
@@ -402,7 +442,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.3091
+   "ntm_eps": 0.3091,
+   "eps_ttm": 0.13
   },
   "NVDA": {
    "name": "NVIDIA Corp.",
@@ -415,7 +456,8 @@
    "peg": 0.12,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 5.84
   },
   "XYL": {
    "name": "Xylem Inc.",
@@ -429,7 +471,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 5.9945
+   "ntm_eps": 5.9945,
+   "eps_ttm": 5.171
   },
   "AGBK": {
    "name": "AGBK",
@@ -442,7 +485,10 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 0.5899,
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "BN": {
    "name": "Brookfield Corp.",
@@ -451,11 +497,13 @@
    "currency": "USD",
    "market_cap": 81905949369.0,
    "pe_ttm": 13.28,
-   "pe_fwd": null,
-   "peg": null,
+   "pe_fwd": 11.14,
+   "peg": 0.58,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "ntm_eps": 3.2931,
+   "eps_ttm": 2.7613
   },
   "MA": {
    "name": "Mastercard Inc.",
@@ -469,7 +517,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 22.1456
+   "ntm_eps": 22.1456,
+   "eps_ttm": 17.8882
   },
   "AMZN": {
    "name": "Amazon.com Inc.",
@@ -482,7 +531,9 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 12.4317,
+   "peg_note": "Lucro previsto a descer"
   },
   "CSCO": {
    "name": "Cisco Systems Inc.",
@@ -495,7 +546,8 @@
    "peg": 0.82,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 4.0907
   },
   "GRAB": {
    "name": "Grab Holdings Ltd.",
@@ -509,7 +561,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.1889
+   "ntm_eps": 0.1889,
+   "eps_ttm": 0.1386
   },
   "GLW": {
    "name": "Corning Inc.",
@@ -523,7 +576,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 3.9827
+   "ntm_eps": 3.9827,
+   "eps_ttm": 2.6902
   },
   "LULU": {
    "name": "Lululemon Athletica Inc.",
@@ -537,7 +591,9 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 8.2218
+   "ntm_eps": 8.2218,
+   "eps_ttm": 12.3968,
+   "peg_note": "Lucro previsto a descer"
   },
   "NKE": {
    "name": "Nike Inc.",
@@ -550,7 +606,9 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 2.0905,
+   "peg_note": "Lucro previsto a descer"
   },
   "MCD": {
    "name": "McDonald's Corp.",
@@ -564,7 +622,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 13.4674
+   "ntm_eps": 13.4674,
+   "eps_ttm": 12.5498
   },
   "LITE": {
    "name": "Lumentum Holdings Inc.",
@@ -578,7 +637,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 24.9562
+   "ntm_eps": 24.9562,
+   "eps_ttm": 6.0199
   },
   "AAOI": {
    "name": "Applied Optoelectronics Inc.",
@@ -592,7 +652,10 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 3.594
+   "ntm_eps": 3.594,
+   "eps_ttm": -0.33,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "peg_note": "Sem lucro 12m"
   },
   "AEHR": {
    "name": "Aehr Test Systems",
@@ -600,13 +663,15 @@
    "change_pct": -0.86,
    "currency": "USD",
    "market_cap": 2528411080.0,
-   "pe_ttm": null,
+   "pe_ttm": 2583.67,
    "pe_fwd": 90.34,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.858
+   "ntm_eps": 0.858,
+   "eps_ttm": 0.03,
+   "peg_note": "Lucro previsto a descer"
   },
   "NVO": {
    "name": "Novo Nordisk A/S",
@@ -615,11 +680,14 @@
    "currency": "USD",
    "market_cap": 169009563925.0,
    "pe_ttm": 9.47,
-   "pe_fwd": null,
+   "pe_fwd": 11.51,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "ntm_eps": 3.3054,
+   "eps_ttm": 4.019,
+   "peg_note": "Lucro previsto a descer"
   },
   "CRCL": {
    "name": "Circle Internet Group",
@@ -632,7 +700,10 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 1.46,
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "IBM": {
    "name": "IBM Corp.",
@@ -646,7 +717,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 12.9223
+   "ntm_eps": 12.9223,
+   "eps_ttm": 11.8775
   },
   "AMPX": {
    "name": "Amprius Technologies",
@@ -660,7 +732,10 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.0297
+   "ntm_eps": 0.0297,
+   "eps_ttm": -0.11,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "peg_note": "Sem lucro 12m"
   },
   "NNE": {
    "name": "Nano Nuclear Energy",
@@ -673,7 +748,11 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": -0.69,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "BR": {
    "name": "Broadridge Financial Solutions",
@@ -687,7 +766,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 10.8024
+   "ntm_eps": 10.8024,
+   "eps_ttm": 9.6417
   },
   "GOOGL": {
    "name": "Alphabet Inc.",
@@ -700,7 +780,9 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": 19.9088,
+   "peg_note": "Lucro previsto a descer"
   },
   "SYM": {
    "name": "Symbotic Inc.",
@@ -714,7 +796,9 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.42
+   "ntm_eps": 0.42,
+   "eps_ttm": 0.8301,
+   "peg_note": "Lucro previsto a descer"
   },
   "TER": {
    "name": "Teradyne Inc.",
@@ -728,7 +812,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 10.8721
+   "ntm_eps": 10.8721,
+   "eps_ttm": 7.6795
   },
   "IONQ": {
    "name": "IonQ Inc.",
@@ -741,7 +826,11 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": -4.66,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "VIAV": {
    "name": "Viavi Solutions Inc.",
@@ -755,7 +844,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 1.6696
+   "ntm_eps": 1.6696,
+   "eps_ttm": 0.9801
   },
   "SHOP": {
    "name": "Shopify Inc.",
@@ -769,7 +859,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 2.1938
+   "ntm_eps": 2.1938,
+   "eps_ttm": 1.5801
   },
   "INTC": {
    "name": "Intel Corp.",
@@ -783,7 +874,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 1.902
+   "ntm_eps": 1.902,
+   "eps_ttm": 0.57
   },
   "PANW": {
    "name": "Palo Alto Networks",
@@ -797,7 +889,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 4.1873
+   "ntm_eps": 4.1873,
+   "eps_ttm": 3.7601
   },
   "CBRS": {
    "name": "Cerebras Systems",
@@ -811,7 +904,10 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 0.2607
+   "ntm_eps": 0.2607,
+   "eps_ttm": -0.04,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "peg_note": "Sem lucro 12m"
   },
   "NEE": {
    "name": "NextEra Energy",
@@ -825,7 +921,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 4.1837
+   "ntm_eps": 4.1837,
+   "eps_ttm": 3.8008
   },
   "PLTR": {
    "name": "Palantir Technologies",
@@ -839,7 +936,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 2.0886
+   "ntm_eps": 2.0886,
+   "eps_ttm": 1.2
   },
   "INDI": {
    "name": "indie Semiconductor",
@@ -852,7 +950,11 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": -0.28,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "SPGI": {
    "name": "S&P Global Inc.",
@@ -866,7 +968,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 19.549
+   "ntm_eps": 19.549,
+   "eps_ttm": 18.1572
   },
   "MCO": {
    "name": "Moody's Corp.",
@@ -880,7 +983,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 18.3377
+   "ntm_eps": 18.3377,
+   "eps_ttm": 16.5702
   },
   "MRVL": {
    "name": "Marvell Technology",
@@ -894,7 +998,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 5.6596
+   "ntm_eps": 5.6596,
+   "eps_ttm": 3.3001
   },
   "BE": {
    "name": "Bloom Energy",
@@ -908,7 +1013,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 4.3979
+   "ntm_eps": 4.3979,
+   "eps_ttm": 1.14
   },
   "VRT": {
    "name": "Vertiv Holdings",
@@ -922,7 +1028,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 8.6287
+   "ntm_eps": 8.6287,
+   "eps_ttm": 4.7203
   },
   "EME": {
    "name": "EMCOR Group",
@@ -936,7 +1043,8 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 35.7344
+   "ntm_eps": 35.7344,
+   "eps_ttm": 29.6655
   },
   "CRWV": {
    "name": "CoreWeave Inc.",
@@ -949,7 +1057,11 @@
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
-   "news": []
+   "news": [],
+   "eps_ttm": -2.01798,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "LEU": {
    "name": "Centrus Energy Corp.",
@@ -963,10 +1075,11 @@
    "div_yield_pct": null,
    "price_target": null,
    "news": [],
-   "ntm_eps": 2.502
+   "ntm_eps": 2.502,
+   "eps_ttm": 2.1999
   },
   "BAYN": {
-   "pe_fwd": null,
+   "pe_fwd": 9.83,
    "peg": null,
    "div_yield_pct": null,
    "price_target": null,
@@ -976,7 +1089,12 @@
    "change_pct": 0.73,
    "currency": "USD",
    "market_cap": 48233645671,
-   "orig_currency": "EUR"
+   "orig_currency": "EUR",
+   "ntm_eps": 4.4905,
+   "eps_ttm_eur": -1.76,
+   "eps_ttm": -1.76,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "peg_note": "Sem lucro 12m"
   },
   "M09": {
    "pe_fwd": null,
@@ -996,7 +1114,10 @@
    "change_pct": 1.15,
    "currency": "USD",
    "market_cap": 1610286986,
-   "orig_currency": "EUR"
+   "orig_currency": "EUR",
+   "pe_ttm_note": "Sem EPS 12m na fonte",
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "YSON": {
    "pe_fwd": null,
@@ -1009,7 +1130,11 @@
    "change_pct": 0.24,
    "currency": "USD",
    "market_cap": 4465843784,
-   "orig_currency": "EUR"
+   "orig_currency": "EUR",
+   "pe_ttm": 18.45,
+   "eps_ttm": 0.1248,
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "EDW": {
    "pe_fwd": null,
@@ -1022,7 +1147,11 @@
    "change_pct": 0.88,
    "currency": "USD",
    "market_cap": 14790408560,
-   "orig_currency": "EUR"
+   "orig_currency": "EUR",
+   "pe_ttm": 43.43,
+   "eps_ttm": 0.3242,
+   "pe_fwd_note": "Sem estimativas fiáveis",
+   "peg_note": "Sem P/E futuro"
   },
   "JNJ": {
    "pe_fwd": 20.88,
@@ -1049,7 +1178,8 @@
    "currency": "USD",
    "market_cap": 599124845202,
    "pe_ttm": 23.17,
-   "ntm_eps": 11.9079
+   "ntm_eps": 11.9079,
+   "eps_ttm": 10.7298
   },
   "VNOM": {
    "pe_fwd": 16.34,
@@ -1063,7 +1193,8 @@
    "currency": "USD",
    "market_cap": 15970748214,
    "pe_ttm": 21.96,
-   "ntm_eps": 2.715
+   "ntm_eps": 2.715,
+   "eps_ttm": 2.02
   },
   "ACHR": {
    "pe_fwd": null,
@@ -1082,11 +1213,15 @@
    "price": 4.44,
    "change_pct": -5.33,
    "currency": "USD",
-   "market_cap": 3372615120
+   "market_cap": 3372615120,
+   "eps_ttm": -1.08,
+   "pe_ttm_note": "Prejuízo (EPS 12m negativo)",
+   "pe_fwd_note": "Prejuízo previsto",
+   "peg_note": "Sem P/E futuro"
   },
   "ASML": {
-   "pe_fwd": null,
-   "peg": null,
+   "pe_fwd": 32.41,
+   "peg": 0.49,
    "div_yield_pct": null,
    "price_target": 2330.75,
    "news": [
@@ -1108,7 +1243,9 @@
    "change_pct": -1.86,
    "currency": "USD",
    "market_cap": 662055608220,
-   "pe_ttm": 53.65
+   "pe_ttm": 53.65,
+   "ntm_eps": 52.9935,
+   "eps_ttm": 32.0179
   }
  },
  "fx": {

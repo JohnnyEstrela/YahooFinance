@@ -73,7 +73,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Ørsted (D2G é a cotação em Frankfurt; dados da bolsa de Copenhaga, ORSTED.CO, convertido de DKK para USD). Sem lucros fiáveis nos últimos 12 meses e sem dividendo desde 2023; P/E futuro baseado em 1 analista."
+      "note": "Ørsted (D2G é a cotação em Frankfurt; dados da bolsa de Copenhaga, ORSTED.CO, convertido de DKK para USD). Sem lucros fiáveis nos últimos 12 meses e sem dividendo desde 2023; P/E futuro baseado em 1 analista. Prejuízo nos últimos 12 meses (EPS −5,27 DKK)."
     },
     {
       "ticker": "SRFM",
@@ -143,14 +143,14 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro omitido: a moeda das estimativas não é clara (AGI Inc., Brasil)."
     },
     {
       "ticker": "BN",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro de 1 analista; dados de vendas da fonte inconsistentes."
     },
     {
       "ticker": "MA",
@@ -234,14 +234,14 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro: estimativas tratadas como DKK e convertidas para USD (inferido pela magnitude)."
     },
     {
       "ticker": "CRCL",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro indisponível: a fonte não tem estimativas de lucro para 2027."
     },
     {
       "ticker": "IBM",
@@ -416,28 +416,28 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Bayer AG (XETRA: BAYN). Valores convertidos de EUR para USD. Sem P/E: só há o EPS do 2.º trimestre (0,935 €, +23% vs estimativa), não o dos 12 meses."
+      "note": "Bayer AG (XETRA: BAYN). Valores convertidos de EUR para USD. Sem P/E: só há o EPS do 2.º trimestre (0,935 €, +23% vs estimativa), não o dos 12 meses. Prejuízo nos últimos 12 meses (EPS −1,76 €). P/E futuro inclui um trimestre de 2027 anómalo (2,82 €)."
     },
     {
       "ticker": "M09",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Mota-Engil SGPS (Lisboa: EGL; M09 é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,24 € sem estimativa de analistas; P/E não calculado."
+      "note": "Mota-Engil SGPS (Lisboa: EGL; M09 é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,24 € sem estimativa de analistas; P/E não calculado. Fonte só tem EPS semestral incompleto e sem estimativas: sem P/E."
     },
     {
       "ticker": "YSON",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "Sonae SGPS (Lisboa: SON). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,0375 € (+26% vs estimativa); P/E não calculado."
+      "note": "Sonae SGPS (Lisboa: SON). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,0375 € (+26% vs estimativa); P/E não calculado. P/E 12m com EPS do 4.º trim. de 2025 a 0 na fonte; sem estimativas além de 1 trimestre."
     },
     {
       "ticker": "EDW",
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": "EDP Renováveis (Lisboa: EDPR; EDW é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,107 € (+61% vs estimativa); P/E não calculado."
+      "note": "EDP Renováveis (Lisboa: EDPR; EDW é o código de Frankfurt). Valores convertidos de EUR para USD. EPS do 2.º trimestre 0,107 € (+61% vs estimativa); P/E não calculado. Estimativas só para 1 trimestre: sem P/E futuro."
     },
     {
       "ticker": "JNJ",
@@ -465,7 +465,7 @@
       "status": "watchlist",
       "shares": 0,
       "avg_cost": 0,
-      "note": ""
+      "note": "P/E futuro: estimativas assumidas em USD (mesma moeda do EPS reportado); não verificado."
     }
   ]
 }
