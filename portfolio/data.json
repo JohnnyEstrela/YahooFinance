@@ -1,0 +1,70 @@
+{
+ "updated": "2026-10-14 14:02 UTC",
+ "thresholds": {
+  "pe": {
+   "cheap": 15,
+   "fair": 30,
+   "pricey": 50
+  },
+  "peg": {
+   "discount": 1,
+   "fair": 2
+  }
+ },
+ "companies": [
+  {
+   "name": "AAPL (demo)",
+   "price": 200.0,
+   "currency": "USD",
+   "pe": 32.1,
+   "fpe": 27.4,
+   "peg": 2.3,
+   "pegy": 2.1,
+   "yield": 0.5,
+   "sector": "Demo",
+   "news": [
+    {
+     "title": "Notícia de exemplo",
+     "url": "#",
+     "publisher": "Demo",
+     "date": null
+    }
+   ],
+   "ticker": "AAPL",
+   "status": "owned",
+   "notes": "Exemplo - substitui pelas tuas empresas",
+   "shares": 10,
+   "avg_cost": 150.0,
+   "value": 2000.0,
+   "pnl_pct": 33.33333333333333,
+   "pe_label": "Caro",
+   "fpe_label": "Justo",
+   "peg_label": "Premium"
+  },
+  {
+   "name": "MSFT (demo)",
+   "price": 200.0,
+   "currency": "USD",
+   "pe": 32.1,
+   "fpe": 27.4,
+   "peg": 2.3,
+   "pegy": 2.1,
+   "yield": 0.5,
+   "sector": "Demo",
+   "news": [
+    {
+     "title": "Notícia de exemplo",
+     "url": "#",
+     "publisher": "Demo",
+     "date": null
+    }
+   ],
+   "ticker": "MSFT",
+   "status": "watching",
+   "notes": "Exemplo",
+   "pe_label": "Caro",
+   "fpe_label": "Justo",
+   "peg_label": "Premium"
+  }
+ ]
+}

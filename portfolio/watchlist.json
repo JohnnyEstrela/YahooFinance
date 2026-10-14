@@ -1,0 +1,10 @@
+{
+  "thresholds": {
+    "pe": {"cheap": 15, "fair": 30, "pricey": 50},
+    "peg": {"discount": 1, "fair": 2}
+  },
+  "companies": [
+    {"ticker": "AAPL", "status": "owned", "shares": 10, "avg_cost": 150.0, "notes": "Exemplo - substitui pelas tuas empresas"},
+    {"ticker": "MSFT", "status": "watching", "notes": "Exemplo"}
+  ]
+}
