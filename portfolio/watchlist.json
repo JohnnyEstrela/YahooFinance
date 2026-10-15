@@ -1,0 +1,12 @@
+{
+  "_ajuda": "Adiciona empresas em 'holdings' (carteira) ou 'watching' (a seguir). Usa o ticker do Yahoo Finance (ex: AAPL, BRK-B, EDP.LS, SAP.DE). 'shares' e 'avg_cost' são opcionais.",
+  "holdings": [
+    { "ticker": "AAPL", "shares": 10, "avg_cost": 150.0 },
+    { "ticker": "MSFT", "shares": 5, "avg_cost": 300.0 }
+  ],
+  "watching": [
+    { "ticker": "NVDA" },
+    { "ticker": "EDP.LS" }
+  ],
+  "market_news_queries": ["stock market", "Federal Reserve", "inflation"]
+}

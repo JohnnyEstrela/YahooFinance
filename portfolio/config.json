@@ -1,0 +1,15 @@
+{
+  "_ajuda": "Limites de valorização. Valor < 'limit' => rótulo. Altera à vontade.",
+  "pe": [
+    { "limit": 15, "label": "Barato", "tone": "good" },
+    { "limit": 30, "label": "Justo", "tone": "fair" },
+    { "limit": 50, "label": "Caro", "tone": "warn" },
+    { "limit": null, "label": "Muito caro", "tone": "bad" }
+  ],
+  "peg": [
+    { "limit": 1, "label": "Desconto", "tone": "good" },
+    { "limit": 2, "label": "Justo", "tone": "fair" },
+    { "limit": null, "label": "Prémio", "tone": "bad" }
+  ],
+  "news_per_ticker": 4
+}

@@ -1,0 +1,329 @@
+{
+ "updated": "2026-10-15 14:12 UTC",
+ "companies": [
+  {
+   "ticker": "AAPL",
+   "group": "holdings",
+   "shares": 10,
+   "avg_cost": 150.0,
+   "error": null,
+   "name": "Apple Inc.",
+   "currency": "USD",
+   "price": 345.01,
+   "change_pct": 0.60065246,
+   "sector": "Technology",
+   "market_cap": 5035283972096.0,
+   "pe": 39.38584,
+   "fpe": 36.022697,
+   "peg": 2.706,
+   "pegy": 1.2413058924879394,
+   "dividend_yield": 0.32,
+   "high52": 348.15,
+   "low52": 243.42,
+   "target": 329.3759,
+   "recommendation": "buy",
+   "pe_class": {
+    "label": "Caro",
+    "tone": "warn"
+   },
+   "fpe_class": {
+    "label": "Caro",
+    "tone": "warn"
+   },
+   "peg_class": {
+    "label": "Prémio",
+    "tone": "bad"
+   },
+   "news": [],
+   "pnl_pct": 130.00666666666666,
+   "value": 3450.1
+  },
+  {
+   "ticker": "MSFT",
+   "group": "holdings",
+   "shares": 5,
+   "avg_cost": 300.0,
+   "error": null,
+   "name": "Microsoft Corporation",
+   "currency": "USD",
+   "price": 536.045,
+   "change_pct": 0.44032595,
+   "sector": "Technology",
+   "market_cap": 3980389253120.0,
+   "pe": 30.404991,
+   "fpe": 22.607924,
+   "peg": 1.6173,
+   "pegy": 0.6973449722393584,
+   "dividend_yield": 0.72,
+   "high52": 553.72,
+   "low52": 349.2,
+   "target": 594.52057,
+   "recommendation": "strong_buy",
+   "pe_class": {
+    "label": "Caro",
+    "tone": "warn"
+   },
+   "fpe_class": {
+    "label": "Justo",
+    "tone": "fair"
+   },
+   "peg_class": {
+    "label": "Justo",
+    "tone": "fair"
+   },
+   "news": [
+    {
+     "title": "Investors Heavily Search Microsoft Corporation (MSFT): Here is What You Need to Know",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-microsoft-corporation-120004867.html",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Why Gabelli Bought Microsoft Corporation (MSFT) Near Its 52-Week Lows",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/why-gabelli-bought-microsoft-corporation-153902653.html",
+     "date": "2026-09-30"
+    },
+    {
+     "title": "Microsoft Corporation (MSFT) is Attracting Investor Attention: Here is What You Should Know",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/microsoft-corporation-msft-attracting-investor-120005850.html",
+     "date": "2026-09-30"
+    },
+    {
+     "title": "Microsoft Corporation (MSFT) Wants AI to Do More. Can Customers Keep Up?",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-corporation-msft-wants-ai-035156310.html",
+     "date": "2026-09-28"
+    }
+   ],
+   "pnl_pct": 78.68166666666664,
+   "value": 2680.225
+  },
+  {
+   "ticker": "NVDA",
+   "group": "watching",
+   "shares": null,
+   "avg_cost": null,
+   "error": null,
+   "name": "NVIDIA Corporation",
+   "currency": "USD",
+   "price": 216.2792,
+   "change_pct": -2.2751937,
+   "sector": "Technology",
+   "market_cap": 5222150701056.0,
+   "pe": 28.233028,
+   "fpe": 13.589094,
+   "peg": 0.4791,
+   "pegy": 0.1059661104179663,
+   "dividend_yield": 0.44,
+   "high52": 243.37,
+   "low52": 164.27,
+   "target": 328.71695,
+   "recommendation": "strong_buy",
+   "pe_class": {
+    "label": "Justo",
+    "tone": "fair"
+   },
+   "fpe_class": {
+    "label": "Barato",
+    "tone": "good"
+   },
+   "peg_class": {
+    "label": "Desconto",
+    "tone": "good"
+   },
+   "news": [
+    {
+     "title": "NVIDIA Corporation (NVDA) is Attracting Investor Attention: Here is What You Should Know",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-attracting-investor-120009899.html",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "A Ferrari Doesn’t Hold Value As Well As An NVIDIA Corporation (NVDA) GPU, According To Jim Cramer",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/ferrari-doesn-t-hold-value-100450518.html",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "NVIDIA Corporation (NVDA) Is a Trending Stock: Facts to Know Before Betting on It",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-trending-stock-130004378.html",
+     "date": "2026-09-22"
+    },
+    {
+     "title": "Investors Heavily Search NVIDIA Corporation (NVDA): Here is What You Need to Know",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-nvidia-corporation-130005530.html",
+     "date": "2026-09-11"
+    }
+   ]
+  },
+  {
+   "ticker": "EDP.LS",
+   "group": "watching",
+   "shares": null,
+   "avg_cost": null,
+   "error": null,
+   "name": "EDP, SA",
+   "currency": "EUR",
+   "price": 4.83,
+   "change_pct": -1.5491278,
+   "sector": "Utilities",
+   "market_cap": 19966840832.0,
+   "pe": 16.655172,
+   "fpe": 15.553552,
+   "peg": 2.6496,
+   "pegy": 0.4744829774252593,
+   "dividend_yield": 4.18,
+   "high52": 4.944,
+   "low52": 3.693,
+   "target": 5.21136,
+   "recommendation": "buy",
+   "pe_class": {
+    "label": "Justo",
+    "tone": "fair"
+   },
+   "fpe_class": {
+    "label": "Justo",
+    "tone": "fair"
+   },
+   "peg_class": {
+    "label": "Prémio",
+    "tone": "bad"
+   },
+   "news": []
+  }
+ ],
+ "market_news": [
+  {
+   "query": "stock market",
+   "items": [
+    {
+     "title": "Stock Market Today (Oct. 15, 2026): S&P 500 edges lower as tech sell-off continues",
+     "publisher": "TheStreet",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-15-140429285.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "Stock market today: S&P 500, Nasdaq slip as chip sell-off continues",
+     "publisher": "Yahoo Finance",
+     "link": "https://finance.yahoo.com/markets/live/copy-stock-market-today-hot-inflation-report-drops-tech-drives-sp-500-nasdaq-down-122056767.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "Stock Market Today: Dow Rises, Nasdaq Tumbles As AI Worries Hit Major Players (Live Coverage)",
+     "publisher": "Investor's Business Daily",
+     "link": "https://finance.yahoo.com/m/27f9f9ee-5b06-3a78-a91a-ddc2a33bd2d2/stock-market-today%3A-dow.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "Stock Market News for Oct 15, 2026",
+     "publisher": "Zacks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-oct-15-123000001.html",
+     "date": "2026-10-15"
+    }
+   ]
+  },
+  {
+   "query": "Federal Reserve",
+   "items": [
+    {
+     "title": "Federal Reserve Watch for Oct. 14: Bowman Says FOMC Can be Patient on Next Rate Hike",
+     "publisher": "MT Newswires",
+     "link": "https://finance.yahoo.com/economy/policy/articles/federal-watch-oct-14-bowman-185648264.html",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Federal Reserve issues sobering message to all US savers: Inflation won’t be under control until 2029",
+     "publisher": "Moneywise",
+     "link": "https://finance.yahoo.com/economy/policy/articles/federal-issues-sobering-message-us-125000711.html",
+     "date": "2026-10-14"
+    },
+    {
+     "title": "Gold Prices Rise as Oil Retreats Ahead of US Inflation Data and Federal Reserve Decision",
+     "publisher": "InvestorsHub",
+     "link": "https://finance.yahoo.com/markets/commodities/articles/gold-prices-rise-oil-retreats-093608553.html",
+     "date": "2026-10-13"
+    },
+    {
+     "title": "American Express Consents to Federal Reserve Board, OCC's Compliance Orders",
+     "publisher": "MT Newswires",
+     "link": "https://finance.yahoo.com/economy/policy/articles/american-express-consents-federal-board-214105209.html",
+     "date": "2026-10-08"
+    }
+   ]
+  },
+  {
+   "query": "inflation",
+   "items": [
+    {
+     "title": "Tech sell-off rolls on as hot inflation data stokes rate worries",
+     "publisher": "AFP",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/tech-stock-lead-rout-us-025325296.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "PPI Surge Complicates Fed’s Inflation Fight, Says Apollo Chief Economist: ‘This Is The Definition Of Stagflation’",
+     "publisher": "Stocktwits",
+     "link": "https://finance.yahoo.com/economy/policy/articles/ppi-surge-complicates-fed-inflation-134003175.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "Wall Street Futures Fall as AI Concerns and Rising US Inflation Pressure Technology Stocks: Dow Jones, S&P, Nasdaq",
+     "publisher": "InvestorsHub",
+     "link": "https://finance.yahoo.com/technology/ai/articles/wall-street-futures-fall-ai-131816509.html",
+     "date": "2026-10-15"
+    },
+    {
+     "title": "Oil Prices Shock Inflation Into Biggest Jump in 4 Years",
+     "publisher": "Moby",
+     "link": "https://finance.yahoo.com/economy/articles/oil-prices-shock-inflation-biggest-131613165.html",
+     "date": "2026-10-15"
+    }
+   ]
+  }
+ ],
+ "bands": {
+  "pe": [
+   {
+    "limit": 15,
+    "label": "Barato",
+    "tone": "good"
+   },
+   {
+    "limit": 30,
+    "label": "Justo",
+    "tone": "fair"
+   },
+   {
+    "limit": 50,
+    "label": "Caro",
+    "tone": "warn"
+   },
+   {
+    "limit": null,
+    "label": "Muito caro",
+    "tone": "bad"
+   }
+  ],
+  "peg": [
+   {
+    "limit": 1,
+    "label": "Desconto",
+    "tone": "good"
+   },
+   {
+    "limit": 2,
+    "label": "Justo",
+    "tone": "fair"
+   },
+   {
+    "limit": null,
+    "label": "Prémio",
+    "tone": "bad"
+   }
+  ]
+ }
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consultor de Carteira</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#14171c;--mut:#6b7280;--bd:#e3e6ea;--acc:#2563eb;
+--good:#15803d;--goodb:#dcfce7;--fair:#a16207;--fairb:#fef9c3;--warn:#c2410c;--warnb:#ffedd5;--bad:#b91c1c;--badb:#fee2e2;--none:#6b7280;--noneb:#eef0f3}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1116;--card:#171b22;--tx:#e8eaee;--mut:#97a0ad;--bd:#2a303a;--acc:#6ea0ff;
+--good:#6ee7a0;--goodb:#12301f;--fair:#fde68a;--fairb:#33290a;--warn:#fdba74;--warnb:#35200e;--bad:#fca5a5;--badb:#3a1414;--none:#97a0ad;--noneb:#222831}}
+:root[data-theme=dark]{--bg:#0e1116;--card:#171b22;--tx:#e8eaee;--mut:#97a0ad;--bd:#2a303a;--acc:#6ea0ff;
+--good:#6ee7a0;--goodb:#12301f;--fair:#fde68a;--fairb:#33290a;--warn:#fdba74;--warnb:#35200e;--bad:#fca5a5;--badb:#3a1414;--none:#97a0ad;--noneb:#222831}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+h1{font-size:20px;margin:0}.sub{color:var(--mut);font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.bar input,.bar select,.bar button{font:inherit;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)}
+.bar input{flex:1 1 180px;min-width:0}
+.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.stat b{display:block;font-size:20px}.stat span{color:var(--mut);font-size:12px}
+.grid{align-items:start;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;gap:8px}
+.tk{font-weight:700;font-size:17px}.nm{color:var(--mut);font-size:13px}
+.px{text-align:right;font-weight:600}.up{color:var(--good)}.dn{color:var(--bad)}
+.tag{font-size:11px;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mut)}
+.m{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m div{min-width:0;background:var(--bg);border-radius:8px;padding:8px}.m small{display:block;color:var(--mut);font-size:11px}
+.m b{font-size:17px}
+.pill{display:inline-block;font-size:11px;font-weight:600;border-radius:99px;padding:1px 8px;margin-top:2px}
+.good{background:var(--goodb);color:var(--good)}.fair{background:var(--fairb);color:var(--fair)}
+.warn{background:var(--warnb);color:var(--warn)}.bad{background:var(--badb);color:var(--bad)}.none{background:var(--noneb);color:var(--none)}
+.kv{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--mut)}
+.news a{display:block;color:var(--tx);text-decoration:none;font-size:13px;padding:5px 0;border-top:1px solid var(--bd)}
+.news a:hover{color:var(--acc)}.news small{color:var(--mut)}
+h2{font-size:16px;margin:22px 0 8px}
+.legend{font-size:12px;color:var(--mut)}
+.err{color:var(--bad);font-size:12px}
+@media(max-width:420px){.m{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><div class="wrap">
+<header><div><h1>📊 Consultor de Carteira</h1><div class="sub" id="upd"></div></div>
+<button id="theme" class="bar" style="padding:6px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)">Tema</button></header>
+<div class="summary" id="summary"></div>
+<div class="bar tabs" id="tabs"></div>
+<div class="bar"><input id="q" placeholder="Pesquisar empresa ou ticker…" aria-label="Pesquisar">
+<select id="sort" aria-label="Ordenar"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E (LTM)</option><option value="fpe">P/E (próx. 12m)</option><option value="peg">PEG</option><option value="chg">Variação do dia</option></select>
+<select id="val" aria-label="Filtrar valorização"><option value="">Todas as valorizações</option><option value="good">Só baratas / desconto</option></select></div>
+<div class="grid" id="grid"></div>
+<h2>Notícias dos mercados</h2><div id="market"></div>
+<h2>Como ler os indicadores</h2><div class="legend" id="legend"></div>
+<p class="legend">Dados Yahoo Finance, podem ter atraso. Informação para acompanhamento pessoal, não é aconselhamento financeiro.</p>
+</div>
+<script>
+const D={"updated": "2026-10-15 14:12 UTC", "companies": [{"ticker": "AAPL", "group": "holdings", "shares": 10, "avg_cost": 150.0, "error": null, "name": "Apple Inc.", "currency": "USD", "price": 345.01, "change_pct": 0.60065246, "sector": "Technology", "market_cap": 5035283972096.0, "pe": 39.38584, "fpe": 36.022697, "peg": 2.706, "pegy": 1.2413058924879394, "dividend_yield": 0.32, "high52": 348.15, "low52": 243.42, "target": 329.3759, "recommendation": "buy", "pe_class": {"label": "Caro", "tone": "warn"}, "fpe_class": {"label": "Caro", "tone": "warn"}, "peg_class": {"label": "Prémio", "tone": "bad"}, "news": [], "pnl_pct": 130.00666666666666, "value": 3450.1}, {"ticker": "MSFT", "group": "holdings", "shares": 5, "avg_cost": 300.0, "error": null, "name": "Microsoft Corporation", "currency": "USD", "price": 536.045, "change_pct": 0.44032595, "sector": "Technology", "market_cap": 3980389253120.0, "pe": 30.404991, "fpe": 22.607924, "peg": 1.6173, "pegy": 0.6973449722393584, "dividend_yield": 0.72, "high52": 553.72, "low52": 349.2, "target": 594.52057, "recommendation": "strong_buy", "pe_class": {"label": "Caro", "tone": "warn"}, "fpe_class": {"label": "Justo", "tone": "fair"}, "peg_class": {"label": "Justo", "tone": "fair"}, "news": [{"title": "Investors Heavily Search Microsoft Corporation (MSFT): Here is What You Need to Know", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-microsoft-corporation-120004867.html", "date": "2026-10-12"}, {"title": "Why Gabelli Bought Microsoft Corporation (MSFT) Near Its 52-Week Lows", "publisher": "Insider Monkey", "link": "https://finance.yahoo.com/markets/stocks/articles/why-gabelli-bought-microsoft-corporation-153902653.html", "date": "2026-09-30"}, {"title": "Microsoft Corporation (MSFT) is Attracting Investor Attention: Here is What You Should Know", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/microsoft-corporation-msft-attracting-investor-120005850.html", "date": "2026-09-30"}, {"title": "Microsoft Corporation (MSFT) Wants AI to Do More. Can Customers Keep Up?", "publisher": "Insider Monkey", "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-corporation-msft-wants-ai-035156310.html", "date": "2026-09-28"}], "pnl_pct": 78.68166666666664, "value": 2680.225}, {"ticker": "NVDA", "group": "watching", "shares": null, "avg_cost": null, "error": null, "name": "NVIDIA Corporation", "currency": "USD", "price": 216.2792, "change_pct": -2.2751937, "sector": "Technology", "market_cap": 5222150701056.0, "pe": 28.233028, "fpe": 13.589094, "peg": 0.4791, "pegy": 0.1059661104179663, "dividend_yield": 0.44, "high52": 243.37, "low52": 164.27, "target": 328.71695, "recommendation": "strong_buy", "pe_class": {"label": "Justo", "tone": "fair"}, "fpe_class": {"label": "Barato", "tone": "good"}, "peg_class": {"label": "Desconto", "tone": "good"}, "news": [{"title": "NVIDIA Corporation (NVDA) is Attracting Investor Attention: Here is What You Should Know", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-attracting-investor-120009899.html", "date": "2026-10-05"}, {"title": "A Ferrari Doesn’t Hold Value As Well As An NVIDIA Corporation (NVDA) GPU, According To Jim Cramer", "publisher": "Insider Monkey", "link": "https://finance.yahoo.com/markets/stocks/articles/ferrari-doesn-t-hold-value-100450518.html", "date": "2026-09-25"}, {"title": "NVIDIA Corporation (NVDA) Is a Trending Stock: Facts to Know Before Betting on It", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-trending-stock-130004378.html", "date": "2026-09-22"}, {"title": "Investors Heavily Search NVIDIA Corporation (NVDA): Here is What You Need to Know", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-nvidia-corporation-130005530.html", "date": "2026-09-11"}]}, {"ticker": "EDP.LS", "group": "watching", "shares": null, "avg_cost": null, "error": null, "name": "EDP, SA", "currency": "EUR", "price": 4.83, "change_pct": -1.5491278, "sector": "Utilities", "market_cap": 19966840832.0, "pe": 16.655172, "fpe": 15.553552, "peg": 2.6496, "pegy": 0.4744829774252593, "dividend_yield": 4.18, "high52": 4.944, "low52": 3.693, "target": 5.21136, "recommendation": "buy", "pe_class": {"label": "Justo", "tone": "fair"}, "fpe_class": {"label": "Justo", "tone": "fair"}, "peg_class": {"label": "Prémio", "tone": "bad"}, "news": []}], "market_news": [{"query": "stock market", "items": [{"title": "Stock Market Today (Oct. 15, 2026): S&P 500 edges lower as tech sell-off continues", "publisher": "TheStreet", "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-15-140429285.html", "date": "2026-10-15"}, {"title": "Stock market today: S&P 500, Nasdaq slip as chip sell-off continues", "publisher": "Yahoo Finance", "link": "https://finance.yahoo.com/markets/live/copy-stock-market-today-hot-inflation-report-drops-tech-drives-sp-500-nasdaq-down-122056767.html", "date": "2026-10-15"}, {"title": "Stock Market Today: Dow Rises, Nasdaq Tumbles As AI Worries Hit Major Players (Live Coverage)", "publisher": "Investor's Business Daily", "link": "https://finance.yahoo.com/m/27f9f9ee-5b06-3a78-a91a-ddc2a33bd2d2/stock-market-today%3A-dow.html", "date": "2026-10-15"}, {"title": "Stock Market News for Oct 15, 2026", "publisher": "Zacks", "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-news-oct-15-123000001.html", "date": "2026-10-15"}]}, {"query": "Federal Reserve", "items": [{"title": "Federal Reserve Watch for Oct. 14: Bowman Says FOMC Can be Patient on Next Rate Hike", "publisher": "MT Newswires", "link": "https://finance.yahoo.com/economy/policy/articles/federal-watch-oct-14-bowman-185648264.html", "date": "2026-10-14"}, {"title": "Federal Reserve issues sobering message to all US savers: Inflation won’t be under control until 2029", "publisher": "Moneywise", "link": "https://finance.yahoo.com/economy/policy/articles/federal-issues-sobering-message-us-125000711.html", "date": "2026-10-14"}, {"title": "Gold Prices Rise as Oil Retreats Ahead of US Inflation Data and Federal Reserve Decision", "publisher": "InvestorsHub", "link": "https://finance.yahoo.com/markets/commodities/articles/gold-prices-rise-oil-retreats-093608553.html", "date": "2026-10-13"}, {"title": "American Express Consents to Federal Reserve Board, OCC's Compliance Orders", "publisher": "MT Newswires", "link": "https://finance.yahoo.com/economy/policy/articles/american-express-consents-federal-board-214105209.html", "date": "2026-10-08"}]}, {"query": "inflation", "items": [{"title": "Tech sell-off rolls on as hot inflation data stokes rate worries", "publisher": "AFP", "link": "https://finance.yahoo.com/markets/stocks/articles/tech-stock-lead-rout-us-025325296.html", "date": "2026-10-15"}, {"title": "PPI Surge Complicates Fed’s Inflation Fight, Says Apollo Chief Economist: ‘This Is The Definition Of Stagflation’", "publisher": "Stocktwits", "link": "https://finance.yahoo.com/economy/policy/articles/ppi-surge-complicates-fed-inflation-134003175.html", "date": "2026-10-15"}, {"title": "Wall Street Futures Fall as AI Concerns and Rising US Inflation Pressure Technology Stocks: Dow Jones, S&P, Nasdaq", "publisher": "InvestorsHub", "link": "https://finance.yahoo.com/technology/ai/articles/wall-street-futures-fall-ai-131816509.html", "date": "2026-10-15"}, {"title": "Oil Prices Shock Inflation Into Biggest Jump in 4 Years", "publisher": "Moby", "link": "https://finance.yahoo.com/economy/articles/oil-prices-shock-inflation-biggest-131613165.html", "date": "2026-10-15"}]}], "bands": {"pe": [{"limit": 15, "label": "Barato", "tone": "good"}, {"limit": 30, "label": "Justo", "tone": "fair"}, {"limit": 50, "label": "Caro", "tone": "warn"}, {"limit": null, "label": "Muito caro", "tone": "bad"}], "peg": [{"limit": 1, "label": "Desconto", "tone": "good"}, {"limit": 2, "label": "Justo", "tone": "fair"}, {"limit": null, "label": "Prémio", "tone": "bad"}]}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const f=(v,d=1)=>v==null?"n/d":v.toFixed(d);
+const money=v=>v==null?"n/d":v>=1e12?(v/1e12).toFixed(2)+"T":v>=1e9?(v/1e9).toFixed(1)+"B":(v/1e6).toFixed(0)+"M";
+let tab="all";
+$("#upd").textContent="Atualizado: "+D.updated;
+const tabs=[["all","Todas"],["holdings","Carteira"],["watching","A seguir"]];
+$("#tabs").innerHTML=tabs.map(([k,l])=>`<button data-k="${k}">${l}</button>`).join("");
+$("#tabs").onclick=e=>{if(e.target.dataset.k){tab=e.target.dataset.k;render()}};
+["q","sort","val"].forEach(i=>$("#"+i).oninput=render);
+$("#theme").onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).getPropertyValue("--bg").trim()==="#0e1116";r.dataset.theme=d?"light":"dark"};
+function pill(c){return `<span class="pill ${c.tone}">${esc(c.label)}</span>`}
+function card(c){
+ const chg=c.change_pct, cls=chg>=0?"up":"dn";
+ const pos=c.value!=null?`<span>Posição: ${f(c.value,0)} ${esc(c.currency)}</span><span class="${c.pnl_pct>=0?"up":"dn"}">P/L: ${f(c.pnl_pct)}%</span>`:"";
+ const news=(c.news||[]).map(n=>`<a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title)}<br><small>${esc(n.publisher)} · ${esc(n.date)}</small></a>`).join("");
+ return `<article class="card"><div class="top"><div><div class="tk">${esc(c.ticker)} <span class="tag">${c.group==="holdings"?"Carteira":"A seguir"}</span></div><div class="nm">${esc(c.name)}${c.sector?" · "+esc(c.sector):""}</div></div>
+ <div class="px">${f(c.price,2)} ${esc(c.currency||"")}<div class="${cls}" style="font-size:12px">${chg==null?"":(chg>=0?"▲ ":"▼ ")+f(Math.abs(chg),2)+"%"}</div></div></div>
+ ${c.error?`<div class="err">Erro ao obter dados: ${esc(c.error)}</div>`:`
+ <div class="m"><div><small>P/E (12m passados)</small><b>${f(c.pe)}</b><br>${pill(c.pe_class)}</div>
+ <div><small>P/E (próx. 12m)</small><b>${f(c.fpe)}</b><br>${pill(c.fpe_class)}</div>
+ <div><small>PEG</small><b>${f(c.peg,2)}</b><br>${pill(c.peg_class)}</div></div>
+ <div class="kv"><span>PEGY: ${f(c.pegy,2)}</span><span>Dividendo: ${f(c.dividend_yield,2)}%</span><span>Cap.: ${money(c.market_cap)}</span>
+ <span>52s: ${f(c.low52,0)}–${f(c.high52,0)}</span><span>Alvo analistas: ${f(c.target,0)}</span><span>Rec.: ${esc(c.recommendation||"n/d")}</span>${pos}</div>`}
+ <div class="news">${news}</div></article>`}
+function render(){
+ document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.k===tab));
+ const q=$("#q").value.toLowerCase(), s=$("#sort").value, v=$("#val").value;
+ let L=D.companies.filter(c=>(tab==="all"||c.group===tab)&&(c.ticker+" "+c.name).toLowerCase().includes(q)&&(!v||[c.pe_class,c.fpe_class,c.peg_class].some(x=>x&&x.tone==="good")));
+ const key={ticker:c=>c.ticker,pe:c=>c.pe,fpe:c=>c.fpe,peg:c=>c.peg,chg:c=>-(c.change_pct??-1e9)}[s];
+ L.sort((a,b)=>{const x=key(a),y=key(b);if(x==null)return 1;if(y==null)return -1;return x<y?-1:x>y?1:0});
+ $("#grid").innerHTML=L.map(card).join("")||'<p class="sub">Sem resultados.</p>';
+ const H=D.companies.filter(c=>c.group==="holdings"),val=H.reduce((a,c)=>a+(c.value||0),0);
+ const cheap=D.companies.filter(c=>c.peg_class.tone==="good"||c.fpe_class.tone==="good").length;
+ $("#summary").innerHTML=[[D.companies.length,"empresas"],[H.length,"na carteira"],[val?val.toFixed(0):"n/d","valor da carteira (moedas mistas)"],[cheap,"com sinal de desconto"]].map(([a,b])=>`<div class="stat"><b>${a}</b><span>${b}</span></div>`).join("");
+}
+$("#market").innerHTML=D.market_news.map(m=>`<div class="card" style="margin-bottom:10px"><b>${esc(m.query)}</b><div class="news">${m.items.map(n=>`<a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title)}<br><small>${esc(n.publisher)} · ${esc(n.date)}</small></a>`).join("")||'<small>Sem notícias.</small>'}</div></div>`).join("");
+const band=(n,b)=>`<b>${n}:</b> `+b.map((x,i)=>`${esc(x.label)} ${x.limit==null?"acima":"&lt; "+x.limit}`).join(" · ");
+$("#legend").innerHTML=band("P/E",D.bands.pe)+"<br>"+band("PEG",D.bands.peg)+"<br>PEGY = P/E futuro ÷ (crescimento + dividendo).";
+render();
+</script></body></html>
