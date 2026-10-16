@@ -1,0 +1,220 @@
+{
+ "updated": "2026-10-16 14:12 UTC",
+ "empresas": [
+  {
+   "ticker": "AAPL",
+   "status": "portfolio",
+   "name": "Apple Inc.",
+   "sector": "",
+   "currency": "USD",
+   "price": 344.56,
+   "change_pct": null,
+   "pe": 39.51376,
+   "fpe": 35.97467,
+   "peg": 2.706,
+   "div_yield": 0.32,
+   "target": null,
+   "rec": "",
+   "pe_class": [
+    "Pricey",
+    "pricey"
+   ],
+   "fpe_class": [
+    "Pricey",
+    "pricey"
+   ],
+   "peg_class": [
+    "Premium",
+    "exp"
+   ],
+   "news": [
+    {
+     "title": "From AI laggard to $5 Trillion: Apple's winning strategy",
+     "url": "https://finance.yahoo.com/video/ai-laggard-5-trillion-apples-135700400.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "Apple's iPhone Duo sells out immediately. But is demand durable?",
+     "url": "https://finance.yahoo.com/video/apples-iphone-duo-sells-out-immediately-but-is-demand-durable-132417133.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "AAPL Stock Gains As Strong Demand Reportedly Pushes iPhone Duo Delivery To December",
+     "url": "https://stocktwits.com/news-articles/markets/equity/aapl-stock-gains-as-strong-demand-reportedly-pushes-i-phone-duo-delivery-to-december/cZxK5AjRBsm?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "How Much Of Apple Stock Rides On One Product?",
+     "url": "https://www.trefis.com/articles/619026/how-much-of-apple-stock-rides-on-one-product/2026-10-16?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    }
+   ],
+   "value": 3445.6,
+   "pnl_pct": 129.70666666666668
+  },
+  {
+   "ticker": "MSFT",
+   "status": "portfolio",
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 536.24,
+   "change_pct": -0.5932077710218087,
+   "pe": 29.874092,
+   "fpe": 22.605957,
+   "peg": 1.6173,
+   "div_yield": 0.73,
+   "target": 596.2187,
+   "rec": "strong_buy",
+   "pe_class": [
+    "Fair Value",
+    "fair"
+   ],
+   "fpe_class": [
+    "Fair Value",
+    "fair"
+   ],
+   "peg_class": [
+    "Fair",
+    "fair"
+   ],
+   "news": [
+    {
+     "title": "Microsoft’s AI Chief Says It Built a Better Model Than OpenAI’s With a Quarter of the Computing Power",
+     "url": "https://247wallst.com/investing/2026/10/16/microsofts-ai-chief-says-it-built-a-better-model-than-openais-with-a-quarter-of-the-computing-power/?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "NiSource Expands Microsoft Power Deal, Projects $1.75B In Customer Savings",
+     "url": "https://stocktwits.com/news-articles/markets/equity/ni-source-expands-microsoft-power-deal-projects-1-75-b-in-customer-savings/cZxKTrVRBsi?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "NiSource Signs 20-Year Microsoft Power Agreement for 1,100 MW Indiana Data Centre Campus",
+     "url": "https://investorshub.advfn.com/market-news/article/38209/nisource-signs-20-year-microsoft-power-agreement-for-1100-mw-indiana-data-centre-campus?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "NiSource announces long-term agreement with Microsoft expected to increase customer savings and support Indiana’s economic growth",
+     "url": "https://finance.yahoo.com/energy/articles/nisource-announces-long-term-agreement-111500978.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    }
+   ]
+  },
+  {
+   "ticker": "NVDA",
+   "status": "watchlist",
+   "name": "NVDA",
+   "sector": "",
+   "currency": "",
+   "price": null,
+   "change_pct": null,
+   "pe": null,
+   "fpe": null,
+   "peg": 0.4791,
+   "div_yield": null,
+   "target": null,
+   "rec": "",
+   "pe_class": [
+    "n/d",
+    "nd"
+   ],
+   "fpe_class": [
+    "n/d",
+    "nd"
+   ],
+   "peg_class": [
+    "Discount",
+    "cheap"
+   ],
+   "news": [
+    {
+     "title": "Tesla pops, tech heads for losing week: AlphaCheck",
+     "url": "https://finance.yahoo.com/markets/article/tesla-pops-tech-heads-for-losing-week-alphacheck-135820459.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "NVDA-Led AI Boom Looks a Lot Like the Railroad Bubble of 1873, Pulitzer-Winning Historian Warns",
+     "url": "https://www.benzinga.com/markets/prediction-markets/26/10/62410507/ai-boom-railroad-bubble-1873-nvidia?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "SANGRIX Sets November 2026 Delivery Schedule for 128 NVIDIA Blackwell B300 GPUs in Malaysia",
+     "url": "https://investorshub.advfn.com/market-news/article/38217/sangrix-sets-november-2026-delivery-schedule-for-128-nvidia-blackwell-b300-gpus-in-malaysia?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "Netflix stock plunges 25% as media giant shakes up leadership",
+     "url": "https://finance.yahoo.com/video/netflix-stock-plunges-25-as-media-giant-shakes-up-leadership-140602926.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    }
+   ]
+  },
+  {
+   "ticker": "GOOGL",
+   "status": "watchlist",
+   "name": "Alphabet Inc.",
+   "sector": "",
+   "currency": "USD",
+   "price": 344.14,
+   "change_pct": null,
+   "pe": 17.267437,
+   "fpe": 22.563969,
+   "peg": 1.2549,
+   "div_yield": 0.25,
+   "target": null,
+   "rec": "",
+   "pe_class": [
+    "Fair Value",
+    "fair"
+   ],
+   "fpe_class": [
+    "Fair Value",
+    "fair"
+   ],
+   "peg_class": [
+    "Fair",
+    "fair"
+   ],
+   "news": [
+    {
+     "title": "Is Amazon Stock Poised to Gain as AI Boosts Cash Flow Prospects?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-stock-poised-gain-ai-122400266.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "From AI laggard to $5 Trillion: Apple's winning strategy",
+     "url": "https://finance.yahoo.com/video/ai-laggard-5-trillion-apples-135700400.html?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "How Much Of Apple Stock Rides On One Product?",
+     "url": "https://www.trefis.com/articles/619026/how-much-of-apple-stock-rides-on-one-product/2026-10-16?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    },
+    {
+     "title": "How Bad Would Outspending Its Cash Flow Be For Meta Stock?",
+     "url": "https://www.trefis.com/articles/619028/how-bad-would-outspending-its-cash-flow-be-for-meta-stock/2026-10-16?.tsrc=rss",
+     "src": "Yahoo Finance",
+     "date": "16 Oct 2026"
+    }
+   ]
+  }
+ ],
+ "erros": []
+}

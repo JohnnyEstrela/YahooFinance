@@ -1,0 +1,13 @@
+{
+  "_ajuda": "Adiciona empresas aqui. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost são opcionais.",
+  "limites": {
+    "pe": {"barato": 15, "fair": 30, "caro": 50},
+    "peg": {"desconto": 1, "fair": 2}
+  },
+  "empresas": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150},
+    {"ticker": "MSFT", "status": "portfolio"},
+    {"ticker": "NVDA", "status": "watchlist"},
+    {"ticker": "GOOGL", "status": "watchlist"}
+  ]
+}
