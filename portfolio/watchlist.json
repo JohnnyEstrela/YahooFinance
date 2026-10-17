@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "currency_note": "Valores na moeda de cada ação (Yahoo Finance).",
+    "pe_bands": {"cheap": 15, "fair": 30, "pricey": 50},
+    "peg_bands": {"discount": 1, "fair": 2},
+    "market_news_queries": ["stock market", "Federal Reserve", "S&P 500"],
+    "news_per_ticker": 3
+  },
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "Exemplo – edita ou apaga"},
+    {"ticker": "MSFT", "status": "watchlist", "notes": "Exemplo – a seguir"},
+    {"ticker": "KO", "status": "watchlist", "notes": "Exemplo – dividendos"}
+  ]
+}

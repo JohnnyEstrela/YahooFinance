@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#161a20;--mu:#667085;--bd:#e4e7ec;--ac:#2563eb;
+--cheap:#16a34a;--fair:#2563eb;--pricey:#d97706;--expensive:#dc2626;--na:#98a2b3}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--tx:#e8ebf0;--mu:#8b95a5;--bd:#262c36;--ac:#6ea0ff}}
+:root[data-theme=light]{--bg:#f6f7f9;--card:#fff;--tx:#161a20;--mu:#667085;--bd:#e4e7ec;--ac:#2563eb}
+:root[data-theme=dark]{--bg:#0e1116;--card:#171b22;--tx:#e8ebf0;--mu:#8b95a5;--bd:#262c36;--ac:#6ea0ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}
+h1{font-size:20px;margin:0}small,.mu{color:var(--mu)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+button,select,input{font:inherit;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px 10px}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:17px}
+.price{font-size:20px;font-weight:600;text-align:right}.up{color:var(--cheap)}.dn{color:var(--expensive)}
+.m{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m div{background:var(--bg);border-radius:8px;padding:8px}.m b{display:block;font-size:17px}
+.tag{display:inline-block;font-size:12px;border-radius:99px;padding:1px 8px;color:#fff;margin-top:2px}
+.cheap,.discount{background:var(--cheap)}.fair{background:var(--fair)}.pricey{background:var(--pricey)}
+.expensive,.premium{background:var(--expensive)}.n\/a{background:var(--na)}
+.st{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu)}
+a{color:var(--ac);text-decoration:none}ul{padding-left:18px;margin:6px 0}li{margin:4px 0}
+details summary{cursor:pointer;color:var(--mu)}h2{font-size:16px;margin:24px 0 8px}
+.legend{font-size:13px}
+</style></head><body><main>
+<header><div><h1>📈 O meu portefólio</h1><small id="upd"></small></div><button id="th">🌓</button></header>
+<div class="bar" id="bar"></div>
+<div class="grid" id="grid"></div>
+<h2>Notícias do mercado</h2><ul id="mkt"></ul>
+<h2>Legenda</h2><div class="legend mu" id="leg"></div>
+</main>
+<script>
+const D={"updated": "2026-10-17T14:09+00:00", "settings": {"currency_note": "Valores na moeda de cada ação (Yahoo Finance).", "pe_bands": {"cheap": 15, "fair": 30, "pricey": 50}, "peg_bands": {"discount": 1, "fair": 2}, "market_news_queries": ["stock market", "Federal Reserve", "S&P 500"], "news_per_ticker": 3}, "companies": [{"ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "Exemplo – edita ou apaga", "name": "Apple Inc.", "sector": "Technology", "currency": "USD", "price": 343.46, "change_pct": 0.43, "market_cap": 5012516765696, "pe": 39.39, "forward_pe": 35.86, "peg": 2.71, "pe_class": "pricey", "forward_pe_class": "pricey", "peg_class": "premium", "dividend_yield_pct": 0.31, "target_price": 329.38, "recommendation": "buy", "week52_low": 243.42, "week52_high": 348.15, "news": [{"title": "Apple's New Home Collection Gives Investors Another Reason to Remain Bullish", "publisher": "Motley Fool", "link": "https://finance.yahoo.com/technology/articles/apples-home-collection-gives-investors-133500850.html", "time": 1792244100}, {"title": "What Happens When You Replace SCHD With JEPQ in a $945,000 Income Portfolio", "publisher": "24/7 Wall St.", "link": "https://finance.yahoo.com/markets/options/articles/happens-replace-schd-jepq-945-121357944.html", "time": 1792239237}, {"title": "Apple, Salesforce Lead Five Stocks Near Buy Points As Market Struggles", "publisher": "Investor's Business Daily", "link": "https://finance.yahoo.com/m/2ea92b1d-49c9-3825-bb7f-1768711b7070/apple%2C-salesforce-lead-five.html", "time": 1792238451}]}, {"ticker": "MSFT", "status": "watchlist", "notes": "Exemplo – a seguir", "name": "Microsoft Corporation", "sector": "Technology", "currency": "USD", "price": 529.05, "change_pct": -1.93, "market_cap": 3928485003264, "pe": 29.47, "forward_pe": 22.3, "peg": 1.62, "pe_class": "fair", "forward_pe_class": "fair", "peg_class": "fair", "dividend_yield_pct": 0.74, "target_price": 599.24, "recommendation": "strong_buy", "week52_low": 349.2, "week52_high": 553.72, "news": [{"title": "BofA Warns AI Investors Could Lose Even If the Technology Works", "publisher": "24/7 Wall St.", "link": "https://finance.yahoo.com/markets/stocks/articles/bofa-warns-ai-investors-could-114411469.html", "time": 1792237451}, {"title": "What would superintelligence look and feel like?", "publisher": "Investing.com", "link": "https://finance.yahoo.com/technology/ai/articles/superintelligence-look-feel-050934162.html", "time": 1792213774}, {"title": "Why You Should Think About Palantir Differently Now", "publisher": "Trefis", "link": "https://finance.yahoo.com/markets/stocks/articles/why-think-palantir-differently-now-025036808.html", "time": 1792205436}]}, {"ticker": "KO", "status": "watchlist", "notes": "Exemplo – dividendos", "name": "The Coca-Cola Company", "sector": "Consumer Defensive", "currency": "USD", "price": 93.9, "change_pct": 2.07, "market_cap": 404009353216, "pe": 28.2, "forward_pe": 26.65, "peg": 4.03, "pe_class": "fair", "forward_pe_class": "fair", "peg_class": "premium", "dividend_yield_pct": 2.26, "target_price": 94.74, "recommendation": "buy", "week52_low": 67.27, "week52_high": 94.1, "news": [{"title": "In 1918, Milton Hershey Quietly Put About $60 Million In Stock Into A Trust. Over 100 Years Later, That Trust Still Exists And Holds About $23.6 Billion In Assets. Wealthy Donors Still Use A Similar Strategy, And The Legal Work To Set One Up Starts At A Few Thousand Dollars", "publisher": "24/7 Wall St.", "link": "https://finance.yahoo.com/markets/stocks/articles/1918-milton-hershey-quietly-put-122819362.html", "time": 1792240099}, {"title": "When the Stock Market Gets Dangerous, These 6 Investments Have a History of Holding Up", "publisher": "Motley Fool", "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-gets-dangerous-6-112000632.html", "time": 1792236000}, {"title": "It’s Too Late for Small Fixes at Pepsi", "publisher": "The Wall Street Journal", "link": "https://finance.yahoo.com/m/960f5029-4214-3ffc-b188-b0555d685102/it%E2%80%99s-too-late-for-small-fixes.html", "time": 1792229400}]}], "market_news": [{"title": "$25,000 Up Front or $250 More a Month? The Shortcut to a VTI Million Most Savers Overlook", "publisher": "24/7 Wall St.", "link": "https://finance.yahoo.com/markets/stocks/articles/25-000-front-250-more-123212635.html", "time": 1792240332}, {"title": "When the Stock Market Gets Dangerous, These 6 Investments Have a History of Holding Up", "publisher": "Motley Fool", "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-gets-dangerous-6-112000632.html", "time": 1792236000}, {"title": "Oil Prices Are Back Above $100. History Says the Biggest Stock Market Loser May Now Offer the Biggest Upside.", "publisher": "Motley Fool", "link": "https://finance.yahoo.com/energy/articles/oil-prices-back-above-100-102500097.html", "time": 1792232700}, {"title": "If a Stock Market Crash Is Coming, History Says These 3 ETFs Are the Smartest Buys", "publisher": "Motley Fool", "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-crash-coming-history-090400124.html", "time": 1792227840}, {"title": "Federal Reserve Watch for Oct. 14: Bowman Says FOMC Can be Patient on Next Rate Hike", "publisher": "MT Newswires", "link": "https://finance.yahoo.com/economy/policy/articles/federal-watch-oct-14-bowman-185648264.html", "time": 1792004208}, {"title": "Federal Reserve issues sobering message to all US savers: Inflation won’t be under control until 2029", "publisher": "Moneywise", "link": "https://finance.yahoo.com/economy/policy/articles/federal-issues-sobering-message-us-125000711.html", "time": 1791982200}, {"title": "Gold Prices Rise as Oil Retreats Ahead of US Inflation Data and Federal Reserve Decision", "publisher": "InvestorsHub", "link": "https://finance.yahoo.com/markets/commodities/articles/gold-prices-rise-oil-retreats-093608553.html", "time": 1791884168}, {"title": "American Express Consents to Federal Reserve Board, OCC's Compliance Orders", "publisher": "MT Newswires", "link": "https://finance.yahoo.com/economy/policy/articles/american-express-consents-federal-board-214105209.html", "time": 1791495665}, {"title": "Dow Jones Futures: What To Do After S&P 500, Nasdaq Break Key Levels; Will Meta, SpaceX Earnings Save AI?", "publisher": "Investor's Business Daily", "link": "https://finance.yahoo.com/m/4342d021-69d3-3aa1-9753-76f72c9ba95d/dow-jones-futures%3A-what-to-do.html", "time": 1792242031}, {"title": "These 7 Stocks Are Analyst Favorites For Magnificent Earnings Growth; Eli Lilly Leads Industry", "publisher": "Investor's Business Daily", "link": "https://finance.yahoo.com/m/2b47c372-177e-3051-aa01-406a8d82b220/these-7-stocks-are-analyst.html", "time": 1792238541}, {"title": "Wall Street's record breakouts unravel as investors dump recent winners: Chart of the Day", "publisher": "Yahoo Finance", "link": "https://finance.yahoo.com/markets/article/wall-streets-record-breakouts-unravel-as-investors-dump-recent-winners-chart-of-the-day-115226004.html", "time": 1792237946}]};
+const L={cheap:"Barato",fair:"Justo",pricey:"Caro",expensive:"Muito caro","n/a":"n/d",discount:"Desconto",premium:"Prémio"};
+let f={status:"all",sort:"ticker"};
+const $=s=>document.querySelector(s),fmt=(v,d=2)=>v==null?"–":v.toFixed(d);
+const tag=c=>`<span class="tag ${c}">${L[c]}</span>`;
+const ago=t=>t?new Date(t*1000).toLocaleDateString("pt-PT",{day:"2-digit",month:"short"}):"";
+const news=n=>`<li><a href="${n.link}" target="_blank" rel="noopener">${n.title}</a> <small>${n.publisher||""} ${ago(n.time)}</small></li>`;
+function render(){
+ let r=D.companies.filter(c=>f.status=="all"||c.status==f.status);
+ r.sort((a,b)=>f.sort=="ticker"?a.ticker.localeCompare(b.ticker):(a[f.sort]??1e9)-(b[f.sort]??1e9));
+ $("#grid").innerHTML=r.map(c=>c.error?`<div class="card"><b>${c.ticker}</b><p class="dn">Erro: ${c.error}</p></div>`:`
+ <div class="card"><div class="top"><div><div class="tk">${c.ticker}</div><small>${c.name}</small><div class="st">${c.status=="portfolio"?"Portefólio":"A seguir"}${c.sector?" · "+c.sector:""}</div></div>
+ <div><div class="price">${fmt(c.price)} <small>${c.currency||""}</small></div><div class="${(c.change_pct||0)>=0?"up":"dn"}" style="text-align:right">${c.change_pct!=null?(c.change_pct>=0?"+":"")+fmt(c.change_pct)+"%":""}</div></div></div>
+ <div class="m"><div><small>P/E (12m)</small><b>${fmt(c.pe,1)}</b>${tag(c.pe_class)}</div>
+ <div><small>P/E (próx. 12m)</small><b>${fmt(c.forward_pe,1)}</b>${tag(c.forward_pe_class)}</div>
+ <div><small>PEG</small><b>${fmt(c.peg)}</b>${tag(c.peg_class)}</div></div>
+ <small class="mu">Dividendo ${fmt(c.dividend_yield_pct)}% · Alvo analistas ${fmt(c.target_price)} · ${c.recommendation||"–"}${c.pnl_pct!=null?` · P/L ${c.pnl_pct}% (${c.position_value})`:""}</small>
+ ${c.notes?`<p class="mu">📝 ${c.notes}</p>`:""}
+ <details><summary>Notícias (${c.news.length})</summary><ul>${c.news.map(news).join("")||"<li class=mu>Sem notícias</li>"}</ul></details></div>`).join("");
+}
+$("#bar").innerHTML=[["all","Todas"],["portfolio","Portefólio"],["watchlist","A seguir"]].map(([k,t])=>`<button data-s="${k}">${t}</button>`).join("")+
+ `<select id="so"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E 12m</option><option value="forward_pe">P/E próx. 12m</option><option value="peg">PEG</option></select>`;
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{f.status=b.dataset.s;document.querySelectorAll("[data-s]").forEach(x=>x.classList.toggle("on",x==b));render()});
+document.querySelector("[data-s=all]").classList.add("on");
+$("#so").onchange=e=>{f.sort=e.target.value;render()};
+$("#th").onclick=()=>{const r=document.documentElement;r.dataset.theme=(r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))=="dark"?"light":"dark"};
+$("#upd").textContent="Atualizado: "+new Date(D.updated).toLocaleString("pt-PT");
+$("#mkt").innerHTML=D.market_news.map(news).join("")||"<li class=mu>Sem notícias</li>";
+const p=D.settings.pe_bands,g=D.settings.peg_bands;
+$("#leg").innerHTML=`P/E: &lt;${p.cheap} Barato · ${p.cheap}–${p.fair} Justo · ${p.fair}–${p.pricey} Caro · &gt;${p.pricey} Muito caro (P/E negativo = n/d).<br>PEG: &lt;${g.discount} Desconto · ${g.discount}–${g.fair} Justo · &gt;${g.fair} Prémio.<br>Limiares editáveis em portfolio/watchlist.json. Informação, não aconselhamento financeiro.`;
+render();
+</script></body></html>

@@ -1,0 +1,219 @@
+{
+ "updated": "2026-10-17T14:09+00:00",
+ "settings": {
+  "currency_note": "Valores na moeda de cada ação (Yahoo Finance).",
+  "pe_bands": {
+   "cheap": 15,
+   "fair": 30,
+   "pricey": 50
+  },
+  "peg_bands": {
+   "discount": 1,
+   "fair": 2
+  },
+  "market_news_queries": [
+   "stock market",
+   "Federal Reserve",
+   "S&P 500"
+  ],
+  "news_per_ticker": 3
+ },
+ "companies": [
+  {
+   "ticker": "AAPL",
+   "status": "portfolio",
+   "shares": 0,
+   "avg_cost": 0,
+   "notes": "Exemplo – edita ou apaga",
+   "name": "Apple Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 343.46,
+   "change_pct": 0.43,
+   "market_cap": 5012516765696,
+   "pe": 39.39,
+   "forward_pe": 35.86,
+   "peg": 2.71,
+   "pe_class": "pricey",
+   "forward_pe_class": "pricey",
+   "peg_class": "premium",
+   "dividend_yield_pct": 0.31,
+   "target_price": 329.38,
+   "recommendation": "buy",
+   "week52_low": 243.42,
+   "week52_high": 348.15,
+   "news": [
+    {
+     "title": "Apple's New Home Collection Gives Investors Another Reason to Remain Bullish",
+     "publisher": "Motley Fool",
+     "link": "https://finance.yahoo.com/technology/articles/apples-home-collection-gives-investors-133500850.html",
+     "time": 1792244100
+    },
+    {
+     "title": "What Happens When You Replace SCHD With JEPQ in a $945,000 Income Portfolio",
+     "publisher": "24/7 Wall St.",
+     "link": "https://finance.yahoo.com/markets/options/articles/happens-replace-schd-jepq-945-121357944.html",
+     "time": 1792239237
+    },
+    {
+     "title": "Apple, Salesforce Lead Five Stocks Near Buy Points As Market Struggles",
+     "publisher": "Investor's Business Daily",
+     "link": "https://finance.yahoo.com/m/2ea92b1d-49c9-3825-bb7f-1768711b7070/apple%2C-salesforce-lead-five.html",
+     "time": 1792238451
+    }
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "status": "watchlist",
+   "notes": "Exemplo – a seguir",
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 529.05,
+   "change_pct": -1.93,
+   "market_cap": 3928485003264,
+   "pe": 29.47,
+   "forward_pe": 22.3,
+   "peg": 1.62,
+   "pe_class": "fair",
+   "forward_pe_class": "fair",
+   "peg_class": "fair",
+   "dividend_yield_pct": 0.74,
+   "target_price": 599.24,
+   "recommendation": "strong_buy",
+   "week52_low": 349.2,
+   "week52_high": 553.72,
+   "news": [
+    {
+     "title": "BofA Warns AI Investors Could Lose Even If the Technology Works",
+     "publisher": "24/7 Wall St.",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/bofa-warns-ai-investors-could-114411469.html",
+     "time": 1792237451
+    },
+    {
+     "title": "What would superintelligence look and feel like?",
+     "publisher": "Investing.com",
+     "link": "https://finance.yahoo.com/technology/ai/articles/superintelligence-look-feel-050934162.html",
+     "time": 1792213774
+    },
+    {
+     "title": "Why You Should Think About Palantir Differently Now",
+     "publisher": "Trefis",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/why-think-palantir-differently-now-025036808.html",
+     "time": 1792205436
+    }
+   ]
+  },
+  {
+   "ticker": "KO",
+   "status": "watchlist",
+   "notes": "Exemplo – dividendos",
+   "name": "The Coca-Cola Company",
+   "sector": "Consumer Defensive",
+   "currency": "USD",
+   "price": 93.9,
+   "change_pct": 2.07,
+   "market_cap": 404009353216,
+   "pe": 28.2,
+   "forward_pe": 26.65,
+   "peg": 4.03,
+   "pe_class": "fair",
+   "forward_pe_class": "fair",
+   "peg_class": "premium",
+   "dividend_yield_pct": 2.26,
+   "target_price": 94.74,
+   "recommendation": "buy",
+   "week52_low": 67.27,
+   "week52_high": 94.1,
+   "news": [
+    {
+     "title": "In 1918, Milton Hershey Quietly Put About $60 Million In Stock Into A Trust. Over 100 Years Later, That Trust Still Exists And Holds About $23.6 Billion In Assets. Wealthy Donors Still Use A Similar Strategy, And The Legal Work To Set One Up Starts At A Few Thousand Dollars",
+     "publisher": "24/7 Wall St.",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/1918-milton-hershey-quietly-put-122819362.html",
+     "time": 1792240099
+    },
+    {
+     "title": "When the Stock Market Gets Dangerous, These 6 Investments Have a History of Holding Up",
+     "publisher": "Motley Fool",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-gets-dangerous-6-112000632.html",
+     "time": 1792236000
+    },
+    {
+     "title": "It’s Too Late for Small Fixes at Pepsi",
+     "publisher": "The Wall Street Journal",
+     "link": "https://finance.yahoo.com/m/960f5029-4214-3ffc-b188-b0555d685102/it%E2%80%99s-too-late-for-small-fixes.html",
+     "time": 1792229400
+    }
+   ]
+  }
+ ],
+ "market_news": [
+  {
+   "title": "$25,000 Up Front or $250 More a Month? The Shortcut to a VTI Million Most Savers Overlook",
+   "publisher": "24/7 Wall St.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/25-000-front-250-more-123212635.html",
+   "time": 1792240332
+  },
+  {
+   "title": "When the Stock Market Gets Dangerous, These 6 Investments Have a History of Holding Up",
+   "publisher": "Motley Fool",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-gets-dangerous-6-112000632.html",
+   "time": 1792236000
+  },
+  {
+   "title": "Oil Prices Are Back Above $100. History Says the Biggest Stock Market Loser May Now Offer the Biggest Upside.",
+   "publisher": "Motley Fool",
+   "link": "https://finance.yahoo.com/energy/articles/oil-prices-back-above-100-102500097.html",
+   "time": 1792232700
+  },
+  {
+   "title": "If a Stock Market Crash Is Coming, History Says These 3 ETFs Are the Smartest Buys",
+   "publisher": "Motley Fool",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/stock-market-crash-coming-history-090400124.html",
+   "time": 1792227840
+  },
+  {
+   "title": "Federal Reserve Watch for Oct. 14: Bowman Says FOMC Can be Patient on Next Rate Hike",
+   "publisher": "MT Newswires",
+   "link": "https://finance.yahoo.com/economy/policy/articles/federal-watch-oct-14-bowman-185648264.html",
+   "time": 1792004208
+  },
+  {
+   "title": "Federal Reserve issues sobering message to all US savers: Inflation won’t be under control until 2029",
+   "publisher": "Moneywise",
+   "link": "https://finance.yahoo.com/economy/policy/articles/federal-issues-sobering-message-us-125000711.html",
+   "time": 1791982200
+  },
+  {
+   "title": "Gold Prices Rise as Oil Retreats Ahead of US Inflation Data and Federal Reserve Decision",
+   "publisher": "InvestorsHub",
+   "link": "https://finance.yahoo.com/markets/commodities/articles/gold-prices-rise-oil-retreats-093608553.html",
+   "time": 1791884168
+  },
+  {
+   "title": "American Express Consents to Federal Reserve Board, OCC's Compliance Orders",
+   "publisher": "MT Newswires",
+   "link": "https://finance.yahoo.com/economy/policy/articles/american-express-consents-federal-board-214105209.html",
+   "time": 1791495665
+  },
+  {
+   "title": "Dow Jones Futures: What To Do After S&P 500, Nasdaq Break Key Levels; Will Meta, SpaceX Earnings Save AI?",
+   "publisher": "Investor's Business Daily",
+   "link": "https://finance.yahoo.com/m/4342d021-69d3-3aa1-9753-76f72c9ba95d/dow-jones-futures%3A-what-to-do.html",
+   "time": 1792242031
+  },
+  {
+   "title": "These 7 Stocks Are Analyst Favorites For Magnificent Earnings Growth; Eli Lilly Leads Industry",
+   "publisher": "Investor's Business Daily",
+   "link": "https://finance.yahoo.com/m/2b47c372-177e-3051-aa01-406a8d82b220/these-7-stocks-are-analyst.html",
+   "time": 1792238541
+  },
+  {
+   "title": "Wall Street's record breakouts unravel as investors dump recent winners: Chart of the Day",
+   "publisher": "Yahoo Finance",
+   "link": "https://finance.yahoo.com/markets/article/wall-streets-record-breakouts-unravel-as-investors-dump-recent-winners-chart-of-the-day-115226004.html",
+   "time": 1792237946
+  }
+ ]
+}
