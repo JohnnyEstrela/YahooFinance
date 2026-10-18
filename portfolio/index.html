@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1c2330;--mute:#6b7585;--line:#e3e6ec;--cheap:#12805c;--fair:#2b6cb0;--mid:#b7791f;--pricey:#c05621;--exp:#c53030;--na:#8a93a3}
+@media(prefers-color-scheme:dark){:root{--bg:#0f131a;--card:#171c26;--fg:#e6e9ef;--mute:#8e98aa;--line:#262d3a;--cheap:#3ecf9a;--fair:#63a4ff;--mid:#f0b64a;--pricey:#f08a4b;--exp:#ff6b6b;--na:#6b7585}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:baseline}
+h1{font-size:1.4rem;margin:0}.mute{color:var(--mute);font-size:.85rem}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bar button,.bar select,.bar input{padding:7px 11px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;font:inherit}
+.bar button.on{background:var(--fg);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:1.1rem}
+.tag{font-size:.7rem;border:1px solid var(--line);border-radius:99px;padding:1px 8px;color:var(--mute)}
+.price{text-align:right;font-weight:600}.up{color:var(--cheap)}.down{color:var(--exp)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m{border-top:3px solid var(--na);padding-top:4px}.m b{display:block;font-size:1.15rem}.m small{color:var(--mute);font-size:.72rem}.m em{font-style:normal;font-size:.75rem;font-weight:600}
+.s0{border-color:var(--cheap)}.s0 em{color:var(--cheap)}.s1{border-color:var(--fair)}.s1 em{color:var(--fair)}
+.s2{border-color:var(--mid)}.s2 em{color:var(--mid)}.s3{border-color:var(--pricey)}.s3 em{color:var(--pricey)}.s4{border-color:var(--exp)}.s4 em{color:var(--exp)}
+ul{margin:6px 0 0;padding-left:18px}li{margin:3px 0}a{color:var(--fair)}
+.row{display:flex;gap:6px;justify-content:space-between;margin-top:8px}.row button{background:none;border:0;color:var(--mute);cursor:pointer;font-size:.8rem}
+details summary{cursor:pointer;color:var(--mute);font-size:.85rem}
+.legend{font-size:.78rem;color:var(--mute);margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+<header><h1>📈 Consultor Financeiro</h1><span class="mute" id="upd"></span></header>
+<div class="bar">
+  <input id="tk" placeholder="Ticker (ex: AAPL, EDP.LS)" size="20">
+  <select id="st"><option value="portfolio">Portefólio</option><option value="watching">A seguir</option></select>
+  <button id="add">Adicionar</button>
+  <span style="flex:1"></span>
+  <button data-f="all" class="on">Todas</button><button data-f="portfolio">Portefólio</button><button data-f="watching">A seguir</button>
+  <select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe_ttm">P/E (12m)</option><option value="pe_fwd">P/E (próx. 12m)</option><option value="peg">PEG</option></select>
+</div>
+<div class="mute" id="hint"></div>
+<div class="grid" id="grid"></div>
+<p class="legend"><b>P/E:</b> &lt;15 Barato · 15–20 Valor justo · 20–40 Acima do justo · 40–50 Caro · &gt;50 Muito caro &nbsp;|&nbsp; <b>PEG:</b> &lt;1 Desconto · 1–2 Justo · &gt;2 Prémio. Informativo, não é aconselhamento financeiro.</p>
+</main>
+<script>
+const PE=[[15,'Barato',0],[20,'Valor justo',1],[40,'Acima do justo',2],[50,'Caro',3],[Infinity,'Muito caro',4]];
+const PEG=[[1,'Desconto',0],[2,'Justo',1],[Infinity,'Prémio',4]];
+const rate=(v,t)=>v==null?null:v<=0?{l:'Sem lucros',s:-1}:(([,l,s])=>({l,s}))(t.find(x=>v<x[0])||t[t.length-1]);
+const fmt=(v,d=2)=>v==null?'—':v.toLocaleString('pt-PT',{maximumFractionDigits:d});
+const KEY='consultor.extra';let data={companies:[]},filter='all';
+const extra=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch{return[]}};
+const save=l=>{try{localStorage.setItem(KEY,JSON.stringify(l))}catch{}};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function metric(label,v,t,d){const r=rate(v,t);return `<div class="m s${r?r.s:''}"><small>${label}</small><b>${fmt(v,d)}</b><em>${r?r.l:'sem dados'}</em></div>`}
+function card(c){
+  const news=(c.news||[]).map(n=>`<li>${n.url?`<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a>`:esc(n.title)} <span class="mute">${esc(n.publisher||'')}</span></li>`).join('');
+  const pos=c.shares&&c.price?` · ${fmt(c.shares*c.price,0)} ${esc(c.currency||'')}`:'';
+  return `<article class="card"><div class="top"><div><span class="tk">${esc(c.ticker)}</span> <span class="tag">${c.status==='portfolio'?'Portefólio':'A seguir'}</span><div class="mute">${esc(c.name||'A aguardar dados…')}${pos}</div></div>
+  <div class="price">${c.price!=null?fmt(c.price)+' '+esc(c.currency||''):'—'}<div class="${(c.change_pct||0)>=0?'up':'down'}">${c.change_pct!=null?fmt(c.change_pct)+'%':''}</div></div></div>
+  ${c.error?`<div class="down">Erro: ${esc(c.error)}</div>`:''}
+  <div class="metrics">${metric('P/E (12m)',c.pe_ttm,PE)}${metric('P/E (próx. 12m)',c.pe_fwd,PE)}${metric('PEG',c.peg,PEG)}</div>
+  <details open><summary>Notícias</summary><ul>${news||'<li class="mute">Sem notícias.</li>'}</ul></details>
+  ${c.local?`<div class="row"><span></span><button data-rm="${esc(c.ticker)}">remover</button></div>`:''}</article>`;
+}
+function render(){
+  const have=new Set(data.companies.map(c=>c.ticker));
+  let list=[...data.companies,...extra().filter(e=>!have.has(e.ticker)).map(e=>({...e,local:true}))];
+  list=list.filter(c=>filter==='all'||c.status===filter);
+  const k=document.getElementById('sort').value;
+  list.sort((a,b)=>k==='ticker'?a.ticker.localeCompare(b.ticker):(a[k]??1e9)-(b[k]??1e9));
+  document.getElementById('grid').innerHTML=list.map(card).join('')||'<p class="mute">Ainda sem empresas. Adiciona um ticker acima.</p>';
+  const pend=extra().filter(e=>!have.has(e.ticker)).length;
+  document.getElementById('hint').textContent=pend?`${pend} empresa(s) adicionadas só neste browser. Para a rotina diária as incluir, acrescenta-as a portfolio/watchlist.json (ou pede-me).`:'';
+}
+document.getElementById('add').onclick=()=>{const t=document.getElementById('tk').value.trim().toUpperCase();if(!t)return;
+  const l=extra().filter(e=>e.ticker!==t);l.push({ticker:t,status:document.getElementById('st').value});save(l);document.getElementById('tk').value='';render()};
+document.getElementById('grid').onclick=e=>{const t=e.target.dataset.rm;if(t){save(extra().filter(x=>x.ticker!==t));render()}};
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));render()});
+document.getElementById('sort').onchange=render;
+fetch('data.json').then(r=>r.json()).then(d=>{data=d;document.getElementById('upd').textContent=d.updated?'Atualizado: '+new Date(d.updated).toLocaleString('pt-PT'):'Sem atualização ainda'}).catch(()=>{}).finally(render);
+</script>
+</body>
+</html>
