@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mute:#667085;--line:#e4e7ec;--accent:#2563eb;
+--good:#0f9d58;--goodbg:#e6f6ee;--fair:#b7791f;--fairbg:#fdf3dc;--warn:#d9480f;--warnbg:#fdece3;--bad:#c0262d;--badbg:#fbe9ea;--na:#667085;--nabg:#eef0f3;--r:14px}
+:root[data-theme=dark]{--bg:#0e1116;--card:#161b22;--ink:#e6e9ee;--mute:#8b95a5;--line:#262d38;--accent:#6ea8ff;
+--good:#4cd48a;--goodbg:#12301f;--fair:#e8b64c;--fairbg:#33290f;--warn:#ff8a5c;--warnbg:#38200f;--bad:#ff6b73;--badbg:#3a1519;--na:#8b95a5;--nabg:#1f2630}
+@media(prefers-color-scheme:dark){:root[data-theme=auto]{--bg:#0e1116;--card:#161b22;--ink:#e6e9ee;--mute:#8b95a5;--line:#262d38;--accent:#6ea8ff;
+--good:#4cd48a;--goodbg:#12301f;--fair:#e8b64c;--fairbg:#33290f;--warn:#ff8a5c;--warnbg:#38200f;--bad:#ff6b73;--badbg:#3a1519;--na:#8b95a5;--nabg:#1f2630}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body[data-density=compact]{font-size:13px}body[data-density=compact] .card{padding:10px}
+.wrap{max-width:1280px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:end;justify-content:space-between;margin-bottom:12px}
+h1{margin:0;font-size:1.5rem}.sub{color:var(--mute);font-size:.85em}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:none;color:var(--ink);padding:7px 12px;cursor:pointer;font:inherit}
+.seg button.on{background:var(--accent);color:#fff}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 10px}
+input[type=number]{width:70px}
+button.ghost{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.kpi b{display:block;font-size:1.35rem}.kpi span{color:var(--mute);font-size:.8em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:1.1rem}
+.nm{color:var(--mute);font-size:.82em}.px{text-align:right}.px b{font-size:1.1rem}
+.up{color:var(--good)}.dn{color:var(--bad)}
+.tag{display:inline-block;font-size:.7em;padding:2px 8px;border-radius:99px;background:var(--nabg);color:var(--mute);margin-top:4px}
+.tag.pf{background:var(--accent);color:#fff}
+.m3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.m{border-radius:10px;padding:8px;text-align:center}.m small{display:block;font-size:.68em;opacity:.85}.m b{font-size:1.15rem}.m em{display:block;font-style:normal;font-size:.72em;font-weight:600}
+.c-cheap,.c-discount{background:var(--goodbg);color:var(--good)}.c-fair{background:var(--fairbg);color:var(--fair)}
+.c-pricey{background:var(--warnbg);color:var(--warn)}.c-expensive,.c-premium{background:var(--badbg);color:var(--bad)}.c-none{background:var(--nabg);color:var(--na)}
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;font-size:.84em;color:var(--mute)}.rows b{color:var(--ink);font-weight:600}
+.range{height:5px;border-radius:5px;background:var(--line);position:relative;margin:10px 0 2px}.range i{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
+details{margin-top:10px}summary{cursor:pointer;color:var(--accent);font-size:.85em}
+.news a{display:block;color:var(--ink);text-decoration:none;padding:6px 0;border-top:1px solid var(--line);font-size:.85em}.news a:hover{color:var(--accent)}.news small{color:var(--mute)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}
+th{font-size:.75em;color:var(--mute);cursor:pointer}.tw{overflow-x:auto}td .pill{padding:2px 8px;border-radius:8px;font-weight:600}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px}
+.panel h2{font-size:1rem;margin:0 0 8px}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.err{color:var(--bad);font-size:.8em}.hidden{display:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px;font-size:.78em;margin-top:6px}.legend span{padding:2px 8px;border-radius:99px}
+footer{color:var(--mute);font-size:.78em;margin:20px 0}
+@media(max-width:560px){.wrap{padding:10px}h1{font-size:1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1 id="title"></h1><div class="sub" id="updated"></div></div>
+<div class="seg" id="themeSeg"><button data-v="auto">Auto</button><button data-v="light">Claro</button><button data-v="dark">Escuro</button></div></header>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="bar">
+ <div class="seg" id="filterSeg"><button data-v="all">Todas</button><button data-v="portfolio">Portefólio</button><button data-v="watch">A seguir</button></div>
+ <input id="q" type="search" placeholder="Pesquisar…">
+ <select id="sort"></select>
+ <div class="seg" id="viewSeg"><button data-v="cards">Cartões</button><button data-v="table">Tabela</button></div>
+ <div class="seg" id="denSeg"><button data-v="cozy">Normal</button><button data-v="compact">Compacto</button></div>
+ <button class="ghost" id="cfgBtn">⚙ Limiares</button>
+</div>
+
+<div class="panel hidden" id="cfg">
+ <h2>Limiares de valuation (guardados neste browser)</h2>
+ <div>P/E: barato &lt; <input type="number" id="pe1" step="1"> · justo &lt; <input type="number" id="pe2" step="1"> · caro &lt; <input type="number" id="pe3" step="1"> · acima = muito caro</div>
+ <div style="margin-top:8px">PEG: desconto &lt; <input type="number" id="pg1" step="0.1"> · justo ≤ <input type="number" id="pg2" step="0.1"> · acima = prémio
+ <button class="ghost" id="reset">Repor</button></div>
+ <div class="legend" id="legend"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="two" style="margin-top:16px">
+ <div class="panel"><h2>📰 Mercados</h2><div class="news" id="mkt"></div></div>
+ <div class="panel"><h2>Como ler</h2>
+ <div class="sub"><b>P/E (12 meses)</b>: o que pagas por cada $1 de lucro do último ano.<br><b>P/E (próx. 12 meses)</b>: o mesmo, com lucros estimados pelos analistas.<br><b>PEG</b>: P/E a dividir pelo crescimento esperado dos lucros — abaixo de 1 desconto, 1–2 justo, acima de 2 prémio.<br>Informação apenas informativa; não é aconselhamento financeiro.</div></div>
+</div>
+<footer>Dados: Yahoo Finance e Google Notícias. Gerado por <code>portfolio/refresh.py</code>.</footer>
+</div>
+<script>
+const DATA={"title": "O Meu Portefólio", "updated": "2026-10-19T14:09+00:00", "thresholds": {"pe": {"cheap": 15, "fair": 30, "pricey": 50}, "peg": {"discount": 1, "fair": 2}}, "companies": [{"ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150.0, "notes": "Exemplo - substitui pelas tuas posições", "error": null, "name": "Apple Inc.", "sector": "Technology", "currency": "USD", "price": 345.295, "change_pct": 0.53, "pe_ttm": 39.59805, "pe_fwd": 36.05141, "peg": 2.706, "pe_ttm_class": "pricey", "pe_fwd_class": "pricey", "peg_class": "premium", "market_cap": 5039297396736.0, "eps_ttm": 8.72, "eps_fwd": 9.57785, "earnings_growth": 0.287, "revenue_growth": 0.164, "profit_margin": 0.27618998, "dividend_yield": 0.31, "beta": 1.069, "week52_low": 243.42, "week52_high": 348.15, "target_price": 329.3759, "recommendation": "buy", "position_value": 3452.95, "pnl_pct": 130.2, "news": [{"title": "Apple Has Outperformed the S&P 500, but is AAPL’s 35x Valuation Getting Ahead of its Growth?", "url": "https://finance.yahoo.com/markets/stocks/articles/apple-outperformed-p-500-aapl-133312470.html", "source": "Insider Monkey", "date": "2026-10-19T13:33:12+00:00"}, {"title": "Apple extends iPhone Duo delivery, disappointing eager customers", "url": "https://finance.yahoo.com/technology/articles/apple-extends-iphone-duo-delivery-130300547.html", "source": "TheStreet", "date": "2026-10-19T13:03:00+00:00"}, {"title": "Wildfire and Badge Partner to Bring Personalized Merchant Offers and Rewards to Mobile Wallets", "url": "https://finance.yahoo.com/technology/articles/wildfire-badge-partner-bring-personalized-130100686.html", "source": "PR Newswire", "date": "2026-10-19T13:01:00+00:00"}, {"title": "What Has The Market Missed In Netflix Stock's Drop?", "url": "https://finance.yahoo.com/markets/stocks/articles/market-missed-netflix-stocks-drop-125559798.html", "source": "Trefis", "date": "2026-10-19T12:55:59+00:00"}]}, {"ticker": "MSFT", "status": "watch", "shares": null, "avg_cost": null, "notes": "Exemplo - empresa a seguir", "error": null, "name": "Microsoft Corporation", "sector": "Technology", "currency": "USD", "price": 531.885, "change_pct": 0.54, "pe_ttm": 29.631475, "pe_fwd": 22.422367, "peg": 1.6173, "pe_ttm_class": "fair", "pe_fwd_class": "fair", "peg_class": "fair", "market_cap": 3949536477184.0, "eps_ttm": 17.95, "eps_fwd": 23.72118, "earnings_growth": 0.317, "revenue_growth": 0.177, "profit_margin": 0.40305, "dividend_yield": 0.74, "beta": 1.099, "week52_low": 349.2, "week52_high": 553.72, "target_price": 599.23755, "recommendation": "strong_buy", "news": [{"title": "Microsoft pulls out of UK Nscale data centre deal over power delay", "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-pulls-uk-nscale-data-135037959.html", "source": "Reuters", "date": "2026-10-19T13:50:37+00:00"}, {"title": "Microsoft vs. Alphabet: Is GOOGL’s Cloud Growth Worth More Than Investors Think?", "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-vs-alphabet-googl-cloud-133811978.html", "source": "Insider Monkey", "date": "2026-10-19T13:38:11+00:00"}, {"title": "Microsoft vs. Amazon: Is AMZN’s AI Growth Being Undervalued by Investors?", "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-vs-amazon-amzn-ai-133608824.html", "source": "Insider Monkey", "date": "2026-10-19T13:36:08+00:00"}, {"title": "Microsoft (MSFT) Stock Gets Fair Value Bump As AI Revenue Views Lift - Yahoo Finance", "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaFJ2SkhKWnczQjZFSEhxNmZlNG4zYkFlMEVVbVRBSWcxbmZjbWd3RVBXTGpmeE9hQ0FBV2MxMjFhU0xLVTNWa21HSVZyanF0aWUwZ3BLdWlFS2Jmby0yeXpKbHoyblJRXy1ibGlsVUU1U1VkR191QkVQZ0IzVFVfQWg3VFJGSE5NQ2RLMjJkakxWQ0s5WFBFeVY0TQ?oc=5", "source": "Yahoo Finance", "date": "2026-10-19T13:09:50+00:00"}]}], "market_news": [{"title": "Petróleo elevado, motins em França, dados da China e pausa das sanções à Rússia marcam a abertura de mercados - Jornal Económico", "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOSjU3akNQLVdEMGlTaHduQ1JMYndxVkpoOXZ2YmlxX1laNlB1V05lSE1kSlhmclFfLXNwN0VPVXp3OEZfakRJVHRGWkZXT0xwVzZKbWloOUg4M2FYYkcxcmFTQml3MWdoMERzVFBST2YzWk9oYmxzWTZRVTQzelgxMm4tWWFUUEdaRFZtUzZWWVBxTUJTNW1JVlBxRFdYM0tFc05FUG9DaFk5ZWJsc0Z6NmlySEFOLWplOGpOdDA5bFY4MXNXa21zeExjLWtsYjNISVpVUC11MW16bEw1VlMtcGU2Zw?oc=5", "source": "Jornal Económico", "date": "2026-10-19T13:00:00+00:00"}, {"title": "Bolsa japonesa recupera com Wall Street e queda do petróleo - XTB", "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcnBPS0FsTVRTU0FFZXhGNHdWTHpXSTh0dU9YZEVTeUtRZ21QTktQRnh3dHBKZGVGUzVHekhyd2JJcHd2U25HdmZ0Z2hlRDdnYVlub3BxdEFVV2tHWUg1cDcwR0pobXZHeHZGWUMxeURNSHpIWDlGcmlOV1NJcG5CU2VfbnkxOWRpZlVhbGFYYzV4UQ?oc=5", "source": "XTB", "date": "2026-10-19T09:25:25+00:00"}, {"title": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta segunda - InfoMoney", "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMHpFOENITndyb3VWTmFWbnp1SG4yVGNzODJkZ0t1cV9YSjBqVnFzWXhhYUVpWElGWlp1MV95cTFNZmlWcENPVnZLeHZpM0RMNDVQTER6ZExWOXRSWFNUcTFYX2tnbGxYVVJqSkwwUkZreVdWcVRUUnJwSE5palhSRy1nWTFlRjBScncwem1lUQ?oc=5", "source": "InfoMoney", "date": "2026-10-19T11:00:44+00:00"}, {"title": "Ibovespa hoje sobe quase 1% e supera os 207 mil pontos com debate e pesquisas eleitorais; dólar cai - Estadão", "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPSXlWZ3AyWTc0eGw1MzZzYkh3RlJsVDZzeTU3SjhkZTVpcFJwYjNod0J2SV9DWXZLQlZiUF9aR2lubnRUYXVvVHBHUEVOWDJnWk9ITm9tWmdOR2FZUDltOFJmV2FpOC1JN2JTTklPWk1ubFNPZmliRlk2aDcyMTBSMnlidTItTW15Q1Z3RVc4MTlnSE1jQmc0Tk1RQWxLaVNaaDhDdWlNWkVIN0JNQV9SalUyOTFaUFhhWDZBYkFFbVJCeGt5d3pZd3kyR2pGa08tcXfSAdcBQVVfeXFMUGpfWEtmME5OWWxBQ0dyY3lTSVp6eHhHVnFVUGZKZFNuOWpXRHRwN3VUcldsaWhCbVRCZEptQU5LYUR0dmJSSGl4NERPRmZoRjItQlhyYTFLMlhiNk1FUkpnME0yVzMwNHZSclI3dWN2MVlKS2lVMHh1SzBnSE42Z05hMkhPQUQ0QXFIa09VUnMzdVU1V0hpYWxSWjFYOV9YNWJhRnVTS2FGOUxZN0xudDY2U0dJa1NHVGgzd1Q3bTdWNm52cWJ1aWtVZmFvZDl2MFJiSVNjOWM?oc=5", "source": "Estadão", "date": "2026-10-19T13:22:28+00:00"}, {"title": "Temporada de balanços do 3T26 bate à porta: veja as datas das divulgações e das teleconferências - Seu Dinheiro", "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPdFlBU0V3NFk5LVZFNjNMNzJxRGowOWF4NEJabXEyYXRqVXY4ckhaeU85b1lFSjhaczNaRWxxdGFMb18yWnBmLTFaV2ZDNmtDQ0ZWUDYzME5nZ3NONk9maUdDdEstY0xIWWNFV01zbzFQdGlVVUY1NlVFbWViWEpRalRmQ0ROS2h6UXcyZkR4NXNxemg4NXVqbDlMZzdpNFFjcGp4MDRLNnVKNjg3U1VqejJYV2VNWWs4NmtKdU0yNWp6RDF2QkVTMmx0ZFZzZlpRTHhBUlEycVRZZFE?oc=5", "source": "Seu Dinheiro", "date": "2026-10-19T09:04:00+00:00"}, {"title": "'Just another scare': Wall Street sees the AI trade strong despite tech's latest rout - Yahoo Finance", "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxONkF2UGc0SmgxTzdidVlLNWRHU3JjZFdrOHpKRGt2ODFqSUJFQWpnYVRXLUJ0aDJ6c3pmNDB3OVB0VGpsNlJJRkkzZjNXODNzaEJnUFdOemZZVTBKc3pWbUJ6MnBaeFdIRjB1VDl0UlVzMnNneDJGN0NJTGNaWmUyVnRqT2QxOERjZ2ZJYVltT0tLZzE0T2pSYjRqZW1tbE00TVJzbzJTQjRTemRILTV5cGFQZU9EeHg0TlVDdE95bE5VVHh0Z0w5eGdGa1FmWGdtVzY4Wg?oc=5", "source": "Yahoo Finance", "date": "2026-10-19T08:23:44+00:00"}, {"title": "AI stocks lead a rebound on Wall Street as European markets drop following protests - Union-Bulletin", "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPaFBNTkhNMkFJbGtlSmxJdE1HdmNCdDRxa1J2R3ZVajNYUkg1eXp4UTNjOFA3UWx4NjhVMHNESTQ5RDJJeEtWQWhUY1FsWTZQT1V3bDN6bXlKNjBodV9Gd0s5Mjl0Ykt4OWR3WC05MldoaEF3ZGlBM2U4THozNVl0R1VRXzhBY2c4RUQtNk9yT2FMMzRYQWoxUnpsazFlaE4zZXNkNkk2QjFFSUozeXNPb1c0LVpUcmJ0M3NqWEZzZjdCdkZxdTFJQ1hwNWprTU53aE9VUkJCenkyV3lHU2NLa2JsaHJpVlNTbHo5NW16dlRWZU9WVnh6Vy1vVzQ0UUs4eGd3ekVn?oc=5", "source": "Union-Bulletin", "date": "2026-10-19T13:45:31+00:00"}, {"title": "A Repeat Of 'Black Monday' Would Send The S&P 500 Down More Than 1,500 Points And Wipe Out More Than $13 Trillion In Stock Market Value - 24/7 Wall St.", "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNelc0RkZ2LVZZVWg3NkVTYm53YWFTZTZ0LTVRUmY2YVBwc1EyTUpZN0FiazhEcmxkRm8xRzZWbHdUMlg4dXR5VHVPUS1xbk5DTGc4TzNZYTliOXF5WFRUUHlrdEZpd2hQRnlwMk1wcWN5NjNua2JrNGNsNTNuanAxd2NhM0pGU1NQN1lVLUFHYXlPdFB5SlVXTlA1VWFkU0tKLV9OYmFjOC1nRWxXZ0FiZGFEaWhWY1lMRURXM0tXbUE3TlZuSzAxVE5MVFNGdEZaVGRpU29MNjc4Y3R5ZHNWOEc2QjcwQm5rVi1aM1RYS2pfYjdrclk2eTZEc1BTV0xNWnprcw?oc=5", "source": "24/7 Wall St.", "date": "2026-10-19T10:56:00+00:00"}, {"title": "US Stock Market Today: S&P 500 Futures Drop As Trade Inflation Fears Return - Simply Wall Street", "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQLTRPTWwwc2llbW04UHFDeWczMENhU2kyZ1I5RTdhdEEzR1FBWG1FSGFQZmFaMTRLcUNUc0k1aVVTTFBrSl9oWVAzS3lDWUs2WUFpa01EVHlGb2VDM08tUDMweFdjZllJa0ozQUlKM09iZTQybnY3QjBqb1FCeXh0UFhVRWFwMlVZX19nOGFmQkRnZXNPVmVPclBCNWFZZXhjTnEwT3d4MFVTem5FQ0dEd0VEckY3eXdWU3ZiRkVxRjc1eTY2VUZZ0gHMAUFVX3lxTE8yYTRfM2JtWlBIX0lEcnlrVkItVGM2RzNNSlIxZFZvQjFpajBZdDd1WHd1M3RLUlQzZVROVHpJaW5nUnFMT1Z4SjhFYUo5QldNY2ttUi01U0VTQ1ctSEhUb2pOdUt2ZV9LazFKUmlwWkpaN18xWm9QX1FnQWlSWWlpVW9ETWpQOE5yekRqSEQzMGFKcVg4M0RkOVpvT0M3clF3T2MtZXFhNVdZTTFoSEpvQU1KaW1NVHBWR2s5dVBHaVVMMkZhbTBTc0hCag?oc=5", "source": "Simply Wall Street", "date": "2026-10-19T09:00:27+00:00"}, {"title": "US Stock Market Today: S&P, Nasdaq Trade Higher As AI Stocks Lift Wall Street Ahead Of Tech Earnings - NDTV Profit", "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVzY4MDB4VnBWWkFuTkRhaHV6ZXpHdTRmX1pFUkVfTFdycHF5ZWd5N2o0cGcwZGx5ZzdrRDcwOHBHVzlVVmQxWjVNM2RsV3lkaDRHSHNSQmpibHRuRzVpbTNrRXA4TXpxaXhNV0Z4M1NxZTJuSi0wTWNrVWU1ZWw1RVlQMHozRk1la21sVWdCSXZrd1FQbEl4M1dNYmdnaFZTV1pqb3RVOVZDeWw1ckZqdWluZVZzOWNhTHFZS3NB0gHGAUFVX3lxTE8wWHFQanpBVzBhejZsVlhwT2dWdFFnb2FqX0YtRUp3UFlCOUpwajUxR1pqb1FpYXkwdHh0eGRJaEE1YkdpRGVZUWtBdHNZdE9lX0VZQndPOW9LanQxZ3lsN2dLcERRX1VJNHo0QUlTTjVyUFFIWGJmeThNeXF3UFZMYjZKVExCYUZrQ1JXaUNtV0Q4VUFxUjJoRS1CMUR4anlLOUpKQXRrYjJlWGRNb0RZLWs1MXFCaU9ZcTVfQXczX1I3UjhxUQ?oc=5", "source": "NDTV Profit", "date": "2026-10-19T13:34:29+00:00"}]};
+const $=s=>document.querySelector(s);
+const LS={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+const PEL={cheap:'Barato',fair:'Justo',pricey:'Caro',expensive:'Muito caro',none:'Sem lucros'},PGL={discount:'Desconto',fair:'Justo',premium:'Prémio',none:'n/d'};
+const S={theme:LS.get('theme','auto'),filter:LS.get('filter','all'),view:LS.get('view','cards'),den:LS.get('den','cozy'),sort:LS.get('sort','ticker'),th:LS.get('th',DATA.thresholds)};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const f=(v,d=1)=>v==null?'—':Number(v).toLocaleString('pt-PT',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=(v,d=1)=>v==null?'—':f(v*100,d)+'%';
+const cpe=v=>v==null||v<=0?'none':v<S.th.pe.cheap?'cheap':v<S.th.pe.fair?'fair':v<S.th.pe.pricey?'pricey':'expensive';
+const cpg=v=>v==null||v<=0?'none':v<S.th.peg.discount?'discount':v<=S.th.peg.fair?'fair':'premium';
+const SORTS={ticker:['Nome A–Z',(a,b)=>a.ticker.localeCompare(b.ticker)],pe_ttm:['P/E 12m ↑',(a,b)=>nz(a.pe_ttm)-nz(b.pe_ttm)],pe_fwd:['P/E futuro ↑',(a,b)=>nz(a.pe_fwd)-nz(b.pe_fwd)],peg:['PEG ↑',(a,b)=>nz(a.peg)-nz(b.peg)],chg:['Variação dia ↓',(a,b)=>(b.change_pct??-99)-(a.change_pct??-99)],pnl:['Ganho/perda ↓',(a,b)=>(b.pnl_pct??-999)-(a.pnl_pct??-999)],val:['Valor posição ↓',(a,b)=>(b.position_value??0)-(a.position_value??0)]};
+function nz(v){return v==null||v<=0?1e9:v}
+function seg(id,key,cb){const el=$(id);const sync=()=>el.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===S[key]));el.onclick=e=>{const v=e.target.dataset?.v;if(!v)return;S[key]=v;LS.set(key,v);sync();cb()};sync()}
+function theme(){document.documentElement.dataset.theme=S.theme}
+function m(label,v,cls){return `<div class="m c-${cls}"><small>${label}</small><b>${f(v)}</b><em>${(label.startsWith('PEG')?PGL:PEL)[cls]}</em></div>`}
+function card(c){
+ const chg=c.change_pct,pos=c.position_value!=null;
+ const rng=c.week52_low!=null&&c.week52_high>c.week52_low&&c.price!=null?Math.max(0,Math.min(100,(c.price-c.week52_low)/(c.week52_high-c.week52_low)*100)):null;
+ const up=c.target_price&&c.price?(c.target_price/c.price-1)*100:null;
+ return `<article class="card"><div class="top"><div><div class="tk">${esc(c.ticker)}</div><div class="nm">${esc(c.name)}${c.sector?' · '+esc(c.sector):''}</div><span class="tag ${c.status==='portfolio'?'pf':''}">${c.status==='portfolio'?'Portefólio':'A seguir'}</span></div>
+ <div class="px"><b>${f(c.price,2)} ${esc(c.currency||'')}</b><div class="${chg>=0?'up':'dn'}">${chg==null?'—':(chg>=0?'+':'')+f(chg,2)+'%'}</div></div></div>
+ ${c.error?`<div class="err">⚠ ${esc(c.error)}</div>`:''}
+ <div class="m3">${m('P/E 12m',c.pe_ttm,cpe(c.pe_ttm))}${m('P/E próx. 12m',c.pe_fwd,cpe(c.pe_fwd))}${m('PEG',c.peg,cpg(c.peg))}</div>
+ ${pos?`<div class="rows"><span>Posição</span><b>${f(c.position_value,0)} (${f(c.shares,2)} un.)</b><span>Ganho/perda</span><b class="${c.pnl_pct>=0?'up':'dn'}">${c.pnl_pct==null?'—':f(c.pnl_pct,1)+'%'}</b></div>`:''}
+ <div class="rows" style="margin-top:6px"><span>Cresc. lucros</span><b>${pct(c.earnings_growth)}</b><span>Cresc. receita</span><b>${pct(c.revenue_growth)}</b><span>Margem líquida</span><b>${pct(c.profit_margin)}</b><span>Dividendo</span><b>${c.dividend_yield==null?'—':f(c.dividend_yield,2)+'%'}</b><span>Cap. mercado</span><b>${c.market_cap?f(c.market_cap/1e9,1)+' mM':'—'}</b><span>Preço-alvo analistas</span><b>${c.target_price?f(c.target_price,2)+(up!=null?' ('+(up>=0?'+':'')+f(up,0)+'%)':''):'—'}</b></div>
+ ${rng!=null?`<div class="range"><i style="left:${rng}%"></i></div><div class="rows"><span>Mín 52s ${f(c.week52_low,2)}</span><span style="text-align:right">Máx ${f(c.week52_high,2)}</span></div>`:''}
+ ${c.notes?`<div class="sub" style="margin-top:8px">📝 ${esc(c.notes)}</div>`:''}
+ <details><summary>Notícias (${c.news.length})</summary><div class="news">${news(c.news)}</div></details></article>`}
+function news(l){return l.length?l.map(n=>`<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}<br><small>${esc(n.source)}${n.date?' · '+new Date(n.date).toLocaleDateString('pt-PT'):''}</small></a>`).join(''):'<div class="sub">Sem notícias.</div>'}
+function pill(v,cls,lab){return `<span class="pill c-${cls}">${f(v)}</span>`}
+function table(list){return `<div class="tw"><table><thead><tr><th>Ticker</th><th>Preço</th><th>Dia</th><th>P/E 12m</th><th>P/E próx. 12m</th><th>PEG</th><th>Cresc. lucros</th><th>Posição</th><th>G/P</th></tr></thead><tbody>${list.map(c=>`<tr><td><b>${esc(c.ticker)}</b> <span class="nm">${esc(c.name)}</span></td><td>${f(c.price,2)}</td><td class="${c.change_pct>=0?'up':'dn'}">${c.change_pct==null?'—':f(c.change_pct,2)+'%'}</td><td>${pill(c.pe_ttm,cpe(c.pe_ttm))}</td><td>${pill(c.pe_fwd,cpe(c.pe_fwd))}</td><td>${pill(c.peg,cpg(c.peg))}</td><td>${pct(c.earnings_growth)}</td><td>${c.position_value?f(c.position_value,0):'—'}</td><td class="${c.pnl_pct>=0?'up':'dn'}">${c.pnl_pct==null?'—':f(c.pnl_pct,1)+'%'}</td></tr>`).join('')}</tbody></table></div>`}
+function render(){
+ const q=$('#q').value.trim().toLowerCase();
+ let l=DATA.companies.filter(c=>(S.filter==='all'||c.status===S.filter)&&(!q||(c.ticker+' '+c.name).toLowerCase().includes(q)));
+ l.sort(SORTS[S.sort]?.[1]||SORTS.ticker[1]);
+ $('#list').innerHTML=!l.length?'<div class="panel">Sem empresas. Adiciona com <code>python portfolio/refresh.py add TICKER --portfolio</code>.</div>':S.view==='table'?table(l):`<div class="grid">${l.map(card).join('')}</div>`;
+ document.body.dataset.density=S.den;
+ const pf=DATA.companies.filter(c=>c.status==='portfolio'&&c.position_value);
+ const tot=pf.reduce((a,c)=>a+c.position_value,0),cost=pf.reduce((a,c)=>a+(c.avg_cost?c.avg_cost*c.shares:c.position_value),0);
+ const cheap=DATA.companies.filter(c=>cpg(c.peg)==='discount'||cpe(c.pe_fwd)==='cheap');
+ $('#kpis').innerHTML=`<div class="kpi"><b>${DATA.companies.length}</b><span>empresas (${pf.length} em portefólio)</span></div><div class="kpi"><b>${f(tot,0)}</b><span>valor das posições (moedas mistas)</span></div><div class="kpi"><b class="${tot>=cost?'up':'dn'}">${cost?f((tot/cost-1)*100,1)+'%':'—'}</b><span>ganho/perda total</span></div><div class="kpi"><b>${cheap.length}</b><span>com desconto (PEG&lt;${S.th.peg.discount} ou P/E fut. barato)${cheap.length?': '+cheap.map(c=>c.ticker).join(', '):''}</span></div>`;
+}
+function legend(){const t=S.th;$('#legend').innerHTML=[['cheap',`P/E < ${t.pe.cheap}`],['fair',`${t.pe.cheap}–${t.pe.fair}`],['pricey',`${t.pe.fair}–${t.pe.pricey}`],['expensive',`> ${t.pe.pricey}`],['discount',`PEG < ${t.peg.discount}`],['premium',`PEG > ${t.peg.fair}`]].map(([c,x])=>`<span class="c-${c}">${x}</span>`).join('')}
+function cfgInit(){const set=()=>{$('#pe1').value=S.th.pe.cheap;$('#pe2').value=S.th.pe.fair;$('#pe3').value=S.th.pe.pricey;$('#pg1').value=S.th.peg.discount;$('#pg2').value=S.th.peg.fair;legend()};set();
+ ['pe1','pe2','pe3','pg1','pg2'].forEach(id=>$('#'+id).oninput=()=>{S.th={pe:{cheap:+$('#pe1').value,fair:+$('#pe2').value,pricey:+$('#pe3').value},peg:{discount:+$('#pg1').value,fair:+$('#pg2').value}};LS.set('th',S.th);legend();render()});
+ $('#reset').onclick=()=>{S.th=DATA.thresholds;LS.set('th',S.th);set();render()};$('#cfgBtn').onclick=()=>$('#cfg').classList.toggle('hidden')}
+$('#title').textContent=DATA.title;document.title=DATA.title;
+$('#updated').textContent='Actualizado '+new Date(DATA.updated).toLocaleString('pt-PT');
+$('#sort').innerHTML=Object.entries(SORTS).map(([k,v])=>`<option value="${k}">${v[0]}</option>`).join('');$('#sort').value=S.sort;
+$('#sort').onchange=e=>{S.sort=e.target.value;LS.set('sort',S.sort);render()};$('#q').oninput=render;
+$('#mkt').innerHTML=news(DATA.market_news);
+theme();seg('#themeSeg','theme',theme);seg('#filterSeg','filter',render);seg('#viewSeg','view',render);seg('#denSeg','den',render);cfgInit();render();
+</script>
+</body>
+</html>

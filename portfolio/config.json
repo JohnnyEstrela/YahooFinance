@@ -1,0 +1,14 @@
+{
+  "title": "O Meu Portefólio",
+  "currency_note": "Valores na moeda de cada cotação",
+  "thresholds": {
+    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "news_per_ticker": 4,
+  "market_news_queries": [
+    "mercados financeiros bolsa hoje",
+    "Wall Street stocks market today",
+    "Federal Reserve ECB juros inflação"
+  ]
+}

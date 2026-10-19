@@ -183,3 +183,20 @@ To integrate this server with Claude for Desktop:
 ## License
 
 MIT
+
+## Portfolio dashboard (rotina diária)
+
+Dashboard pessoal em `docs/index.html` (HTML estático, responsivo, tema claro/escuro, cartões/tabela, filtros, ordenação e limiares editáveis).
+
+```bash
+pip install yfinance
+python portfolio/refresh.py add NVDA --portfolio --shares 5 --cost 120   # no portefólio
+python portfolio/refresh.py add TSLA --notes "a seguir"                  # só a seguir
+python portfolio/refresh.py remove TSLA
+python portfolio/refresh.py                                              # só actualizar
+```
+
+- Empresas: `portfolio/watchlist.json` (`status`: `portfolio` ou `watch`). Limiares e queries de notícias: `portfolio/config.json`.
+- Indicadores: P/E últimos 12m, P/E próximos 12m, PEG, crescimento, margens, dividendo, preço-alvo, notícias por empresa e do mercado.
+- Classificação P/E: <15 Barato · 15–30 Justo · 30–50 Caro · >50 Muito caro. PEG: <1 Desconto · 1–2 Justo · >2 Prémio.
+- `.github/workflows/portfolio-daily.yml` actualiza `docs/` nos dias úteis (publicável via GitHub Pages em `/docs`).

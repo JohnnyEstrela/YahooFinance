@@ -1,0 +1,195 @@
+{
+ "title": "O Meu Portefólio",
+ "updated": "2026-10-19T14:09+00:00",
+ "thresholds": {
+  "pe": {
+   "cheap": 15,
+   "fair": 30,
+   "pricey": 50
+  },
+  "peg": {
+   "discount": 1,
+   "fair": 2
+  }
+ },
+ "companies": [
+  {
+   "ticker": "AAPL",
+   "status": "portfolio",
+   "shares": 10,
+   "avg_cost": 150.0,
+   "notes": "Exemplo - substitui pelas tuas posições",
+   "error": null,
+   "name": "Apple Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 345.295,
+   "change_pct": 0.53,
+   "pe_ttm": 39.59805,
+   "pe_fwd": 36.05141,
+   "peg": 2.706,
+   "pe_ttm_class": "pricey",
+   "pe_fwd_class": "pricey",
+   "peg_class": "premium",
+   "market_cap": 5039297396736.0,
+   "eps_ttm": 8.72,
+   "eps_fwd": 9.57785,
+   "earnings_growth": 0.287,
+   "revenue_growth": 0.164,
+   "profit_margin": 0.27618998,
+   "dividend_yield": 0.31,
+   "beta": 1.069,
+   "week52_low": 243.42,
+   "week52_high": 348.15,
+   "target_price": 329.3759,
+   "recommendation": "buy",
+   "position_value": 3452.95,
+   "pnl_pct": 130.2,
+   "news": [
+    {
+     "title": "Apple Has Outperformed the S&P 500, but is AAPL’s 35x Valuation Getting Ahead of its Growth?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/apple-outperformed-p-500-aapl-133312470.html",
+     "source": "Insider Monkey",
+     "date": "2026-10-19T13:33:12+00:00"
+    },
+    {
+     "title": "Apple extends iPhone Duo delivery, disappointing eager customers",
+     "url": "https://finance.yahoo.com/technology/articles/apple-extends-iphone-duo-delivery-130300547.html",
+     "source": "TheStreet",
+     "date": "2026-10-19T13:03:00+00:00"
+    },
+    {
+     "title": "Wildfire and Badge Partner to Bring Personalized Merchant Offers and Rewards to Mobile Wallets",
+     "url": "https://finance.yahoo.com/technology/articles/wildfire-badge-partner-bring-personalized-130100686.html",
+     "source": "PR Newswire",
+     "date": "2026-10-19T13:01:00+00:00"
+    },
+    {
+     "title": "What Has The Market Missed In Netflix Stock's Drop?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/market-missed-netflix-stocks-drop-125559798.html",
+     "source": "Trefis",
+     "date": "2026-10-19T12:55:59+00:00"
+    }
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "status": "watch",
+   "shares": null,
+   "avg_cost": null,
+   "notes": "Exemplo - empresa a seguir",
+   "error": null,
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 531.885,
+   "change_pct": 0.54,
+   "pe_ttm": 29.631475,
+   "pe_fwd": 22.422367,
+   "peg": 1.6173,
+   "pe_ttm_class": "fair",
+   "pe_fwd_class": "fair",
+   "peg_class": "fair",
+   "market_cap": 3949536477184.0,
+   "eps_ttm": 17.95,
+   "eps_fwd": 23.72118,
+   "earnings_growth": 0.317,
+   "revenue_growth": 0.177,
+   "profit_margin": 0.40305,
+   "dividend_yield": 0.74,
+   "beta": 1.099,
+   "week52_low": 349.2,
+   "week52_high": 553.72,
+   "target_price": 599.23755,
+   "recommendation": "strong_buy",
+   "news": [
+    {
+     "title": "Microsoft pulls out of UK Nscale data centre deal over power delay",
+     "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-pulls-uk-nscale-data-135037959.html",
+     "source": "Reuters",
+     "date": "2026-10-19T13:50:37+00:00"
+    },
+    {
+     "title": "Microsoft vs. Alphabet: Is GOOGL’s Cloud Growth Worth More Than Investors Think?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-vs-alphabet-googl-cloud-133811978.html",
+     "source": "Insider Monkey",
+     "date": "2026-10-19T13:38:11+00:00"
+    },
+    {
+     "title": "Microsoft vs. Amazon: Is AMZN’s AI Growth Being Undervalued by Investors?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-vs-amazon-amzn-ai-133608824.html",
+     "source": "Insider Monkey",
+     "date": "2026-10-19T13:36:08+00:00"
+    },
+    {
+     "title": "Microsoft (MSFT) Stock Gets Fair Value Bump As AI Revenue Views Lift - Yahoo Finance",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaFJ2SkhKWnczQjZFSEhxNmZlNG4zYkFlMEVVbVRBSWcxbmZjbWd3RVBXTGpmeE9hQ0FBV2MxMjFhU0xLVTNWa21HSVZyanF0aWUwZ3BLdWlFS2Jmby0yeXpKbHoyblJRXy1ibGlsVUU1U1VkR191QkVQZ0IzVFVfQWg3VFJGSE5NQ2RLMjJkakxWQ0s5WFBFeVY0TQ?oc=5",
+     "source": "Yahoo Finance",
+     "date": "2026-10-19T13:09:50+00:00"
+    }
+   ]
+  }
+ ],
+ "market_news": [
+  {
+   "title": "Petróleo elevado, motins em França, dados da China e pausa das sanções à Rússia marcam a abertura de mercados - Jornal Económico",
+   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOSjU3akNQLVdEMGlTaHduQ1JMYndxVkpoOXZ2YmlxX1laNlB1V05lSE1kSlhmclFfLXNwN0VPVXp3OEZfakRJVHRGWkZXT0xwVzZKbWloOUg4M2FYYkcxcmFTQml3MWdoMERzVFBST2YzWk9oYmxzWTZRVTQzelgxMm4tWWFUUEdaRFZtUzZWWVBxTUJTNW1JVlBxRFdYM0tFc05FUG9DaFk5ZWJsc0Z6NmlySEFOLWplOGpOdDA5bFY4MXNXa21zeExjLWtsYjNISVpVUC11MW16bEw1VlMtcGU2Zw?oc=5",
+   "source": "Jornal Económico",
+   "date": "2026-10-19T13:00:00+00:00"
+  },
+  {
+   "title": "Bolsa japonesa recupera com Wall Street e queda do petróleo - XTB",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcnBPS0FsTVRTU0FFZXhGNHdWTHpXSTh0dU9YZEVTeUtRZ21QTktQRnh3dHBKZGVGUzVHekhyd2JJcHd2U25HdmZ0Z2hlRDdnYVlub3BxdEFVV2tHWUg1cDcwR0pobXZHeHZGWUMxeURNSHpIWDlGcmlOV1NJcG5CU2VfbnkxOWRpZlVhbGFYYzV4UQ?oc=5",
+   "source": "XTB",
+   "date": "2026-10-19T09:25:25+00:00"
+  },
+  {
+   "title": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta segunda - InfoMoney",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMHpFOENITndyb3VWTmFWbnp1SG4yVGNzODJkZ0t1cV9YSjBqVnFzWXhhYUVpWElGWlp1MV95cTFNZmlWcENPVnZLeHZpM0RMNDVQTER6ZExWOXRSWFNUcTFYX2tnbGxYVVJqSkwwUkZreVdWcVRUUnJwSE5palhSRy1nWTFlRjBScncwem1lUQ?oc=5",
+   "source": "InfoMoney",
+   "date": "2026-10-19T11:00:44+00:00"
+  },
+  {
+   "title": "Ibovespa hoje sobe quase 1% e supera os 207 mil pontos com debate e pesquisas eleitorais; dólar cai - Estadão",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPSXlWZ3AyWTc0eGw1MzZzYkh3RlJsVDZzeTU3SjhkZTVpcFJwYjNod0J2SV9DWXZLQlZiUF9aR2lubnRUYXVvVHBHUEVOWDJnWk9ITm9tWmdOR2FZUDltOFJmV2FpOC1JN2JTTklPWk1ubFNPZmliRlk2aDcyMTBSMnlidTItTW15Q1Z3RVc4MTlnSE1jQmc0Tk1RQWxLaVNaaDhDdWlNWkVIN0JNQV9SalUyOTFaUFhhWDZBYkFFbVJCeGt5d3pZd3kyR2pGa08tcXfSAdcBQVVfeXFMUGpfWEtmME5OWWxBQ0dyY3lTSVp6eHhHVnFVUGZKZFNuOWpXRHRwN3VUcldsaWhCbVRCZEptQU5LYUR0dmJSSGl4NERPRmZoRjItQlhyYTFLMlhiNk1FUkpnME0yVzMwNHZSclI3dWN2MVlKS2lVMHh1SzBnSE42Z05hMkhPQUQ0QXFIa09VUnMzdVU1V0hpYWxSWjFYOV9YNWJhRnVTS2FGOUxZN0xudDY2U0dJa1NHVGgzd1Q3bTdWNm52cWJ1aWtVZmFvZDl2MFJiSVNjOWM?oc=5",
+   "source": "Estadão",
+   "date": "2026-10-19T13:22:28+00:00"
+  },
+  {
+   "title": "Temporada de balanços do 3T26 bate à porta: veja as datas das divulgações e das teleconferências - Seu Dinheiro",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPdFlBU0V3NFk5LVZFNjNMNzJxRGowOWF4NEJabXEyYXRqVXY4ckhaeU85b1lFSjhaczNaRWxxdGFMb18yWnBmLTFaV2ZDNmtDQ0ZWUDYzME5nZ3NONk9maUdDdEstY0xIWWNFV01zbzFQdGlVVUY1NlVFbWViWEpRalRmQ0ROS2h6UXcyZkR4NXNxemg4NXVqbDlMZzdpNFFjcGp4MDRLNnVKNjg3U1VqejJYV2VNWWs4NmtKdU0yNWp6RDF2QkVTMmx0ZFZzZlpRTHhBUlEycVRZZFE?oc=5",
+   "source": "Seu Dinheiro",
+   "date": "2026-10-19T09:04:00+00:00"
+  },
+  {
+   "title": "'Just another scare': Wall Street sees the AI trade strong despite tech's latest rout - Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxONkF2UGc0SmgxTzdidVlLNWRHU3JjZFdrOHpKRGt2ODFqSUJFQWpnYVRXLUJ0aDJ6c3pmNDB3OVB0VGpsNlJJRkkzZjNXODNzaEJnUFdOemZZVTBKc3pWbUJ6MnBaeFdIRjB1VDl0UlVzMnNneDJGN0NJTGNaWmUyVnRqT2QxOERjZ2ZJYVltT0tLZzE0T2pSYjRqZW1tbE00TVJzbzJTQjRTemRILTV5cGFQZU9EeHg0TlVDdE95bE5VVHh0Z0w5eGdGa1FmWGdtVzY4Wg?oc=5",
+   "source": "Yahoo Finance",
+   "date": "2026-10-19T08:23:44+00:00"
+  },
+  {
+   "title": "AI stocks lead a rebound on Wall Street as European markets drop following protests - Union-Bulletin",
+   "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPaFBNTkhNMkFJbGtlSmxJdE1HdmNCdDRxa1J2R3ZVajNYUkg1eXp4UTNjOFA3UWx4NjhVMHNESTQ5RDJJeEtWQWhUY1FsWTZQT1V3bDN6bXlKNjBodV9Gd0s5Mjl0Ykt4OWR3WC05MldoaEF3ZGlBM2U4THozNVl0R1VRXzhBY2c4RUQtNk9yT2FMMzRYQWoxUnpsazFlaE4zZXNkNkk2QjFFSUozeXNPb1c0LVpUcmJ0M3NqWEZzZjdCdkZxdTFJQ1hwNWprTU53aE9VUkJCenkyV3lHU2NLa2JsaHJpVlNTbHo5NW16dlRWZU9WVnh6Vy1vVzQ0UUs4eGd3ekVn?oc=5",
+   "source": "Union-Bulletin",
+   "date": "2026-10-19T13:45:31+00:00"
+  },
+  {
+   "title": "A Repeat Of 'Black Monday' Would Send The S&P 500 Down More Than 1,500 Points And Wipe Out More Than $13 Trillion In Stock Market Value - 24/7 Wall St.",
+   "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNelc0RkZ2LVZZVWg3NkVTYm53YWFTZTZ0LTVRUmY2YVBwc1EyTUpZN0FiazhEcmxkRm8xRzZWbHdUMlg4dXR5VHVPUS1xbk5DTGc4TzNZYTliOXF5WFRUUHlrdEZpd2hQRnlwMk1wcWN5NjNua2JrNGNsNTNuanAxd2NhM0pGU1NQN1lVLUFHYXlPdFB5SlVXTlA1VWFkU0tKLV9OYmFjOC1nRWxXZ0FiZGFEaWhWY1lMRURXM0tXbUE3TlZuSzAxVE5MVFNGdEZaVGRpU29MNjc4Y3R5ZHNWOEc2QjcwQm5rVi1aM1RYS2pfYjdrclk2eTZEc1BTV0xNWnprcw?oc=5",
+   "source": "24/7 Wall St.",
+   "date": "2026-10-19T10:56:00+00:00"
+  },
+  {
+   "title": "US Stock Market Today: S&P 500 Futures Drop As Trade Inflation Fears Return - Simply Wall Street",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQLTRPTWwwc2llbW04UHFDeWczMENhU2kyZ1I5RTdhdEEzR1FBWG1FSGFQZmFaMTRLcUNUc0k1aVVTTFBrSl9oWVAzS3lDWUs2WUFpa01EVHlGb2VDM08tUDMweFdjZllJa0ozQUlKM09iZTQybnY3QjBqb1FCeXh0UFhVRWFwMlVZX19nOGFmQkRnZXNPVmVPclBCNWFZZXhjTnEwT3d4MFVTem5FQ0dEd0VEckY3eXdWU3ZiRkVxRjc1eTY2VUZZ0gHMAUFVX3lxTE8yYTRfM2JtWlBIX0lEcnlrVkItVGM2RzNNSlIxZFZvQjFpajBZdDd1WHd1M3RLUlQzZVROVHpJaW5nUnFMT1Z4SjhFYUo5QldNY2ttUi01U0VTQ1ctSEhUb2pOdUt2ZV9LazFKUmlwWkpaN18xWm9QX1FnQWlSWWlpVW9ETWpQOE5yekRqSEQzMGFKcVg4M0RkOVpvT0M3clF3T2MtZXFhNVdZTTFoSEpvQU1KaW1NVHBWR2s5dVBHaVVMMkZhbTBTc0hCag?oc=5",
+   "source": "Simply Wall Street",
+   "date": "2026-10-19T09:00:27+00:00"
+  },
+  {
+   "title": "US Stock Market Today: S&P, Nasdaq Trade Higher As AI Stocks Lift Wall Street Ahead Of Tech Earnings - NDTV Profit",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVzY4MDB4VnBWWkFuTkRhaHV6ZXpHdTRmX1pFUkVfTFdycHF5ZWd5N2o0cGcwZGx5ZzdrRDcwOHBHVzlVVmQxWjVNM2RsV3lkaDRHSHNSQmpibHRuRzVpbTNrRXA4TXpxaXhNV0Z4M1NxZTJuSi0wTWNrVWU1ZWw1RVlQMHozRk1la21sVWdCSXZrd1FQbEl4M1dNYmdnaFZTV1pqb3RVOVZDeWw1ckZqdWluZVZzOWNhTHFZS3NB0gHGAUFVX3lxTE8wWHFQanpBVzBhejZsVlhwT2dWdFFnb2FqX0YtRUp3UFlCOUpwajUxR1pqb1FpYXkwdHh0eGRJaEE1YkdpRGVZUWtBdHNZdE9lX0VZQndPOW9LanQxZ3lsN2dLcERRX1VJNHo0QUlTTjVyUFFIWGJmeThNeXF3UFZMYjZKVExCYUZrQ1JXaUNtV0Q4VUFxUjJoRS1CMUR4anlLOUpKQXRrYjJlWGRNb0RZLWs1MXFCaU9ZcTVfQXczX1I3UjhxUQ?oc=5",
+   "source": "NDTV Profit",
+   "date": "2026-10-19T13:34:29+00:00"
+  }
+ ]
+}
