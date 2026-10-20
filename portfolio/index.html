@@ -1,0 +1,69 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--fg:#15181d;--card:#fff;--mut:#6b7280;--line:#e5e7eb;--good:#15803d;--fair:#a16207;
+--warn:#c2410c;--bad:#b91c1c;--acc:#2563eb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--fg:#e8eaed;--card:#171b22;--mut:#9aa3af;
+--line:#262c36;--good:#4ade80;--fair:#facc15;--warn:#fb923c;--bad:#f87171;--acc:#60a5fa}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+h1{font-size:1.4rem;margin:0}h2{font-size:1.05rem;margin:28px 0 10px}
+.muted,small,.meta{color:var(--mut)}.top{display:flex;flex-wrap:wrap;gap:8px;
+justify-content:space-between;align-items:center}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+button,select{background:var(--card);color:var(--fg);border:1px solid var(--line);
+border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card header{display:flex;justify-content:space-between;gap:8px}.card h3{margin:0}
+.card p{margin:4px 0}.px{text-align:right;white-space:nowrap}.px b{font-size:1.2rem}
+.up{color:var(--good)}.down{color:var(--bad)}.note{font-style:italic;color:var(--mut)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.metrics small{display:block;font-size:.7rem;min-height:2em}
+.metric{display:flex;flex-direction:column;gap:3px}.v{font-size:1.15rem;font-weight:600}
+.b{font-size:.72rem;font-weight:600;border-radius:99px;padding:1px 8px;width:fit-content;
+border:1px solid currentColor}
+.b.good{color:var(--good)}.b.fair{color:var(--fair)}.b.warn{color:var(--warn)}
+.b.bad{color:var(--bad)}.b.na{color:var(--mut)}
+.range{position:relative;height:6px;background:var(--line);border-radius:3px;margin-top:8px}
+.range i{position:absolute;top:-3px;width:3px;height:12px;background:var(--acc);border-radius:2px}
+.rl{display:flex;justify-content:space-between;font-size:.7rem;color:var(--mut)}
+.news{list-style:none;padding:0;margin:12px 0 0;border-top:1px solid var(--line)}
+.news li{padding:7px 0;border-bottom:1px solid var(--line)}.news li:last-child{border:0}
+.news a{color:var(--fg);text-decoration:none}.news a:hover{color:var(--acc)}
+.news small{display:block}.legend{font-size:.8rem;color:var(--mut)}
+.mkt li{list-style:none;padding:6px 0;border-bottom:1px solid var(--line)}
+.mkt{padding:0;margin:0;background:var(--card);border-radius:12px;padding:6px 14px;
+border:1px solid var(--line)}.mkt a{color:var(--fg);text-decoration:none}
+.mkt small{display:block}.hide{display:none!important}
+@media(max-width:480px){.wrap{padding:12px}.metrics{gap:4px}}
+</style></head><body><div class="wrap">
+<div class="top"><h1>Portefólio &amp; Watchlist</h1><small>Atualizado 2026-10-20 14:11 UTC</small></div>
+<p class="legend">P/E: Barato &lt;15 · Valor justo &lt;30 · Caro &lt;50 · Muito caro ≥50 &nbsp;|&nbsp; PEG: Desconto &lt;1 · Justo &lt;2 · Prémio ≥2</p>
+<div class="tools"><button data-f="all" class="on">Todas</button>
+<button data-f="holding">Portefólio</button><button data-f="watch">A seguir</button>
+<input id="q" placeholder="Procurar ticker" style="background:var(--card);color:var(--fg);
+border:1px solid var(--line);border-radius:8px;padding:6px 10px">
+<select id="s"><option value="name">Ordenar: nome</option><option value="pe">P/E ↑</option>
+<option value="peg">PEG ↑</option><option value="chg">Variação ↓</option></select></div>
+<section class="g"><h2>O meu portefólio</h2><div class="grid"><article class="card" data-kind="holding"><h3>AAPL</h3><p class="muted">Sem dados (ticker inválido ou limite do Yahoo). Verifica o símbolo em watchlist.json.</p></article><article class="card" data-kind="holding"><h3>MSFT</h3><p class="muted">Sem dados (ticker inválido ou limite do Yahoo). Verifica o símbolo em watchlist.json.</p></article></div></section><section class="g"><h2>A seguir</h2><div class="grid"><article class="card" data-kind="watch"><h3>NVDA</h3><p class="muted">Sem dados (ticker inválido ou limite do Yahoo). Verifica o símbolo em watchlist.json.</p></article><article class="card" data-kind="watch"><h3>KO</h3><p class="muted">Sem dados (ticker inválido ou limite do Yahoo). Verifica o símbolo em watchlist.json.</p></article></div></section>
+<section><h2>Notícias de mercado</h2><ul class="mkt"><li><a href="https://finance.yahoo.com/m/f3498525-5b31-3702-9e4b-aa8f358f4086/stock-market-today%3A-dow-rises.html" target="_blank" rel="noopener">Stock Market Today: Dow Rises As Oil Prices Surge; Netflix, SpaceX Mixed Ahead Of Earnings (Live Coverage)</a><small>Investor&#x27;s Business Daily · 2026-10-20</small></li><li><a href="https://finance.yahoo.com/markets/live/copy-stock-market-today-dow-sp-500-nasdaq-futures-mixed-amid-volatile-week-111612062.html" target="_blank" rel="noopener">Stock market today: Dow, S&amp;P 500, Nasdaq mixed as AI trade rebound stalls</a><small>Yahoo Finance · 2026-10-20</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-080913569.html" target="_blank" rel="noopener">US Stock Market Today: S&amp;P 500 Futures Climb On Strong Factory And Earnings Hopes</a><small>Simply Wall St. · 2026-10-20</small></li><li><a href="https://finance.yahoo.com/markets/world-indices/articles/european-stocks-extend-slide-french-055250095.html" target="_blank" rel="noopener">European stocks extend slide as French unrest triggers de-risking</a><small>Investing.com · 2026-10-20</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-220513155.html" target="_blank" rel="noopener">Stock Market Today, Oct. 19: IREN Rallies on AI Infrastructure Sentiment Rebound</a><small>Motley Fool · 2026-10-19</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-213727360.html" target="_blank" rel="noopener">Stock Market Today, Oct. 19: Cleveland-Cliffs Surges on Stronger Q3 Results and Raised 2027 EBITDA Outlook</a><small>Motley Fool · 2026-10-19</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-213103695.html" target="_blank" rel="noopener">Stock Market Today, Oct. 19: Amazon Surges on Morgan Stanley Top Pick and $350 Price Target</a><small>Motley Fool · 2026-10-19</small></li><li><a href="https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-start-week-back-024700529.html" target="_blank" rel="noopener">European stocks fall on unrest in France as Nasdaq bounces</a><small>AFP · 2026-10-19</small></li></ul></section>
+<p class="legend">Dados do Yahoo Finance, podem ter atraso. Informação indicativa, não é
+aconselhamento financeiro. P/E e PEG baixos não significam por si só boa compra.</p>
+</div><script>
+const cards=[...document.querySelectorAll('.card')];let kind='all';
+function apply(){const q=document.getElementById('q').value.toLowerCase();
+cards.forEach(c=>c.classList.toggle('hide',!((kind==='all'||c.dataset.kind===kind)&&
+(c.dataset.name||'').toLowerCase().includes(q))));
+document.querySelectorAll('section.g').forEach(s=>s.classList.toggle('hide',
+!s.querySelector('.card:not(.hide)')))}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{kind=b.dataset.f;
+document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));apply()});
+document.getElementById('q').oninput=apply;
+document.getElementById('s').onchange=e=>{const k=e.target.value;
+document.querySelectorAll('.grid').forEach(g=>{[...g.children].sort((a,b)=>k==='name'?
+a.dataset.name.localeCompare(b.dataset.name):k==='chg'?b.dataset.chg-a.dataset.chg:
+a.dataset[k]-b.dataset[k]).forEach(c=>g.appendChild(c))})};
+</script></body></html>

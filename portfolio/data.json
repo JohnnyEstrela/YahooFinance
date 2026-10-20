@@ -1,0 +1,253 @@
+{
+ "updated": "2026-10-20 14:11 UTC",
+ "holdings": [
+  {
+   "ticker": "AAPL",
+   "name": "AAPL",
+   "sector": "",
+   "currency": "",
+   "price": null,
+   "change_pct": null,
+   "market_cap": null,
+   "div_yield_pct": null,
+   "low52": null,
+   "high52": null,
+   "pe": null,
+   "fwd_pe": null,
+   "peg": 2.706,
+   "news": [
+    {
+     "title": "Chips Are Selling Off and Apple Just Hit a New High. What Splits the AI Trade",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/chips-selling-off-apple-just-140019735.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Apple Stock Downgraded As Analysts Turn Cautious On iPhone Maker",
+     "url": "https://finance.yahoo.com/m/0e91d904-b722-3eca-9e6f-93961c30a035/apple-stock-downgraded-as.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Apple downgraded, Akamai upgraded: Wall Street's top analyst calls",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/apple-downgraded-akamai-upgraded-wall-133515192.html",
+     "source": "The Fly",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Parks Associates: 37% of Recent Home Security System Buyers are Renters as Apple Enters The Smart Home Market",
+     "url": "https://finance.yahoo.com/real-estate/articles/parks-associates-37-recent-home-131200861.html",
+     "source": "PR Newswire",
+     "date": "2026-10-20"
+    }
+   ],
+   "note": "EXEMPLO - substitui pelas tuas posições",
+   "ok": false,
+   "pe_label": "N/D",
+   "pe_lvl": null,
+   "fpe_label": "N/D",
+   "fpe_lvl": null,
+   "peg_label": "Prémio",
+   "peg_lvl": 2
+  },
+  {
+   "ticker": "MSFT",
+   "name": "MSFT",
+   "sector": "",
+   "currency": "",
+   "price": null,
+   "change_pct": null,
+   "market_cap": null,
+   "div_yield_pct": null,
+   "low52": null,
+   "high52": null,
+   "pe": null,
+   "fwd_pe": null,
+   "peg": 1.6173,
+   "news": [
+    {
+     "title": "Boeing, Microsoft Reveal AI Aircraft Platform, FAA To Certify 737 Max 10",
+     "url": "https://finance.yahoo.com/m/71d9b8d2-7bae-3287-a073-f80ce7e01129/boeing%2C-microsoft-reveal-ai.html",
+     "source": "Investor's Business Daily",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Chips Are Selling Off and Apple Just Hit a New High. What Splits the AI Trade",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/chips-selling-off-apple-just-140019735.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Gartner: 80% of neocloud firms face extinction by 2030 as AI capex outpaces returns",
+     "url": "https://finance.yahoo.com/technology/ai/articles/gartner-80-neocloud-firms-face-134223382.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Blackpoint Cyber Named Most Promising AI SOC in Cyber Defense Magazine’s 2026 Top InfoSec Innovator Awards",
+     "url": "https://finance.yahoo.com/technology/ai/articles/blackpoint-cyber-named-most-promising-130000197.html",
+     "source": "GlobeNewswire",
+     "date": "2026-10-20"
+    }
+   ],
+   "note": "EXEMPLO",
+   "ok": false,
+   "pe_label": "N/D",
+   "pe_lvl": null,
+   "fpe_label": "N/D",
+   "fpe_lvl": null,
+   "peg_label": "Justo",
+   "peg_lvl": 1
+  }
+ ],
+ "watching": [
+  {
+   "ticker": "NVDA",
+   "name": "NVDA",
+   "sector": "",
+   "currency": "",
+   "price": null,
+   "change_pct": null,
+   "market_cap": null,
+   "div_yield_pct": null,
+   "low52": null,
+   "high52": null,
+   "pe": null,
+   "fwd_pe": null,
+   "peg": 0.4791,
+   "news": [
+    {
+     "title": "3 AI Stocks to Buy Amid This Deep Correction",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/3-ai-stocks-buy-amid-140500828.html",
+     "source": "Motley Fool",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Chips Are Selling Off and Apple Just Hit a New High. What Splits the AI Trade",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/chips-selling-off-apple-just-140019735.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Chip stocks decline as AI-trade rebound fizzles",
+     "url": "https://finance.yahoo.com/markets/article/chip-stocks-decline-as-ai-trade-rebound-fizzles-130443167.html",
+     "source": "Yahoo Finance",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Anthropic Will Be The Last AI IPO Of 2026, As Industry Collapses",
+     "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-last-ai-ipo-2026-135520863.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    }
+   ],
+   "note": "EXEMPLO",
+   "ok": false,
+   "pe_label": "N/D",
+   "pe_lvl": null,
+   "fpe_label": "N/D",
+   "fpe_lvl": null,
+   "peg_label": "Desconto",
+   "peg_lvl": 0
+  },
+  {
+   "ticker": "KO",
+   "name": "KO",
+   "sector": "",
+   "currency": "",
+   "price": null,
+   "change_pct": null,
+   "market_cap": null,
+   "div_yield_pct": null,
+   "low52": null,
+   "high52": null,
+   "pe": null,
+   "fwd_pe": null,
+   "peg": 4.025,
+   "news": [
+    {
+     "title": "Here's How Much a $10,000 Investment in Coca-Cola Will Get You in Dividends",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/heres-much-10-000-investment-122100953.html",
+     "source": "Motley Fool",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "The Zacks Analyst Blog Highlights Sun Life Financial, Coca-Cola, Altria, Keurig Dr Pepper and MetLife",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-sun-115800970.html",
+     "source": "Zacks",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "Which Stocks Are Paying For $4.33 Gas?",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-paying-4-33-gas-114922004.html",
+     "source": "Trefis",
+     "date": "2026-10-20"
+    },
+    {
+     "title": "4 Dividend Kings Retirees Can Buy and Hold Forever: Safe Income for the Next 60 Years",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/4-dividend-kings-retirees-buy-114552878.html",
+     "source": "24/7 Wall St.",
+     "date": "2026-10-20"
+    }
+   ],
+   "note": "EXEMPLO",
+   "ok": false,
+   "pe_label": "N/D",
+   "pe_lvl": null,
+   "fpe_label": "N/D",
+   "fpe_lvl": null,
+   "peg_label": "Prémio",
+   "peg_lvl": 2
+  }
+ ],
+ "market_news": [
+  {
+   "title": "Stock Market Today: Dow Rises As Oil Prices Surge; Netflix, SpaceX Mixed Ahead Of Earnings (Live Coverage)",
+   "url": "https://finance.yahoo.com/m/f3498525-5b31-3702-9e4b-aa8f358f4086/stock-market-today%3A-dow-rises.html",
+   "source": "Investor's Business Daily",
+   "date": "2026-10-20"
+  },
+  {
+   "title": "Stock market today: Dow, S&P 500, Nasdaq mixed as AI trade rebound stalls",
+   "url": "https://finance.yahoo.com/markets/live/copy-stock-market-today-dow-sp-500-nasdaq-futures-mixed-amid-volatile-week-111612062.html",
+   "source": "Yahoo Finance",
+   "date": "2026-10-20"
+  },
+  {
+   "title": "US Stock Market Today: S&P 500 Futures Climb On Strong Factory And Earnings Hopes",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-080913569.html",
+   "source": "Simply Wall St.",
+   "date": "2026-10-20"
+  },
+  {
+   "title": "European stocks extend slide as French unrest triggers de-risking",
+   "url": "https://finance.yahoo.com/markets/world-indices/articles/european-stocks-extend-slide-french-055250095.html",
+   "source": "Investing.com",
+   "date": "2026-10-20"
+  },
+  {
+   "title": "Stock Market Today, Oct. 19: IREN Rallies on AI Infrastructure Sentiment Rebound",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-220513155.html",
+   "source": "Motley Fool",
+   "date": "2026-10-19"
+  },
+  {
+   "title": "Stock Market Today, Oct. 19: Cleveland-Cliffs Surges on Stronger Q3 Results and Raised 2027 EBITDA Outlook",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-213727360.html",
+   "source": "Motley Fool",
+   "date": "2026-10-19"
+  },
+  {
+   "title": "Stock Market Today, Oct. 19: Amazon Surges on Morgan Stanley Top Pick and $350 Price Target",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-19-213103695.html",
+   "source": "Motley Fool",
+   "date": "2026-10-19"
+  },
+  {
+   "title": "European stocks fall on unrest in France as Nasdaq bounces",
+   "url": "https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-start-week-back-024700529.html",
+   "source": "AFP",
+   "date": "2026-10-19"
+  }
+ ]
+}
