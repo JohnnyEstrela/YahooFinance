@@ -1,0 +1,19 @@
+{
+  "_ajuda": "Edita este ficheiro para adicionar/remover empresas. 'holdings' = no portefólio (shares e preço médio de compra são opcionais). 'watching' = só a seguir. Tickers no formato Yahoo Finance (ex.: AAPL, BRK-B, EDP.LS, SAP.DE).",
+  "holdings": [
+    {"ticker": "AAPL", "shares": 0, "avg_cost": 0, "note": "EXEMPLO - substitui pelas tuas posições"},
+    {"ticker": "MSFT", "shares": 0, "avg_cost": 0, "note": "EXEMPLO"}
+  ],
+  "watching": [
+    {"ticker": "NVDA", "note": "EXEMPLO"},
+    {"ticker": "KO", "note": "EXEMPLO"}
+  ],
+  "market_news_queries": ["stock market today", "Federal Reserve interest rates", "European stocks"],
+  "thresholds": {
+    "_ajuda": "Cada lista são os limites superiores (exclusivos) de cada faixa, pela ordem das etiquetas.",
+    "pe":  {"limits": [15, 30, 50], "labels": ["Barato", "Valor justo", "Caro", "Muito caro"]},
+    "peg": {"limits": [1, 2],       "labels": ["Desconto", "Justo", "Prémio"]}
+  },
+  "news_per_company": 4,
+  "market_news_total": 8
+}
