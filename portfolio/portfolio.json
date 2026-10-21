@@ -1,0 +1,15 @@
+{
+  "_ajuda": "Adiciona empresas em 'holdings' (já tens) ou 'watchlist' (a seguir). Campos: ticker (Yahoo Finance), shares e avg_cost (só holdings, opcionais), note (opcional). Ex.: EDP.LS, BRK-B, ASML.AS",
+  "thresholds": {
+    "pe": {"barato": 15, "justo": 30, "caro": 50},
+    "peg": {"desconto": 1, "justo": 2}
+  },
+  "holdings": [
+    {"ticker": "AAPL", "shares": 0, "avg_cost": 0, "note": "exemplo - substitui pelos teus valores"},
+    {"ticker": "MSFT", "shares": 0, "avg_cost": 0}
+  ],
+  "watchlist": [
+    {"ticker": "NVDA"},
+    {"ticker": "GOOGL"}
+  ]
+}

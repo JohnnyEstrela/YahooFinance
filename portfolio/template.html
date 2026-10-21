@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14181f;--mut:#667085;--bd:#e4e7ec;--acc:#2563eb;
+--g:#0f9d58;--y:#b7791f;--o:#d9480f;--r:#c92a2a;--gb:#e6f6ec;--yb:#fdf3dc;--ob:#ffe9dc;--rb:#fde4e4}
+:root[data-theme=dark]{--bg:#0e1116;--card:#171b22;--fg:#e8ebf0;--mut:#98a2b3;--bd:#2a303a;--acc:#6ea0ff;
+--g:#4cd08a;--y:#f0c05a;--o:#ff9a5c;--r:#ff7b7b;--gb:#12301f;--yb:#3a2f12;--ob:#3d2314;--rb:#3d1818}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+h1{font-size:20px;margin:0}small,.mut{color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button,select,input{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:6px 10px;font:inherit}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.sum div,.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
+.sum b{display:block;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card h2{font-size:16px;margin:0}.top{display:flex;justify-content:space-between;gap:8px}
+.price{font-size:20px;font-weight:600;text-align:right}.up{color:var(--g)}.dn{color:var(--r)}
+.m{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.m div{border-radius:8px;padding:6px;text-align:center}.m b{display:block;font-size:17px}.m span{font-size:11px}
+.Barato,.Desconto{background:var(--gb);color:var(--g)}.Justo{background:var(--yb);color:var(--y)}
+.Caro,.Prémio{background:var(--ob);color:var(--o)}.Muito{background:var(--rb);color:var(--r)}
+.nd{background:var(--bd);color:var(--mut)}
+.tag{font-size:11px;border:1px solid var(--bd);border-radius:99px;padding:1px 8px;color:var(--mut)}
+.news a{display:block;color:var(--fg);text-decoration:none;padding:4px 0;border-top:1px solid var(--bd);font-size:13px}
+.news a:hover{color:var(--acc)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
+th,td{padding:8px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}th{cursor:pointer;font-size:12px;color:var(--mut)}
+.tw{overflow-x:auto}.pill{border-radius:99px;padding:1px 8px;font-size:12px}
+.legend{font-size:12px;color:var(--mut);margin-top:14px}
+</style>
+</head>
+<body><div class="wrap">
+<header><div><h1>⚡ Consultor Financeiro</h1><small id="upd"></small></div>
+<div class="bar"><button id="theme">🌓 Tema</button></div></header>
+<div class="sum" id="sum"></div>
+<div class="bar">
+<span id="kinds"></span>
+<select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E (12m)</option>
+<option value="fpe">P/E (próx. 12m)</option><option value="peg">PEG</option><option value="change_pct">Variação dia</option><option value="value">Valor posição</option></select>
+<select id="valf"><option value="">Todas as avaliações</option><option>Barato</option><option>Justo</option><option>Caro</option><option>Muito caro</option></select>
+<span id="views"></span>
+<input id="q" placeholder="Pesquisar…" style="flex:1;min-width:120px">
+</div>
+<div id="out"></div>
+<div class="legend" id="legend"></div>
+</div>
+<script>
+const D=/*DATA*/null;
+const $=s=>document.querySelector(s);
+const st=Object.assign({kind:'all',view:'cards',sort:'ticker',valf:'',q:'',theme:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'},
+ (()=>{try{return JSON.parse(localStorage.cfg||'{}')}catch(e){return{}}})());
+const save=()=>{try{localStorage.cfg=JSON.stringify(st)}catch(e){}};
+const f=(v,d=1)=>v==null?'—':v.toFixed(d);
+const cls=c=>c==='Muito caro'?'Muito':c==='n/d'?'nd':c;
+const money=(v,c)=>v==null?'—':v.toLocaleString('pt-PT',{style:'currency',currency:c||'USD'});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function pill(c){return `<span class="pill ${cls(c)}">${c}</span>`}
+function metric(l,v,c,d=1){return `<div class="${cls(c)}"><span>${l}</span><b>${f(v,d)}</b><span>${c}</span></div>`}
+function ago(t){if(!t)return'';const h=(Date.now()/1000-t)/3600;return h<24?Math.round(h)+'h':Math.round(h/24)+'d'}
+function card(r){
+ if(r.error)return `<div class="card"><h2>${esc(r.ticker)}</h2><small>Erro: ${esc(r.error)}</small></div>`;
+ const ch=r.change_pct,pos=r.value!=null?`<small>${r.shares} × ${f(r.avg_cost,2)} · valor ${money(r.value,r.currency)} · <span class="${r.pl_pct>=0?'up':'dn'}">${r.pl_pct>=0?'+':''}${f(r.pl_pct)}%</span></small><br>`:'';
+ return `<div class="card"><div class="top"><div><h2>${esc(r.ticker)} <span class="tag">${r.kind==='holding'?'Portefólio':'A seguir'}</span></h2><small>${esc(r.name)}${r.sector?' · '+esc(r.sector):''}</small></div>
+ <div class="price">${money(r.price,r.currency)}<br><small class="${ch>=0?'up':'dn'}">${ch==null?'':(ch>=0?'+':'')+f(ch,2)+'%'}</small></div></div>
+ <div class="m">${metric('P/E 12m',r.pe,r.pe_class)}${metric('P/E próx. 12m',r.fpe,r.fpe_class)}${metric('PEG',r.peg,r.peg_class,2)}</div>
+ ${pos}<small>Dividendo ${f(r.div_yield,2)}% · Alvo analistas ${money(r.target,r.currency)} · ${esc(r.recommendation||'')}</small>
+ ${r.note?`<br><small>📝 ${esc(r.note)}</small>`:''}
+ <div class="news">${(r.news||[]).map(n=>`<a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title)} <small>— ${esc(n.publisher)} ${ago(n.time)}</small></a>`).join('')}</div></div>`}
+function table(rows){return `<div class="tw"><table><tr><th>Ticker</th><th>Preço</th><th>Dia</th><th>P/E 12m</th><th>P/E próx.</th><th>PEG</th><th>Div.</th><th>Valor</th></tr>`+
+ rows.map(r=>r.error?'':`<tr><td><b>${esc(r.ticker)}</b> <small>${esc(r.name)}</small></td><td>${money(r.price,r.currency)}</td><td class="${r.change_pct>=0?'up':'dn'}">${f(r.change_pct,2)}%</td>
+ <td>${f(r.pe)} ${pill(r.pe_class)}</td><td>${f(r.fpe)} ${pill(r.fpe_class)}</td><td>${f(r.peg,2)} ${pill(r.peg_class)}</td><td>${f(r.div_yield,2)}%</td><td>${r.value!=null?money(r.value,r.currency):'—'}</td></tr>`).join('')+`</table></div>`}
+function newsView(rows){const all=rows.flatMap(r=>(r.news||[]).map(n=>({...n,t:r.ticker}))).sort((a,b)=>(b.time||0)-(a.time||0));
+ return `<div class="card news">${all.map(n=>`<a href="${esc(n.link)}" target="_blank" rel="noopener"><span class="tag">${esc(n.t)}</span> ${esc(n.title)} <small>— ${esc(n.publisher)} ${ago(n.time)}</small></a>`).join('')||'Sem notícias.'}</div>`}
+function seg(el,opts,key){$(el).innerHTML=opts.map(([k,l])=>`<button class="${st[key]===k?'on':''}" data-k="${k}">${l}</button>`).join('');
+ $(el).onclick=e=>{if(e.target.dataset.k){st[key]=e.target.dataset.k;save();render()}}}
+function render(){
+ document.documentElement.dataset.theme=st.theme;
+ $('#upd').textContent='Atualizado: '+new Date(D.updated).toLocaleString('pt-PT');
+ seg('#kinds',[['all','Todas'],['holding','Portefólio'],['watch','A seguir']],'kind');
+ seg('#views',[['cards','Cartões'],['table','Tabela'],['news','Notícias']],'view');
+ $('#sort').value=st.sort;$('#valf').value=st.valf;$('#q').value=st.q;
+ let rows=D.rows.filter(r=>(st.kind==='all'||r.kind===st.kind)&&(!st.valf||r.pe_class===st.valf||r.fpe_class===st.valf)&&
+  (!st.q||(r.ticker+(r.name||'')).toLowerCase().includes(st.q.toLowerCase())));
+ const k=st.sort;rows.sort((a,b)=>k==='ticker'?a.ticker.localeCompare(b.ticker):(k==='change_pct'||k==='value'?-1:1)*((a[k]??1e9*(k==='change_pct'||k==='value'?-1:1))-(b[k]??1e9*(k==='change_pct'||k==='value'?-1:1))));
+ const h=D.rows.filter(r=>r.value!=null),tv=h.reduce((s,r)=>s+r.value,0),tc=h.reduce((s,r)=>s+r.shares*r.avg_cost,0);
+ const cheap=D.rows.filter(r=>r.pe_class==='Barato'||r.peg_class==='Desconto').map(r=>r.ticker);
+ $('#sum').innerHTML=`<div><small>Empresas</small><b>${D.rows.length}</b></div><div><small>Posições (valor, mistura de moedas)</small><b>${h.length?f(tv,0):'—'}</b></div>
+ <div><small>P/L total</small><b class="${tv>=tc?'up':'dn'}">${h.length&&tc?f((tv/tc-1)*100)+'%':'—'}</b></div><div><small>Baratas / em desconto</small><b>${cheap.join(', ')||'—'}</b></div>`;
+ $('#out').innerHTML=st.view==='table'?table(rows):st.view==='news'?newsView(rows):`<div class="grid">${rows.map(card).join('')}</div>`;
+ const t=D.thresholds;$('#legend').innerHTML=`P/E: Barato &lt;${t.pe.barato} · Justo &lt;${t.pe.justo} (ref. 20) · Caro &lt;${t.pe.caro} (ref. 40) · Muito caro ≥${t.pe.caro}. PEG: Desconto &lt;${t.peg.desconto} · Justo ${t.peg.desconto}–${t.peg.justo} · Prémio &gt;${t.peg.justo}. Limites editáveis em portfolio.json. Informação apenas informativa, não é aconselhamento financeiro.`}
+$('#theme').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();render()};
+$('#sort').onchange=e=>{st.sort=e.target.value;save();render()};
+$('#valf').onchange=e=>{st.valf=e.target.value;save();render()};
+$('#q').oninput=e=>{st.q=e.target.value;save();render()};
+render();
+</script></body></html>
