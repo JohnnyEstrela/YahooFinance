@@ -1,0 +1,190 @@
+{
+ "updated": "2026-10-21T14:10+00:00",
+ "thresholds": {
+  "pe": {
+   "barato": 15,
+   "justo": 30,
+   "caro": 50
+  },
+  "peg": {
+   "desconto": 1,
+   "justo": 2
+  }
+ },
+ "rows": [
+  {
+   "ticker": "AAPL",
+   "kind": "holding",
+   "note": "exemplo - substitui pelos teus valores",
+   "name": "Apple Inc.",
+   "currency": "USD",
+   "sector": "Technology",
+   "price": 340.64,
+   "change_pct": 0.33579224,
+   "market_cap": 4971361730560,
+   "pe": 39.06422,
+   "pe_class": "Caro",
+   "fpe": 35.591965,
+   "fpe_class": "Caro",
+   "peg": 2.706,
+   "peg_class": "Prémio",
+   "div_yield": 0.32,
+   "target": 328.35025,
+   "recommendation": "buy",
+   "week52_low": 243.42,
+   "week52_high": 348.15,
+   "news": [
+    {
+     "title": "Billionaire Ken Fisher and Jim Cramer Still Like Apple (AAPL). Should You?",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/billionaire-ken-fisher-jim-cramer-132436249.html",
+     "time": 1792589076
+    },
+    {
+     "title": "What Did It Take To Hold Microsoft Stock?",
+     "publisher": "Trefis",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/did-hold-microsoft-stock-132121035.html",
+     "time": 1792588881
+    },
+    {
+     "title": "Apple vs. Intel: Which Tech Stock Is a Better Buy in 2026?",
+     "publisher": "Motley Fool",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/apple-vs-intel-tech-stock-132002106.html",
+     "time": 1792588802
+    },
+    {
+     "title": "Apple vs. Broadcom: Which Tech Stock Is a Better Buy in 2026?",
+     "publisher": "Motley Fool",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/apple-vs-broadcom-tech-stock-125202039.html",
+     "time": 1792587122
+    }
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "kind": "holding",
+   "note": "",
+   "name": "Microsoft Corporation",
+   "currency": "USD",
+   "sector": "Technology",
+   "price": 529.51,
+   "change_pct": -0.4437147,
+   "market_cap": 3931900739584,
+   "pe": 29.499165,
+   "pe_class": "Justo",
+   "fpe": 22.33846,
+   "fpe_class": "Justo",
+   "peg": 1.6173,
+   "peg_class": "Justo",
+   "div_yield": 0.74,
+   "target": 600.8791,
+   "recommendation": "strong_buy",
+   "week52_low": 349.2,
+   "week52_high": 553.72,
+   "news": [
+    {
+     "title": "Hitachi Solutions Collaborates with NVIDIA to Accelerate Enterprise Data and AI Readiness",
+     "publisher": "PR Newswire",
+     "link": "https://finance.yahoo.com/technology/ai/articles/hitachi-solutions-collaborates-nvidia-accelerate-140000768.html",
+     "time": 1792591200
+    },
+    {
+     "title": "Insight Enterprises Named OpenAI Advanced Partner",
+     "publisher": "MT Newswires",
+     "link": "https://finance.yahoo.com/technology/ai/articles/insight-enterprises-named-openai-advanced-134112485.html",
+     "time": 1792590072
+    }
+   ]
+  },
+  {
+   "ticker": "NVDA",
+   "kind": "watch",
+   "note": "",
+   "name": "NVIDIA Corporation",
+   "currency": "USD",
+   "sector": "Technology",
+   "price": 219.115,
+   "change_pct": 1.2218803,
+   "market_cap": 5290969792512,
+   "pe": 27.701012,
+   "pe_class": "Justo",
+   "fpe": 13.768175,
+   "fpe_class": "Barato",
+   "peg": 0.4791,
+   "peg_class": "Desconto",
+   "div_yield": 0.46,
+   "target": 328.71695,
+   "recommendation": "strong_buy",
+   "week52_low": 164.27,
+   "week52_high": 243.37,
+   "news": [
+    {
+     "title": "Procore Technologies, Nvidia Collaborate on New Capabilities for Construction Projects",
+     "publisher": "MT Newswires",
+     "link": "https://finance.yahoo.com/technology/articles/procore-technologies-nvidia-collaborate-capabilities-140045637.html",
+     "time": 1792591245
+    },
+    {
+     "title": "Why Is CrowdStrike Stock Rising Following Its Expanded NVIDIA AI Security Partnership?",
+     "publisher": "InvestorsHub",
+     "link": "https://finance.yahoo.com/technology/ai/articles/why-crowdstrike-stock-rising-following-140030834.html",
+     "time": 1792591230
+    },
+    {
+     "title": "Hitachi Solutions Collaborates with NVIDIA to Accelerate Enterprise Data and AI Readiness",
+     "publisher": "PR Newswire",
+     "link": "https://finance.yahoo.com/technology/ai/articles/hitachi-solutions-collaborates-nvidia-accelerate-140000768.html",
+     "time": 1792591200
+    },
+    {
+     "title": "NVIDIA (NVDA) is Strengthening AI Conviction Balanced Against Evolving Competitive Risks",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-strengthening-ai-conviction-135925966.html",
+     "time": 1792591165
+    }
+   ]
+  },
+  {
+   "ticker": "GOOGL",
+   "kind": "watch",
+   "note": "",
+   "name": "Alphabet Inc.",
+   "currency": "USD",
+   "sector": "Communication Services",
+   "price": 331.3851,
+   "change_pct": -2.6125612,
+   "market_cap": 4052818329600,
+   "pe": 16.62745,
+   "pe_class": "Justo",
+   "fpe": 21.591743,
+   "fpe_class": "Justo",
+   "peg": 1.2549,
+   "peg_class": "Justo",
+   "div_yield": 0.26,
+   "target": 430.33203,
+   "recommendation": "strong_buy",
+   "week52_low": 249.29,
+   "week52_high": 408.61,
+   "news": [
+    {
+     "title": "Alphabet (GOOGL): Does Its Valuation Account for Waymo’s Potential?",
+     "publisher": "Insider Monkey",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/alphabet-googl-does-valuation-account-134949535.html",
+     "time": 1792590589
+    },
+    {
+     "title": "SpaceX’s AI Business Is Now Bigger Than Starlink",
+     "publisher": "24/7 Wall St.",
+     "link": "https://finance.yahoo.com/technology/ai/articles/spacex-ai-business-now-bigger-134047343.html",
+     "time": 1792590047
+    },
+    {
+     "title": "Meta Heads Into Earnings With 29% Upside on Our Model",
+     "publisher": "24/7 Wall St.",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/meta-heads-earnings-29-upside-133043164.html",
+     "time": 1792589443
+    }
+   ]
+  }
+ ]
+}
