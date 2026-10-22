@@ -10,3 +10,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Portfolio generated output
+portfolio/data/
+portfolio/docs/
