@@ -1,0 +1,13 @@
+{
+  "_ajuda": "Edita este ficheiro para adicionar empresas. 'tipo': 'portfolio' (tenho) ou 'seguir' (só observo). 'acoes' e 'preco_medio' são opcionais.",
+  "limites": {
+    "pe": { "barato": 15, "justo": 30, "caro": 50 },
+    "peg": { "desconto": 1, "justo": 2 }
+  },
+  "empresas": [
+    { "ticker": "AAPL", "tipo": "portfolio", "acoes": 0, "preco_medio": 0, "nota": "Exemplo - substitui pelas tuas posições" },
+    { "ticker": "MSFT", "tipo": "portfolio" },
+    { "ticker": "NVDA", "tipo": "seguir" },
+    { "ticker": "BRK-B", "tipo": "seguir" }
+  ]
+}
