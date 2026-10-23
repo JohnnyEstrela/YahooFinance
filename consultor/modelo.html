@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mu:#667085;--bd:#e3e6eb;--ok:#0a7d3e;--fair:#946200;--warn:#c2410c;--bad:#b42318;--ac:#2456d6}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1318;--card:#171c23;--tx:#e8ecf1;--mu:#93a0b2;--bd:#262d38;--ok:#4ade80;--fair:#facc15;--warn:#fb923c;--bad:#f87171;--ac:#7aa2ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif;padding:16px;max-width:1300px;margin:auto}
+h1{margin:0}.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.sub,.nota,small,.leg{color:var(--mu)}.leg{font-size:13px;margin:4px 0 12px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button,select{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card,.mkt{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.card header{display:flex;justify-content:space-between;gap:8px}.card h3{margin:0;font-size:17px}.card h3 small{display:block;font-size:12px;font-weight:400}
+.badge{font-size:11px;border:1px solid var(--bd);border-radius:99px;padding:2px 8px;height:fit-content;color:var(--mu)}
+.preco{font-size:22px;font-weight:600;margin:8px 0}.preco span{font-size:14px}
+.mets{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.met{border:1px solid var(--bd);border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--mu)}
+.met b{font-size:18px;color:var(--tx)}.tag{font-style:normal;font-weight:600}
+.ok{color:var(--ok)}.fair{color:var(--fair)}.warn{color:var(--warn)}.bad{color:var(--bad)}.nd{color:var(--mu)}
+.sub,.pl,.nota{font-size:13px;margin:8px 0 0}
+ul{list-style:none;padding:0;margin:10px 0 0}li{padding:6px 0;border-top:1px solid var(--bd)}li a{color:var(--tx);text-decoration:none;display:block}li a:hover{color:var(--ac)}li small{font-size:12px}
+.mkt{margin-bottom:12px}h2{font-size:16px;margin:0 0 4px}
+@media(max-width:420px){.mets{grid-template-columns:1fr}.met{flex-direction:row;justify-content:space-between;align-items:center}}
+</style></head><body>
+<div class="top"><h1>📈 Consultor Financeiro</h1><span class="sub">Atualizado {{DATA}}</span></div>
+<p class="leg">{{LEGENDA}}</p>
+<section class="mkt"><h2>Mercados hoje</h2><ul>{{MERCADO}}</ul></section>
+<div class="ctl">
+<button data-f="todos" class="on">Todas</button><button data-f="carteira">Carteira</button><button data-f="seguir">A seguir</button>
+<select id="ord"><option value="">Ordenar: original</option><option value="nome">Ticker</option><option value="pe">P/E mais baixo</option><option value="peg">PEG mais baixo</option></select></div>
+<main class="grid" id="g">{{CARTOES}}</main>
+<script>
+const g=document.getElementById('g'),cs=[...g.children];let fl='todos';
+function ap(){const o=document.getElementById('ord').value;let l=[...cs];
+if(o)l.sort((a,b)=>o==='nome'?a.dataset.nome.localeCompare(b.dataset.nome):a.dataset[o]-b.dataset[o]);
+l.forEach(c=>{c.hidden=!(fl==='todos'||c.dataset.tipo===fl);g.append(c)})}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{fl=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));ap()});
+document.getElementById('ord').onchange=ap;
+</script></body></html>

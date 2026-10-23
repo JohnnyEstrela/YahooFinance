@@ -1,0 +1,13 @@
+{
+  "_ajuda": "Adiciona empresas em 'empresas'. tipo: 'carteira' (já tenho) ou 'seguir' (só acompanho). Campos opcionais: quantidade, preco_medio, notas. Os limiares dos rácios são editáveis em 'limiares'.",
+  "limiares": {
+    "pe": {"barato": 15, "justo": 20, "caro": 40, "muito_caro": 50},
+    "peg": {"desconto": 1, "justo": 2}
+  },
+  "noticias_por_empresa": 3,
+  "empresas": [
+    {"ticker": "AAPL", "tipo": "carteira", "quantidade": 10, "preco_medio": 150.0, "notas": "EXEMPLO - substituir"},
+    {"ticker": "MSFT", "tipo": "carteira", "quantidade": 5, "preco_medio": 300.0, "notas": "EXEMPLO - substituir"},
+    {"ticker": "NVDA", "tipo": "seguir", "notas": "EXEMPLO - substituir"}
+  ]
+}

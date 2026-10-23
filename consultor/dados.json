@@ -1,0 +1,364 @@
+[
+ {
+  "ticker": "AAPL",
+  "tipo": "carteira",
+  "notas": "EXEMPLO - substituir",
+  "erro": null,
+  "nome": "Apple Inc.",
+  "moeda": "USD",
+  "setor": "Technology",
+  "preco": 348.16,
+  "var_dia": -0.05456391,
+  "pe": 39.911697,
+  "fpe": 36.364113,
+  "peg": 2.706,
+  "dividendo": 0.31,
+  "alvo": 328.35025,
+  "recomendacao": "buy",
+  "pe_cls": [
+   "Caro",
+   "warn"
+  ],
+  "fpe_cls": [
+   "Caro",
+   "warn"
+  ],
+  "peg_cls": [
+   "Premium",
+   "bad"
+  ],
+  "noticias": [
+   {
+    "uuid": "e871fcbc-2534-38c5-aa0d-47c5bd2fb1ba",
+    "title": "Prediction: This Chip Stock Could Be a Sleeper AI Winner",
+    "publisher": "24/7 Wall St.",
+    "link": "https://finance.yahoo.com/technology/ai/articles/prediction-chip-stock-could-sleeper-140040802.html",
+    "providerPublishTime": 1792764040,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/24_7_wall_st__718/9e40f597277507681c7c12d292912987.jpg",
+       "width": 1500,
+       "height": 1000,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/37DCE0D630F89620E2C36F47894653C3C29D8115EA5FCB749FE92B97DD774276/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F9e40f597277507681c7c12d292912987.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "QCOM",
+     "AMZN",
+     "AVGO",
+     "NVDA",
+     "AAPL"
+    ]
+   },
+   {
+    "uuid": "6c2a8f6a-8d25-32cd-9992-b07bf6d3df76",
+    "title": "CFOs On the Move: Week ending Oct. 23",
+    "publisher": "CFO.com",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/cfos-move-week-ending-oct-132903038.html",
+    "providerPublishTime": 1792762143,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/cfo_com_600/57530384706da09666476f8163d608bf",
+       "width": 1600,
+       "height": 900,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/722ED64638DBAF8B6362B8F598316D7F08849BC5A017087E4F0F4FEBF6E1C54E/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2Fcfo_com_600%2F57530384706da09666476f8163d608bf",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "UNP",
+     "TSLA",
+     "GM",
+     "AAPL"
+    ]
+   },
+   {
+    "uuid": "3999f42b-34d6-3b04-929f-586b6ccd0b12",
+    "title": "Want Rising Income in Retirement? Invest in These 4 Dividend Growers Whose Free Cash Flow Covers Every Payout",
+    "publisher": "24/7 Wall St.",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/want-rising-income-retirement-invest-125126938.html",
+    "providerPublishTime": 1792759886,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/24_7_wall_st__718/1c1136ba1db10c1eae468549668fb83e.jpg",
+       "width": 2560,
+       "height": 1707,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/865F9597984F043F9A2A65C90F03327FB86B528A279AFCC6FEF37895CFEB5EEC/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F1c1136ba1db10c1eae468549668fb83e.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "AAPL",
+     "MSFT",
+     "PG",
+     "ADP"
+    ]
+   }
+  ],
+  "valor": 3481.6000000000004,
+  "pl_pct": 132.10666666666668
+ },
+ {
+  "ticker": "MSFT",
+  "tipo": "carteira",
+  "notas": "EXEMPLO - substituir",
+  "erro": null,
+  "nome": "Microsoft Corporation",
+  "moeda": "USD",
+  "setor": "Technology",
+  "preco": 522.3,
+  "var_dia": 0.23412348,
+  "pe": 29.09749,
+  "fpe": 22.034292,
+  "peg": 1.6173,
+  "dividendo": 0.75,
+  "alvo": 601.7281,
+  "recomendacao": "strong_buy",
+  "pe_cls": [
+   "Caro",
+   "warn"
+  ],
+  "fpe_cls": [
+   "Caro",
+   "warn"
+  ],
+  "peg_cls": [
+   "Justo",
+   "fair"
+  ],
+  "noticias": [
+   {
+    "uuid": "a86325b2-3794-30d5-b184-07fc5beec7ae",
+    "title": "Microsoft wants to keep more of its AI billions from Nvidia",
+    "publisher": "TheStreet",
+    "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-wants-keep-more-ai-140700046.html",
+    "providerPublishTime": 1792764420,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/thestreet_881/eb71896bb82a7e62a0603805e0607e1d.jpg",
+       "width": 3840,
+       "height": 2560,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/48D5192DBF0B6BF5946E892DAC9C0B28460778CFF2D15EE7A7E0945847B691B3/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2Fthestreet_881%2Feb71896bb82a7e62a0603805e0607e1d.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "MSFT",
+     "NVDA"
+    ]
+   },
+   {
+    "uuid": "3999f42b-34d6-3b04-929f-586b6ccd0b12",
+    "title": "Want Rising Income in Retirement? Invest in These 4 Dividend Growers Whose Free Cash Flow Covers Every Payout",
+    "publisher": "24/7 Wall St.",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/want-rising-income-retirement-invest-125126938.html",
+    "providerPublishTime": 1792759886,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/24_7_wall_st__718/1c1136ba1db10c1eae468549668fb83e.jpg",
+       "width": 2560,
+       "height": 1707,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/865F9597984F043F9A2A65C90F03327FB86B528A279AFCC6FEF37895CFEB5EEC/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F1c1136ba1db10c1eae468549668fb83e.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "AAPL",
+     "MSFT",
+     "PG",
+     "ADP"
+    ]
+   },
+   {
+    "uuid": "a62f2954-4010-3cbd-8186-64f08809722b",
+    "title": "Alphabet Solves the AI Infrastructure Bottlenecks Competitors Can’t Buy with Debt",
+    "publisher": "24/7 Wall St.",
+    "link": "https://finance.yahoo.com/technology/ai/articles/alphabet-solves-ai-infrastructure-bottlenecks-124555307.html",
+    "providerPublishTime": 1792759555,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/24_7_wall_st__718/4e5801942adf37b47805b32793ceff8e.jpg",
+       "width": 2844,
+       "height": 1600,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/84900BA9F4226E14C894E34D3DBC2B88843A31FF8B136BA187F0568A3EA87200/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F4e5801942adf37b47805b32793ceff8e.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "GOOG",
+     "MSFT",
+     "AMZN"
+    ]
+   }
+  ],
+  "valor": 2611.5,
+  "pl_pct": 74.1
+ },
+ {
+  "ticker": "NVDA",
+  "tipo": "seguir",
+  "notas": "EXEMPLO - substituir",
+  "erro": null,
+  "nome": "NVIDIA Corporation",
+  "moeda": "USD",
+  "setor": "Technology",
+  "preco": 212.715,
+  "var_dia": 0.23089874,
+  "pe": 26.890013,
+  "fpe": 13.365086,
+  "peg": 0.4791,
+  "dividendo": 0.47,
+  "alvo": 328.95346,
+  "recomendacao": "strong_buy",
+  "pe_cls": [
+   "Caro",
+   "warn"
+  ],
+  "fpe_cls": [
+   "Barato",
+   "ok"
+  ],
+  "peg_cls": [
+   "Desconto",
+   "ok"
+  ],
+  "noticias": [
+   {
+    "uuid": "a86325b2-3794-30d5-b184-07fc5beec7ae",
+    "title": "Microsoft wants to keep more of its AI billions from Nvidia",
+    "publisher": "TheStreet",
+    "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-wants-keep-more-ai-140700046.html",
+    "providerPublishTime": 1792764420,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/thestreet_881/eb71896bb82a7e62a0603805e0607e1d.jpg",
+       "width": 3840,
+       "height": 2560,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/48D5192DBF0B6BF5946E892DAC9C0B28460778CFF2D15EE7A7E0945847B691B3/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2Fthestreet_881%2Feb71896bb82a7e62a0603805e0607e1d.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "MSFT",
+     "NVDA"
+    ]
+   },
+   {
+    "uuid": "e871fcbc-2534-38c5-aa0d-47c5bd2fb1ba",
+    "title": "Prediction: This Chip Stock Could Be a Sleeper AI Winner",
+    "publisher": "24/7 Wall St.",
+    "link": "https://finance.yahoo.com/technology/ai/articles/prediction-chip-stock-could-sleeper-140040802.html",
+    "providerPublishTime": 1792764040,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/24_7_wall_st__718/9e40f597277507681c7c12d292912987.jpg",
+       "width": 1500,
+       "height": 1000,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/37DCE0D630F89620E2C36F47894653C3C29D8115EA5FCB749FE92B97DD774276/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F9e40f597277507681c7c12d292912987.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "QCOM",
+     "AMZN",
+     "AVGO",
+     "NVDA",
+     "AAPL"
+    ]
+   },
+   {
+    "uuid": "745eb666-709e-3e1b-8b94-7939245aed1e",
+    "title": "Fantastic News for SpaceX Stock Investors",
+    "publisher": "Motley Fool",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/fantastic-news-spacex-stock-investors-135102566.html",
+    "providerPublishTime": 1792763462,
+    "type": "STORY",
+    "thumbnail": {
+     "resolutions": [
+      {
+       "url": "https://media.zenfs.com/en/motleyfool.com/e7341a66b947ad8822e55304dc4c55a1.jpg",
+       "width": 1200,
+       "height": 800,
+       "tag": "original"
+      },
+      {
+       "url": "https://s.yimg.com/lo/mysterio/api/FBDF63496926812B9F9F07ACED7ED16FE13BF03274D63F76099EB9D34E1D12BF/subgraphmysterio/resizefill_w140_h140/https:%2F%2Fmedia.zenfs.com%2Fen%2Fmotleyfool.com%2Fe7341a66b947ad8822e55304dc4c55a1.jpg",
+       "width": 140,
+       "height": 140,
+       "tag": "140x140"
+      }
+     ]
+    },
+    "relatedTickers": [
+     "SPCX",
+     "NVDA"
+    ]
+   }
+  ]
+ }
+]
