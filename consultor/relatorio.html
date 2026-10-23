@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mu:#667085;--bd:#e3e6eb;--ok:#0a7d3e;--fair:#946200;--warn:#c2410c;--bad:#b42318;--ac:#2456d6}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1318;--card:#171c23;--tx:#e8ecf1;--mu:#93a0b2;--bd:#262d38;--ok:#4ade80;--fair:#facc15;--warn:#fb923c;--bad:#f87171;--ac:#7aa2ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif;padding:16px;max-width:1300px;margin:auto}
+h1{margin:0}.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.sub,.nota,small,.leg{color:var(--mu)}.leg{font-size:13px;margin:4px 0 12px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button,select{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card,.mkt{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.card header{display:flex;justify-content:space-between;gap:8px}.card h3{margin:0;font-size:17px}.card h3 small{display:block;font-size:12px;font-weight:400}
+.badge{font-size:11px;border:1px solid var(--bd);border-radius:99px;padding:2px 8px;height:fit-content;color:var(--mu)}
+.preco{font-size:22px;font-weight:600;margin:8px 0}.preco span{font-size:14px}
+.mets{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.met{border:1px solid var(--bd);border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:2px;font-size:11px;color:var(--mu)}
+.met b{font-size:18px;color:var(--tx)}.tag{font-style:normal;font-weight:600}
+.ok{color:var(--ok)}.fair{color:var(--fair)}.warn{color:var(--warn)}.bad{color:var(--bad)}.nd{color:var(--mu)}
+.sub,.pl,.nota{font-size:13px;margin:8px 0 0}
+ul{list-style:none;padding:0;margin:10px 0 0}li{padding:6px 0;border-top:1px solid var(--bd)}li a{color:var(--tx);text-decoration:none;display:block}li a:hover{color:var(--ac)}li small{font-size:12px}
+.mkt{margin-bottom:12px}h2{font-size:16px;margin:0 0 4px}
+@media(max-width:420px){.mets{grid-template-columns:1fr}.met{flex-direction:row;justify-content:space-between;align-items:center}}
+</style></head><body>
+<div class="top"><h1>📈 Consultor Financeiro</h1><span class="sub">Atualizado 23/10/2026 14:10 UTC</span></div>
+<p class="leg">P/E: &lt;15 barato · ≤20 justo · &gt;20 caro (≈40) · &gt;50 muito caro &nbsp;|&nbsp; PEG: &lt;1 desconto · 1–2 justo · &gt;2 premium</p>
+<section class="mkt"><h2>Mercados hoje</h2><ul><li><a href="https://finance.yahoo.com/m/81c00f86-3a6b-31fa-a8aa-5d5650c74f9c/stock-market-today%3A-dow-falls.html" target="_blank" rel="noopener">Stock Market Today: Dow Falls 500 Points On Rising Oil Prices; These AI Players Slide Amid Earnings News (Live Coverage)</a><small>Investor&#x27;s Business Daily · 23/10 13:47</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-23-134445147.html" target="_blank" rel="noopener">Stock Market Today (Oct. 23, 2026): Nasdaq falls following tech sell-off</a><small>TheStreet · 23/10 13:44</small></li><li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-october-23-dow-sp-500-nasdaq-tesla-meta-093000521.html" target="_blank" rel="noopener">Stock market today: Dow, S&amp;P 500, and Nasdaq slip after sharp tech sell-off</a><small>Yahoo Finance · 23/10 13:34</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/us-stock-market-today-p-121228775.html" target="_blank" rel="noopener">US Stock Market Today: S&amp;P 500 Futures Steady On Strong Jobs And PMI Focus</a><small>Simply Wall St. · 23/10 12:12</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/canadian-stock-market-today-tsx-120841911.html" target="_blank" rel="noopener">Canadian Stock Market Today: TSX Futures Ease On Hotter Producer Inflation And Retail Test</a><small>Simply Wall St. · 23/10 12:08</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-head-102959138.html" target="_blank" rel="noopener">Stock Market Today: Futures Head Lower at End of Wild Week as Oil Prices Rise Further on Middle East Tensions; Chip Stocks Rebound</a><small>Investopedia · 23/10 10:29</small></li></ul></section>
+<div class="ctl">
+<button data-f="todos" class="on">Todas</button><button data-f="carteira">Carteira</button><button data-f="seguir">A seguir</button>
+<select id="ord"><option value="">Ordenar: original</option><option value="nome">Ticker</option><option value="pe">P/E mais baixo</option><option value="peg">PEG mais baixo</option></select></div>
+<main class="grid" id="g"><article class="card" data-tipo="carteira" data-pe="39.911697" data-peg="2.706" data-nome="AAPL">
+<header><h3>AAPL <small>Apple Inc.</small></h3><span class="badge">Carteira</span></header>
+<p class="preco">348.16 USD <span class="bad">-0.05%</span></p>
+<div class="mets"><div class="met" title="Preço pago por cada $ de lucro do último ano"><span>P/E (12m passados)</span><b>39.9</b><em class="tag warn">Caro</em></div>
+<div class="met" title="Preço sobre lucro esperado"><span>P/E (próx. 12m)</span><b>36.4</b><em class="tag warn">Caro</em></div>
+<div class="met" title="P/E ajustado ao crescimento"><span>PEG</span><b>2.71</b><em class="tag bad">Premium</em></div></div>
+<p class="sub">Dividendo 0.31% · Preço-alvo 328.35 · Analistas: buy</p>
+<p class="pl ok">Posição: 3,482 USD · 132.1%</p><p class="nota">📝 EXEMPLO - substituir</p>
+<ul class="news"><li><a href="https://finance.yahoo.com/technology/ai/articles/prediction-chip-stock-could-sleeper-140040802.html" target="_blank" rel="noopener">Prediction: This Chip Stock Could Be a Sleeper AI Winner</a><small>24/7 Wall St. · 23/10 14:00</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/cfos-move-week-ending-oct-132903038.html" target="_blank" rel="noopener">CFOs On the Move: Week ending Oct. 23</a><small>CFO.com · 23/10 13:29</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/want-rising-income-retirement-invest-125126938.html" target="_blank" rel="noopener">Want Rising Income in Retirement? Invest in These 4 Dividend Growers Whose Free Cash Flow Covers Every Payout</a><small>24/7 Wall St. · 23/10 12:51</small></li></ul></article>
+<article class="card" data-tipo="carteira" data-pe="29.09749" data-peg="1.6173" data-nome="MSFT">
+<header><h3>MSFT <small>Microsoft Corporation</small></h3><span class="badge">Carteira</span></header>
+<p class="preco">522.30 USD <span class="ok">0.23%</span></p>
+<div class="mets"><div class="met" title="Preço pago por cada $ de lucro do último ano"><span>P/E (12m passados)</span><b>29.1</b><em class="tag warn">Caro</em></div>
+<div class="met" title="Preço sobre lucro esperado"><span>P/E (próx. 12m)</span><b>22.0</b><em class="tag warn">Caro</em></div>
+<div class="met" title="P/E ajustado ao crescimento"><span>PEG</span><b>1.62</b><em class="tag fair">Justo</em></div></div>
+<p class="sub">Dividendo 0.75% · Preço-alvo 601.73 · Analistas: strong_buy</p>
+<p class="pl ok">Posição: 2,612 USD · 74.1%</p><p class="nota">📝 EXEMPLO - substituir</p>
+<ul class="news"><li><a href="https://finance.yahoo.com/technology/ai/articles/microsoft-wants-keep-more-ai-140700046.html" target="_blank" rel="noopener">Microsoft wants to keep more of its AI billions from Nvidia</a><small>TheStreet · 23/10 14:07</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/want-rising-income-retirement-invest-125126938.html" target="_blank" rel="noopener">Want Rising Income in Retirement? Invest in These 4 Dividend Growers Whose Free Cash Flow Covers Every Payout</a><small>24/7 Wall St. · 23/10 12:51</small></li><li><a href="https://finance.yahoo.com/technology/ai/articles/alphabet-solves-ai-infrastructure-bottlenecks-124555307.html" target="_blank" rel="noopener">Alphabet Solves the AI Infrastructure Bottlenecks Competitors Can’t Buy with Debt</a><small>24/7 Wall St. · 23/10 12:45</small></li></ul></article>
+<article class="card" data-tipo="seguir" data-pe="26.890013" data-peg="0.4791" data-nome="NVDA">
+<header><h3>NVDA <small>NVIDIA Corporation</small></h3><span class="badge">A seguir</span></header>
+<p class="preco">212.72 USD <span class="ok">0.23%</span></p>
+<div class="mets"><div class="met" title="Preço pago por cada $ de lucro do último ano"><span>P/E (12m passados)</span><b>26.9</b><em class="tag warn">Caro</em></div>
+<div class="met" title="Preço sobre lucro esperado"><span>P/E (próx. 12m)</span><b>13.4</b><em class="tag ok">Barato</em></div>
+<div class="met" title="P/E ajustado ao crescimento"><span>PEG</span><b>0.48</b><em class="tag ok">Desconto</em></div></div>
+<p class="sub">Dividendo 0.47% · Preço-alvo 328.95 · Analistas: strong_buy</p>
+<p class="nota">📝 EXEMPLO - substituir</p>
+<ul class="news"><li><a href="https://finance.yahoo.com/technology/ai/articles/microsoft-wants-keep-more-ai-140700046.html" target="_blank" rel="noopener">Microsoft wants to keep more of its AI billions from Nvidia</a><small>TheStreet · 23/10 14:07</small></li><li><a href="https://finance.yahoo.com/technology/ai/articles/prediction-chip-stock-could-sleeper-140040802.html" target="_blank" rel="noopener">Prediction: This Chip Stock Could Be a Sleeper AI Winner</a><small>24/7 Wall St. · 23/10 14:00</small></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/fantastic-news-spacex-stock-investors-135102566.html" target="_blank" rel="noopener">Fantastic News for SpaceX Stock Investors</a><small>Motley Fool · 23/10 13:51</small></li></ul></article></main>
+<script>
+const g=document.getElementById('g'),cs=[...g.children];let fl='todos';
+function ap(){const o=document.getElementById('ord').value;let l=[...cs];
+if(o)l.sort((a,b)=>o==='nome'?a.dataset.nome.localeCompare(b.dataset.nome):a.dataset[o]-b.dataset[o]);
+l.forEach(c=>{c.hidden=!(fl==='todos'||c.dataset.tipo===fl);g.append(c)})}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{fl=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));ap()});
+document.getElementById('ord').onchange=ap;
+</script></body></html>
