@@ -1,0 +1,70 @@
+{
+  "settings": {
+    "currency_display": "native",
+    "news_per_ticker": 3,
+    "market_news": 6,
+    "market_news_queries": [
+      "stock market",
+      "Federal Reserve",
+      "inflation earnings"
+    ]
+  },
+  "thresholds": {
+    "pe": [
+      {
+        "max": 15,
+        "key": "cheap",
+        "label": "Barato"
+      },
+      {
+        "max": 20,
+        "key": "fair",
+        "label": "Fair value"
+      },
+      {
+        "max": 40,
+        "key": "pricey",
+        "label": "Caro"
+      },
+      {
+        "max": 50,
+        "key": "very_pricey",
+        "label": "Pricey"
+      },
+      {
+        "max": null,
+        "key": "expensive",
+        "label": "Expensive"
+      }
+    ],
+    "peg": [
+      {
+        "max": 1,
+        "key": "cheap",
+        "label": "Desconto"
+      },
+      {
+        "max": 2,
+        "key": "fair",
+        "label": "Justo"
+      },
+      {
+        "max": null,
+        "key": "expensive",
+        "label": "Prémio"
+      }
+    ]
+  },
+  "tickers": [
+    {
+      "ticker": "AAPL",
+      "status": "watchlist",
+      "notes": "Exemplo - substitui pelas tuas empresas"
+    },
+    {
+      "ticker": "MSFT",
+      "status": "watchlist",
+      "notes": "Exemplo - substitui pelas tuas empresas"
+    }
+  ]
+}
