@@ -1,0 +1,14 @@
+{
+  "_ajuda": "Edita esta lista. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost são opcionais.",
+  "thresholds": {
+    "pe": {"barato": 15, "justo": 30, "caro": 50},
+    "peg": {"desconto": 1, "justo": 2}
+  },
+  "market_news_symbols": ["^GSPC", "^IXIC", "^STOXX50E"],
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": ""},
+    {"ticker": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": ""},
+    {"ticker": "BRK-B", "status": "watchlist", "notes": ""},
+    {"ticker": "EDP.LS", "status": "watchlist", "notes": ""}
+  ]
+}
