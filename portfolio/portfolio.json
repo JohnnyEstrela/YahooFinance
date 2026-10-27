@@ -1,0 +1,15 @@
+{
+  "_ajuda": "Edita esta lista. 'portfolio' = empresas que tens; 'watchlist' = empresas que segues. shares/avg_cost são opcionais.",
+  "portfolio": [
+    {"ticker": "AAPL", "shares": 10, "avg_cost": 150.0},
+    {"ticker": "MSFT", "shares": 5, "avg_cost": 300.0}
+  ],
+  "watchlist": [
+    {"ticker": "NVDA"},
+    {"ticker": "GOOGL"}
+  ],
+  "thresholds": {
+    "pe": {"cheap": 15, "fair": 20, "pricey": 40, "expensive": 50},
+    "peg": {"discount": 1, "premium": 2}
+  }
+}
