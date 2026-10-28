@@ -1,0 +1,56 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mu:#6b7280;--bd:#e5e7eb;--good:#15803d;--fair:#0369a1;--warn:#b45309;--bad:#b91c1c;--na:#6b7280}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1318;--card:#171c23;--tx:#e6e9ee;--mu:#9aa3af;--bd:#2a313b;--good:#4ade80;--fair:#38bdf8;--warn:#fbbf24;--bad:#f87171;--na:#9aa3af}}
+:root[data-theme=dark]{--bg:#0f1318;--card:#171c23;--tx:#e6e9ee;--mu:#9aa3af;--bd:#2a313b;--good:#4ade80;--fair:#38bdf8;--warn:#fbbf24;--bad:#f87171;--na:#9aa3af}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px}h1{margin:0 0 4px;font-size:1.5rem}
+.muted{color:var(--mu);font-size:.85em}.bar{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap}
+button{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:999px;padding:6px 14px;cursor:pointer}button.on{border-color:var(--fair);color:var(--fair)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px}.card header{display:flex;justify-content:space-between;align-items:start}
+h2{margin:0;font-size:1.2rem}.tag{font-size:.75em;border:1px solid var(--bd);border-radius:999px;padding:2px 10px;color:var(--mu)}
+.price{font-size:1.7rem;font-weight:600;margin:8px 0}.price small{font-size:.5em}.up{color:var(--good)}.dn{color:var(--bad)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}.m{border:1px solid var(--bd);border-radius:8px;padding:8px;display:flex;flex-direction:column}
+.m .l{font-size:.7em;color:var(--mu)}.m .v{font-size:1.15rem;font-weight:600}.m .b{font-size:.75em;font-weight:600}
+.m.good .b{color:var(--good)}.m.fair .b{color:var(--fair)}.m.warn .b{color:var(--warn)}.m.bad .b{color:var(--bad)}.m.na .b{color:var(--na)}
+.range{position:relative;height:6px;background:var(--bd);border-radius:3px;margin-top:12px}.range i{position:absolute;top:-3px;width:12px;height:12px;border-radius:50%;background:var(--fair);margin-left:-6px}
+.rl{display:flex;justify-content:space-between;margin-top:4px}.news{padding-left:18px;margin:8px 0 0}.news li{margin:6px 0}a{color:var(--fair)}
+section.mk{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin-bottom:14px}.legend{margin-top:18px}
+</style></head><body><main>
+<h1>⚡ Consultor Financeiro</h1><div class="muted">Dados de 2026-10-28 · Financial Modeling Prep (cotações, rácios TTM, estimativas de analistas); notícias via pesquisa web</div>
+<div class="bar"><button class="on" data-f="all">Todas</button><button data-f="portfolio">Carteira</button><button data-f="watching">A seguir</button><button id="th">Tema</button></div>
+<section class="mk"><b>Mercado</b><ul class="news"><li><a href="https://tapeboard.com/blog/market-pulse-2026-10-21" target="_blank" rel="noopener">S&amp;P 500 +0,58% (7757), Nasdaq +1,05%, Dow +0,69% na sessão de 21-out</a> <span class="muted">2026-10-21</span></li><li><a href="https://www.heygotrade.com/en/news/apple-aapl-stock-news-october-23-2026/" target="_blank" rel="noopener">Nasdaq caiu 2,6% a 22-out com receios sobre despesa em IA e custo do capital (segundo resumo citado)</a> <span class="muted">2026-10-22</span></li></ul></section>
+<div class="grid"><article class="card" data-status="portfolio">
+<header><div><h2>AAPL</h2><span class="muted">Apple Inc.</span></div><span class="tag">Carteira</span></header>
+<div class="price">344.67 <small class="dn">-0.70%</small></div>
+
+<div class="metrics"><div class="m warn"><span class="l">P/E (12m passados)</span><span class="v">39.39</span><span class="b">Elevado</span></div><div class="m warn"><span class="l">P/E (próx. 12m)</span><span class="v">35.80</span><span class="b">Elevado</span></div><div class="m fair"><span class="l">PEG</span><span class="v">1.21</span><span class="b">Justo</span></div></div>
+<div class="range" title="Posição no intervalo de 52 semanas"><i style="left:93%"></i></div>
+<div class="muted rl"><span>243</span><span>52 sem.</span><span>352</span></div>
+<p class="muted">Cap. 5.03 T · Dividendo 0.31%</p>
+<ul class="news"><li><a href="https://www.heygotrade.com/en/news/apple-aapl-stock-news-october-23-2026/" target="_blank" rel="noopener">iPhone dobrável chega às lojas a 23-out; Evercore sobe alvo para 380 USD, JPMorgan para 360</a> <span class="muted">2026-10-23</span></li><li><a href="https://www.heygotrade.com/en/market-outlook/apple-stock-why-its-in-focus-in-2026/" target="_blank" rel="noopener">Resultados fiscais Q4: datas divergentes entre fontes (29-out vs 2-nov) - confirmar</a> <span class="muted">2026-10-28</span></li></ul></article>
+<article class="card" data-status="portfolio">
+<header><div><h2>MSFT</h2><span class="muted">Microsoft Corporation</span></div><span class="tag">Carteira</span></header>
+<div class="price">529.07 <small class="dn">-0.43%</small></div>
+
+<div class="metrics"><div class="m warn"><span class="l">P/E (12m passados)</span><span class="v">29.39</span><span class="b">Elevado</span></div><div class="m warn"><span class="l">P/E (próx. 12m)</span><span class="v">25.21</span><span class="b">Elevado</span></div><div class="m good"><span class="l">PEG</span><span class="v">0.93</span><span class="b">Desconto</span></div></div>
+<div class="range" title="Posição no intervalo de 52 semanas"><i style="left:89%"></i></div>
+<div class="muted rl"><span>349</span><span>52 sem.</span><span>551</span></div>
+<p class="muted">Cap. 3.93 T · Dividendo 0.69%</p>
+<ul class="news"><li><a href="https://www.heygotrade.com/en/news/microsoft-msft-stock-news-october-22-2026/" target="_blank" rel="noopener">Resultados FQ1 2027 iminentes (27/28-out, fontes divergem); foco no guia de crescimento Azure ~45% e capex ~175 mil M USD</a> <span class="muted">2026-10-22</span></li><li><a href="https://www.heygotrade.com/en/news/microsoft-msft-stock-news-october-22-2026/" target="_blank" rel="noopener">Volkswagen equipa 330 mil colaboradores com Copilot</a> <span class="muted">2026-10-21</span></li></ul></article>
+<article class="card" data-status="watching">
+<header><div><h2>NVDA</h2><span class="muted">NVIDIA Corporation</span></div><span class="tag">A seguir</span></header>
+<div class="price">218.11 <small class="up">+0.08%</small></div>
+
+<div class="metrics"><div class="m warn"><span class="l">P/E (12m passados)</span><span class="v">27.44</span><span class="b">Elevado</span></div><div class="m fair"><span class="l">P/E (próx. 12m)</span><span class="v">15.34</span><span class="b">Valor justo</span></div><div class="m good"><span class="l">PEG</span><span class="v">0.22</span><span class="b">Desconto</span></div></div>
+<div class="range" title="Posição no intervalo de 52 semanas"><i style="left:68%"></i></div>
+<div class="muted rl"><span>164</span><span>52 sem.</span><span>243</span></div>
+<p class="muted">Cap. 5.26 T · Dividendo 0.24%</p>
+<ul class="news"><li><a href="https://finbold.com/machine-learning-algorithm-sets-nvidia-nvda-stock-price-for-october-31-2026/" target="_blank" rel="noopener">Sem notícia específica confirmada de resultados em out-2026; ação recuperou ~25% dos mínimos de julho (Finbold)</a> <span class="muted">2026-10-28</span></li></ul></article></div>
+<p class="muted legend"><b>Legenda.</b> P/E: &lt;15 barato · ≤20 valor justo · ≤40 elevado · 40–50 elevado+ · &gt;50 muito caro. PEG: &lt;1 desconto · 1–2 justo · &gt;2 prémio. P/E próx. 12m = preço ÷ EPS estimado dos próximos 12 meses (média ponderada dos anos fiscais de consenso). Informação de apoio, não aconselhamento financeiro.</p>
+</main><script>
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));
+document.querySelectorAll('.card').forEach(c=>c.style.display=(b.dataset.f==='all'||c.dataset.status===b.dataset.f)?'':'none')});
+document.getElementById('th').onclick=()=>{const r=document.documentElement;r.dataset.theme=(r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches))?'light':'dark'};
+</script></body></html>

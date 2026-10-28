@@ -1,0 +1,36 @@
+{
+  "as_of": "2026-10-28",
+  "source": "Financial Modeling Prep (cotações, rácios TTM, estimativas de analistas); notícias via pesquisa web",
+  "market_news": [
+    {"title": "S&P 500 +0,58% (7757), Nasdaq +1,05%, Dow +0,69% na sessão de 21-out", "url": "https://tapeboard.com/blog/market-pulse-2026-10-21", "date": "2026-10-21"},
+    {"title": "Nasdaq caiu 2,6% a 22-out com receios sobre despesa em IA e custo do capital (segundo resumo citado)", "url": "https://www.heygotrade.com/en/news/apple-aapl-stock-news-october-23-2026/", "date": "2026-10-22"}
+  ],
+  "companies": {
+    "AAPL": {
+      "name": "Apple Inc.", "price": 344.67, "change_pct": -0.70, "year_low": 243.42, "year_high": 351.73,
+      "market_cap": 5030176020600, "pe_ttm": 39.39, "peg": 1.21, "dividend_yield": 0.0031,
+      "eps_estimates": [["2026-09-27", 8.838], ["2027-09-27", 9.569], ["2028-09-27", 10.611]],
+      "news": [
+        {"title": "iPhone dobrável chega às lojas a 23-out; Evercore sobe alvo para 380 USD, JPMorgan para 360", "url": "https://www.heygotrade.com/en/news/apple-aapl-stock-news-october-23-2026/", "date": "2026-10-23"},
+        {"title": "Resultados fiscais Q4: datas divergentes entre fontes (29-out vs 2-nov) - confirmar", "url": "https://www.heygotrade.com/en/market-outlook/apple-stock-why-its-in-focus-in-2026/", "date": "2026-10-28"}
+      ]
+    },
+    "MSFT": {
+      "name": "Microsoft Corporation", "price": 529.07, "change_pct": -0.43, "year_low": 349.20, "year_high": 551.15,
+      "market_cap": 3928633352923, "pe_ttm": 29.39, "peg": 0.93, "dividend_yield": 0.0069,
+      "eps_estimates": [["2026-06-30", 17.004], ["2027-06-30", 19.786], ["2028-06-30", 23.635]],
+      "news": [
+        {"title": "Resultados FQ1 2027 iminentes (27/28-out, fontes divergem); foco no guia de crescimento Azure ~45% e capex ~175 mil M USD", "url": "https://www.heygotrade.com/en/news/microsoft-msft-stock-news-october-22-2026/", "date": "2026-10-22"},
+        {"title": "Volkswagen equipa 330 mil colaboradores com Copilot", "url": "https://www.heygotrade.com/en/news/microsoft-msft-stock-news-october-22-2026/", "date": "2026-10-21"}
+      ]
+    },
+    "NVDA": {
+      "name": "NVIDIA Corporation", "price": 218.11, "change_pct": 0.08, "year_low": 164.27, "year_high": 243.37,
+      "market_cap": 5256451000000, "pe_ttm": 27.44, "peg": 0.22, "dividend_yield": 0.0024,
+      "eps_estimates": [["2027-01-25", 9.291], ["2028-01-25", 15.808], ["2029-01-25", 21.375]],
+      "news": [
+        {"title": "Sem notícia específica confirmada de resultados em out-2026; ação recuperou ~25% dos mínimos de julho (Finbold)", "url": "https://finbold.com/machine-learning-algorithm-sets-nvidia-nvda-stock-price-for-october-31-2026/", "date": "2026-10-28"}
+      ]
+    }
+  }
+}
