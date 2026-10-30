@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor de Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14181f;--mut:#667085;--bd:#e4e7ec;--green:#067647;--gbg:#dcfae6;--blue:#175cd3;--bbg:#d1e9ff;--amber:#b54708;--abg:#fef0c7;--red:#b42318;--rbg:#fee4e2;--gray:#475467;--grbg:#eaecf0}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1116;--card:#171b22;--fg:#eceff4;--mut:#9aa4b2;--bd:#2a313c;--green:#75e0a7;--gbg:#073a26;--blue:#84caff;--bbg:#0b2a52;--amber:#fec84b;--abg:#4a2a05;--red:#fda29b;--rbg:#55160c;--gray:#c0c7d2;--grbg:#2a313c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 16px}
+header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:end;margin-bottom:16px}
+h1{margin:0;font-size:22px}.mut{color:var(--mut);font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.bar button,.bar select,.bar input{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;font:inherit}
+.bar button.on{background:var(--fg);color:var(--bg)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.sum div{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 14px}.sum b{display:block;font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:18px}.nm{color:var(--mut);font-size:13px}
+.px{text-align:right;font-weight:600}.up{color:var(--green)}.dn{color:var(--red)}
+.tag{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--grbg);color:var(--gray);margin-left:6px;vertical-align:middle}
+.m{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m div{border-radius:8px;padding:8px;background:var(--grbg);color:var(--gray)}.m small{display:block;font-size:11px;opacity:.85}.m b{font-size:18px}.m em{font-style:normal;font-size:12px;font-weight:600}
+.barato,.desconto{background:var(--gbg)!important;color:var(--green)!important}.justo{background:var(--bbg)!important;color:var(--blue)!important}
+.pricey,.premium{background:var(--abg)!important;color:var(--amber)!important}.expensive,.prejuizo{background:var(--rbg)!important;color:var(--red)!important}
+.x{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--mut)}
+details summary{cursor:pointer;font-size:13px;color:var(--mut)}details ul{margin:6px 0 0;padding-left:18px}details li{margin:4px 0;font-size:13px}a{color:var(--blue)}
+.legend{margin-top:20px;font-size:13px;color:var(--mut)}.stale{color:var(--amber);font-size:12px}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>Consultor de Portefólio</h1><div class="mut" id="gen"></div></div>
+<button id="theme" class="bar" style="all:unset;cursor:pointer;color:var(--mut)">◐ tema</button></header>
+<div class="sum" id="sum"></div>
+<div class="bar">
+<button data-l="all" class="on">Todas</button><button data-l="portfolio">Portefólio</button><button data-l="watchlist">A seguir</button>
+<select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe_ttm">P/E (12m passados)</option><option value="pe_fwd">P/E (próx. 12m)</option><option value="peg">PEG</option><option value="change_pct">Variação dia</option></select>
+<select id="val"><option value="">Qualquer valuation</option><option value="cheap">Só baratas (P/E ou PEG)</option></select>
+<input id="q" placeholder="Pesquisar…">
+</div>
+<div class="grid" id="grid"></div>
+<div class="legend" id="legend"></div>
+</div>
+<script>
+const D=/*__DATA__*/null;
+const L={barato:"Barato",justo:"Justo",pricey:"Pricey",expensive:"Expensive",prejuizo:"Prejuízo",nd:"n/d",desconto:"Desconto",premium:"Premium"};
+const f=(v,d=1)=>v==null?"—":v.toLocaleString("pt-PT",{maximumFractionDigits:d,minimumFractionDigits:d});
+const state={l:"all"};
+const th=D.thresholds;
+document.getElementById("gen").textContent="Atualizado: "+new Date(D.generated).toLocaleString("pt-PT");
+document.getElementById("legend").innerHTML=
+`<b>P/E</b>: &lt;${th.pe.barato} Barato · ${th.pe.barato}–${th.pe.justo} Justo · ${th.pe.justo}–${th.pe.caro} Pricey · &gt;${th.pe.caro} Expensive &nbsp;|&nbsp; <b>PEG</b>: &lt;${th.peg.desconto} Desconto · ${th.peg.desconto}–${th.peg.justo} Justo · &gt;${th.peg.justo} Premium. Limites editáveis em portfolio.json. Informativo, não é aconselhamento financeiro.`;
+function metric(label,v,c,d=1){return `<div class="${c}"><small>${label}</small><b>${f(v,d)}</b><br><em>${L[c]}</em></div>`}
+function card(r){
+ const ch=r.change_pct,cls=ch>=0?"up":"dn";
+ const news=(r.news||[]).map(n=>`<li>${n.url?`<a href="${n.url}" target="_blank" rel="noopener">${n.title}</a>`:n.title} <span class="mut">${n.publisher||""}</span></li>`).join("");
+ return `<article class="card"><div class="top"><div><span class="tk">${r.ticker}</span><span class="tag">${r.lista==="portfolio"?"Portefólio":"A seguir"}</span><div class="nm">${r.name}${r.sector?" · "+r.sector:""}</div></div>
+ <div class="px">${f(r.price,2)} ${r.currency||""}<div class="${cls}">${ch==null?"":(ch>=0?"+":"")+f(ch,2)+"%"}</div></div></div>
+ <div class="m">${metric("P/E 12m passados",r.pe_ttm,r.pe_ttm_class)}${metric("P/E próx. 12m",r.pe_fwd,r.pe_fwd_class)}${metric("PEG",r.peg,r.peg_class,2)}</div>
+ <div class="x">${r.div_yield!=null?`<span>Dividendo ${f(r.div_yield,2)}%</span>`:""}${r.target?`<span>Preço-alvo ${f(r.target,2)}</span>`:""}${r.pl_pct!=null?`<span class="${r.pl_pct>=0?"up":"dn"}">P&L ${f(r.pl_pct,1)}%</span>`:""}${r.notes?`<span>${r.notes}</span>`:""}</div>
+ ${r.stale?`<div class="stale">⚠ dados antigos (Yahoo indisponível na última atualização)</div>`:""}${!r.ok?`<div class="stale">⚠ sem dados — verifica o ticker</div>`:""}
+ ${news?`<details><summary>Notícias (${r.news.length})</summary><ul>${news}</ul></details>`:""}</article>`}
+function render(){
+ const q=document.getElementById("q").value.toLowerCase(),s=document.getElementById("sort").value,v=document.getElementById("val").value;
+ let rows=D.rows.filter(r=>(state.l==="all"||r.lista===state.l)&&(r.ticker+r.name).toLowerCase().includes(q));
+ if(v)rows=rows.filter(r=>r.pe_fwd_class==="barato"||r.pe_ttm_class==="barato"||r.peg_class==="desconto");
+ rows.sort((a,b)=>s==="ticker"?a.ticker.localeCompare(b.ticker):s==="change_pct"?(b[s]??-1e9)-(a[s]??-1e9):(a[s]??1e9)-(b[s]??1e9));
+ document.getElementById("grid").innerHTML=rows.map(card).join("")||'<p class="mut">Sem resultados.</p>';
+ const all=D.rows,c=k=>all.filter(r=>r.peg_class==="desconto"||r.pe_fwd_class==="barato").length;
+ document.getElementById("sum").innerHTML=`<div><b>${all.filter(r=>r.lista==="portfolio").length}</b>no portefólio</div><div><b>${all.filter(r=>r.lista==="watchlist").length}</b>a seguir</div><div><b>${c()}</b>com sinal de desconto</div><div><b>${all.filter(r=>r.pe_fwd_class==="expensive"||r.peg_class==="premium").length}</b>com sinal de premium</div>`;
+}
+document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{state.l=b.dataset.l;document.querySelectorAll("[data-l]").forEach(x=>x.classList.toggle("on",x===b));render()});
+["sort","val","q"].forEach(i=>document.getElementById(i).oninput=render);
+document.getElementById("theme").onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==="dark"?"light":"dark"};
+render();
+</script>
+</body></html>

@@ -1,0 +1,15 @@
+{
+  "_ajuda": "Adiciona empresas em 'holdings' (já tens) ou 'watchlist' (a seguir). Campos opcionais: shares, avg_cost, notes. Ou usa: python build_dashboard.py add TICKER --lista watchlist",
+  "thresholds": {
+    "pe": { "barato": 15, "justo": 20, "caro": 50 },
+    "peg": { "desconto": 1, "justo": 2 }
+  },
+  "holdings": [
+    { "ticker": "AAPL", "shares": 0, "avg_cost": 0, "notes": "exemplo - substitui pelas tuas posições" },
+    { "ticker": "MSFT", "shares": 0, "avg_cost": 0 }
+  ],
+  "watchlist": [
+    { "ticker": "GOOGL" },
+    { "ticker": "NVDA" }
+  ]
+}
