@@ -1,0 +1,12 @@
+{
+  "_ajuda": "Adiciona empresas aqui. status: 'portfolio' (tenho) ou 'watchlist' (quero seguir). shares/avg_cost são opcionais.",
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "Exemplo - edita ou apaga"},
+    {"ticker": "MSFT", "status": "watchlist", "notes": "Exemplo - edita ou apaga"},
+    {"ticker": "BRK-B", "status": "watchlist"}
+  ],
+  "thresholds": {
+    "pe": {"cheap": 15, "fair": 30, "pricey": 50},
+    "peg": {"discount": 1, "fair": 2}
+  }
+}
