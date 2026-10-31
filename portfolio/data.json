@@ -1,0 +1,247 @@
+{
+ "updated": "2026-10-31 14:09 UTC",
+ "companies": [
+  {
+   "ticker": "AAPL",
+   "status": "portfolio",
+   "notes": "Exemplo - edita ou apaga",
+   "name": "Apple Inc.",
+   "currency": "USD",
+   "sector": "Technology",
+   "price": 344.63,
+   "change_pct": -1.23,
+   "market_cap": 5029592301568,
+   "dividend_yield": 0.31,
+   "w52_low": 243.42,
+   "w52_high": 351.73,
+   "target": 332.39,
+   "recommendation": "buy",
+   "pe_ttm": 39.52,
+   "pe_ttm_class": [
+    "Caro",
+    "pricey"
+   ],
+   "pe_fwd": 36.07,
+   "pe_fwd_class": [
+    "Caro",
+    "pricey"
+   ],
+   "peg": 2.76,
+   "peg_class": [
+    "Premium",
+    "expensive"
+   ],
+   "shares": 0,
+   "avg_cost": 0,
+   "pl": null,
+   "pl_pct": null,
+   "news": [
+    {
+     "title": "Dow Jones Futures: Stock Market Sells Off As Apple, Palantir, Midterm Elections Loom; What To Do",
+     "url": "https://finance.yahoo.com/m/d0bc23d0-115b-314d-8989-07ca797bebfa/dow-jones-futures%3A-stock.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 12:41:41 +0000"
+    },
+    {
+     "title": "What Apple Doubters Got Wrong",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/apple-doubters-got-wrong-080821562.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 08:08:21 +0000"
+    },
+    {
+     "title": "Apple’s Biggest Threat Isn’t Android — It’s AAPL's Own Devices, Analyst Says Ahead Of Q4 Earnings",
+     "url": "https://stocktwits.com/news-articles/markets/equity/apple-biggest-threat-not-android-but-own-devices-aapl-q4-earnings-preview/cZUKsGYR9c1?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 07:15:07 +0000"
+    },
+    {
+     "title": "Apple overtakes Nvidia to become world’s most valuable company amid tech selloff",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/apple-overtakes-nvidia-become-world-214753575.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 21:47:53 +0000"
+    },
+    {
+     "title": "Apple Overtakes Nvidia to Become World’s Most Valuable Company",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/apple-overtakes-nvidia-become-world-202839510.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 20:28:39 +0000"
+    }
+   ],
+   "error": null
+  },
+  {
+   "ticker": "BRK-B",
+   "status": "watchlist",
+   "notes": "",
+   "name": "Berkshire Hathaway Inc.",
+   "currency": "USD",
+   "sector": "Financial Services",
+   "price": 542.49,
+   "change_pct": 0.1,
+   "market_cap": 1161313648640,
+   "dividend_yield": 0.0,
+   "w52_low": 464.01,
+   "w52_high": 550.47,
+   "target": 555.67,
+   "recommendation": "buy",
+   "pe_ttm": 13.64,
+   "pe_ttm_class": [
+    "Barato",
+    "cheap"
+   ],
+   "pe_fwd": 24.18,
+   "pe_fwd_class": [
+    "Justo",
+    "fair"
+   ],
+   "peg": 10.06,
+   "peg_class": [
+    "Premium",
+    "expensive"
+   ],
+   "shares": 0,
+   "avg_cost": 0,
+   "pl": null,
+   "pl_pct": null,
+   "news": [
+    {
+     "title": "2 Stocks Billionaires Can't Stop Buying",
+     "url": "https://www.fool.com/investing/2026/10/31/2-stocks-billionaires-cant-stop-buying/?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 09:04:00 +0000"
+    },
+    {
+     "title": "Eli Lilly Is Now Worth as Much as Warren Buffett's Berkshire Hathaway. Can the Rally Keep Going?",
+     "url": "https://www.fool.com/investing/2026/10/30/eli-lilly-is-now-worth-as-much-as-warren-buffetts/?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 18:35:00 +0000"
+    },
+    {
+     "title": "Warren Buffett's Berkshire adds $330 million to a familiar bet",
+     "url": "https://www.thestreet.com/investing/stocks/berkshire-bending-spoons-stake?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 18:03:00 +0000"
+    },
+    {
+     "title": "Berkshire Partners Named to Inc.’s 2026 List of Founder-Friendly Investors",
+     "url": "https://finance.yahoo.com/small-business/articles/berkshire-partners-named-inc-2026-163600755.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 16:36:00 +0000"
+    },
+    {
+     "title": "Analysts Estimate Berkshire Hathaway B (BRK.B) to Report a Decline in Earnings: What to Look Out for",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/analysts-estimate-berkshire-hathaway-b-130002856.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 13:00:02 +0000"
+    }
+   ],
+   "error": null
+  },
+  {
+   "ticker": "MSFT",
+   "status": "watchlist",
+   "notes": "Exemplo - edita ou apaga",
+   "name": "Microsoft Corporation",
+   "currency": "USD",
+   "sector": "Technology",
+   "price": 521.91,
+   "change_pct": -1.55,
+   "market_cap": 3875804807168,
+   "dividend_yield": 0.75,
+   "w52_low": 349.2,
+   "w52_high": 551.15,
+   "target": 629.69,
+   "recommendation": "strong_buy",
+   "pe_ttm": 27.24,
+   "pe_ttm_class": [
+    "Justo",
+    "fair"
+   ],
+   "pe_fwd": 21.62,
+   "pe_fwd_class": [
+    "Justo",
+    "fair"
+   ],
+   "peg": 1.69,
+   "peg_class": [
+    "Justo",
+    "fair"
+   ],
+   "shares": 0,
+   "avg_cost": 0,
+   "pl": null,
+   "pl_pct": null,
+   "news": [
+    {
+     "title": "OpenAI’s CEO Thinks Your Laptop’s Memory Should Be in a Data Center",
+     "url": "https://247wallst.com/investing/2026/10/31/openais-ceo-thinks-your-laptops-memory-should-be-in-a-data-center/?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 13:49:57 +0000"
+    },
+    {
+     "title": "Microsoft Offers Voluntary Exits to 60,000 Workers. After 37 Years, He Risks Losing a 401(k) Tax Break With One IRA Rollover",
+     "url": "https://247wallst.com/personal-finance/2026/10/31/microsoft-offers-voluntary-exits-to-60000-workers-after-37-years-he-risks-losing-a-401k-tax-break-with-one-ira-rollover/?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Sat, 31 Oct 2026 13:33:51 +0000"
+    },
+    {
+     "title": "Axios Live: How employers are rethinking AI's role in entry-level work",
+     "url": "https://www.axios.com/2026/10/30/axios-live-how-employers-are-rethinking-ais-role-in-entry-level-work#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 21:10:16 +0000"
+    },
+    {
+     "title": "The Trump Trade Is Over? Plus, Microsoft vs. Google, and Nebius’ Capex Guidance",
+     "url": "https://blockspace.media/podcast/the-trump-trade-is-over-plus-microsoft-vs-google-and-nebius-capex-guidance/?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 21:08:39 +0000"
+    },
+    {
+     "title": "Leaders from Wolters Kluwer, Microsoft, Salesforce, and McKinsey challenge accounting firms to make one AI move in the next 90 days",
+     "url": "https://finance.yahoo.com/technology/ai/articles/leaders-wolters-kluwer-microsoft-salesforce-201500186.html?.tsrc=rss",
+     "publisher": "Yahoo Finance",
+     "date": "Fri, 30 Oct 2026 20:15:00 +0000"
+    }
+   ],
+   "error": null
+  }
+ ],
+ "market_news": [
+  {
+   "title": "Wall Street's favorite stocks are in their worst slump since 2010: Chart of the Day",
+   "url": "https://finance.yahoo.com/markets/article/wall-streets-favorite-stocks-are-in-their-worst-slump-since-2010-chart-of-the-day-124436147.html?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 12:44:36 +0000"
+  },
+  {
+   "title": "Dow Jones Futures: Stock Market Sells Off As Apple, Palantir, Midterm Elections Loom; What To Do",
+   "url": "https://finance.yahoo.com/m/d0bc23d0-115b-314d-8989-07ca797bebfa/dow-jones-futures%3A-stock.html?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 12:41:41 +0000"
+  },
+  {
+   "title": "Tech risk-reward turns favorable after rout, Deutsche Bank says",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/tech-risk-reward-turns-favorable-113238995.html?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 11:32:38 +0000"
+  },
+  {
+   "title": "‘Hard to Know If We’re in an AI Bubble’ Jeff Bezos Says, But Should a Retiree Buy AI Stocks? — ‘I Would Usually Tell a Retiree to Buy the S&P 500’",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/hard-know-ai-bubble-jeff-013019732.html?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 01:30:19 +0000"
+  },
+  {
+   "title": "S&P 500, Nasdaq End Third Straight Week Lower As Investors Move Away From Tech, AI —  AMZN, INTC, LLY, RBLX In Focus",
+   "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-end-third-straight-week-lower-as-investors-move-away-from-tech-ai-amzn-intc-lly-rblx-in-focus/cZUKKlTR9cJ?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 00:05:39 +0000"
+  },
+  {
+   "title": "What Did It Take To Hold Novanta Stock?",
+   "url": "https://www.trefis.com/stock/novt/articles/621561/what-did-it-take-to-hold-novanta-stock/2026-10-31?.tsrc=rss",
+   "publisher": "Yahoo Finance",
+   "date": "Sat, 31 Oct 2026 13:47:41 +0000"
+  }
+ ]
+}
