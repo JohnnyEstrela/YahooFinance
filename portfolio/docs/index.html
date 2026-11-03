@@ -1,0 +1,78 @@
+<!doctype html><html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Meu Portefólio</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#14181f;--mut:#667085;--bd:#e4e7ec;--good:#12b76a;--fair:#2e90fa;--warn:#f79009;--bad:#f04438;--worst:#b42318;--na:#98a2b3}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171b22;--tx:#e7eaf0;--mut:#8b94a5;--bd:#262c36}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{margin:0;font-size:1.5rem}.top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mut,small{color:var(--mut)}.tabs{display:flex;gap:6px}.tabs button{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:6px 12px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--tx);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px}
+.card header{display:flex;justify-content:space-between;gap:8px}.card h3{margin:0;font-size:1.2rem}
+.px{text-align:right;display:flex;flex-direction:column}.up{color:var(--good)}.dn{color:var(--bad)}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:6px 0}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 10px}
+.m{border:1px solid var(--bd);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px}
+.m span{font-size:.68rem;color:var(--mut)}.m b{font-size:1.15rem}
+.b{font-size:.68rem;font-weight:600;color:#fff;border-radius:6px;padding:2px 6px;align-self:flex-start}
+.b.good{background:var(--good)}.b.fair{background:var(--fair)}.b.warn{background:var(--warn)}.b.bad{background:var(--bad)}.b.worst{background:var(--worst)}.b.na{background:var(--na)}
+.kv{display:flex;justify-content:space-between;padding:3px 0;font-size:.9rem}.kv span{color:var(--mut)}
+.rng{height:6px;background:var(--bd);border-radius:9px;position:relative;margin:10px 0 2px}.rng i{position:absolute;top:-3px;width:12px;height:12px;border-radius:50%;background:var(--fair);transform:translateX(-50%)}
+.rl{display:flex;justify-content:space-between}
+ul{padding-left:18px;margin:8px 0 0}li{margin:4px 0}a{color:var(--fair)}
+section.mk{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:4px 16px 12px;margin-bottom:16px}
+.legend{font-size:.78rem;color:var(--mut);margin-top:18px}
+@media(max-width:560px){.metrics{grid-template-columns:1fr}}
+</style></head><body><main>
+<div class="top"><div><h1>Meu Portefólio</h1><small>Dados de 2026-11-03 · não é aconselhamento financeiro</small></div>
+<div class="tabs"><button class="on" data-f="all">Todas</button><button data-f="portfolio">Portefólio</button><button data-f="watchlist">A seguir</button></div></div>
+<section class="mk"><h3>Notícias do mercado</h3><ul><li><a href="https://appleinsider.com/articles/26/10/30/iphone-demand-sees-apple-topple-nvidia-as-most-valuable-company-again" target="_blank" rel="noopener">Apple ultrapassa a Nvidia como empresa mais valiosa do mundo (~5,03 biliões USD)</a> <small>AppleInsider · 2026-10-30</small></li><li><a href="https://fourweekmba.com/ai-apple-passes-nvidia-at-5-03-trillion-as-chip-stocks-slide/" target="_blank" rel="noopener">Sell-off de semicondutores: SOX cai ~7% com receios sobre gastos em infraestrutura de IA</a> <small>FourWeekMBA · 2026-10-30</small></li><li><a href="https://www.fool.com/investing/2026/10/30/microsoft-just-announced-incredible-news-for-nvidia-shareholders/" target="_blank" rel="noopener">Microsoft antecipa aceleração do capex no 2.º semestre (CPUs/GPUs) - lido como positivo para a Nvidia</a> <small>Motley Fool · 2026-10-30</small></li></ul></section>
+<div class="grid"><article class="card" data-s="portfolio">
+<header><div><h3>AAPL</h3><small class="mut">Apple Inc.</small></div>
+<div class="px"><b>$338.32</b><span class="dn">-1.83%</span></div></header>
+<div class="tag">Portefólio</div>
+<div class="metrics">
+<div class="m"><span>P/E (últimos 12m)</span><b>37.5</b><span class="b warn">Pricey</span></div>
+<div class="m"><span>P/E (próximos 12m)</span><b>35.1</b><span class="b warn">Pricey</span></div>
+<div class="m"><span>PEG</span><b>1.84</b><span class="b fair">Fair</span></div></div>
+<div class="kv"><span>Market cap</span><b>$4.94 T</b></div>
+<div class="kv"><span>Dividend yield</span><b>0.31%</b></div>
+<div class="kv"><span>Posição</span><b class="up">+35.3% vs custo</b></div>
+<div class="rng" title="Posição no intervalo de 52 semanas"><i style="left:88%"></i></div>
+<div class="rl"><small>$243</small><small>52 sem.</small><small>$352</small></div>
+<ul class="news"><li><a href="https://appleinsider.com/articles/26/10/30/iphone-demand-sees-apple-topple-nvidia-as-most-valuable-company-again" target="_blank" rel="noopener">Apple muda base do iPhone para início de 2027, segundo Loop Capital</a> <small>AppleInsider</small></li></ul></article>
+<article class="card" data-s="portfolio">
+<header><div><h3>MSFT</h3><small class="mut">Microsoft Corporation</small></div>
+<div class="px"><b>$507.12</b><span class="dn">-2.83%</span></div></header>
+<div class="tag">Portefólio</div>
+<div class="metrics">
+<div class="m"><span>P/E (últimos 12m)</span><b>26.4</b><span class="b warn">Pricey</span></div>
+<div class="m"><span>P/E (próximos 12m)</span><b>23.7</b><span class="b warn">Pricey</span></div>
+<div class="m"><span>PEG</span><b>0.73</b><span class="b good">Desconto</span></div></div>
+<div class="kv"><span>Market cap</span><b>$3.77 T</b></div>
+<div class="kv"><span>Dividend yield</span><b>0.72%</b></div>
+<div class="kv"><span>Posição</span><b class="up">+12.7% vs custo</b></div>
+<div class="rng" title="Posição no intervalo de 52 semanas"><i style="left:78%"></i></div>
+<div class="rl"><small>$349</small><small>52 sem.</small><small>$551</small></div>
+<ul class="news"><li><a href="https://www.fool.com/investing/2026/10/30/microsoft-just-announced-incredible-news-for-nvidia-shareholders/" target="_blank" rel="noopener">Resultados do 1.º trimestre fiscal 2027 e guidance de capex em alta</a> <small>Motley Fool</small></li></ul></article>
+<article class="card" data-s="watchlist">
+<header><div><h3>NVDA</h3><small class="mut">NVIDIA Corporation</small></div>
+<div class="px"><b>$202.06</b><span class="dn">-1.26%</span></div></header>
+<div class="tag">A seguir</div>
+<div class="metrics">
+<div class="m"><span>P/E (últimos 12m)</span><b>25.4</b><span class="b warn">Pricey</span></div>
+<div class="m"><span>P/E (próximos 12m)</span><b>14.1</b><span class="b good">Barato</span></div>
+<div class="m"><span>PEG</span><b>0.20</b><span class="b good">Desconto</span></div></div>
+<div class="kv"><span>Market cap</span><b>$4.87 T</b></div>
+<div class="kv"><span>Dividend yield</span><b>0.26%</b></div>
+
+<div class="rng" title="Posição no intervalo de 52 semanas"><i style="left:48%"></i></div>
+<div class="rl"><small>$164</small><small>52 sem.</small><small>$243</small></div>
+<ul class="news"><li><a href="https://profit.pakistantoday.com.pk/2026/11/02/apple-overtakes-nvidia-as-worlds-most-valuable-company-amid-tech-selloff" target="_blank" rel="noopener">Nvidia cai 4,2% na sexta-feira e perde o topo para a Apple</a> <small>Profit Pakistan Today</small></li></ul></article></div>
+<p class="legend">P/E: &lt;15 barato · ≤20 fair value · ≤40 pricey · ≤50 caro · &gt;50 expensive &nbsp;|&nbsp; PEG: &lt;1 desconto · 1–2 fair · &gt;2 premium</p>
+</main><script>
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+document.querySelectorAll('.card').forEach(c=>c.style.display=(b.dataset.f==='all'||c.dataset.s===b.dataset.f)?'':'none')});
+</script></body></html>

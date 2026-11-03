@@ -1,0 +1,19 @@
+{
+  "as_of": "2026-11-03",
+  "market_news": [
+    {"title": "Apple ultrapassa a Nvidia como empresa mais valiosa do mundo (~5,03 biliões USD)", "url": "https://appleinsider.com/articles/26/10/30/iphone-demand-sees-apple-topple-nvidia-as-most-valuable-company-again", "source": "AppleInsider", "date": "2026-10-30"},
+    {"title": "Sell-off de semicondutores: SOX cai ~7% com receios sobre gastos em infraestrutura de IA", "url": "https://fourweekmba.com/ai-apple-passes-nvidia-at-5-03-trillion-as-chip-stocks-slide/", "source": "FourWeekMBA", "date": "2026-10-30"},
+    {"title": "Microsoft antecipa aceleração do capex no 2.º semestre (CPUs/GPUs) - lido como positivo para a Nvidia", "url": "https://www.fool.com/investing/2026/10/30/microsoft-just-announced-incredible-news-for-nvidia-shareholders/", "source": "Motley Fool", "date": "2026-10-30"}
+  ],
+  "tickers": {
+    "AAPL": {"name": "Apple Inc.", "price": 338.32, "change_pct": -1.83, "market_cap": 4937502977600, "year_low": 243.42, "year_high": 351.73, "pe_ttm": 37.55, "peg": 1.84, "div_yield": 0.0031,
+      "eps_estimates": [["2026-09-26", 8.836], ["2027-09-26", 9.542], ["2028-09-26", 10.577]],
+      "news": [{"title": "Apple muda base do iPhone para início de 2027, segundo Loop Capital", "url": "https://appleinsider.com/articles/26/10/30/iphone-demand-sees-apple-topple-nvidia-as-most-valuable-company-again", "source": "AppleInsider"}]},
+    "MSFT": {"name": "Microsoft Corporation", "price": 507.12, "change_pct": -2.83, "market_cap": 3765969472800, "year_low": 349.2, "year_high": 551.15, "pe_ttm": 26.41, "peg": 0.73, "div_yield": 0.0072,
+      "eps_estimates": [["2026-06-30", 17.004], ["2027-06-30", 20.040], ["2028-06-30", 24.045]],
+      "news": [{"title": "Resultados do 1.º trimestre fiscal 2027 e guidance de capex em alta", "url": "https://www.fool.com/investing/2026/10/30/microsoft-just-announced-incredible-news-for-nvidia-shareholders/", "source": "Motley Fool"}]},
+    "NVDA": {"name": "NVIDIA Corporation", "price": 202.06, "change_pct": -1.26, "market_cap": 4869646000000, "year_low": 164.27, "year_high": 243.37, "pe_ttm": 25.42, "peg": 0.20, "div_yield": 0.0026,
+      "eps_estimates": [["2026-01-25", 4.694], ["2027-01-25", 9.291], ["2028-01-25", 15.808]],
+      "news": [{"title": "Nvidia cai 4,2% na sexta-feira e perde o topo para a Apple", "url": "https://profit.pakistantoday.com.pk/2026/11/02/apple-overtakes-nvidia-as-worlds-most-valuable-company-amid-tech-selloff", "source": "Profit Pakistan Today"}]}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_ajuda": "Edita esta lista. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost são opcionais. As 3 empresas abaixo são EXEMPLOS - substitui pelas tuas.",
+  "thresholds": {
+    "pe": {"cheap": 15, "fair": 20, "pricey": 40, "expensive": 50},
+    "peg": {"discount": 1, "fair": 2}
+  },
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 250.0, "notes": "exemplo"},
+    {"ticker": "MSFT", "status": "portfolio", "shares": 5, "avg_cost": 450.0, "notes": "exemplo"},
+    {"ticker": "NVDA", "status": "watchlist", "notes": "exemplo"}
+  ]
+}
