@@ -1,0 +1,14 @@
+{
+  "_ajuda": "Adiciona empresas aqui. status: 'portfolio' (tenho) ou 'watchlist' (só sigo). shares/avg_cost são opcionais. Tickers: AAPL, MSFT, EDP.LS, GALP.LS, BRK-B.",
+  "thresholds": {
+    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "market": ["^GSPC", "^IXIC", "^DJI", "^STOXX50E", "^VIX"],
+  "companies": [
+    { "symbol": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "Exemplo – substitui pelas tuas posições" },
+    { "symbol": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0 },
+    { "symbol": "EDP.LS", "status": "watchlist" },
+    { "symbol": "NVDA", "status": "watchlist" }
+  ]
+}
