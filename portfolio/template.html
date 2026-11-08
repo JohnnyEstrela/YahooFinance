@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portefólio Diário</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#14181f;--mute:#667085;--line:#e4e7ec;--accent:#2457d6;
+--cheap:#0f9d58;--fair:#2f80ed;--pricey:#e08a00;--expensive:#d93025;--nd:#98a2b3;--r:14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1116;--card:#171b22;--ink:#e8ecf2;--mute:#98a2b3;--line:#262c36;--accent:#6b93ff;--cheap:#3ddc84;--fair:#5aa2ff;--pricey:#ffb02e;--expensive:#ff6b5e}}
+:root[data-theme=dark]{--bg:#0e1116;--card:#171b22;--ink:#e8ecf2;--mute:#98a2b3;--line:#262c36;--accent:#6b93ff;--cheap:#3ddc84;--fair:#5aa2ff;--pricey:#ffb02e;--expensive:#ff6b5e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+h1{font-size:1.35rem;margin:0}.sub{color:var(--mute);font-size:.82rem}
+button,select,input{font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px}
+button{cursor:pointer}button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.bar input{flex:1 1 140px;min-width:0}
+.alerts{display:grid;gap:6px;margin:8px 0}.alert{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pricey);border-radius:10px;padding:8px 12px;font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:1.05rem}.nm{color:var(--mute);font-size:.8rem}
+.px{text-align:right;font-weight:600}.chg{font-size:.82rem}.up{color:var(--cheap)}.dn{color:var(--expensive)}
+.tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
+.tag.p{color:var(--accent);border-color:var(--accent)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m{border:1px solid var(--line);border-radius:10px;padding:8px;border-top:3px solid var(--nd)}
+.m small{display:block;color:var(--mute);font-size:.68rem}.m b{font-size:1.1rem}.m span{display:block;font-size:.72rem;font-weight:600}
+.cheap,.discount{border-top-color:var(--cheap)}.cheap span,.discount span{color:var(--cheap)}
+.fair{border-top-color:var(--fair)}.fair span{color:var(--fair)}
+.pricey,.premium{border-top-color:var(--pricey)}.pricey span,.premium span{color:var(--pricey)}
+.expensive{border-top-color:var(--expensive)}.expensive span{color:var(--expensive)}
+.verdict{font-size:.85rem;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:var(--nd)}
+.dot.cheap{background:var(--cheap)}.dot.fair{background:var(--fair)}.dot.pricey{background:var(--pricey)}.dot.expensive{background:var(--expensive)}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;font-size:.8rem;color:var(--mute)}.kv b{color:var(--ink);font-weight:600}
+.range{height:6px;background:var(--line);border-radius:9px;position:relative}.range i{position:absolute;top:-3px;width:3px;height:12px;background:var(--accent);border-radius:2px}
+svg.sp{width:100%;height:38px}
+details{font-size:.84rem}summary{cursor:pointer;color:var(--accent)}
+.news a{display:block;color:var(--ink);text-decoration:none;padding:6px 0;border-top:1px solid var(--line)}.news a:hover{color:var(--accent)}
+.news small{color:var(--mute)}
+section h2{font-size:1rem;margin:22px 0 8px}
+.mk{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0 20px}
+.legend{font-size:.78rem;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+footer{color:var(--mute);font-size:.75rem;margin:24px 0}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);max-width:420px;width:calc(100% - 32px)}
+dialog label{display:block;margin:8px 0 2px;font-size:.8rem;color:var(--mute)}dialog input,dialog select{width:100%}
+pre{white-space:pre-wrap;background:var(--bg);padding:8px;border-radius:8px;font-size:.8rem}
+@media(max-width:480px){.wrap{padding:12px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div><h1>📈 Portefólio Diário</h1><div class="sub" id="gen"></div></div>
+ <div><button id="add">+ Adicionar</button> <button id="theme" title="Tema">◐</button></div>
+</header>
+<div class="alerts" id="alerts"></div>
+<div class="bar">
+ <button data-f="all" class="on">Todas</button><button data-f="portfolio">Portefólio</button><button data-f="watch">A seguir</button>
+ <input id="q" type="search" placeholder="Procurar…">
+ <select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E (trailing)</option><option value="fpe">P/E (forward)</option><option value="peg">PEG</option><option value="chg">Variação diária</option><option value="upside">Potencial analistas</option></select>
+</div>
+<div class="grid" id="grid"></div>
+<div class="legend" id="legend"></div>
+<section><h2>🌍 Notícias de mercado</h2><div class="mk news" id="mk"></div></section>
+<footer>Dados Yahoo Finance via yfinance, podem ter atraso/erros. Leitura automática baseada apenas em P/E e PEG — não é aconselhamento financeiro.</footer>
+</div>
+<dialog id="dlg"><form method="dialog">
+ <b>Adicionar empresa</b>
+ <label>Ticker (ex: NVDA, EDP.LS, BRK.B)</label><input id="a_t" required>
+ <label>Tipo</label><select id="a_s"><option value="watch">A seguir</option><option value="portfolio">No portefólio</option></select>
+ <label>Nº ações / preço médio (só portefólio)</label><div style="display:flex;gap:6px"><input id="a_n" type="number" step="any" placeholder="ações"><input id="a_c" type="number" step="any" placeholder="preço médio"></div>
+ <p class="sub">Copia o comando e corre-o (ou diz-me o ticker no chat e eu adiciono):</p><pre id="cmd"></pre>
+ <div style="display:flex;gap:6px;justify-content:flex-end"><button type="button" id="cp">Copiar</button><button>Fechar</button></div>
+</form></dialog>
+<script>
+const D=/*__DATA__*/null;
+const $=s=>document.querySelector(s);
+const f1=(v,d=1)=>v==null?'—':v.toFixed(d);
+const money=(v,c)=>v==null?'—':v.toLocaleString('pt-PT',{maximumFractionDigits:2})+(c?' '+c:'');
+const cap=v=>v==null?'—':v>=1e12?(v/1e12).toFixed(2)+' T':v>=1e9?(v/1e9).toFixed(1)+' B':(v/1e6).toFixed(0)+' M';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const safeUrl=u=>/^https?:\/\//.test(u||'')?u:'#';
+let filter='all';
+$('#gen').textContent='Atualizado: '+new Date(D.generated_at).toLocaleString('pt-PT');
+$('#alerts').innerHTML=D.alerts.map(a=>`<div class="alert"><b>${esc(a.ticker)}</b> · ${esc(a.kind)} — ${esc(a.text)}</div>`).join('');
+const t=D.thresholds;
+$('#legend').innerHTML=`<span>P/E: <span class="dot cheap"></span>&lt;${t.pe.cheap} Barato</span><span><span class="dot fair"></span>${t.pe.cheap}–${t.pe.fair} Justo</span><span><span class="dot pricey"></span>${t.pe.fair}–${t.pe.pricey} Caro</span><span><span class="dot expensive"></span>&gt;${t.pe.pricey} Muito caro</span><span>PEG: &lt;${t.peg.discount} Desconto · ${t.peg.discount}–${t.peg.fair} Justo · &gt;${t.peg.fair} Premium</span>`;
+function spark(a,up){if(!a||a.length<2)return'';const mn=Math.min(...a),mx=Math.max(...a),w=300,h=38;
+ const p=a.map((v,i)=>`${(i/(a.length-1)*w).toFixed(1)},${(h-2-(v-mn)/((mx-mn)||1)*(h-4)).toFixed(1)}`).join(' ');
+ return`<svg class="sp" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline fill="none" stroke="var(${up?'--cheap':'--expensive'})" stroke-width="2" points="${p}"/></svg>`}
+const metric=(l,v,b,lab)=>`<div class="m ${b}"><small>${l}</small><b>${f1(v)}</b><span>${esc(lab)}</span></div>`;
+function card(c){
+ const ch=c.change_pct,up=(c.spark||[]).length>1?c.spark.at(-1)>=c.spark[0]:true;
+ const news=(c.news||[]).map(n=>`<a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener"><div>${esc(n.title)}</div><small>${esc(n.source)} · ${esc((n.date||'').slice(0,10))}</small></a>`).join('')||'<small>Sem notícias.</small>';
+ const pos=c.position_value!=null?`<b>${money(c.position_value,c.currency)}</b> <span class="${c.pnl_pct>=0?'up':'dn'}">(${c.pnl_pct>=0?'+':''}${f1(c.pnl_pct)}%)</span>`:'—';
+ return`<article class="card">
+ <div class="top"><div><span class="tk">${esc(c.ticker)}</span> <span class="tag ${c.status==='portfolio'?'p':''}">${c.status==='portfolio'?'Portefólio':'A seguir'}</span><div class="nm">${esc(c.name)}${c.sector?' · '+esc(c.sector):''}</div></div>
+ <div class="px">${money(c.price,c.currency)}<div class="chg ${ch>=0?'up':'dn'}">${ch==null?'':(ch>=0?'▲ ':'▼ ')+f1(Math.abs(ch),2)+'%'}</div></div></div>
+ ${c.error?`<div class="alert">⚠ ${esc(c.error)}${c.stale?' (dados antigos)':''}</div>`:''}
+ <div class="metrics">${metric('P/E (12m)',c.pe,c.pe_band||'nd',c.pe_label||'N/D')}${metric('P/E (próx. 12m)',c.fpe,c.fpe_band||'nd',c.fpe_label||'N/D')}${metric('PEG',c.peg,c.peg_band||'nd',c.peg_label||'N/D')}</div>
+ <div class="verdict"><span><span class="dot ${c.verdict_tone||''}"></span><b>${esc(c.verdict||'')}</b></span><span class="nm">PEGY ${f1(c.pegy)}</span></div>
+ ${spark(c.spark,up)}
+ <div class="kv"><span>Cresc. lucros est.</span><b>${c.growth_pct==null?'—':f1(c.growth_pct)+'%'}</b><span>Dividend yield</span><b>${c.div_yield_pct==null?'—':f1(c.div_yield_pct,2)+'%'}</b><span>Market cap</span><b>${cap(c.market_cap)}</b><span>Alvo analistas</span><b>${money(c.target)} ${c.upside_pct==null?'':'('+(c.upside_pct>=0?'+':'')+f1(c.upside_pct,0)+'%)'}</b>${c.status==='portfolio'?`<span>Posição</span><span>${pos}</span>`:''}</div>
+ ${c.pos52!=null?`<div><div class="nm">52 semanas: ${money(c.low52)} – ${money(c.high52)}</div><div class="range"><i style="left:calc(${Math.max(0,Math.min(100,c.pos52))}% - 1px)"></i></div></div>`:''}
+ ${c.notes?`<div class="nm">📝 ${esc(c.notes)}</div>`:''}
+ <details><summary>Notícias (${(c.news||[]).length})</summary><div class="news">${news}</div></details></article>`}
+const sorters={ticker:c=>c.ticker,pe:c=>c.pe>0?c.pe:1e9,fpe:c=>c.fpe>0?c.fpe:1e9,peg:c=>c.peg>0?c.peg:1e9,chg:c=>-(c.change_pct??-1e9),upside:c=>-(c.upside_pct??-1e9)};
+function render(){
+ const q=$('#q').value.toLowerCase(),k=sorters[$('#sort').value];
+ const L=D.companies.filter(c=>(filter==='all'||c.status===filter)&&(c.ticker+c.name).toLowerCase().includes(q)).sort((a,b)=>k(a)>k(b)?1:-1);
+ $('#grid').innerHTML=L.map(card).join('')||'<p class="sub">Nada para mostrar.</p>';
+}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));render()});
+$('#q').oninput=render;$('#sort').onchange=render;
+$('#mk').innerHTML=D.market_news.map(n=>`<a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener"><div>${esc(n.title)}</div><small>${esc(n.source)} · ${esc((n.date||'').slice(0,10))}</small></a>`).join('')||'<small>Sem notícias.</small>';
+$('#theme').onclick=()=>{const r=document.documentElement;r.dataset.theme=(r.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))==='dark'?'light':'dark'};
+const upd=()=>{const t=$('#a_t').value.trim().toUpperCase()||'TICKER',s=$('#a_s').value;
+ $('#cmd').textContent=`python portfolio/portfolio.py add ${t} --status ${s}`+(s==='portfolio'?` --shares ${$('#a_n').value||0} --avg-cost ${$('#a_c').value||0}`:'')};
+['a_t','a_s','a_n','a_c'].forEach(i=>$('#'+i).oninput=upd);$('#a_s').onchange=upd;
+$('#add').onclick=()=>{upd();$('#dlg').showModal()};
+$('#cp').onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($('#cmd').textContent);
+render();
+</script>
+</body>
+</html>

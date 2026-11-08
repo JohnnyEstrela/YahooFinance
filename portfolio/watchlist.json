@@ -1,0 +1,14 @@
+{
+  "thresholds": {
+    "_comment": "P/E: <cheap = Barato, <fair = Justo, <pricey = Caro (Pricey), acima = Muito caro (Expensive). PEG: <discount = Desconto, <=fair = Justo, acima = Premium.",
+    "pe": { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "market_news": ["^GSPC", "^IXIC", "^STOXX50E", "^PSI20"],
+  "companies": [
+    { "ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "Exemplo - edita shares/avg_cost ou remove" },
+    { "ticker": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "" },
+    { "ticker": "NVDA", "status": "watch", "notes": "A seguir" },
+    { "ticker": "EDP.LS", "status": "watch", "notes": "Mercado português" }
+  ]
+}
