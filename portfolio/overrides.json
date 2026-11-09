@@ -1,0 +1,7 @@
+{
+  "_ajuda": "Fallback de fundamentais (FMP) usado quando o Yahoo bloqueia o endpoint. fpe = preço / EPS estimado NTM (média ponderada dos 2 anos fiscais seguintes). Atualizado pela rotina diária.",
+  "_updated": "2026-11-09",
+  "AAPL": {"name":"Apple Inc.","currency":"USD","price":342.37,"change_pct":-0.52,"pe":38.0,"fpe":35.7,"peg":1.86,"div_yield":0.31,"mcap":4996616254000,"low52":243.42,"high52":355.38},
+  "MSFT": {"name":"Microsoft Corporation","currency":"USD","price":530.61,"change_pct":-0.99,"pe":27.64,"fpe":24.7,"peg":0.76,"div_yield":0.69,"mcap":3940410675900,"low52":349.2,"high52":559.15},
+  "NVDA": {"name":"NVIDIA Corporation","currency":"USD","price":186.64,"change_pct":2.78,"pe":23.48,"fpe":12.9,"peg":0.19,"div_yield":0.28,"mcap":4498024000000,"low52":164.27,"high52":243.37}
+}

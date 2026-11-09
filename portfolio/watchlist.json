@@ -1,0 +1,9 @@
+{
+  "_ajuda": "Adiciona empresas aqui. status: 'portfolio' (tenho) ou 'watch' (quero seguir). shares e avg_cost sao opcionais. Tickers Yahoo Finance (ex: EDP.LS, BRK-B).",
+  "companies": [
+    {"ticker": "AAPL", "status": "portfolio", "shares": 0, "avg_cost": 0, "notes": "exemplo - substitui pelas tuas posicoes"},
+    {"ticker": "MSFT", "status": "portfolio", "shares": 0, "avg_cost": 0},
+    {"ticker": "NVDA", "status": "watch"},
+    {"ticker": "EDP.LS", "status": "watch"}
+  ]
+}
