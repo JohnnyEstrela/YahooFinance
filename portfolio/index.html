@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultor Financeiro</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--tx:#1b1f27;--mut:#6b7280;--bd:#e3e6eb;--acc:#2563eb;
+--cheap:#15803d;--fair:#2563eb;--pricey:#d97706;--expensive:#dc2626;--na:#9ca3af}
+:root[data-theme=dark]{--bg:#0f1218;--card:#181c24;--tx:#e6e8ec;--mut:#8b93a1;--bd:#262b36;--acc:#60a5fa;
+--cheap:#4ade80;--fair:#60a5fa;--pricey:#fbbf24;--expensive:#f87171;--na:#6b7280}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1218;--card:#181c24;--tx:#e6e8ec;--mut:#8b93a1;--bd:#262b36;--acc:#60a5fa;--cheap:#4ade80;--fair:#60a5fa;--pricey:#fbbf24;--expensive:#f87171;--na:#6b7280}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,sans-serif}
+header,main{max-width:1200px;margin:auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{font-size:20px;margin:0}.sub{color:var(--mut);font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:8px}
+button,select,input{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;font:inherit}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 16px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
+.stat b{display:block;font-size:22px}.stat span{color:var(--mut);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;justify-content:space-between;gap:8px}.tk{font-weight:700;font-size:17px}
+.nm{color:var(--mut);font-size:12px}.px{text-align:right;font-weight:600}
+.up{color:var(--cheap)}.down{color:var(--expensive)}
+.tag{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);color:var(--mut)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.m{border-top:3px solid var(--na);padding-top:6px}.m small{color:var(--mut);font-size:11px;display:block}
+.m b{font-size:18px}.m i{font-style:normal;font-size:11px}
+.cheap{--c:var(--cheap)}.fair{--c:var(--fair)}.pricey{--c:var(--pricey)}.expensive{--c:var(--expensive)}
+.discount{--c:var(--cheap)}.premium{--c:var(--expensive)}.na{--c:var(--na)}
+.m[class*=" "]{border-top-color:var(--c)}.m i{color:var(--c)}
+.facts{display:flex;flex-wrap:wrap;gap:4px 14px;color:var(--mut);font-size:12px}
+details summary{cursor:pointer;color:var(--acc);font-size:13px}
+.news a{display:block;color:var(--tx);text-decoration:none;margin-top:6px;font-size:13px}
+.news a:hover{color:var(--acc)}.news small{color:var(--mut)}
+.err{color:var(--expensive);font-size:12px}
+.legend{color:var(--mut);font-size:12px;margin:16px 0}
+@media(max-width:480px){.metrics{grid-template-columns:1fr 1fr 1fr}.m b{font-size:16px}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>📈 Consultor Financeiro</h1><div class="sub" id="gen"></div></div>
+  <div class="bar">
+    <button data-f="all" class="on">Todas</button>
+    <button data-f="portfolio">Portefólio</button>
+    <button data-f="watchlist">A seguir</button>
+    <select id="sort"><option value="ticker">Ordenar: Ticker</option><option value="pe">P/E (12m)</option>
+      <option value="fwd_pe">P/E (próx. 12m)</option><option value="peg">PEG</option><option value="value">Valor posição</option></select>
+    <button id="theme" title="Tema">🌓</button>
+  </div>
+</header>
+<main>
+  <div class="summary" id="sum"></div>
+  <div class="grid" id="grid"></div>
+  <div class="legend" id="legend"></div>
+</main>
+<script>
+const D={"generated": "2026-11-10T14:15+00:00", "thresholds": {"pe": {"cheap": 15, "fair": 30, "pricey": 50}, "peg": {"discount": 1, "fair": 2}}, "companies": [{"ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150, "notes": "Exemplo - substitui pelas tuas posições", "error": null, "name": "Apple Inc.", "sector": "Technology", "currency": "USD", "price": 350.69, "change_pct": 2.43012, "market_cap": 5096291172352, "pe": 39.05234, "fwd_pe": 33.235027, "peg": 2.7647, "div_yield": 0.31, "target": 340.7655, "rating": "buy", "hi52": 355.38, "lo52": 243.42, "pe_class": "pricey", "fwd_pe_class": "pricey", "peg_class": "premium", "value": 3506.9, "pl_pct": 133.79, "news": [{"title": "Qualcomm vs. Western Digital: Which Tech Stock Is a Better Buy for 2027?", "publisher": "Motley Fool", "date": "2026-11-10T13:44:02Z", "url": "https://www.fool.com/coverage/better-buy/2026/11/10/qualcomm-vs-western-digital-which-tech-stock-is-a-better-buy-for-2027/"}, {"title": "Apple Is Above $5 Trillion After Its First-Ever Close Above $350", "publisher": "24/7 Wall St.", "date": "2026-11-10T13:13:36Z", "url": "https://247wallst.com/investing/2026/11/10/apple-is-above-5-trillion-after-its-first-ever-close-above-350/"}, {"title": "Can Alphabet Stock Rise 30% From Here?", "publisher": "Trefis", "date": "2026-11-10T13:05:31Z", "url": "https://www.trefis.com/stock/googl/articles/623929/can-alphabet-stock-rise-30-from-here/2026-11-10"}, {"title": "Time to Buy Nvidia-Heavy ETFs as CEO Huang's Affair Turns Into a Spy Plot?", "publisher": "Zacks", "date": "2026-11-10T12:42:00Z", "url": "https://finance.yahoo.com/markets/stocks/articles/time-buy-nvidia-heavy-etfs-124200029.html"}]}, {"ticker": "MSFT", "status": "portfolio", "error": null, "name": "Microsoft Corporation", "sector": "Technology", "currency": "USD", "price": 545.18, "change_pct": 2.7459, "market_cap": 4048612753408, "pe": 28.454071, "fwd_pe": 22.532112, "peg": 1.5698, "div_yield": 0.72, "target": 636.12427, "rating": "strong_buy", "hi52": 559.15, "lo52": 349.2, "pe_class": "fair", "fwd_pe_class": "fair", "peg_class": "fair", "news": [{"title": "Google, Nvidia and Microsoft Are Among 7 Tech Giants Putting $26 Billion Into Anthropic’s IPO", "publisher": "24/7 Wall St.", "date": "2026-11-10T14:02:16Z", "url": "https://247wallst.com/investing/2026/11/10/google-nvidia-and-microsoft-are-among-7-tech-giants-putting-26-billion-into-anthropics-ipo/"}, {"title": "Market Chatter: Microsoft Urges Trump to Scrap Expected Ban on Chinese Data Center Tech", "publisher": "MT Newswires", "date": "2026-11-10T14:00:16Z", "url": "https://finance.yahoo.com/technology/ai/articles/market-chatter-microsoft-urges-trump-140016504.html"}, {"title": "Update: Anthropic Targeting to Raise Up to $64.40 Billion From IPO", "publisher": "MT Newswires", "date": "2026-11-10T13:26:33Z", "url": "https://finance.yahoo.com/markets/stocks/articles/anthropic-targeting-raise-64-40-132633453.html"}, {"title": "Apple Is Above $5 Trillion After Its First-Ever Close Above $350", "publisher": "24/7 Wall St.", "date": "2026-11-10T13:13:36Z", "url": "https://247wallst.com/investing/2026/11/10/apple-is-above-5-trillion-after-its-first-ever-close-above-350/"}]}, {"ticker": "NVDA", "status": "watchlist", "error": null, "name": "NVIDIA Corporation", "sector": "Technology", "currency": "USD", "price": 178.67, "change_pct": -4.27025, "market_cap": 4314344194048, "pe": 22.587864, "fwd_pe": 11.217311, "peg": 0.2269, "div_yield": 0.56, "target": 325.7772, "rating": "strong_buy", "hi52": 243.37, "lo52": 164.27, "pe_class": "fair", "fwd_pe_class": "cheap", "peg_class": "discount", "news": [{"title": "Wall Street's $1.6 trillion rebound may look like a bottom — history says it often isn't: Chart of the Day", "publisher": "Yahoo Finance", "date": "2026-11-10T11:00:00Z", "url": "https://finance.yahoo.com/markets/article/wall-streets-16-trillion-rebound-may-look-like-a-bottom--history-says-it-often-isnt-chart-of-the-day-110000299.html"}, {"title": "Stock market today: S&P 500 and Nasdaq futures sink, Dow wavers after CPI data, new Anthropic IPO filing", "publisher": "Yahoo Finance", "date": "2026-11-10T09:06:27Z", "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-10-dow-sp-500-nasdaq-inflation-data-cpi-090627830.html"}, {"title": "Jensen Huang's spy scandal may cost Nvidia the China chip fight it was winning", "publisher": "Yahoo Finance", "date": "2026-11-10T12:13:10Z", "url": "https://finance.yahoo.com/markets/article/jensen-huangs-spy-scandal-may-cost-nvidia-the-china-chip-fight-it-was-winning-121310306.html"}, {"title": "3 bipartisan plans could slap new controls on semiconductor exports. Elizabeth Warren wants to pass one this year.", "publisher": "Yahoo Finance", "date": "2026-11-10T12:10:30Z", "url": "https://finance.yahoo.com/markets/article/3-bipartisan-plans-could-slap-new-controls-on-semiconductor-exports-elizabeth-warren-wants-to-pass-one-this-year-121030831.html"}]}, {"ticker": "GOOGL", "status": "watchlist", "error": null, "name": "Alphabet Inc.", "sector": "Communication Services", "currency": "USD", "price": 288.15, "change_pct": 1.18337, "market_cap": 3542515974144, "pe": 15.046997, "fwd_pe": 18.668476, "peg": 1.0059, "div_yield": 0.31, "target": 400.37357, "rating": "strong_buy", "hi52": 408.61, "lo52": 270.7, "pe_class": "fair", "fwd_pe_class": "fair", "peg_class": "fair", "news": [{"title": "Google, Nvidia and Microsoft Are Among 7 Tech Giants Putting $26 Billion Into Anthropic’s IPO", "publisher": "24/7 Wall St.", "date": "2026-11-10T14:02:16Z", "url": "https://247wallst.com/investing/2026/11/10/google-nvidia-and-microsoft-are-among-7-tech-giants-putting-26-billion-into-anthropics-ipo/"}, {"title": "GoodRx stock rises on Google Cloud healthcare AI partnership", "publisher": "Investing.com", "date": "2026-11-10T13:58:39Z", "url": "https://finance.yahoo.com/healthcare/articles/goodrx-stock-rises-google-cloud-135839792.html"}, {"title": "Amazon’s AWS Strength Outpowers Its Tailwainds So I Accumulate", "publisher": "24/7 Wall St.", "date": "2026-11-10T13:45:13Z", "url": "https://247wallst.com/investing/2026/11/10/amazons-aws-strength-outpowers-its-tailwainds-so-i-accumulate/"}, {"title": "Update: Anthropic Targeting to Raise Up to $64.40 Billion From IPO", "publisher": "MT Newswires", "date": "2026-11-10T13:26:33Z", "url": "https://finance.yahoo.com/markets/stocks/articles/anthropic-targeting-raise-64-40-132633453.html"}]}]};
+const L={cheap:"Barato",fair:"Justo",pricey:"Caro",expensive:"Muito caro",discount:"Desconto",premium:"Prémio",na:"n/d"};
+const $=s=>document.querySelector(s);
+const f=(v,d=1)=>v==null?"—":v.toLocaleString("pt-PT",{maximumFractionDigits:d,minimumFractionDigits:d});
+const cap=v=>v==null?"—":v>=1e12?f(v/1e12,2)+" T":v>=1e9?f(v/1e9,1)+" B":f(v/1e6,0)+" M";
+let filter="all";
+try{const t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+$("#theme").onclick=()=>{const r=document.documentElement,n=(r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))==="dark"?"light":"dark";r.dataset.theme=n;try{localStorage.setItem("theme",n)}catch(e){}};
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.classList.toggle("on",x===b));render()});
+$("#sort").onchange=render;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function metric(label,v,cls){return `<div class="m ${cls}"><small>${label}</small><b>${f(v,1)}</b><br><i>${L[cls]}</i></div>`}
+function card(c){
+  const ch=c.change_pct;
+  const news=(c.news||[]).map(n=>`<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}<br><small>${esc(n.publisher||"")}</small></a>`).join("")||"<small>Sem notícias.</small>";
+  return `<article class="card"><div class="top"><div><div class="tk">${esc(c.ticker)} <span class="tag">${c.status==="portfolio"?"Portefólio":"A seguir"}</span></div>
+  <div class="nm">${esc(c.name)}${c.sector?" · "+esc(c.sector):""}</div></div>
+  <div class="px">${f(c.price,2)} ${esc(c.currency||"")}<div class="${ch>=0?"up":"down"}" style="font-size:12px">${ch==null?"":(ch>=0?"+":"")+f(ch,2)+"%"}</div></div></div>
+  ${c.error?`<div class="err">Erro: ${esc(c.error)}</div>`:""}
+  <div class="metrics">${metric("P/E (12m)",c.pe,c.pe_class||"na")}${metric("P/E (próx. 12m)",c.fwd_pe,c.fwd_pe_class||"na")}${metric("PEG",c.peg,c.peg_class||"na")}</div>
+  <div class="facts"><span>Cap: ${cap(c.market_cap)}</span><span>Div: ${f(c.div_yield,2)}%</span>
+  <span>Alvo: ${f(c.target,2)}</span><span>Analistas: ${esc(c.rating||"—")}</span>
+  ${c.value!=null?`<span>Posição: ${f(c.value,0)}</span>`:""}${c.pl_pct!=null?`<span class="${c.pl_pct>=0?"up":"down"}">P/L: ${f(c.pl_pct,1)}%</span>`:""}</div>
+  ${c.notes?`<div class="nm">📝 ${esc(c.notes)}</div>`:""}
+  <details class="news"><summary>Notícias (${(c.news||[]).length})</summary>${news}</details></article>`}
+function render(){
+  const k=$("#sort").value;
+  let r=D.companies.filter(c=>filter==="all"||c.status===filter);
+  r.sort((a,b)=>k==="ticker"?a.ticker.localeCompare(b.ticker):(b[k]==null)-(a[k]==null)||(k==="value"?b[k]-a[k]:a[k]-b[k]));
+  $("#grid").innerHTML=r.map(card).join("");
+  const p=D.companies.filter(c=>c.status==="portfolio"),tot=p.reduce((s,c)=>s+(c.value||0),0);
+  const cheap=D.companies.filter(c=>c.pe_class==="cheap"||c.peg_class==="discount").length;
+  const exp=D.companies.filter(c=>c.pe_class==="expensive"||c.peg_class==="premium").length;
+  $("#sum").innerHTML=[["Empresas",D.companies.length],["No portefólio",p.length],["Valor posições",f(tot,0)],["Oportunidades (barato/desconto)",cheap],["Atenção (muito caro/prémio)",exp]].map(([a,b])=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`).join("");
+}
+const T=D.thresholds;
+$("#gen").textContent="Atualizado: "+new Date(D.generated).toLocaleString("pt-PT");
+$("#legend").innerHTML=`P/E: &lt;${T.pe.cheap} barato · ${T.pe.cheap}–${T.pe.fair} justo · ${T.pe.fair}–${T.pe.pricey} caro · ≥${T.pe.pricey} muito caro.<br>PEG: &lt;${T.peg.discount} desconto · ${T.peg.discount}–${T.peg.fair} justo · &gt;${T.peg.fair} prémio. Informação indicativa, não é aconselhamento financeiro.`;
+render();
+</script>
+</body>
+</html>

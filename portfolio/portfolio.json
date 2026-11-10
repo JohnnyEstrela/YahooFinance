@@ -1,0 +1,13 @@
+{
+  "_ajuda": "Adiciona empresas em 'holdings'. status: 'portfolio' (já tens) ou 'watchlist' (a seguir). shares/avg_cost são opcionais.",
+  "thresholds": {
+    "pe":  { "cheap": 15, "fair": 30, "pricey": 50 },
+    "peg": { "discount": 1, "fair": 2 }
+  },
+  "holdings": [
+    { "ticker": "AAPL", "status": "portfolio", "shares": 10, "avg_cost": 150, "notes": "Exemplo - substitui pelas tuas posições" },
+    { "ticker": "MSFT", "status": "portfolio" },
+    { "ticker": "NVDA", "status": "watchlist" },
+    { "ticker": "GOOGL", "status": "watchlist" }
+  ]
+}
