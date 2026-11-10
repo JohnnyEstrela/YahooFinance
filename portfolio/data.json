@@ -1,0 +1,213 @@
+{
+ "generated": "2026-11-10T14:15+00:00",
+ "thresholds": {
+  "pe": {
+   "cheap": 15,
+   "fair": 30,
+   "pricey": 50
+  },
+  "peg": {
+   "discount": 1,
+   "fair": 2
+  }
+ },
+ "companies": [
+  {
+   "ticker": "AAPL",
+   "status": "portfolio",
+   "shares": 10,
+   "avg_cost": 150,
+   "notes": "Exemplo - substitui pelas tuas posições",
+   "error": null,
+   "name": "Apple Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 350.69,
+   "change_pct": 2.43012,
+   "market_cap": 5096291172352,
+   "pe": 39.05234,
+   "fwd_pe": 33.235027,
+   "peg": 2.7647,
+   "div_yield": 0.31,
+   "target": 340.7655,
+   "rating": "buy",
+   "hi52": 355.38,
+   "lo52": 243.42,
+   "pe_class": "pricey",
+   "fwd_pe_class": "pricey",
+   "peg_class": "premium",
+   "value": 3506.9,
+   "pl_pct": 133.79,
+   "news": [
+    {
+     "title": "Qualcomm vs. Western Digital: Which Tech Stock Is a Better Buy for 2027?",
+     "publisher": "Motley Fool",
+     "date": "2026-11-10T13:44:02Z",
+     "url": "https://www.fool.com/coverage/better-buy/2026/11/10/qualcomm-vs-western-digital-which-tech-stock-is-a-better-buy-for-2027/"
+    },
+    {
+     "title": "Apple Is Above $5 Trillion After Its First-Ever Close Above $350",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-10T13:13:36Z",
+     "url": "https://247wallst.com/investing/2026/11/10/apple-is-above-5-trillion-after-its-first-ever-close-above-350/"
+    },
+    {
+     "title": "Can Alphabet Stock Rise 30% From Here?",
+     "publisher": "Trefis",
+     "date": "2026-11-10T13:05:31Z",
+     "url": "https://www.trefis.com/stock/googl/articles/623929/can-alphabet-stock-rise-30-from-here/2026-11-10"
+    },
+    {
+     "title": "Time to Buy Nvidia-Heavy ETFs as CEO Huang's Affair Turns Into a Spy Plot?",
+     "publisher": "Zacks",
+     "date": "2026-11-10T12:42:00Z",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/time-buy-nvidia-heavy-etfs-124200029.html"
+    }
+   ]
+  },
+  {
+   "ticker": "MSFT",
+   "status": "portfolio",
+   "error": null,
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 545.18,
+   "change_pct": 2.7459,
+   "market_cap": 4048612753408,
+   "pe": 28.454071,
+   "fwd_pe": 22.532112,
+   "peg": 1.5698,
+   "div_yield": 0.72,
+   "target": 636.12427,
+   "rating": "strong_buy",
+   "hi52": 559.15,
+   "lo52": 349.2,
+   "pe_class": "fair",
+   "fwd_pe_class": "fair",
+   "peg_class": "fair",
+   "news": [
+    {
+     "title": "Google, Nvidia and Microsoft Are Among 7 Tech Giants Putting $26 Billion Into Anthropic’s IPO",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-10T14:02:16Z",
+     "url": "https://247wallst.com/investing/2026/11/10/google-nvidia-and-microsoft-are-among-7-tech-giants-putting-26-billion-into-anthropics-ipo/"
+    },
+    {
+     "title": "Market Chatter: Microsoft Urges Trump to Scrap Expected Ban on Chinese Data Center Tech",
+     "publisher": "MT Newswires",
+     "date": "2026-11-10T14:00:16Z",
+     "url": "https://finance.yahoo.com/technology/ai/articles/market-chatter-microsoft-urges-trump-140016504.html"
+    },
+    {
+     "title": "Update: Anthropic Targeting to Raise Up to $64.40 Billion From IPO",
+     "publisher": "MT Newswires",
+     "date": "2026-11-10T13:26:33Z",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/anthropic-targeting-raise-64-40-132633453.html"
+    },
+    {
+     "title": "Apple Is Above $5 Trillion After Its First-Ever Close Above $350",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-10T13:13:36Z",
+     "url": "https://247wallst.com/investing/2026/11/10/apple-is-above-5-trillion-after-its-first-ever-close-above-350/"
+    }
+   ]
+  },
+  {
+   "ticker": "NVDA",
+   "status": "watchlist",
+   "error": null,
+   "name": "NVIDIA Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 178.67,
+   "change_pct": -4.27025,
+   "market_cap": 4314344194048,
+   "pe": 22.587864,
+   "fwd_pe": 11.217311,
+   "peg": 0.2269,
+   "div_yield": 0.56,
+   "target": 325.7772,
+   "rating": "strong_buy",
+   "hi52": 243.37,
+   "lo52": 164.27,
+   "pe_class": "fair",
+   "fwd_pe_class": "cheap",
+   "peg_class": "discount",
+   "news": [
+    {
+     "title": "Wall Street's $1.6 trillion rebound may look like a bottom — history says it often isn't: Chart of the Day",
+     "publisher": "Yahoo Finance",
+     "date": "2026-11-10T11:00:00Z",
+     "url": "https://finance.yahoo.com/markets/article/wall-streets-16-trillion-rebound-may-look-like-a-bottom--history-says-it-often-isnt-chart-of-the-day-110000299.html"
+    },
+    {
+     "title": "Stock market today: S&P 500 and Nasdaq futures sink, Dow wavers after CPI data, new Anthropic IPO filing",
+     "publisher": "Yahoo Finance",
+     "date": "2026-11-10T09:06:27Z",
+     "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-10-dow-sp-500-nasdaq-inflation-data-cpi-090627830.html"
+    },
+    {
+     "title": "Jensen Huang's spy scandal may cost Nvidia the China chip fight it was winning",
+     "publisher": "Yahoo Finance",
+     "date": "2026-11-10T12:13:10Z",
+     "url": "https://finance.yahoo.com/markets/article/jensen-huangs-spy-scandal-may-cost-nvidia-the-china-chip-fight-it-was-winning-121310306.html"
+    },
+    {
+     "title": "3 bipartisan plans could slap new controls on semiconductor exports. Elizabeth Warren wants to pass one this year.",
+     "publisher": "Yahoo Finance",
+     "date": "2026-11-10T12:10:30Z",
+     "url": "https://finance.yahoo.com/markets/article/3-bipartisan-plans-could-slap-new-controls-on-semiconductor-exports-elizabeth-warren-wants-to-pass-one-this-year-121030831.html"
+    }
+   ]
+  },
+  {
+   "ticker": "GOOGL",
+   "status": "watchlist",
+   "error": null,
+   "name": "Alphabet Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "price": 288.15,
+   "change_pct": 1.18337,
+   "market_cap": 3542515974144,
+   "pe": 15.046997,
+   "fwd_pe": 18.668476,
+   "peg": 1.0059,
+   "div_yield": 0.31,
+   "target": 400.37357,
+   "rating": "strong_buy",
+   "hi52": 408.61,
+   "lo52": 270.7,
+   "pe_class": "fair",
+   "fwd_pe_class": "fair",
+   "peg_class": "fair",
+   "news": [
+    {
+     "title": "Google, Nvidia and Microsoft Are Among 7 Tech Giants Putting $26 Billion Into Anthropic’s IPO",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-10T14:02:16Z",
+     "url": "https://247wallst.com/investing/2026/11/10/google-nvidia-and-microsoft-are-among-7-tech-giants-putting-26-billion-into-anthropics-ipo/"
+    },
+    {
+     "title": "GoodRx stock rises on Google Cloud healthcare AI partnership",
+     "publisher": "Investing.com",
+     "date": "2026-11-10T13:58:39Z",
+     "url": "https://finance.yahoo.com/healthcare/articles/goodrx-stock-rises-google-cloud-135839792.html"
+    },
+    {
+     "title": "Amazon’s AWS Strength Outpowers Its Tailwainds So I Accumulate",
+     "publisher": "24/7 Wall St.",
+     "date": "2026-11-10T13:45:13Z",
+     "url": "https://247wallst.com/investing/2026/11/10/amazons-aws-strength-outpowers-its-tailwainds-so-i-accumulate/"
+    },
+    {
+     "title": "Update: Anthropic Targeting to Raise Up to $64.40 Billion From IPO",
+     "publisher": "MT Newswires",
+     "date": "2026-11-10T13:26:33Z",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/anthropic-targeting-raise-64-40-132633453.html"
+    }
+   ]
+  }
+ ]
+}
