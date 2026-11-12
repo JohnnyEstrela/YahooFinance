@@ -1,0 +1,17 @@
+{
+  "_ajuda": "Adiciona empresas em 'empresas'. estado: 'carteira' (já tens) ou 'seguir' (watchlist). acoes e preco_medio são opcionais (só para a carteira). Remove 'exemplo': true quando a empresa for tua.",
+  "moeda_base": "USD",
+  "limites": {
+    "pe": { "barato": 15, "justo": 30, "caro": 50 },
+    "_pe_nota": "P/E < 15 Barato | 15–30 Fair Value (centro ~20) | 30–50 Pricey (centro ~40) | > 50 Expensive",
+    "peg": { "desconto": 1, "justo": 2 },
+    "_peg_nota": "PEG/PEGY < 1 Desconto | 1–2 Justo | > 2 Premium"
+  },
+  "empresas": [
+    { "ticker": "AAPL",  "nome": "Apple",     "estado": "seguir", "acoes": null, "preco_medio": null, "exemplo": true },
+    { "ticker": "MSFT",  "nome": "Microsoft", "estado": "seguir", "acoes": null, "preco_medio": null, "exemplo": true },
+    { "ticker": "NVDA",  "nome": "NVIDIA",    "estado": "seguir", "acoes": null, "preco_medio": null, "exemplo": true },
+    { "ticker": "GOOGL", "nome": "Alphabet",  "estado": "seguir", "acoes": null, "preco_medio": null, "exemplo": true },
+    { "ticker": "AMZN",  "nome": "Amazon",    "estado": "seguir", "acoes": null, "preco_medio": null, "exemplo": true }
+  ]
+}

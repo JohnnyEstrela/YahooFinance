@@ -1,0 +1,73 @@
+{
+  "data": "2026-11-12",
+  "gerado_em": "2026-11-12T14:30:00Z",
+  "fonte_dados": "Financial Modeling Prep (cotação, rácios TTM, estimativas anuais de EPS dos analistas). Notícias: pesquisa web.",
+  "mercado": {
+    "resumo": "Semana nervosa para tecnologia e IA. A 5 de novembro o S&P 500 caiu 4,4% numa só sessão e a NVIDIA 9,3%, com receios de regras mais duras para data centers após as intercalares nos EUA e notícias de que a China só receberia ~1% dos chips encomendados. Desde então houve recuperação parcial. Mercado aguarda dados de inflação (CPI) e a NVIDIA apresenta resultados a 17 de novembro, o grande evento da próxima semana para o setor.",
+    "noticias": [
+      { "titulo": "Wall Street mista com a NVIDIA de volta às quedas", "fonte": "AP / Biz New Orleans", "url": "https://bizneworleans.com/wall-street-is-mixed-as-nvidia-gets-back-to-falling/", "data": "2026-11-11" },
+      { "titulo": "Stock Market Today: antevisão do CPI; mercado ainda precisa de confirmação", "fonte": "TheStreet Pro", "url": "https://pro.thestreet.com/stock-market-today/2026-11-09", "data": "2026-11-09" },
+      { "titulo": "Royal Caribbean: BofA sobe preço-alvo para 365$", "fonte": "FMP", "url": "https://financialmodelingprep.com/market-news/royal-caribbean-group-nyse-rcl-price-target-raised-by-bofa-securities", "data": "2026-11-12" },
+      { "titulo": "The Trade Desk sobe 15% após resultados do 3.º trimestre", "fonte": "FMP", "url": "https://financialmodelingprep.com/market-news/the-trade-desk-nasdaq-ttd-reports-q3-results-truist-financial-sets-17-price-target", "data": "2026-11-10" }
+    ]
+  },
+  "empresas": {
+    "AAPL": {
+      "nome": "Apple Inc.", "preco": 355.63, "variacao_pct": 2.04, "min_52s": 243.42, "max_52s": 355.91,
+      "media_50d": 337.88, "media_200d": 300.27, "market_cap": 5168086286000,
+      "eps_ttm": 9.0716, "dividend_yield": 0.0030,
+      "estimativas_eps": { "2026-09-26": 8.836, "2027-09-26": 9.431, "2028-09-26": 10.491, "2029-09-26": 11.370, "2030-09-26": 12.110 },
+      "leitura": "Máximo de 52 semanas e P/E perto de 40: o mercado paga caro por crescimento de lucros esperado de só ~7–8% ao ano. O PEGY bem acima de 2 diz que o preço já desconta muito. Qualidade excelente, mas não é ponto de entrada barato; para quem segue, esperar por recuo.",
+      "noticias": [
+        { "titulo": "Apple apresenta Q4 2026: lucro de 30,7 mil M$ com receita de 114,5 mil M$", "fonte": "MacRumors", "url": "https://macrumors.com/2026/11/02/apple-4q-2026-earnings", "data": "2026-11-02" },
+        { "titulo": "Ações caem apesar de bater estimativas: custo da memória pressiona margens", "fonte": "CME Elite Group", "url": "https://www.cmelitegroup.com/trends-and-insights/apple-shares-slip-as-surging-memory-costs-pressure-margins-despite-earnings-beat/", "data": "2026-11-03" },
+        { "titulo": "Apple sobe 24% em 2026: chega aos 400$?", "fonte": "24/7 Wall St.", "url": "https://247wallst.com/investing/2026/11/02/apple-is-up-24-in-2026-will-aapl-stock-hit-300-or-400-next/", "data": "2026-11-02" }
+      ]
+    },
+    "MSFT": {
+      "nome": "Microsoft Corporation", "preco": 521.13, "variacao_pct": -2.26, "min_52s": 349.20, "max_52s": 559.15,
+      "media_50d": 518.20, "media_200d": 440.76, "market_cap": 3869973263750,
+      "eps_ttm": 19.207, "dividend_yield": 0.0070,
+      "estimativas_eps": { "2026-06-30": 17.004, "2027-06-30": 20.055, "2028-06-30": 24.066, "2029-06-30": 29.610, "2030-06-30": 34.183 },
+      "leitura": "Azure a acelerar (~48%) e contrato do Anthropic de 44,9 mil M$ suportam o crescimento. P/E futuro na zona justa e PEG abaixo de 2 para crescimento esperado próximo de 20%/ano. Entre os exemplos, é o perfil mais equilibrado entre qualidade e preço.",
+      "noticias": [
+        { "titulo": "Microsoft sobe ~6% para 552$ com resultados da cloud e acordo com Anthropic", "fonte": "EdgeX", "url": "https://pro.edgex.exchange/en-US/news/article/microsoft-stock-azure-growth-anthropic-deal", "data": "2026-11-04" },
+        { "titulo": "Market movers: MSFT", "fonte": "TradingKey", "url": "https://www.tradingkey.com/news/market-movers/262296988-market-movers-msft-20261109", "data": "2026-11-09" }
+      ]
+    },
+    "NVDA": {
+      "nome": "NVIDIA Corporation", "preco": 173.73, "variacao_pct": 2.87, "min_52s": 164.27, "max_52s": 243.37,
+      "media_50d": 217.12, "media_200d": 204.47, "market_cap": 4186893000000,
+      "eps_ttm": 7.9735, "dividend_yield": 0.0030,
+      "estimativas_eps": { "2026-01-25": 4.694, "2027-01-25": 9.292, "2028-01-25": 15.813, "2029-01-25": 21.435, "2030-01-25": 25.600 },
+      "leitura": "Caiu ~29% desde o máximo de outubro e está abaixo das médias de 50 e 200 dias. Com P/E futuro de ~12 e crescimento esperado forte, os rácios marcam Barato/Desconto. O risco está na política (regras para data centers, vendas à China), não nos números. Resultados a 17/11 são decisivos.",
+      "noticias": [
+        { "titulo": "O que fez cair a NVIDIA? Queda de 9,3% a 5 de novembro", "fonte": "Trefis", "url": "https://www.trefis.com/stock/nvda/articles/623357/what-sent-nvidia-stock-lower/2026-11-06", "data": "2026-11-06" },
+        { "titulo": "Wall Street mista com a NVIDIA de volta às quedas", "fonte": "AP / Biz New Orleans", "url": "https://bizneworleans.com/wall-street-is-mixed-as-nvidia-gets-back-to-falling/", "data": "2026-11-11" }
+      ]
+    },
+    "GOOGL": {
+      "nome": "Alphabet Inc.", "preco": 293.45, "variacao_pct": 2.11, "min_52s": 270.70, "max_52s": 408.61,
+      "media_50d": 329.89, "media_200d": 338.88, "market_cap": 3574794032433,
+      "eps_ttm": 19.231, "dividend_yield": 0.0030,
+      "estimativas_eps": { "2025-12-31": 10.636, "2026-12-31": 19.647, "2027-12-31": 15.043, "2028-12-31": 18.213, "2029-12-31": 22.159 },
+      "leitura": "Atenção: o lucro dos últimos 12 meses está inflacionado por ganhos em participações (p. ex. SpaceX), por isso o P/E de ~15 parece mais barato do que é. O P/E futuro (~19) é mais honesto e continua justo. Pressões: saída de investigadores de IA, ação coletiva e nova investigação da UE. Preço 28% abaixo do máximo.",
+      "noticias": [
+        { "titulo": "Ação coletiva contra a Alphabet anunciada pela Kaplan Fox", "fonte": "MarketScreener", "url": "https://ca.marketscreener.com/quote/stock/ALPHABET-INC-24203373/news-insiders/", "data": "2026-11-09" },
+        { "titulo": "Alphabet cai 6% com abrandamento na pesquisa, custos de IA e saídas", "fonte": "NewsBytes", "url": "https://www.newsbytesapp.com/news/business/alphabet-shares-fall-6-amid-search-slowdown-ai-costs-departures/tldr", "data": "2026-11" },
+        { "titulo": "O que a reorganização da IA na Google significa para a Alphabet", "fonte": "Barchart", "url": "https://www.barchart.com/story/news/3725679/dear-googl-stock-fans-here-s-what-google-s-ai-shakeup-means-for-alphabet", "data": "2026-11" }
+      ]
+    },
+    "AMZN": {
+      "nome": "Amazon.com, Inc.", "preco": 266.17, "variacao_pct": -1.74, "min_52s": 196.00, "max_52s": 287.20,
+      "media_50d": 254.41, "media_200d": 244.35, "market_cap": 2878122827000,
+      "eps_ttm": 12.483, "dividend_yield": 0.0,
+      "estimativas_eps": { "2025-12-31": 7.153, "2026-12-31": 12.832, "2027-12-31": 10.762, "2028-12-31": 14.658, "2029-12-31": 18.335 },
+      "leitura": "AWS a crescer 39%, mas o capex (77 mil M$ no trimestre) consome o fluxo de caixa livre, que está negativo. Tal como na Alphabet, o lucro TTM inclui ganhos de investimentos, por isso olha para o P/E futuro (~24, justo). Se o crescimento esperado se confirmar, o PEG é de desconto. Venda de ~4,5 mil M$ em ações pelo CEO merece atenção.",
+      "noticias": [
+        { "titulo": "Amazon Q3 2026: AWS cresce 39%, ação desce por gastos em IA", "fonte": "KuCoin", "url": "https://www.kucoin.com/blog/ph-amazon-q3-2026-earnings-aws-growth-ai-spending", "data": "2026-10-30" },
+        { "titulo": "Receitas do Q3 abaixo do esperado, crescimento da AWS no máximo de ~5 anos", "fonte": "Zacks", "url": "https://www.zacks.com/stock/news/3019798/amazon-q3-revenues-miss-estimates,-aws-growth-hits-near-5-year-high", "data": "2026-10-30" }
+      ]
+    }
+  }
+}
