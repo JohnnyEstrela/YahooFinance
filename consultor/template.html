@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carteira &amp; Radar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: régua de valorização por empresa; resumo em cima, detalhe em baixo. */
+:root {
+  --bg: #f3f5f7; --surface: #ffffff; --ink: #142130; --muted: #5b6878; --line: #d9dfe6;
+  --accent: #1d5f74; --accent-soft: #e2eef2;
+  --cheap: #1f8a5b; --cheap-bg: #e3f4ec;
+  --fair: #2a6fb0; --fair-bg: #e4eefa;
+  --pricey: #b7791f; --pricey-bg: #fbf0dc;
+  --exp: #c0392b; --exp-bg: #fbe5e2;
+  --na: #7b8794; --na-bg: #eceff2;
+  --f-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f161e; --surface: #16202b; --ink: #e5ebf1; --muted: #93a1b0; --line: #273443;
+  --accent: #6fb7cc; --accent-soft: #1b3440;
+  --cheap: #4cc38a; --cheap-bg: #143127; --fair: #6ea8e6; --fair-bg: #172a40;
+  --pricey: #e2a64a; --pricey-bg: #35290f; --exp: #ef7a6c; --exp-bg: #3a1c19;
+  --na: #8794a2; --na-bg: #222d39; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f161e; --surface: #16202b; --ink: #e5ebf1; --muted: #93a1b0; --line: #273443;
+  --accent: #6fb7cc; --accent-soft: #1b3440;
+  --cheap: #4cc38a; --cheap-bg: #143127; --fair: #6ea8e6; --fair-bg: #172a40;
+  --pricey: #e2a64a; --pricey-bg: #35290f; --exp: #ef7a6c; --exp-bg: #3a1c19;
+  --na: #8794a2; --na-bg: #222d39; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -0.01em }
+h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800 }
+h2 { font-size: 1.15rem; font-weight: 700 }
+h3 { font-size: 1.05rem; font-weight: 700 }
+a { color: var(--accent) }
+.num { font-family: var(--f-num); font-variant-numeric: tabular-nums }
+.muted { color: var(--muted) }
+.eyebrow { font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+
+header.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface) }
+.seg button { font: 500 .85rem var(--f-body); border: 0; background: none; color: var(--muted); padding: 7px 12px; cursor: pointer }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface) }
+.seg button:focus-visible, select:focus-visible, input:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+select, input { font: .85rem var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px }
+
+.market { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px }
+.market p { margin: 8px 0 0; max-width: 65ch }
+.tally { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-content: start }
+.tile { border-radius: 10px; padding: 10px 12px; display: grid; gap: 2px }
+.tile b { font: 600 1.5rem var(--f-num) }
+.tile span { font-size: .8rem }
+
+.pill { display: inline-block; font: 600 .72rem var(--f-body); letter-spacing: .02em; padding: 2px 8px; border-radius: 999px; white-space: nowrap }
+.z-cheap { color: var(--cheap); background: var(--cheap-bg) }
+.z-fair { color: var(--fair); background: var(--fair-bg) }
+.z-pricey { color: var(--pricey); background: var(--pricey-bg) }
+.z-exp { color: var(--exp); background: var(--exp-bg) }
+.z-na, .z-neg { color: var(--na); background: var(--na-bg) }
+
+.tablebox { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 12px }
+table { border-collapse: collapse; width: 100%; min-width: 860px; font-size: .88rem }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: middle }
+th { font: 600 .72rem var(--f-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--surface); }
+th:first-child, td:first-child { text-align: left }
+tbody tr:last-child td { border-bottom: 0 }
+td .val { display: flex; gap: 8px; justify-content: flex-end; align-items: center }
+.tk { font: 700 .95rem var(--f-display) }
+.up { color: var(--cheap) } .down { color: var(--exp) }
+.tag { font-size: .68rem; color: var(--muted); border: 1px dashed var(--line); border-radius: 4px; padding: 0 5px; margin-left: 6px }
+.state { font-size: .7rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 1px 6px; margin-left: 6px }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); gap: 16px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 14px; min-width: 0 }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap }
+.price { font: 500 1.35rem var(--f-num) }
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px }
+.metric { display: grid; gap: 3px; justify-items: start }
+.metric .num { font-size: 1.05rem; font-weight: 500 }
+.ruler svg { width: 100%; height: auto; display: block }
+.ruler text { font: 10px var(--f-num); fill: var(--muted) }
+.read { margin: 0; border-left: 3px solid var(--accent); padding-left: 12px; max-width: 70ch }
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px }
+.news li { display: grid; gap: 1px }
+.news a { text-decoration: none; font-weight: 500 }
+.news a:hover { text-decoration: underline }
+.news small { color: var(--muted); font-size: .76rem }
+.range { height: 6px; border-radius: 3px; background: var(--line); position: relative; margin-top: 6px }
+.range i { position: absolute; top: -3px; width: 4px; height: 12px; border-radius: 2px; background: var(--ink) }
+
+.foot { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0 }
+.panel p, .panel li { max-width: 65ch; margin: 0 }
+.panel ul { margin: 0; padding-left: 18px; display: grid; gap: 4px }
+.addform { display: flex; flex-wrap: wrap; gap: 8px }
+.addform input { flex: 1 1 110px; min-width: 0 }
+pre.snip { margin: 0; overflow-x: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: .78rem var(--f-num); white-space: pre }
+.btn { font: 600 .82rem var(--f-body); border: 1px solid var(--accent); color: var(--accent); background: none; border-radius: 8px; padding: 7px 12px; cursor: pointer }
+.empty { padding: 24px; text-align: center; color: var(--muted) }
+
+@media (max-width: 720px) {
+  .market { grid-template-columns: minmax(0, 1fr) }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s } .card:hover { border-color: var(--accent) } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Consultor Financeiro · atualização diária</div>
+      <h1>Carteira &amp; Radar</h1>
+      <div class="muted">Dados de <span class="num">__DATA__</span> · <span id="src"></span></div>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Filtrar">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">Todas</button>
+        <button type="button" id="f-carteira" data-f="carteira" aria-pressed="false">Carteira</button>
+        <button type="button" id="f-seguir" data-f="seguir" aria-pressed="false">A seguir</button>
+      </div>
+      <label class="muted" for="sort">Ordenar</label>
+      <select id="sort">
+        <option value="pe_fwd">P/E próx. 12m</option>
+        <option value="pe_ttm">P/E últ. 12m</option>
+        <option value="pegy">PEGY</option>
+        <option value="variacao_pct">Variação do dia</option>
+        <option value="ticker">Ticker</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="market" aria-labelledby="mk">
+    <div>
+      <div class="eyebrow">Mercado hoje</div>
+      <h2 id="mk">O que está a mexer</h2>
+      <p id="mk-text"></p>
+    </div>
+    <div class="tally" id="tally" aria-label="Empresas por zona de P/E futuro"></div>
+  </section>
+
+  <section aria-labelledby="tb" style="display:grid; gap:12px">
+    <h2 id="tb">Valorização</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th>Empresa</th><th>Preço</th><th>Dia</th><th>P/E últ. 12m</th><th>P/E próx. 12m</th>
+          <th>Cresc. EPS</th><th>Yield</th><th>PEG</th><th>PEGY</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="cd" style="display:grid; gap:12px">
+    <h2 id="cd">Empresas</h2>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="foot">
+    <div class="panel">
+      <h2>Notícias de mercado</h2>
+      <ul class="news" id="mk-news"></ul>
+    </div>
+    <div class="panel">
+      <h2>Adicionar empresa</h2>
+      <p class="muted">Escreve o ticker e gera a linha para o ficheiro <code>consultor/portfolio.json</code>. Também podes simplesmente pedir no chat: «adiciona a ASML à carteira».</p>
+      <form class="addform" id="addform">
+        <input id="add-ticker" placeholder="Ticker (ex. ASML)" aria-label="Ticker" required>
+        <select id="add-estado" aria-label="Estado"><option value="carteira">Carteira</option><option value="seguir">A seguir</option></select>
+        <input id="add-acoes" type="number" step="any" min="0" placeholder="Nº ações" aria-label="Número de ações">
+        <input id="add-pm" type="number" step="any" min="0" placeholder="Preço médio" aria-label="Preço médio">
+        <button class="btn" type="submit">Gerar</button>
+      </form>
+      <pre class="snip" id="snip" hidden></pre>
+      <button class="btn" type="button" id="copy" hidden>Copiar</button>
+    </div>
+    <div class="panel">
+      <h2>Como ler</h2>
+      <ul>
+        <li><b>P/E</b>: quanto pagas por cada dólar de lucro. <span class="pill z-cheap">Barato</span> &lt; 15 · <span class="pill z-fair">Fair Value</span> 15–30 (~20) · <span class="pill z-pricey">Pricey</span> 30–50 (~40) · <span class="pill z-exp">Expensive</span> &gt; 50</li>
+        <li><b>P/E próx. 12m</b> usa a média ponderada das estimativas de EPS dos analistas para o ano fiscal corrente e o seguinte.</li>
+        <li><b>PEGY</b> = P/E futuro ÷ (crescimento do EPS % + dividend yield %). <span class="pill z-cheap">Desconto</span> &lt; 1 · <span class="pill z-fair">Justo</span> 1–2 · <span class="pill z-exp">Premium</span> &gt; 2. O PEG é o mesmo sem o yield.</li>
+        <li><b>Crescimento</b>: taxa anual composta do EPS estimado do próximo ano fiscal até dois anos depois.</li>
+        <li>Na régua, o círculo vazio é o P/E dos últimos 12 meses e o cheio o dos próximos 12.</li>
+      </ul>
+      <p class="muted" style="font-size:.8rem">Informação de apoio à decisão, não é recomendação de compra ou venda.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+const L = DATA.limites;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fx = (v, d = 1) => (v === null || v === undefined ? "—" : Number(v).toFixed(d));
+const pct = (v, d = 1) => (v === null || v === undefined ? "—" : (v * 100).toFixed(d) + "%");
+const pill = (z) => `<span class="pill z-${z[0]}">${esc(z[1])}</span>`;
+const cap = (v) => !v ? "—" : v >= 1e12 ? (v / 1e12).toFixed(2) + " B$" : (v / 1e9).toFixed(0) + " mM$";
+
+$("#src").textContent = DATA.fonte;
+$("#mk-text").textContent = DATA.mercado.resumo || "";
+$("#mk-news").innerHTML = (DATA.mercado.noticias || []).map(newsItem).join("");
+
+function newsItem(n) {
+  return `<li><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.titulo)}</a><small>${esc(n.fonte)} · ${esc(n.data)}</small></li>`;
+}
+
+let filter = "all";
+try { filter = localStorage.getItem("cr-filter") || "all"; } catch (e) {}
+
+function visible() {
+  const key = $("#sort").value;
+  const list = DATA.empresas.filter((e) => filter === "all" || e.estado === filter);
+  return list.sort((a, b) => {
+    if (key === "ticker") return a.ticker.localeCompare(b.ticker);
+    const va = a[key], vb = b[key];
+    if (va == null) return 1; if (vb == null) return -1;
+    return key === "variacao_pct" ? vb - va : va - vb;
+  });
+}
+
+function tally(list) {
+  const zones = [["cheap", "Barato"], ["fair", "Fair Value"], ["pricey", "Pricey"], ["exp", "Expensive"]];
+  $("#tally").innerHTML = zones.map(([z, label]) => {
+    const n = list.filter((e) => e.z_pe_fwd && e.z_pe_fwd[0] === z).length;
+    return `<div class="tile z-${z}"><b>${n}</b><span>${label} (P/E futuro)</span></div>`;
+  }).join("");
+}
+
+function ruler(e) {
+  const W = 480, H = 46, max = 70, x = (v) => 8 + (Math.min(Math.max(v, 0), max) / max) * (W - 16);
+  const bands = [[0, L.pe.barato, "cheap"], [L.pe.barato, L.pe.justo, "fair"], [L.pe.justo, L.pe.caro, "pricey"], [L.pe.caro, max, "exp"]];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="P/E de ${esc(e.ticker)}: ${fx(e.pe_ttm)} últimos 12 meses, ${fx(e.pe_fwd)} próximos 12 meses">`;
+  bands.forEach(([a, b, z]) => { s += `<rect x="${x(a)}" y="14" width="${x(b) - x(a)}" height="8" fill="var(--${z}-bg)"/><rect x="${x(a)}" y="20" width="${x(b) - x(a)}" height="2" fill="var(--${z})"/>`; });
+  [0, L.pe.barato, 20, L.pe.justo, 40, L.pe.caro, max].forEach((t) => { s += `<text x="${x(t)}" y="40" text-anchor="middle">${t}${t === max ? "+" : ""}</text>`; });
+  if (e.pe_ttm > 0) s += `<circle cx="${x(e.pe_ttm)}" cy="18" r="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>`;
+  if (e.pe_fwd > 0) s += `<circle cx="${x(e.pe_fwd)}" cy="18" r="6" fill="var(--ink)"/>`;
+  return s + "</svg>";
+}
+
+function rangePos(e) {
+  if (!e.min_52s || !e.max_52s) return "";
+  const p = ((e.preco - e.min_52s) / (e.max_52s - e.min_52s)) * 100;
+  return `<div><div class="eyebrow">Intervalo 52 semanas</div><div class="range"><i style="left:calc(${Math.min(Math.max(p, 0), 100).toFixed(1)}% - 2px)"></i></div>
+    <div class="num muted" style="display:flex;justify-content:space-between;font-size:.75rem;margin-top:4px"><span>${fx(e.min_52s, 2)}</span><span>${fx(e.max_52s, 2)}</span></div></div>`;
+}
+
+function chg(v) { return v == null ? "—" : `<span class="${v >= 0 ? "up" : "down"}">${v >= 0 ? "+" : ""}${fx(v, 2)}%</span>`; }
+function badges(e) {
+  return `${e.estado === "carteira" ? '<span class="state">Carteira</span>' : '<span class="state">A seguir</span>'}${e.exemplo ? '<span class="tag">exemplo</span>' : ""}`;
+}
+
+function render() {
+  const list = visible();
+  tally(list);
+  document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === filter)));
+  if (!list.length) {
+    $("#rows").innerHTML = `<tr><td colspan="9" class="empty">Sem empresas neste filtro. Adiciona uma em baixo.</td></tr>`;
+    $("#cards").innerHTML = `<div class="empty">Ainda não há empresas aqui.</div>`;
+    return;
+  }
+  $("#rows").innerHTML = list.map((e) => e.sem_dados
+    ? `<tr><td><span class="tk">${esc(e.ticker)}</span>${badges(e)}</td><td colspan="8" class="muted">Sem dados nesta atualização</td></tr>`
+    : `<tr>
+      <td><span class="tk">${esc(e.ticker)}</span>${badges(e)}<div class="muted" style="font-size:.78rem">${esc(e.nome)}</div></td>
+      <td class="num">${fx(e.preco, 2)}</td><td class="num">${chg(e.variacao_pct)}</td>
+      <td><div class="val"><span class="num">${fx(e.pe_ttm)}</span>${pill(e.z_pe_ttm)}</div></td>
+      <td><div class="val"><span class="num">${fx(e.pe_fwd)}</span>${pill(e.z_pe_fwd)}</div></td>
+      <td class="num">${pct(e.crescimento)}</td><td class="num">${pct(e.yield, 2)}</td>
+      <td><div class="val"><span class="num">${fx(e.peg, 2)}</span></div></td>
+      <td><div class="val"><span class="num">${fx(e.pegy, 2)}</span>${pill(e.z_pegy)}</div></td>
+    </tr>`).join("");
+
+  $("#cards").innerHTML = list.filter((e) => !e.sem_dados).map((e) => `
+    <article class="card">
+      <div class="card-head">
+        <div><h3>${esc(e.nome)} <span class="muted num" style="font-weight:500">${esc(e.ticker)}</span></h3>${badges(e)}</div>
+        <div style="text-align:right"><div class="price">${fx(e.preco, 2)}</div><div class="num" style="font-size:.85rem">${chg(e.variacao_pct)} · <span class="muted">${cap(e.market_cap)}</span></div></div>
+      </div>
+      <div class="ruler">${ruler(e)}</div>
+      <div class="metrics">
+        <div class="metric"><span class="eyebrow">P/E últ. 12m</span><span class="num">${fx(e.pe_ttm)}</span>${pill(e.z_pe_ttm)}</div>
+        <div class="metric"><span class="eyebrow">P/E próx. 12m</span><span class="num">${fx(e.pe_fwd)}</span>${pill(e.z_pe_fwd)}</div>
+        <div class="metric"><span class="eyebrow">PEGY</span><span class="num">${fx(e.pegy, 2)}</span>${pill(e.z_pegy)}</div>
+        <div class="metric"><span class="eyebrow">Cresc. · Yield</span><span class="num">${pct(e.crescimento)} · ${pct(e.yield, 1)}</span><span class="muted" style="font-size:.75rem">PEG ${fx(e.peg, 2)}</span></div>
+      </div>
+      ${e.valor ? `<div class="num">Posição: ${fx(e.valor, 0)} · ${e.ganho_pct >= 0 ? "+" : ""}${pct(e.ganho_pct)}</div>` : ""}
+      ${rangePos(e)}
+      ${e.leitura ? `<p class="read">${esc(e.leitura)}</p>` : ""}
+      ${e.noticias.length ? `<div style="display:grid;gap:8px"><div class="eyebrow">Notícias</div><ul class="news">${e.noticias.map(newsItem).join("")}</ul></div>` : ""}
+    </article>`).join("");
+}
+
+document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
+  filter = b.dataset.f; try { localStorage.setItem("cr-filter", filter); } catch (e) {} render();
+}));
+$("#sort").addEventListener("change", render);
+
+$("#addform").addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  const t = $("#add-ticker").value.trim().toUpperCase();
+  if (!t) return;
+  const a = $("#add-acoes").value, p = $("#add-pm").value;
+  const line = `{ "ticker": "${t.replace(/"/g, "")}", "nome": "${t.replace(/"/g, "")}", "estado": "${$("#add-estado").value}", "acoes": ${a ? Number(a) : null}, "preco_medio": ${p ? Number(p) : null} }`;
+  $("#snip").textContent = line; $("#snip").hidden = false; $("#copy").hidden = false; $("#copy").textContent = "Copiar";
+});
+$("#copy").addEventListener("click", () => {
+  const txt = $("#snip").textContent;
+  const sel = () => { const r = document.createRange(); r.selectNodeContents($("#snip")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try { navigator.clipboard.writeText(txt).then(() => { $("#copy").textContent = "Copiado"; }, sel); } catch (e) { sel(); }
+});
+
+render();
+</script>
+</body>
+</html>
