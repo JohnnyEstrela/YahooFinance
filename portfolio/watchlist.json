@@ -1,0 +1,70 @@
+{
+  "_como_usar": "Adiciona empresas em 'portfolio' (as que tens) ou 'radar' (as que queres seguir). Ticker no formato Yahoo Finance: AAPL, ASML, EDP.LS (Lisboa), SAP.DE (Frankfurt), MC.PA (Paris). Em 'portfolio', 'shares' e 'avg_cost' (na moeda da ação) são opcionais mas permitem calcular o teu ganho/perda. 'example': true marca empresas de exemplo; podes apagá-las. 'news_query' (opcional) afina a pesquisa de notícias no Google News quando o Yahoo tem pouca cobertura.",
+  "base_currency": "EUR",
+  "thresholds": {
+    "pe": {
+      "cheap_below": 15,
+      "fair_below": 30,
+      "pricey_below": 50
+    },
+    "pegy": {
+      "discount_below": 1,
+      "fair_below": 2
+    }
+  },
+  "portfolio": [],
+  "radar": [
+    {
+      "ticker": "AAPL",
+      "note": "",
+      "example": true
+    },
+    {
+      "ticker": "MSFT",
+      "note": "",
+      "example": true
+    },
+    {
+      "ticker": "NVDA",
+      "note": "",
+      "example": true
+    },
+    {
+      "ticker": "ASML",
+      "note": "",
+      "example": true
+    },
+    {
+      "ticker": "EDP.LS",
+      "note": "",
+      "example": true,
+      "news_query": "\"EDP\" bolsa Lisboa ações"
+    },
+    {
+      "ticker": "GALP.LS",
+      "note": "",
+      "example": true,
+      "news_query": "Galp Energia ações"
+    },
+    {
+      "ticker": "JMT.LS",
+      "note": "",
+      "example": true,
+      "news_query": "\"Jerónimo Martins\" ações"
+    }
+  ],
+  "market_news": [
+    {
+      "yahoo": "^GSPC",
+      "label": "S&P 500"
+    },
+    {
+      "yahoo": "^STOXX50E",
+      "label": "Euro Stoxx 50"
+    },
+    {
+      "google": "PSI bolsa Lisboa",
+      "label": "PSI Lisboa"
+    }
+  ]
+}

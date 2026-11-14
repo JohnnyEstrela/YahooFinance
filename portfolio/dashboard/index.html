@@ -1,0 +1,507 @@
+<meta name="dash-one-writer">
+<style>
+  /* Layout: header + lede, group switch, valuation map (P/E 12m → próximos 12m over zone bands), company cards, full table, news, method. */
+  .pf { --pf-ok: var(--color-ok); --pf-warn: var(--color-warn); --pf-bad: var(--color-bad); --pf-line: var(--color-border-line);
+        display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .pf h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .pf h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+  .pf p { margin: 0; }
+  .pf-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+  .pf-eyebrow { font-size: var(--cds-font-size-caption); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+  .pf-lede { font-size: var(--cds-font-size-body); line-height: 1.55; max-width: 68ch; }
+  .pf-lede b { font-variant-numeric: tabular-nums; }
+  .pf-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .pf-sec { display: flex; flex-direction: column; gap: var(--cds-gap-md); min-width: 0; }
+  .pf-sec-head { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+
+  .pf-switch { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--pf-line); border-radius: 999px; background: var(--color-panel); align-self: flex-start; flex-wrap: wrap; }
+  .pf-switch button { font: inherit; font-size: var(--cds-font-size-caption); border: 0; background: transparent; color: var(--color-fg-muted); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+  .pf-switch button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); }
+  .pf-switch button:focus-visible, .pf th button:focus-visible, .pf a:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+
+  .pf-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .pf-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .pf-sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .pf-sw.z-cheap { background: color-mix(in srgb, var(--pf-ok) 45%, transparent); }
+  .pf-sw.z-fair { background: color-mix(in srgb, var(--pf-ok) 18%, transparent); }
+  .pf-sw.z-pricey { background: color-mix(in srgb, var(--pf-warn) 30%, transparent); }
+  .pf-sw.z-exp { background: color-mix(in srgb, var(--pf-bad) 30%, transparent); }
+  .pf-dot-o { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--color-fg-muted); display: inline-block; box-sizing: border-box; }
+  .pf-dot-f { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  .pf-map { position: relative; min-height: 240px; }
+  .pf-map svg { display: block; width: 100%; overflow: visible; }
+  .pf-map text { font-size: 11px; fill: var(--cds-text-secondary); font-family: var(--font-anthropic-sans); }
+  .pf-map .t-label { fill: var(--color-fg); font-size: 12px; font-weight: 500; }
+  .pf-map .t-zone { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+  .pf-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover);
+            border-radius: var(--cds-radius); padding: 8px 10px; font-size: var(--cds-font-size-caption); line-height: 1.5; max-width: 240px; z-index: 2; }
+  .pf-tip b { font-weight: 600; }
+
+  .pf-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: var(--cds-gap-md); }
+  .pf-card { background: var(--color-panel); border: 1px solid var(--pf-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg);
+             display: flex; flex-direction: column; gap: var(--cds-gap-md); min-width: 0; }
+  .pf-card-top { display: flex; justify-content: space-between; gap: var(--cds-gap-sm); align-items: flex-start; }
+  .pf-tk { font-weight: 600; font-size: var(--cds-font-size-heading); letter-spacing: .01em; }
+  .pf-nm { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); overflow-wrap: anywhere; }
+  .pf-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+  .pf-tag { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--pf-line); border-radius: 999px; padding: 2px 8px; color: var(--color-fg-muted); white-space: nowrap; }
+  .pf-tag.own { border-color: var(--color-fg); color: var(--color-fg); }
+  .pf-price { display: flex; align-items: baseline; gap: var(--cds-gap-sm); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .pf-price .v { font-family: var(--font-anthropic-serif); font-size: 1.6rem; }
+  .pf-up { color: var(--pf-ok); } .pf-down { color: var(--pf-bad); }
+  .pf-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--cds-gap-sm); }
+  .pf-m { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .pf-m .k { font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--color-fg-muted); }
+  .pf-m .n { font-size: 1.15rem; font-variant-numeric: tabular-nums; font-weight: 500; }
+  .pf-pill { align-self: flex-start; font-size: 11px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; border: 1px solid transparent; }
+  .z-Barato, .z-Discount { background: color-mix(in srgb, var(--pf-ok) 22%, transparent); color: var(--color-fg); border-color: color-mix(in srgb, var(--pf-ok) 55%, transparent); }
+  .z-Fair-Value, .z-Fair { background: color-mix(in srgb, var(--pf-ok) 8%, transparent); color: var(--color-fg); border-color: color-mix(in srgb, var(--pf-ok) 30%, transparent); }
+  .z-Pricey { background: color-mix(in srgb, var(--pf-warn) 18%, transparent); color: var(--color-fg); border-color: color-mix(in srgb, var(--pf-warn) 50%, transparent); }
+  .z-Expensive, .z-Premium { background: color-mix(in srgb, var(--pf-bad) 16%, transparent); color: var(--color-fg); border-color: color-mix(in srgb, var(--pf-bad) 50%, transparent); }
+  .z-nd, .z-Prejuízo { color: var(--color-fg-muted); border-color: var(--pf-line); }
+  .pf-range { display: flex; flex-direction: column; gap: 4px; }
+  .pf-range-bar { position: relative; height: 4px; border-radius: 2px; background: var(--pf-line); }
+  .pf-range-bar i { position: absolute; top: -4px; width: 4px; height: 12px; border-radius: 2px; background: var(--color-fg); transform: translateX(-50%); }
+  .pf-range-lbl { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+  .pf-foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px var(--cds-gap-md); font-size: var(--cds-font-size-caption); border-top: 1px solid var(--pf-line); padding-top: var(--cds-pad-sm); }
+  .pf-foot div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .pf-foot .k { color: var(--color-fg-muted); font-size: 11px; }
+  .pf-foot .n { font-variant-numeric: tabular-nums; }
+  .pf-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-style: italic; }
+  .pf-pos { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); background: var(--color-bg); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+
+  .pf-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: var(--cds-gap-md); }
+  .pf-tile { background: var(--color-panel); border: 1px solid var(--pf-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: 4px; }
+  .pf-tile .n { font-family: var(--font-anthropic-serif); font-size: 1.8rem; font-variant-numeric: tabular-nums; }
+  .pf-empty { border: 1px dashed var(--pf-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); max-width: 70ch; }
+  .pf-empty code { font-size: 12px; background: var(--color-panel); padding: 1px 5px; border-radius: 4px; }
+
+  .pf-tablewrap { overflow-x: auto; border: 1px solid var(--pf-line); border-radius: var(--cds-radius); }
+  .pf table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .pf th, .pf td { padding: 8px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--pf-line); }
+  .pf th:first-child, .pf td:first-child, .pf th.l, .pf td.l { text-align: left; }
+  .pf th { font-weight: 500; color: var(--color-fg-muted); background: var(--color-panel); position: sticky; top: 0; }
+  .pf th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  .pf th[aria-sort] button::after { content: " ↕"; opacity: .4; }
+  .pf th[aria-sort="ascending"] button::after { content: " ↑"; opacity: 1; }
+  .pf th[aria-sort="descending"] button::after { content: " ↓"; opacity: 1; }
+  .pf tbody tr:last-child td { border-bottom: 0; }
+
+  .pf-news { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--cds-gap-lg); }
+  .pf-news-col { display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .pf-news-col h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .pf-news ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .pf-news li { display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--pf-line); }
+  .pf-news li:last-child { border-bottom: 0; }
+  .pf-news a { color: var(--color-fg); text-decoration: none; line-height: 1.4; }
+  .pf-news a:hover { text-decoration: underline; }
+  .pf-news .src { font-size: 11px; color: var(--color-fg-muted); display: flex; gap: 6px; flex-wrap: wrap; }
+  .pf-news .chip { font-weight: 600; color: var(--color-fg); }
+  .pf-toolbar { display: flex; gap: var(--cds-gap-md); align-items: center; flex-wrap: wrap; justify-content: space-between; }
+
+  .pf details { border-top: 1px solid var(--pf-line); padding-top: var(--cds-pad-md); }
+  .pf summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
+  .pf-def { display: grid; gap: var(--cds-gap-md); margin-top: var(--cds-gap-md); font-size: var(--cds-font-size-caption); line-height: 1.55; max-width: 75ch; }
+  .pf-def dt { font-weight: 600; }
+  .pf-def dd { margin: 2px 0 0; color: var(--color-fg-muted); }
+  [data-dash-source-state=refreshing] { opacity: .5; }
+  .pf [hidden] { display: none !important; }
+  @media (max-width: 420px) { .pf-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } .pf-m .n { font-size: 1rem; } }
+</style>
+
+<div class="pf" lang="pt-PT" data-read>
+  <header class="pf-head" id="topo">
+    <p class="pf-eyebrow">Consultor diário · ações</p>
+    <h1>Portefólio &amp; Radar</h1>
+    <p class="pf-lede" data-draw="lede">—</p>
+    <p class="pf-muted">Dados de <span data-draw="stamp">—</span>, Yahoo Finance. Atualizado todos os dias pela tua rotina.</p>
+  </header>
+
+  <div class="pf-switch" role="group" aria-label="Mostrar empresas" id="filtro-grupo">
+    <button type="button" data-group="" aria-pressed="true">Todas</button>
+    <button type="button" data-group="Portefólio" aria-pressed="false">Portefólio</button>
+    <button type="button" data-group="Radar" aria-pressed="false">Radar</button>
+  </div>
+
+  <section class="pf-sec" id="posicoes">
+    <div class="pf-sec-head">
+      <h2>As minhas posições</h2>
+      <p class="pf-muted">Valor em euros ao câmbio do dia. Ganho calculado sobre o teu preço médio.</p>
+    </div>
+    <div class="pf-tiles pf-hold-tiles" hidden>
+      <div class="pf-tile" id="tile-valor"><span class="pf-muted">Valor do portefólio</span><span class="n" data-draw="t-valor">—</span></div>
+      <div class="pf-tile" id="tile-ganho"><span class="pf-muted">Ganho / perda total</span><span class="n" data-draw="t-ganho">—</span></div>
+      <div class="pf-tile" id="tile-pos"><span class="pf-muted">Posições</span><span class="n" data-draw="t-pos">—</span></div>
+    </div>
+    <div class="pf-empty pf-hold-empty">
+      <p><b>Ainda não tens posições registadas.</b> Por agora só aparecem empresas no Radar (as marcadas como exemplo podes apagar).</p>
+      <p class="pf-muted">Para adicionar, edita <code>portfolio/watchlist.json</code> no repositório YahooFinance e põe a empresa em <code>"portfolio"</code> com <code>shares</code> e <code>avg_cost</code>, ou em <code>"radar"</code> para só a seguir. Também podes simplesmente pedir-me numa conversa: "adiciona 10 ações da ASML a 650 USD".</p>
+    </div>
+  </section>
+
+  <section class="pf-sec" id="mapa">
+    <div class="pf-sec-head">
+      <h2>Mapa de valorização</h2>
+      <p class="pf-muted">Cada linha vai do P/E dos últimos 12 meses (círculo) ao P/E dos próximos 12 meses (ponto). Uma linha que anda para a esquerda quer dizer que os analistas esperam lucros a subir.</p>
+    </div>
+    <div class="pf-legend">
+      <span><i class="pf-sw z-cheap"></i>Barato, abaixo de 15</span>
+      <span><i class="pf-sw z-fair"></i>Fair Value, 15 a 30</span>
+      <span><i class="pf-sw z-pricey"></i>Pricey, 30 a 50</span>
+      <span><i class="pf-sw z-exp"></i>Expensive, acima de 50</span>
+      <span><i class="pf-dot-o"></i>P/E 12 meses</span>
+      <span><i class="pf-dot-f" data-draw="dotswatch"></i>P/E próximos 12 meses</span>
+    </div>
+    <div class="pf-map" data-source="companies" data-draw="map"></div>
+  </section>
+
+  <section class="pf-sec" id="empresas">
+    <div class="pf-sec-head">
+      <h2>Empresas</h2>
+      <p class="pf-muted">P/E: quanto pagas por cada euro (ou dólar) de lucro. PEGY: P/E a dividir por crescimento esperado mais dividend yield.</p>
+    </div>
+    <div class="pf-cards" data-draw="cards"></div>
+  </section>
+
+  <section class="pf-sec" id="tabela">
+    <div class="pf-sec-head">
+      <h2>Tabela completa</h2>
+      <p class="pf-muted">Carrega num cabeçalho para ordenar.</p>
+    </div>
+    <div class="pf-tablewrap">
+      <table data-source="companies" data-row-key="ticker">
+        <thead>
+          <tr>
+            <th data-field="ticker" aria-sort="none"><button type="button" data-sort="ticker">Ticker</button></th>
+            <th data-field="name" class="l" aria-sort="none"><button type="button" data-sort="name">Empresa</button></th>
+            <th data-field="group" class="l">Grupo</th>
+            <th data-field="price" aria-sort="none"><button type="button" data-sort="price">Preço</button></th>
+            <th data-field="currency" class="l">Moeda</th>
+            <th data-field="change_pct" aria-sort="none"><button type="button" data-sort="change_pct">Dia %</button></th>
+            <th data-field="pe_ttm" aria-sort="none"><button type="button" data-sort="pe_ttm">P/E 12m</button></th>
+            <th data-field="pe_ttm_zone" class="l">Zona</th>
+            <th data-field="pe_fwd" aria-sort="none"><button type="button" data-sort="pe_fwd">P/E próx. 12m</button></th>
+            <th data-field="pe_fwd_zone" class="l">Zona</th>
+            <th data-field="growth_pct" aria-sort="none"><button type="button" data-sort="growth_pct">Cresc. %</button></th>
+            <th data-field="div_yield_pct" aria-sort="none"><button type="button" data-sort="div_yield_pct">Yield %</button></th>
+            <th data-field="pegy" aria-sort="none"><button type="button" data-sort="pegy">PEGY</button></th>
+            <th data-field="pegy_zone" class="l">Zona</th>
+            <th data-field="upside_pct" aria-sort="none"><button type="button" data-sort="upside_pct">Alvo %</button></th>
+            <th data-field="next_earnings" aria-sort="none"><button type="button" data-sort="next_earnings">Resultados</button></th>
+          </tr>
+        </thead>
+        <tbody data-draw="table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="pf-sec" id="noticias">
+    <div class="pf-toolbar">
+      <div class="pf-sec-head">
+        <h2>Notícias</h2>
+        <p class="pf-muted">Últimos 7 dias, até 4 por empresa. Fontes: Yahoo Finance e Google Notícias.</p>
+      </div>
+      <select class="dash-select" data-draw="newsfilter" aria-label="Filtrar notícias por empresa" id="news-filter"></select>
+    </div>
+    <div class="pf-news">
+      <div class="pf-news-col" id="news-mercado"><h3>Mercados</h3><ul data-source="news" data-draw="news-market"></ul></div>
+      <div class="pf-news-col" id="news-empresas"><h3>As tuas empresas</h3><ul data-source="news" data-draw="news-co"></ul></div>
+    </div>
+  </section>
+
+  <details id="metodo">
+    <summary>Como leio estes números</summary>
+    <dl class="pf-def">
+      <div><dt>P/E 12 meses (Price/Earnings, últimos 12 meses)</dt><dd>Preço a dividir pelo lucro por ação do último ano. Quanto pagas hoje por cada unidade de lucro que a empresa já fez. Abaixo de 15 é Barato, à volta de 20 é Fair Value, à volta de 40 é Pricey e acima de 50 é Expensive. As fronteiras usadas são 15, 30 e 50.</dd></div>
+      <div><dt>P/E próximos 12 meses</dt><dd>Preço a dividir pelo lucro por ação que os analistas esperam para os próximos 12 meses. Mesma escala que o P/E de 12 meses.</dd></div>
+      <div><dt>PEGY (P/E sobre crescimento mais yield)</dt><dd>P/E de 12 meses (ou o dos próximos 12 meses se o atual for negativo) a dividir pela soma do crescimento esperado do lucro, em %, com o dividend yield, em %. Abaixo de 1 é Discount, de 1 a 2 é Fair e acima de 2 é Premium. O crescimento é a estimativa de longo prazo dos analistas; se não existir, usa a do próximo ano. Se crescimento mais yield der zero ou negativo, o PEGY não tem significado e aparece n/d.</dd></div>
+      <div><dt>Alvo %</dt><dd>Distância entre o preço atual e o preço-alvo médio dos analistas.</dd></div>
+      <div><dt>Prejuízo</dt><dd>A empresa teve lucro negativo, por isso o P/E não se aplica.</dd></div>
+    </dl>
+    <p class="pf-muted" style="margin-top: 12px">Isto é informação para te ajudar a decidir, não uma recomendação de compra ou venda.</p>
+  </details>
+</div>
+
+<script>
+  dash.calc('resumo', {
+    inputs: ['companies'],
+    title: 'Resumo do dia',
+    description: 'Contagens por zona de valorização e totais das tuas posições, em euros.',
+    fn: (companies) => {
+      const ok = companies.filter((r) => !r.error);
+      const own = ok.filter((r) => r.group === 'Portefólio');
+      const sum = (rows, f) => rows.reduce((s, r) => s + (typeof r[f] === 'number' ? r[f] : 0), 0);
+      return [
+        { metrica: 'empresas', valor: ok.length },
+        { metrica: 'baratas_fwd', valor: ok.filter((r) => r.pe_fwd_zone === 'Barato').length },
+        { metrica: 'caras_fwd', valor: ok.filter((r) => r.pe_fwd_zone === 'Expensive' || r.pe_fwd_zone === 'Pricey').length },
+        { metrica: 'pegy_discount', valor: ok.filter((r) => r.pegy_zone === 'Discount').length },
+        { metrica: 'posicoes', valor: own.length },
+        { metrica: 'valor_eur', valor: Math.round(sum(own, 'value_base') * 100) / 100 },
+        { metrica: 'ganho_eur', valor: Math.round(sum(own, 'pl_base') * 100) / 100 },
+      ];
+    },
+  });
+</script>
+
+<script>
+  window.pf = window.pf || { group: '', sort: { key: 'group', dir: 1 }, news: '' };
+  const pf = window.pf;
+  const f1 = d3.format('.1f'), f2 = d3.format('.2f'), fs1 = d3.format('+.1f'), fs2 = d3.format('+.2f');
+  const eur = (v) => d3.format(',.2f')(v).replace(/,/g, ' ') + ' €';
+  const eurS = (v) => (v > 0 ? '+' : '') + eur(v);
+
+  pf.el = (tag, attrs, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v; else n.setAttribute(k, v);
+    }
+    for (const c of kids.flat()) if (c != null && c !== false) n.append(c instanceof Node ? c : document.createTextNode(String(c)));
+    return n;
+  };
+  pf.where = (t) => 'ticker=' + String(t).replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D');
+  pf.zoneClass = (z) => 'pf-pill z-' + String(z || 'nd').replace('n/d', 'nd').replace(/\s+/g, '-');
+  pf.rows = () => {
+    const d = dash.data('companies');
+    return d.status === 'ok' ? d.data : null;
+  };
+  pf.visible = (rows) => rows.filter((r) => !pf.group || r.group === pf.group);
+  pf.val = (r, field, fmt) => pf.el('span', { 'data-source': 'companies', 'data-field': field, 'data-where': pf.where(r.ticker) }, r[field] == null ? '—' : fmt(r[field]));
+  pf.resumo = (k) => {
+    const d = dash.data('resumo');
+    const row = d.status === 'ok' && Array.isArray(d.data) ? d.data.find((x) => x.metrica === k) : null;
+    return row ? row.valor : null;
+  };
+  pf.rmark = (k, txt) => pf.el('b', { 'data-source': 'resumo', 'data-field': 'valor', 'data-where': 'metrica=' + k }, txt);
+  pf.redraw = () => ['map', 'cards', 'table', 'news-co', 'newsfilter'].forEach((n) => dash.draw(n));
+
+  // Group switch: only toggles aria-pressed and redraws.
+  document.querySelectorAll('#filtro-grupo button').forEach((b) => {
+    b.addEventListener('click', () => {
+      pf.group = b.getAttribute('data-group') || '';
+      pf.news = '';
+      document.querySelectorAll('#filtro-grupo button').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      pf.redraw();
+    });
+  });
+  // Table sorting.
+  document.querySelectorAll('.pf th button[data-sort]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const key = b.getAttribute('data-sort');
+      pf.sort = { key, dir: pf.sort.key === key ? -pf.sort.dir : (['ticker', 'name', 'next_earnings'].includes(key) ? 1 : -1) };
+      document.querySelectorAll('.pf th[aria-sort]').forEach((th) => th.setAttribute('aria-sort', th.contains(b) ? (pf.sort.dir > 0 ? 'ascending' : 'descending') : 'none'));
+      dash.draw('table');
+    });
+  });
+
+  // Show the holdings tiles only when there are holdings.
+  dash.onData(() => {
+    const rows = pf.rows();
+    const has = !!rows && rows.some((r) => r.group === 'Portefólio' && !r.error);
+    document.querySelectorAll('.pf-hold-tiles').forEach((e) => (e.hidden = !has));
+    document.querySelectorAll('.pf-hold-empty').forEach((e) => (e.hidden = has || !rows));
+  });
+
+  dash.draw('dotswatch', (el) => { el.style.background = dash.colors[0]; });
+
+  dash.draw('stamp', (el) => {
+    const d = dash.data('companies');
+    const g = d.status === 'ok' && (d.meta || []).find((m) => m.label === 'Gerado');
+    el.textContent = g ? d3.utcFormat('%d/%m/%Y, %H:%M UTC')(new Date(g.value)) : '—';
+  });
+
+  dash.draw('lede', (el) => {
+    const rows = pf.rows();
+    const n = pf.resumo('empresas');
+    if (!rows || n == null) { el.textContent = '—'; return; }
+    const ok = rows.filter((r) => !r.error && typeof r.pegy === 'number');
+    const best = ok.sort((a, b) => a.pegy - b.pegy)[0];
+    const parts = ['Estás a seguir ', pf.rmark('empresas', String(n)), ' empresas. Pelo P/E dos próximos 12 meses, ',
+      pf.rmark('baratas_fwd', String(pf.resumo('baratas_fwd'))), ' estão em zona Barato e ',
+      pf.rmark('caras_fwd', String(pf.resumo('caras_fwd'))), ' em Pricey ou Expensive. ',
+      pf.rmark('pegy_discount', String(pf.resumo('pegy_discount'))), ' negoceiam com PEGY em Discount'];
+    if (best) parts.push(', e a mais descontada é ', pf.el('b', {}, best.name), ' com PEGY de ', pf.el('b', { 'data-source': 'companies', 'data-field': 'pegy', 'data-where': pf.where(best.ticker) }, f2(best.pegy)));
+    parts.push('.');
+    const errs = rows.filter((r) => r.error).map((r) => r.ticker);
+    if (errs.length) parts.push(' Sem dados hoje para: ' + errs.join(', ') + '.');
+    el.replaceChildren(...parts.map((p) => (p instanceof Node ? p : document.createTextNode(p))));
+  });
+
+  dash.draw('t-valor', (el) => { const v = pf.resumo('valor_eur'); el.replaceChildren(v == null ? '—' : pf.el('span', { 'data-source': 'resumo', 'data-field': 'valor', 'data-where': 'metrica=valor_eur' }, eur(v))); });
+  dash.draw('t-ganho', (el) => { const v = pf.resumo('ganho_eur'); el.className = 'n ' + (v > 0 ? 'pf-up' : v < 0 ? 'pf-down' : ''); el.replaceChildren(v == null ? '—' : pf.el('span', { 'data-source': 'resumo', 'data-field': 'valor', 'data-where': 'metrica=ganho_eur' }, eurS(v))); });
+  dash.draw('t-pos', (el) => { const v = pf.resumo('posicoes'); el.replaceChildren(v == null ? '—' : pf.el('span', { 'data-source': 'resumo', 'data-field': 'valor', 'data-where': 'metrica=posicoes' }, String(v))); });
+</script>
+
+<script>
+  // Valuation map.
+  dash.draw('map', {
+    mount: (el) => {
+      const tip = pf.el('div', { class: 'pf-tip', role: 'status' });
+      tip.hidden = true;
+      el.append(tip);
+      return { tip };
+    },
+    update: (el, made) => {
+      el.querySelectorAll('svg, .pf-map-msg').forEach((n) => n.remove());
+      const d = dash.data('companies');
+      if (d.status !== 'ok') {
+        if (d.status === 'error') el.append(pf.el('p', { class: 'pf-muted pf-map-msg' }, 'Não foi possível carregar os dados.'));
+        return;
+      }
+      const rows = pf.visible(d.data.filter((r) => !r.error));
+      if (!rows.length) { el.append(pf.el('p', { class: 'pf-muted pf-map-msg' }, 'Ainda não há empresas neste grupo.')); return; }
+      rows.sort((a, b) => (a.pe_fwd ?? a.pe_ttm ?? 1e9) - (b.pe_fwd ?? b.pe_ttm ?? 1e9));
+      const W = Math.max(280, el.clientWidth), rowH = 30, top = 22, bottom = 26;
+      const H = top + rows.length * rowH + bottom;
+      const maxX = Math.max(60, Math.min(120, Math.ceil((d3.max(rows, (r) => Math.max(r.pe_ttm || 0, r.pe_fwd || 0)) || 60) / 10) * 10));
+      const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('height', H).attr('role', 'img')
+        .attr('aria-label', 'P/E dos últimos 12 meses e dos próximos 12 meses por empresa, sobre as zonas Barato, Fair Value, Pricey e Expensive');
+      // measure label width
+      const probe = svg.append('text').attr('class', 't-label');
+      el.append(svg.node());
+      let lw = 0;
+      rows.forEach((r) => { probe.text(r.ticker); lw = Math.max(lw, probe.node().getComputedTextLength()); });
+      probe.remove();
+      const L = Math.ceil(lw) + 14, R = 14;
+      const x = d3.scaleLinear().domain([0, maxX]).range([L, W - R]).clamp(true);
+      const zones = [[0, 15, 'Barato', 'var(--color-ok)', 0.32], [15, 30, 'Fair Value', 'var(--color-ok)', 0.12], [30, 50, 'Pricey', 'var(--color-warn)', 0.22], [50, maxX, 'Expensive', 'var(--color-bad)', 0.2]];
+      const zg = svg.append('g');
+      zones.forEach(([a, b, name, c, o]) => {
+        zg.append('rect').attr('x', x(a)).attr('y', top).attr('width', x(b) - x(a)).attr('height', rows.length * rowH).style('fill', c).style('fill-opacity', o);
+        if (x(b) - x(a) > 46) zg.append('text').attr('class', 't-zone').attr('x', (x(a) + x(b)) / 2).attr('y', top - 8).attr('text-anchor', 'middle').text(name);
+      });
+      const ticks = [0, 15, 30, 50, maxX].filter((v, i, a) => a.indexOf(v) === i);
+      const ax = svg.append('g').attr('transform', `translate(0,${top + rows.length * rowH})`);
+      ticks.forEach((t) => {
+        ax.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', 0).attr('y2', 4).style('stroke', 'var(--cds-chart-axis)');
+        ax.append('text').attr('x', x(t)).attr('y', 17).attr('text-anchor', 'middle').text(t === maxX ? maxX + '+' : t);
+      });
+      const g = svg.append('g');
+      rows.forEach((r, i) => {
+        const y = top + i * rowH + rowH / 2;
+        const row = g.append('g').attr('class', 'pf-row').style('cursor', 'pointer');
+        row.append('rect').attr('x', 0).attr('y', y - rowH / 2).attr('width', W).attr('height', rowH).style('fill', 'transparent');
+        row.append('text').attr('class', 't-label').attr('x', 0).attr('y', y + 4).text(r.ticker);
+        row.append('line').attr('x1', L).attr('x2', W - R).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+        const a = r.pe_ttm > 0 ? r.pe_ttm : null, b = r.pe_fwd > 0 ? r.pe_fwd : null;
+        if (a != null && b != null) row.append('line').attr('x1', x(a)).attr('x2', x(b)).attr('y1', y).attr('y2', y).style('stroke', dash.colors[0]).style('stroke-width', 2).style('stroke-opacity', 0.7);
+        if (a != null) row.append('circle').attr('cx', x(a)).attr('cy', y).attr('r', 5).style('fill', 'var(--color-bg)').style('stroke', 'var(--color-fg-muted)').style('stroke-width', 2);
+        if (b != null) row.append('circle').attr('cx', x(b)).attr('cy', y).attr('r', 5.5).style('fill', dash.colors[0]);
+        if (a == null && b == null) row.append('text').attr('x', L + 6).attr('y', y + 4).text('prejuízo ou sem dados');
+        const show = (ev) => {
+          const t = made.tip;
+          t.replaceChildren(
+            pf.el('div', {}, pf.el('b', {}, r.ticker), ' · ', r.name),
+            pf.el('div', {}, 'P/E 12m: ', r.pe_ttm == null ? 'n/d' : f1(r.pe_ttm), ' (', r.pe_ttm_zone, ')'),
+            pf.el('div', {}, 'P/E próx. 12m: ', r.pe_fwd == null ? 'n/d' : f1(r.pe_fwd), ' (', r.pe_fwd_zone, ')'),
+            pf.el('div', {}, 'PEGY: ', r.pegy == null ? 'n/d' : f2(r.pegy), ' (', r.pegy_zone, ')'));
+          t.hidden = false;
+          const box = el.getBoundingClientRect();
+          const px = (ev.touches ? ev.touches[0].clientX : ev.clientX) - box.left;
+          t.style.left = Math.max(0, Math.min(px + 12, box.width - t.offsetWidth)) + 'px';
+          t.style.top = Math.max(0, y - t.offsetHeight - 10) + 'px';
+        };
+        row.on('mousemove', show).on('click', show).on('mouseleave', () => (made.tip.hidden = true));
+      });
+    },
+  });
+</script>
+
+<script>
+  // Company cards.
+  dash.draw('cards', (el) => {
+    const d = dash.data('companies');
+    if (d.status !== 'ok') { el.replaceChildren(d.status === 'error' ? pf.el('p', { class: 'pf-muted' }, 'Não foi possível carregar os dados.') : ''); return; }
+    const rows = pf.visible(d.data.slice()).sort((a, b) => (a.group === b.group ? 0 : a.group === 'Portefólio' ? -1 : 1));
+    if (!rows.length) { el.replaceChildren(pf.el('p', { class: 'pf-muted' }, 'Ainda não há empresas neste grupo.')); return; }
+    const cards = rows.map((r) => {
+      const id = 'card-' + r.ticker.replace(/[^A-Za-z0-9]/g, '-');
+      if (r.error) return pf.el('article', { class: 'pf-card', id }, pf.el('div', { class: 'pf-tk' }, r.ticker), pf.el('p', { class: 'pf-muted' }, 'Sem dados hoje: ', r.error));
+      const tags = pf.el('div', { class: 'pf-tags' }, pf.el('span', { class: 'pf-tag' + (r.group === 'Portefólio' ? ' own' : '') }, r.group), r.example ? pf.el('span', { class: 'pf-tag' }, 'exemplo') : null);
+      const chg = r.change_pct;
+      const metric = (k, field, zf, fmt) => pf.el('div', { class: 'pf-m' }, pf.el('span', { class: 'k' }, k), pf.el('span', { class: 'n' }, pf.val(r, field, fmt)), pf.el('span', { class: pf.zoneClass(r[zf]) }, r[zf]));
+      const kids = [
+        pf.el('div', { class: 'pf-card-top' }, pf.el('div', {}, pf.el('div', { class: 'pf-tk' }, r.ticker), pf.el('div', { class: 'pf-nm' }, r.name, r.sector ? ' · ' + r.sector : '')), tags),
+        pf.el('div', { class: 'pf-price' }, pf.el('span', { class: 'v' }, pf.val(r, 'price', f2)), pf.el('span', { class: 'pf-muted' }, r.currency || ''),
+          chg == null ? null : pf.el('span', { class: chg > 0 ? 'pf-up' : chg < 0 ? 'pf-down' : 'pf-muted' }, pf.val(r, 'change_pct', fs2), '% hoje')),
+        pf.el('div', { class: 'pf-metrics' }, metric('P/E 12m', 'pe_ttm', 'pe_ttm_zone', f1), metric('P/E próx. 12m', 'pe_fwd', 'pe_fwd_zone', f1), metric('PEGY', 'pegy', 'pegy_zone', f2)),
+      ];
+      if (r.group === 'Portefólio' && r.shares) {
+        kids.push(pf.el('div', { class: 'pf-pos' },
+          pf.el('span', {}, pf.val(r, 'shares', (v) => d3.format(',')(v).replace(/,/g, ' ')), ' ações'),
+          r.avg_cost != null ? pf.el('span', {}, 'custo ', pf.val(r, 'avg_cost', f2)) : null,
+          r.value_base != null ? pf.el('span', {}, pf.val(r, 'value_base', eur)) : null,
+          r.pl_pct != null ? pf.el('span', { class: r.pl_pct >= 0 ? 'pf-up' : 'pf-down' }, pf.val(r, 'pl_pct', fs1), '%') : null));
+      }
+      if (r.low_52w != null && r.high_52w != null && r.pos_52w_pct != null) {
+        const bar = pf.el('div', { class: 'pf-range-bar' }, pf.el('i', { style: `left:${Math.max(0, Math.min(100, r.pos_52w_pct))}%` }));
+        kids.push(pf.el('div', { class: 'pf-range' }, pf.el('span', { class: 'pf-muted' }, 'Intervalo de 52 semanas'), bar,
+          pf.el('div', { class: 'pf-range-lbl' }, pf.val(r, 'low_52w', f2), pf.val(r, 'high_52w', f2))));
+      }
+      kids.push(pf.el('div', { class: 'pf-foot' },
+        pf.el('div', {}, pf.el('span', { class: 'k' }, 'Crescimento esperado'), pf.el('span', { class: 'n' }, pf.val(r, 'growth_pct', fs1), '%', r.growth_basis ? ' (' + r.growth_basis + ')' : '')),
+        pf.el('div', {}, pf.el('span', { class: 'k' }, 'Dividend yield'), pf.el('span', { class: 'n' }, pf.val(r, 'div_yield_pct', f2), '%')),
+        pf.el('div', {}, pf.el('span', { class: 'k' }, 'Alvo dos analistas'), pf.el('span', { class: 'n' }, pf.val(r, 'upside_pct', fs1), '%', r.recommendation ? ' · ' + r.recommendation : '')),
+        pf.el('div', {}, pf.el('span', { class: 'k' }, 'Próximos resultados'), pf.el('span', { class: 'n' }, r.next_earnings ? d3.utcFormat('%d/%m/%Y')(new Date(r.next_earnings)) : '—'))));
+      if (r.note) kids.push(pf.el('p', { class: 'pf-note' }, r.note));
+      return pf.el('article', { class: 'pf-card', id }, ...kids);
+    });
+    el.replaceChildren(...cards);
+  });
+</script>
+
+<script>
+  // Table.
+  dash.draw('table', (el) => {
+    const rows = pf.rows();
+    if (!rows) { el.replaceChildren(); return; }
+    const { key, dir } = pf.sort;
+    const list = pf.visible(rows.filter((r) => !r.error)).sort((a, b) => {
+      const va = a[key], vb = b[key];
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      return (typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb))) * dir;
+    });
+    const n = (v, fmt) => (v == null ? '—' : fmt(v));
+    el.replaceChildren(...list.map((r) => pf.el('tr', { 'data-key': r.ticker },
+      pf.el('td', {}, r.ticker), pf.el('td', { class: 'l' }, r.name), pf.el('td', { class: 'l' }, r.group),
+      pf.el('td', {}, n(r.price, f2)), pf.el('td', { class: 'l' }, r.currency || ''), pf.el('td', { class: r.change_pct > 0 ? 'pf-up' : r.change_pct < 0 ? 'pf-down' : '' }, n(r.change_pct, fs2)),
+      pf.el('td', {}, n(r.pe_ttm, f1)), pf.el('td', { class: 'l' }, pf.el('span', { class: pf.zoneClass(r.pe_ttm_zone) }, r.pe_ttm_zone)),
+      pf.el('td', {}, n(r.pe_fwd, f1)), pf.el('td', { class: 'l' }, pf.el('span', { class: pf.zoneClass(r.pe_fwd_zone) }, r.pe_fwd_zone)),
+      pf.el('td', {}, n(r.growth_pct, fs1)), pf.el('td', {}, n(r.div_yield_pct, f2)),
+      pf.el('td', {}, n(r.pegy, f2)), pf.el('td', { class: 'l' }, pf.el('span', { class: pf.zoneClass(r.pegy_zone) }, r.pegy_zone)),
+      pf.el('td', {}, n(r.upside_pct, fs1)), pf.el('td', {}, r.next_earnings || '—'))));
+  });
+</script>
+
+<script>
+  // News.
+  dash.draw('newsfilter', (sel) => {
+    const rows = pf.rows() || [];
+    const opts = pf.visible(rows).map((r) => new Option(r.ticker + ' · ' + r.name, r.ticker));
+    sel.replaceChildren(new Option('Todas as empresas', ''), ...opts);
+    sel.value = pf.news || '';
+    sel.onchange = () => { pf.news = sel.value; dash.draw('news-co'); };
+  });
+  pf.newsItem = (n) => pf.el('li', {},
+    pf.el('a', { href: n.url, target: '_blank', rel: 'noopener noreferrer' }, n.title),
+    pf.el('span', { class: 'src' }, pf.el('span', { class: 'chip' }, n.kind === 'mercado' ? n.label : n.key), pf.el('span', {}, n.source), pf.el('span', {}, d3.utcFormat('%d/%m %H:%M')(new Date(n.published)))));
+  dash.draw('news-market', (el) => {
+    const d = dash.data('news');
+    if (d.status !== 'ok') { el.replaceChildren(); return; }
+    const items = d.data.filter((n) => n.kind === 'mercado').sort((a, b) => b.published.localeCompare(a.published)).slice(0, 10);
+    el.replaceChildren(...(items.length ? items.map(pf.newsItem) : [pf.el('li', { class: 'pf-muted' }, 'Sem notícias de mercado nos últimos 7 dias.')]));
+  });
+  dash.draw('news-co', (el) => {
+    const d = dash.data('news');
+    const rows = pf.rows() || [];
+    if (d.status !== 'ok') { el.replaceChildren(); return; }
+    const keep = new Set(pf.visible(rows).map((r) => r.ticker));
+    const items = d.data.filter((n) => n.kind === 'empresa' && keep.has(n.key) && (!pf.news || n.key === pf.news))
+      .sort((a, b) => b.published.localeCompare(a.published)).slice(0, pf.news ? 10 : 16);
+    el.replaceChildren(...(items.length ? items.map(pf.newsItem) : [pf.el('li', { class: 'pf-muted' }, 'Sem notícias para estas empresas nos últimos 7 dias.')]));
+  });
+</script>
