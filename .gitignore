@@ -10,3 +10,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Portfolio routine output (uploaded to the dashboard, not versioned)
+portfolio/out/
