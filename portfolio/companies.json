@@ -1,0 +1,7 @@
+[
+ {"ticker": "MSFT", "status": "watchlist", "example": true},
+ {"ticker": "NVDA", "status": "watchlist", "example": true},
+ {"ticker": "ASML", "status": "watchlist", "example": true},
+ {"ticker": "GOOGL", "status": "watchlist", "example": true},
+ {"ticker": "KO", "status": "watchlist", "example": true}
+]
